@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuivaPro – Intelligent Branding Agency, Nigeria</title>
+  <meta name="description" content="QuivaPro is a luxury branding agency in Nigeria. We build intelligent brands through strategy, design, and digital experiences.">
+  <!-- Favicon — ICO is the gold standard for browser tabs -->
+   <link rel="icon" type="image/png" href="QuivaPro Favicon.png">
+  <link rel="shortcut icon"           href="favicon.ico" type="image/x-icon">
+  <link rel="icon"                    href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png"   href="favicon_32.png" sizes="32x32">
+  <link rel="icon" type="image/png"   href="favicon_48.png" sizes="48x48">
+  <link rel="apple-touch-icon"        href="favicon_180.png" sizes="180x180">
+  <meta name="msapplication-TileImage" content="favicon_32.png">
+  <meta name="msapplication-TileColor" content="#8a00cc">
+  <meta name="theme-color"             content="#8a00cc">
+  <!-- Bizmo Trial — all text -->
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
+  <link href="https://fonts.cdnfonts.com/css/bizmo-trial" rel="stylesheet">
+  <!-- Space Grotesk — numbers only (wide geometric, matches Bizmo style) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root{
+  --purple:#BF29ED; --purple-soft:rgba(191,41,237,.09); --green:#B6DF6D;
+  --dark:#0f0f0f; --mid:#4a4a4a; --muted:#9a9a9a;
+  --rule:#e8e8e8; --bg:#ffffff; --surface:#f6f6f8;
+  --card:#ffffff; --input:#ffffff;
+  --max-w:1180px; --gut:1.5rem;
+  --r-sm:.625rem; --r-md:1.25rem; --r-lg:1.75rem; --r-xl:2.25rem; --r-pill:100px;
+  --f-display:'Bizmo Trial','Clash Display',Georgia,sans-serif;
+  --f-body:'Bizmo Trial',system-ui,sans-serif;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+body.dark{
+  --dark:#f0f0f0; --mid:#aaaaaa; --muted:#666666;
+  --rule:#252525; --bg:#090909; --surface:#111111;
+  --card:#181818; --input:#1f1f1f;
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{
+  font-family:var(--f-body);
+  background:var(--bg); color:var(--dark);
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .2s;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{font-family:var(--f-body);}
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.wrap{width:100%;max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);}
+@media(min-width:640px){:root{--gut:2rem;}}
+@media(min-width:1024px){:root{--gut:3rem;}}
+@media(min-width:1280px){:root{--gut:3.5rem;}}
+
+/* ═══════════════════════════════════════════
+   3D BACKGROUND CANVAS
+═══════════════════════════════════════════ */
+#bg-canvas{
+  position:fixed; inset:0; z-index:0;
+  pointer-events:none; width:100%; height:100%;
+}
+
+/* Ensure everything sits above canvas */
+header,main,footer,#loading-screen,#popup-overlay,#btt{position:relative;z-index:1;}
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════ */
+.t-display{
+  font-family:var(--f-display);
+  font-size:clamp(2.8rem,6.5vw,5rem);
+  line-height:1.04; letter-spacing:-.025em; font-weight:700;
+}
+.t-h2{
+  font-family:var(--f-display);
+  font-size:clamp(2rem,4vw,3.25rem);
+  line-height:1.1; letter-spacing:-.02em; font-weight:700;
+}
+.t-h3{font-family:var(--f-display);font-size:1.3rem;font-weight:600;line-height:1.25;}
+.t-body-lg{font-size:1.05rem;line-height:1.75;color:var(--mid);}
+.t-body{font-size:.925rem;line-height:1.7;color:var(--mid);}
+.t-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.accent{color:var(--purple);}
+.accent-italic{color:var(--purple);font-style:italic;}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-size:.875rem;font-weight:600;font-family:var(--f-body);
+  padding:.7rem 1.5rem;border-radius:var(--r-pill);
+  border:none;cursor:pointer;transition:all .2s ease;white-space:nowrap;
+}
+.btn-dark{background:var(--dark);color:var(--bg);}
+.btn-dark:hover{background:var(--purple);}
+.btn-purple{background:var(--purple);color:#fff;}
+.btn-purple:hover{opacity:.88;}
+.btn-glass{
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  color:#fff; border:1.5px solid rgba(255,255,255,.3);
+}
+.btn-glass:hover{background:rgba(255,255,255,.25);}
+
+/* ═══════════════════════════════════════════
+   LOADING
+═══════════════════════════════════════════ */
+#loading-screen{
+  position:fixed;inset:0;background:var(--bg);z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .8s ease;
+}
+#loading-screen.fade-out{opacity:0;pointer-events:none;}
+.loading-logo img{
+  height:5rem; width:5rem;
+  object-fit:cover;
+  border-radius:1rem;
+  box-shadow:0 8px 32px rgba(191,41,237,.4);
+  animation:breathe 1.6s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{transform:scale(1);opacity:.6;}
+  50%{transform:scale(1.07);opacity:1;}
+}
+
+/* ═══════════════════════════════════════════
+   POPUP
+═══════════════════════════════════════════ */
+#popup-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.6);
+  backdrop-filter:blur(8px);z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s;
+}
+#popup-overlay.active{opacity:1;pointer-events:auto;}
+.popup-card{
+  background:var(--card);border-radius:var(--r-xl);padding:2.25rem;
+  max-width:460px;width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:0 48px 96px -24px rgba(0,0,0,.4);
+  border:1px solid var(--rule);
+  animation:popIn .35s var(--ease-out) both;
+}
+@keyframes popIn{
+  from{transform:scale(.92) translateY(16px);opacity:0;}
+  to{transform:scale(1) translateY(0);opacity:1;}
+}
+.popup-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
+.popup-head img{height:2rem;}
+.popup-close{font-size:1.7rem;line-height:1;background:transparent;border:none;cursor:pointer;color:var(--muted);transition:color .2s;}
+.popup-close:hover{color:var(--dark);}
+.popup-title{font-family:var(--f-display);font-size:1.9rem;margin-bottom:.5rem;font-weight:700;}
+.popup-sub{color:var(--mid);font-size:.9rem;margin-bottom:1.5rem;}
+.field{
+  width:100%;padding:.875rem 1.25rem;
+  border-radius:var(--r-pill);border:1.5px solid var(--rule);
+  margin-bottom:.875rem;font-size:.925rem;
+  font-family:var(--f-body);background:var(--input);color:var(--dark);
+  outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.field:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(191,41,237,.1);}
+.field.ta{border-radius:var(--r-md);resize:vertical;min-height:100px;}
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(18px);border-bottom:1px solid var(--rule);
+  transition:background .3s;
+}
+body.dark header{background:rgba(9,9,9,.88);}
+.hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:var(--max-w);margin-inline:auto;
+  padding:.875rem var(--gut);gap:1.5rem;
+}
+.logo img{
+  height:2.2rem;display:block;
+  transition:transform .45s cubic-bezier(.22,1,.36,1);
+  animation:logoFloat 4s ease-in-out infinite;
+  will-change:transform;
+}
+.logo img:hover{
+  animation:none;
+  transform:scale(1.045);
+}
+@keyframes logoFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-3px);}
+}
+/* Respect reduced-motion preference */
+@media(prefers-reduced-motion:reduce){
+  .logo img{animation:none!important;transition:none!important;}
+  .logo img:hover{transform:none;}
+}
+.nav{display:none;gap:2rem;align-items:center;}
+@media(min-width:768px){.nav{display:flex;}}
+.nav a{
+  font-size:.875rem;font-weight:500;color:var(--mid);
+  position:relative;transition:color .2s;
+}
+.nav a:hover{color:var(--dark);}
+.nav a::after{
+  content:'';position:absolute;bottom:-4px;left:0;
+  width:0;height:1.5px;background:var(--purple);transition:width .25s;
+}
+.nav a:hover::after{width:100%;}
+.hdr-right{display:flex;align-items:center;gap:.6rem;}
+.icon-btn{
+  width:2.1rem;height:2.1rem;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;cursor:pointer;
+  color:var(--mid);font-size:1rem;transition:background .2s,color .2s;
+}
+.icon-btn:hover{background:var(--surface);color:var(--dark);}
+
+/* Animated hamburger */
+.ham{
+  display:flex;flex-direction:column;justify-content:center;
+  gap:5px;width:2.1rem;height:2.1rem;
+  background:transparent;border:none;cursor:pointer;padding:.3rem;
+}
+@media(min-width:768px){.ham{display:none;}}
+.ham span{
+  display:block;width:100%;height:1.8px;
+  background:var(--mid);border-radius:2px;
+  transition:transform .35s var(--ease-out),opacity .25s,width .25s;
+  transform-origin:center;
+}
+.ham.open span:nth-child(1){transform:translateY(6.8px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;width:0;}
+.ham.open span:nth-child(3){transform:translateY(-6.8px) rotate(-45deg);}
+
+/* Drawer */
+.dov{
+  position:fixed;inset:0;background:rgba(0,0,0,.4);
+  backdrop-filter:blur(4px);z-index:90;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.dov.active{opacity:1;pointer-events:auto;}
+.drawer{
+  position:fixed;top:0;right:-110%;
+  width:min(320px,88vw);height:100%;
+  background:var(--bg);border-left:1px solid var(--rule);
+  box-shadow:-12px 0 48px rgba(0,0,0,.18);
+  z-index:100;padding:2rem 1.75rem;
+  display:flex;flex-direction:column;gap:2rem;
+  transition:right .45s var(--ease-out);
+}
+.drawer.open{right:0;}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;}
+.drawer-top img{height:1.9rem;}
+.drawer-close{font-size:1.6rem;line-height:1;background:transparent;border:none;cursor:pointer;color:var(--muted);}
+.drawer-links{display:flex;flex-direction:column;}
+.drawer-links a{
+  font-size:1.05rem;font-weight:600;color:var(--dark);
+  padding:1rem 0;border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+  transition:color .2s;
+}
+.drawer-links a:hover{color:var(--purple);}
+.drawer-links a i{font-size:.8rem;color:var(--muted);}
+.drawer-cta{margin-top:auto;display:flex;flex-direction:column;gap:.75rem;}
+
+/* ═══════════════════════════════════════════
+   HERO — blurred background image
+═══════════════════════════════════════════ */
+.hero{
+  padding:5rem 0 4.5rem;
+  position:relative;overflow:hidden;
+}
+/* blurred bg image layer */
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80')
+    center/cover no-repeat;
+  filter:blur(18px) brightness(.35) saturate(1.4);
+  transform:scale(1.08); /* prevent blur edge bleed */
+}
+/* gradient vignette over the image */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to right, rgba(0,0,0,.6) 0%, rgba(0,0,0,.2) 100%),
+    linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+}
+.hero>.wrap{position:relative;z-index:1;}
+
+.hero-grid{
+  display:grid;grid-template-columns:1fr;
+  gap:3rem;align-items:center;
+}
+@media(min-width:768px){.hero-grid{grid-template-columns:1fr 1fr;gap:4rem;}}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(191,41,237,.2);color:#e89bff;
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.4rem 1rem;border-radius:var(--r-pill);margin-bottom:1.5rem;
+  border:1px solid rgba(191,41,237,.3);
+}
+.hero h1{margin-bottom:1.5rem;color:#fff;}
+.hero-body{margin-bottom:2rem;max-width:42ch;color:rgba(255,255,255,.75);}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;}
+
+/* Hero image placeholder card */
+.hero-img-ph{
+  width:100%;aspect-ratio:4/3;border-radius:var(--r-xl);
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.18);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  /* glassmorphism shell */
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  box-shadow:
+    0 32px 64px -16px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+.hero-real-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  border-radius:var(--r-xl);
+}
+.hero-img-ph-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(135deg,rgba(191,41,237,.18) 0%,transparent 50%),
+    linear-gradient(to bottom,transparent 55%,rgba(0,0,0,.35) 100%);
+  border-radius:var(--r-xl);
+  z-index:1;
+}
+/* chips sit above overlay */
+.hero-chip{ z-index:2; }
+.ph-inner{
+  position:relative;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:.75rem;
+}
+.ph-icon{
+  width:4.5rem;height:4.5rem;border-radius:var(--r-md);
+  background:rgba(191,41,237,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;color:#e89bff;
+  border:1px solid rgba(191,41,237,.3);
+}
+.ph-label{font-size:.78rem;color:rgba(255,255,255,.5);font-weight:500;}
+.hero-chip{
+  position:absolute;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  border-radius:var(--r-md);border:1px solid rgba(255,255,255,.2);
+  padding:.55rem .9rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.2);
+  font-size:.78rem;font-weight:600;color:#fff;
+  display:flex;align-items:center;gap:.45rem;
+}
+.hero-chip i{color:#e89bff;font-size:.75rem;}
+.hero-chip .dot{width:.45rem;height:.45rem;border-radius:50%;background:var(--green);flex-shrink:0;}
+.hero-chip.c1{bottom:1.5rem;left:1.25rem;}
+.hero-chip.c2{top:1.5rem;right:1.25rem;}
+
+/* ═══════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════ */
+.sec{padding:5.5rem 0;}
+.sec-alt{background:var(--surface);}
+.sec-hd{margin-bottom:3rem;}
+.sec-hd .t-label{margin-bottom:.75rem;}
+
+/* ═══════════════════════════════════════════
+   CAROUSEL — expanding card on hover
+═══════════════════════════════════════════ */
+.carousel{
+  display:flex;overflow-x:auto;gap:1.25rem;
+  padding-bottom:1.5rem;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  cursor:grab;
+}
+.carousel:active{cursor:grabbing;}
+.carousel::-webkit-scrollbar{display:none;}
+
+/* ── card ── */
+.c-card{
+  flex:0 0 300px;
+  background:var(--card);
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  scroll-snap-align:start;
+  border:1px solid var(--rule);
+  transition:flex-basis .5s var(--ease-out), box-shadow .3s;
+  position:relative;
+}
+@media(min-width:768px){.c-card{flex-basis:320px;}}
+/* expanded state */
+.c-card.expanded{
+  flex-basis:520px;
+  box-shadow:0 32px 64px -16px rgba(191,41,237,.2);
+}
+
+/* thumb */
+.c-thumb{
+  width:100%;height:180px;
+  background:var(--surface);border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;color:var(--purple);opacity:1;
+  position:relative;overflow:hidden;
+  transition:height .5s var(--ease-out);
+}
+.c-thumb-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transition:transform .6s var(--ease-out),filter .4s ease;
+  filter:saturate(.9) brightness(.95);
+}
+.c-card:hover .c-thumb-img{ transform:scale(1.06); filter:saturate(1.1) brightness(1); }
+.c-card.expanded .c-thumb{height:240px;}
+.c-thumb::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse at 60% 40%,rgba(191,41,237,.12) 0%,transparent 70%);
+}
+.c-thumb-overlay{ z-index:2; }
+/* hover reveal overlay on thumb */
+.c-thumb-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.75rem;
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.c-card:hover .c-thumb-overlay,
+.c-card.expanded .c-thumb-overlay{opacity:1;}
+
+/* body */
+.c-body{padding:1.5rem;}
+.c-card .t-h3{margin-bottom:.4rem;font-size:1.05rem;}
+.c-card .t-body{font-size:.85rem;}
+
+/* expanded content — hidden until expanded */
+.c-details{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s var(--ease-out),opacity .4s ease,padding .4s ease;
+  opacity:0;
+  border-top:0px solid var(--rule);
+}
+.c-card.expanded .c-details{
+  max-height:300px;opacity:1;
+  padding-top:1rem;
+  border-top:1px solid var(--rule);
+  margin-top:1rem;
+}
+.c-detail-row{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.75rem;}
+.c-detail-row i{color:var(--purple);font-size:.85rem;margin-top:.15rem;flex-shrink:0;}
+.c-detail-row span{font-size:.85rem;color:var(--mid);}
+.c-cta{margin-top:1.25rem;}
+
+/* ═══════════════════════════════════════════
+   METRICS
+═══════════════════════════════════════════ */
+.metrics-img-ph{
+  background:var(--surface);border:1px solid var(--rule);
+  border-radius:var(--r-xl);min-height:280px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;margin-bottom:2.5rem;
+  box-shadow:0 20px 48px -12px rgba(0,0,0,.12);
+}
+.metrics-real-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+}
+.metrics-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(191,41,237,.12) 0%,rgba(0,0,0,.4) 100%);
+}
+.metrics-bento{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+@media(min-width:640px){.metrics-bento{grid-template-columns:repeat(4,1fr);}}
+.m-card{
+  background:var(--card);border:1px solid var(--rule);
+  border-radius:var(--r-xl);padding:2rem 1.5rem;transition:box-shadow .2s;
+}
+.m-card:hover{box-shadow:0 12px 32px rgba(0,0,0,.06);}
+.m-num{font-family:'Space Grotesk',system-ui,sans-serif;font-size:clamp(2.4rem,4vw,3.25rem);line-height:1;color:var(--dark);font-weight:700;font-variant-numeric:tabular-nums;}
+.m-accent{color:var(--purple);}
+.m-label{font-size:.825rem;color:var(--muted);margin-top:.5rem;}
+
+/* ═══════════════════════════════════════════
+   FEATURES
+═══════════════════════════════════════════ */
+.feats{display:grid;grid-template-columns:1fr;gap:1.25rem;}
+@media(min-width:640px){.feats{grid-template-columns:repeat(3,1fr);}}
+.feat{
+  padding:2rem;border-radius:var(--r-xl);
+  background:var(--card);border:1px solid var(--rule);
+  transition:transform .2s,box-shadow .2s;
+}
+.feat:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.07);}
+.feat-icon{
+  width:2.75rem;height:2.75rem;border-radius:var(--r-sm);
+  background:var(--purple-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:var(--purple);margin-bottom:1.25rem;
+}
+.feat .t-h3{font-size:1.05rem;margin-bottom:.4rem;}
+.feat .t-body{font-size:.85rem;}
+
+/* ═══════════════════════════════════════════
+   QUIZ — premium branded experience
+═══════════════════════════════════════════ */
+
+/* Outer wrapper — dark immersive shell */
+.quiz-wrap{
+  max-width:760px; margin-inline:auto;
+  background:linear-gradient(145deg,#0f0318 0%,#1a0428 50%,#0a0a0f 100%);
+  border-radius:var(--r-xl);
+  border:1px solid rgba(191,41,237,.25);
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(191,41,237,.1),
+    0 24px 64px -16px rgba(191,41,237,.35),
+    0 64px 120px -32px rgba(0,0,0,.6);
+  position:relative;
+}
+/* Ambient glow orb behind content */
+.quiz-wrap::before{
+  content:'';
+  position:absolute; top:-40%; left:50%;
+  transform:translateX(-50%);
+  width:70%; height:70%;
+  background:radial-gradient(ellipse,rgba(191,41,237,.18) 0%,transparent 70%);
+  pointer-events:none; z-index:0;
+}
+.quiz-wrap::after{
+  content:'';
+  position:absolute; bottom:-30%; right:-10%;
+  width:50%; height:50%;
+  background:radial-gradient(ellipse,rgba(182,223,109,.08) 0%,transparent 70%);
+  pointer-events:none; z-index:0;
+}
+.quiz-inner{ position:relative; z-index:1; padding:3rem; }
+@media(max-width:640px){ .quiz-inner{ padding:2rem; } }
+
+/* ── Start screen ── */
+.quiz-start{
+  text-align:center; padding:1rem 0;
+}
+.quiz-start-badge{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(191,41,237,.15);
+  border:1px solid rgba(191,41,237,.3);
+  color:#e89bff;
+  font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  padding:.4rem 1rem; border-radius:var(--r-pill);
+  margin-bottom:1.5rem;
+}
+.quiz-start-title{
+  font-family:var(--f-display);
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:700; line-height:1.1;
+  color:#fff; margin-bottom:1rem;
+}
+.quiz-start-title em{ color:#e89bff; font-style:italic; }
+.quiz-start-sub{
+  font-size:.95rem; color:rgba(255,255,255,.55);
+  margin-bottom:2.5rem; max-width:40ch; margin-inline:auto;
+  line-height:1.7;
+}
+.quiz-stats-row{
+  display:flex; justify-content:center; gap:2.5rem;
+  margin-bottom:2.5rem; flex-wrap:wrap;
+}
+.quiz-stat{
+  text-align:center;
+}
+.quiz-stat-num{
+  font-family:'Space Grotesk', system-ui, sans-serif;
+  font-size:2rem; font-weight:700; color:#BF29ED;
+  line-height:1;
+  font-variant-numeric: tabular-nums;
+}
+.quiz-stat-lbl{
+  font-size:.72rem; color:rgba(255,255,255,.4);
+  text-transform:uppercase; letter-spacing:.1em;
+  margin-top:.3rem;
+}
+.quiz-divider{
+  width:1px; background:rgba(255,255,255,.1);
+  align-self:stretch;
+}
+.btn-quiz-start{
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:linear-gradient(135deg,#BF29ED,#8a00cc);
+  color:#fff; font-weight:700; font-size:.95rem;
+  padding:.9rem 2.25rem; border-radius:var(--r-pill);
+  border:none; cursor:pointer;
+  box-shadow:0 4px 24px rgba(191,41,237,.5);
+  transition:all .25s var(--ease-out);
+}
+.btn-quiz-start:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(191,41,237,.65);
+}
+
+/* ── Progress bar ── */
+.qpbar-wrap{ margin-bottom:1.5rem; }
+.qpbar-top{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:.6rem;
+}
+.qpbar-label{ font-size:.72rem; color:rgba(255,255,255,.4); font-weight:600; letter-spacing:.08em; }
+.qpbar-frac{ font-size:.75rem; color:rgba(255,255,255,.5); font-family:'Space Grotesk',system-ui,sans-serif; font-variant-numeric:tabular-nums; }
+.qpbar{
+  height:6px;
+  background:rgba(255,255,255,.08);
+  border-radius:6px; overflow:hidden;
+}
+.qpfill{
+  height:100%;
+  background:linear-gradient(90deg,#8a00cc,#BF29ED,#e040fb);
+  background-size:200% 100%;
+  transition:width .4s var(--ease-out);
+  animation:shimmer 2.5s linear infinite;
+  border-radius:6px;
+  box-shadow:0 0 10px rgba(191,41,237,.6);
+}
+@keyframes shimmer{
+  0%{ background-position:200% center; }
+  100%{ background-position:-200% center; }
+}
+
+/* ── Meta row: category + timer + q count ── */
+.qmeta{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:2rem; gap:.75rem; flex-wrap:wrap;
+}
+.qcat-badge{
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:rgba(191,41,237,.12);
+  border:1px solid rgba(191,41,237,.25);
+  color:#e089ff; font-size:.72rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  padding:.35rem .85rem; border-radius:var(--r-pill);
+}
+.timer-pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:'Space Grotesk',system-ui,sans-serif; font-size:.9rem; font-weight:700;
+  font-variant-numeric:tabular-nums;
+  padding:.35rem .85rem; border-radius:var(--r-pill);
+  transition:background .3s, color .3s;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);
+}
+.timer-pill.urgent{
+  background:rgba(255,60,60,.15);
+  border-color:rgba(255,60,60,.35);
+  color:#ff7070;
+  animation:pulse-timer .8s ease-in-out infinite;
+}
+@keyframes pulse-timer{
+  0%,100%{ opacity:1; }
+  50%{ opacity:.6; }
+}
+.qcount{ font-size:.8rem; color:rgba(255,255,255,.35); font-family:'Space Grotesk',system-ui,sans-serif; font-variant-numeric:tabular-nums; }
+
+/* ── Question ── */
+.quiz-q{
+  font-family:var(--f-display);
+  font-size:clamp(1.1rem,2.5vw,1.4rem);
+  font-weight:700; line-height:1.4;
+  color:#fff; margin-bottom:1.75rem;
+}
+
+/* ── Options ── */
+.quiz-opts{ display:grid; gap:.75rem; }
+.opt{
+  display:flex; align-items:center; gap:1rem;
+  background:rgba(255,255,255,.04);
+  border:1.5px solid rgba(255,255,255,.09);
+  border-radius:var(--r-md);
+  padding:.9rem 1.25rem;
+  font-size:.9rem; font-family:var(--f-body);
+  cursor:pointer; text-align:left; color:rgba(255,255,255,.8);
+  transition:all .2s var(--ease-out);
+  position:relative; overflow:hidden;
+}
+.opt::before{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(191,41,237,.08),transparent);
+  opacity:0; transition:opacity .2s;
+}
+.opt:hover{ border-color:rgba(191,41,237,.5); color:#fff; transform:translateX(4px); }
+.opt:hover::before{ opacity:1; }
+/* Letter badge */
+.opt-letter{
+  display:flex; align-items:center; justify-content:center;
+  width:2rem; height:2rem; flex-shrink:0;
+  border-radius:.5rem;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  font-size:.78rem; font-weight:700;
+  color:rgba(255,255,255,.5);
+  transition:all .2s;
+  font-family:var(--f-display);
+}
+.opt:hover .opt-letter{ background:rgba(191,41,237,.25); border-color:rgba(191,41,237,.4); color:#e89bff; }
+/* Picked state */
+.opt.picked{
+  border-color:#BF29ED;
+  background:rgba(191,41,237,.12);
+  color:#fff;
+  transform:translateX(4px);
+  box-shadow:0 0 0 1px rgba(191,41,237,.3), 0 4px 20px rgba(191,41,237,.2);
+}
+.opt.picked::before{ opacity:1; }
+.opt.picked .opt-letter{
+  background:linear-gradient(135deg,#BF29ED,#8a00cc);
+  border-color:transparent; color:#fff;
+  box-shadow:0 2px 8px rgba(191,41,237,.5);
+}
+/* Picked checkmark */
+.opt.picked .opt-check{ display:flex; }
+.opt-check{
+  display:none; margin-left:auto; flex-shrink:0;
+  width:1.25rem; height:1.25rem; border-radius:50%;
+  background:#B6DF6D;
+  align-items:center; justify-content:center;
+  font-size:.65rem; color:#0a2a00;
+}
+
+/* ── Next button ── */
+.btn-quiz-next{
+  width:100%; margin-top:2rem;
+  background:linear-gradient(135deg,#BF29ED,#8a00cc);
+  color:#fff; font-weight:700; font-size:.95rem;
+  padding:.9rem 1.5rem; border-radius:var(--r-pill);
+  border:none; cursor:pointer;
+  box-shadow:0 4px 20px rgba(191,41,237,.4);
+  transition:all .25s var(--ease-out);
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+}
+.btn-quiz-next:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(191,41,237,.55);
+}
+.btn-quiz-next:disabled{
+  opacity:.4; cursor:not-allowed; transform:none;
+  box-shadow:none;
+}
+
+/* ── Result screen ── */
+.result-c{ text-align:center; padding:1rem 0; }
+.result-ring{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:10rem; height:10rem;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(191,41,237,.15),rgba(191,41,237,.05));
+  border:3px solid rgba(191,41,237,.35);
+  box-shadow:
+    0 0 0 8px rgba(191,41,237,.05),
+    0 0 40px rgba(191,41,237,.25);
+  margin-bottom:1.5rem;
+  position:relative;
+}
+.result-ring::before{
+  content:'';
+  position:absolute; inset:-8px;
+  border-radius:50%;
+  border:1px solid rgba(191,41,237,.12);
+}
+.result-big{
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-size:3.5rem; line-height:1;
+  color:#BF29ED; font-weight:700;
+  font-variant-numeric:tabular-nums;
+}
+.result-big span{ font-size:1.5rem; color:rgba(255,255,255,.3); }
+.result-level{
+  font-family:var(--f-display);
+  font-size:1.6rem; font-weight:700;
+  color:#fff; margin:.5rem 0 .4rem;
+}
+.result-level em{ color:#B6DF6D; font-style:normal; }
+.result-sub{ font-size:.9rem; color:rgba(255,255,255,.5); margin-bottom:2rem; max-width:38ch; margin-inline:auto; line-height:1.7; }
+
+/* Level badge */
+.level-badge{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.5rem 1.25rem; border-radius:var(--r-pill);
+  font-size:.8rem; font-weight:700; margin-bottom:2rem;
+}
+.level-novice    { background:rgba(255,150,50,.1);  border:1px solid rgba(255,150,50,.3);  color:#ffaa55; }
+.level-apprentice{ background:rgba(100,150,255,.1); border:1px solid rgba(100,150,255,.3); color:#88aaff; }
+.level-strategist{ background:rgba(191,41,237,.12); border:1px solid rgba(191,41,237,.3);  color:#e089ff; }
+.level-master    { background:rgba(182,223,109,.12);border:1px solid rgba(182,223,109,.3); color:#c8f07a; }
+.level-guru      { background:rgba(255,215,0,.12);  border:1px solid rgba(255,215,0,.35);  color:#ffd700; }
+.level-guru      { background:linear-gradient(135deg,rgba(191,41,237,.15),rgba(182,223,109,.1)); border:1px solid rgba(191,41,237,.4); color:#f0d060; box-shadow:0 0 20px rgba(191,41,237,.15); }
+
+/* ── Category breakdown ── */
+.cat-breakdown{
+  margin:0 0 1.5rem;
+  text-align:left;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r-md);
+  padding:1.25rem 1.5rem;
+}
+.cat-score-row{
+  display:flex; align-items:center; gap:.75rem;
+  margin-bottom:.75rem;
+}
+.cat-score-row:last-child{ margin-bottom:0; }
+.cat-score-lbl{
+  font-size:.75rem; color:rgba(255,255,255,.5);
+  flex:0 0 185px; white-space:nowrap; overflow:hidden;
+  text-overflow:ellipsis;
+}
+@media(max-width:560px){ .cat-score-lbl{ flex-basis:120px; font-size:.7rem; } }
+.cat-score-bar-wrap{
+  flex:1; height:6px; background:rgba(255,255,255,.08);
+  border-radius:6px; overflow:hidden;
+}
+.cat-score-bar{
+  display:block; height:100%;
+  background:linear-gradient(90deg,#8a00cc,#BF29ED);
+  border-radius:6px;
+  transition:width .8s var(--ease-out);
+}
+.cat-score-num{
+  font-size:.8rem; font-weight:700; color:#e089ff;
+  flex:0 0 2.5rem; text-align:right;
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Lead form on result screen */
+.result-form{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg); padding:1.75rem;
+  margin-top:1.5rem; text-align:left;
+}
+.result-form h4{
+  font-family:var(--f-display); font-size:1.1rem;
+  color:#fff; margin-bottom:.4rem;
+}
+.result-form p{ font-size:.85rem; color:rgba(255,255,255,.4); margin-bottom:1.25rem; }
+.result-form .field{
+  background:rgba(255,255,255,.06) !important;
+  border-color:rgba(255,255,255,.1) !important;
+  color:#fff !important;
+}
+.result-form .field::placeholder{ color:rgba(255,255,255,.3); }
+.result-form .field:focus{ border-color:rgba(191,41,237,.5) !important; }
+.lead-inputs .field{ margin-bottom:.875rem; }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq-list{margin-top:2rem; max-width:760px; margin-inline:auto;}
+.faq-item{border-bottom:1px solid var(--rule);}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.2rem 0;cursor:pointer;font-weight:600;font-size:.975rem;gap:1rem;
+}
+.faq-icon{
+  width:1.75rem;height:1.75rem;border-radius:50%;flex-shrink:0;
+  background:var(--surface);display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;color:var(--muted);
+  transition:background .2s,transform .3s var(--ease-out),color .2s;
+}
+.faq-q.open .faq-icon{background:var(--purple-soft);color:var(--purple);transform:rotate(45deg);}
+.faq-a{
+  padding-bottom:1.2rem;font-size:.9rem;color:var(--mid);line-height:1.72;
+  max-height:0;overflow:hidden;
+  transition:max-height .4s var(--ease-out),opacity .3s;opacity:0;
+}
+.faq-a.open{max-height:300px;opacity:1;}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{background:var(--surface);border-top:1px solid var(--rule);padding:4.5rem 0 2.5rem;}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;}
+@media(min-width:640px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr;}}
+.f-brand p{font-size:.85rem;color:var(--mid);margin-top:.875rem;max-width:28ch;line-height:1.7;}
+.f-col h4{font-size:.85rem;font-weight:700;margin-bottom:1rem;color:var(--dark);}
+.f-col ul{list-style:none;}
+.f-col li{margin-bottom:.6rem;font-size:.85rem;color:var(--mid);cursor:pointer;transition:color .2s;}
+.f-col li:hover{color:var(--dark);}
+.f-link{color:var(--mid);transition:color .2s;}
+.f-link:hover{color:var(--dark);}
+.social-row{display:flex;gap:.75rem;margin-top:.875rem;}
+.social-row a{
+  width:2.1rem;height:2.1rem;border-radius:50%;background:var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:var(--mid);transition:background .2s,color .2s;
+}
+.social-row a:hover{background:var(--purple);color:#fff;}
+.footer-bottom{
+  margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;
+  font-size:.78rem;color:var(--muted);
+}
+
+/* ═══════════════════════════════════════════
+   BACK TO TOP
+═══════════════════════════════════════════ */
+#btt{
+  position:fixed;bottom:1.75rem;right:1.75rem;z-index:80;
+  width:2.75rem;height:2.75rem;border-radius:50%;
+  /* colour defined in glass block below for both modes */
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;cursor:pointer;
+  opacity:0;pointer-events:none;transform:translateY(12px);
+  transition:opacity .3s,transform .3s var(--ease-out),background .2s,box-shadow .2s;
+}
+#btt.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+/* base hover handled in glass block */
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}
+.d2{transition-delay:.2s;}
+.d3{transition-delay:.3s;}
+
+/* ═══════════════════════════════════════════
+   TOAST FEEDBACK
+═══════════════════════════════════════════ */
+.toast{
+  position:fixed; bottom:5.5rem; left:50%; transform:translateX(-50%) translateY(20px);
+  z-index:300;
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.7rem 1.4rem;
+  border-radius:var(--r-pill);
+  font-size:.875rem; font-weight:600;
+  box-shadow:0 8px 32px rgba(0,0,0,.2);
+  opacity:0; pointer-events:none;
+  transition:opacity .35s ease, transform .35s var(--ease-out);
+  white-space:nowrap;
+}
+.toast.show{ opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+.toast-success{ background:#1a1a1a; color:#B6DF6D; border:1px solid rgba(182,223,109,.3); }
+.toast-error  { background:#1a1a1a; color:#ff6b6b; border:1px solid rgba(255,107,107,.3); }
+body.dark .toast-success{ background:#f0f0f0; color:#1a6600; }
+body.dark .toast-error  { background:#f0f0f0; color:#cc0000; }
+
+/* Inline form feedback (inside popup/quiz) */
+.form-msg{
+  border-radius:var(--r-md);
+  padding:.75rem 1rem;
+  font-size:.875rem; font-weight:500;
+  margin-bottom:1rem;
+  display:none;
+}
+.form-msg.show{ display:block; }
+.form-msg.success{ background:rgba(182,223,109,.15); color:#3a7000; border:1px solid rgba(182,223,109,.4); }
+.form-msg.error  { background:rgba(255,107,107,.12); color:#cc2200; border:1px solid rgba(255,107,107,.3); }
+body.dark .form-msg.success{ color:#a3e050; border-color:rgba(182,223,109,.25); }
+body.dark .form-msg.error  { color:#ff8080; border-color:rgba(255,107,107,.25); }
+
+/* Submit button loading state */
+.btn-loading{ opacity:.65; cursor:not-allowed; pointer-events:none; }
+.btn-loading::after{
+  content:''; display:inline-block;
+  width:.8rem; height:.8rem;
+  border:2px solid rgba(255,255,255,.4);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  margin-left:.5rem; vertical-align:middle;
+}
+@keyframes spin{ to{transform:rotate(360deg);} }
+
+
+/* ═══════════════════════════════════════════
+   GLASSMORPHISM — restrained & purposeful
+   Rule: glass only on elements that FLOAT
+   above content or overlay other layers.
+   Cards on solid section backgrounds stay
+   solid — they don't need glass.
+═══════════════════════════════════════════ */
+
+/* ── 1. Header — always floating above page ── */
+header{
+  background:rgba(255,255,255,.78) !important;
+  backdrop-filter:blur(20px) saturate(160%) !important;
+  -webkit-backdrop-filter:blur(20px) saturate(160%) !important;
+  border-bottom:1px solid rgba(255,255,255,.5) !important;
+  box-shadow:0 1px 0 rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.03);
+}
+body.dark header{
+  background:rgba(9,9,9,.8) !important;
+  border-bottom:1px solid rgba(255,255,255,.07) !important;
+}
+
+/* ── 2. Popup — overlays everything, glass is natural ── */
+.popup-card{
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(28px) saturate(170%);
+  -webkit-backdrop-filter:blur(28px) saturate(170%);
+  border:1px solid rgba(255,255,255,.65) !important;
+  box-shadow:
+    0 48px 96px -24px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.9) !important;
+}
+body.dark .popup-card{
+  background:rgba(18,18,18,.92) !important;
+  border:1px solid rgba(255,255,255,.09) !important;
+  box-shadow:0 48px 96px -24px rgba(0,0,0,.6) !important;
+}
+
+/* ── 3. Hero chips — float over the hero image ── */
+.hero-chip{
+  background:rgba(255,255,255,.15) !important;
+  backdrop-filter:blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter:blur(16px) saturate(180%) !important;
+  border:1px solid rgba(255,255,255,.3) !important;
+  box-shadow:0 8px 24px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.25) !important;
+}
+
+/* ── 4. Mobile drawer — slides over page content ── */
+.drawer{
+  background:rgba(255,255,255,.92) !important;
+  backdrop-filter:blur(24px) saturate(160%) !important;
+  -webkit-backdrop-filter:blur(24px) saturate(160%) !important;
+  border-left:1px solid rgba(255,255,255,.5) !important;
+}
+body.dark .drawer{
+  background:rgba(10,10,10,.95) !important;
+  border-left:1px solid rgba(255,255,255,.08) !important;
+}
+
+/* ── 5. Service cards — ONLY a light inset shimmer,
+        no blur. They sit on a solid bg, blur adds nothing. ── */
+.c-card{
+  background:var(--card) !important;
+  border:1px solid var(--rule) !important;
+  box-shadow:0 2px 12px rgba(0,0,0,.04), inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter:none;
+}
+.c-card:hover{
+  box-shadow:0 20px 40px -12px rgba(191,41,237,.14), inset 0 1px 0 rgba(255,255,255,.9) !important;
+  border-color:rgba(191,41,237,.2) !important;
+}
+body.dark .c-card{ box-shadow:0 2px 12px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.04); }
+body.dark .c-card:hover{ box-shadow:0 20px 40px -12px rgba(191,41,237,.25) !important; border-color:rgba(191,41,237,.3) !important; }
+
+/* ── 6. Metric, feature, quiz cards — solid, with hover glow only ── */
+.m-card{
+  background:var(--card) !important;
+  border:1px solid var(--rule) !important;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.m-card:hover{ box-shadow:0 12px 28px rgba(191,41,237,.12), 0 2px 8px rgba(0,0,0,.04) !important; border-color:rgba(191,41,237,.18) !important; }
+
+.feat{
+  background:var(--card) !important;
+  border:1px solid var(--rule) !important;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.feat:hover{ box-shadow:0 16px 32px rgba(191,41,237,.11) !important; border-color:rgba(191,41,237,.18) !important; transform:translateY(-5px); }
+
+.quiz-wrap{
+  /* Preserve the dark branded gradient — no override */
+  box-shadow:0 24px 64px -16px rgba(191,41,237,.35),0 64px 120px -32px rgba(0,0,0,.5) !important;
+}
+
+/* ── 7. Section backgrounds — keep them crisp ── */
+.sec-alt{ background:var(--surface) !important; }
+
+/* ── 8. FAQ items — no glass, clean border row ── */
+.faq-item{
+  border-bottom:1px solid var(--rule);
+  padding:0;
+  border-radius:0;
+  transition:background .2s;
+}
+.faq-item:hover{ background:rgba(191,41,237,.03); }
+body.dark .faq-item:hover{ background:rgba(191,41,237,.06); }
+
+/* ── 9. Back-to-top — HIGH contrast in both modes ── */
+#btt{
+  background:#BF29ED !important;
+  color:#ffffff !important;
+  border:2px solid rgba(255,255,255,.25) !important;
+  box-shadow:0 4px 20px rgba(191,41,237,.5) !important;
+  backdrop-filter:none;
+}
+#btt:hover{
+  background:#9a00cc !important;
+  box-shadow:0 6px 28px rgba(191,41,237,.7) !important;
+  transform:translateY(-2px);
+}
+/* Dark mode: even brighter so it pops against #090909 */
+body.dark #btt{
+  background:#BF29ED !important;
+  border:2px solid rgba(255,255,255,.35) !important;
+  box-shadow:0 4px 24px rgba(191,41,237,.65), 0 0 0 4px rgba(191,41,237,.15) !important;
+}
+body.dark #btt:hover{
+  background:#d44fff !important;
+  box-shadow:0 6px 32px rgba(191,41,237,.8), 0 0 0 5px rgba(191,41,237,.2) !important;
+}
+
+/* Reduced motion — strip all blur */
+@media(prefers-reduced-motion:reduce){
+  header,.popup-card,.drawer,.hero-chip{
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+}
+
+/* Section id targets for smooth scroll */
+[id]{scroll-margin-top:5rem;}
+
+/* ═══════════════════════════════════════════
+   BRAND PATTERN (SVG swooshes)
+═══════════════════════════════════════════ */
+.qp-pattern{
+  position:absolute;
+  pointer-events:none;
+  overflow:hidden;
+}
+.qp-pattern svg{
+  width:100%; height:100%;
+  display:block;
+}
+
+/* Hero — bottom-right large accent */
+.pattern-hero{
+  bottom:-60px; right:-80px;
+  width:clamp(280px,38vw,520px);
+  height:clamp(280px,38vw,520px);
+  opacity:.13;
+  transform:rotate(12deg);
+  z-index:2;
+}
+
+/* Hero — top-left small counter accent */
+.pattern-hero-tl{
+  top:-40px; left:-60px;
+  width:clamp(160px,22vw,300px);
+  height:clamp(160px,22vw,300px);
+  opacity:.07;
+  transform:rotate(190deg) scaleX(-1);
+  z-index:2;
+}
+
+/* Services section — right edge watermark */
+.pattern-services{
+  top:50%; right:-60px;
+  transform:translateY(-50%) rotate(-20deg);
+  width:clamp(200px,25vw,380px);
+  height:clamp(200px,25vw,380px);
+  opacity:.06;
+  z-index:0;
+}
+
+/* Metrics section — large background fill */
+.pattern-metrics{
+  top:50%; left:50%;
+  transform:translate(-50%,-50%) rotate(5deg);
+  width:clamp(300px,55vw,700px);
+  height:clamp(300px,55vw,700px);
+  opacity:.04;
+  z-index:0;
+}
+
+/* Features / process section — left accent */
+.pattern-features{
+  bottom:-40px; left:-50px;
+  width:clamp(180px,22vw,340px);
+  height:clamp(180px,22vw,340px);
+  opacity:.07;
+  transform:rotate(160deg);
+  z-index:0;
+}
+
+/* Footer — decorative top-right */
+.pattern-footer{
+  top:-20px; right:-40px;
+  width:clamp(180px,22vw,360px);
+  height:clamp(180px,22vw,360px);
+  opacity:.09;
+  transform:rotate(-10deg);
+  z-index:0;
+}
+
+/* Ensure sections that host patterns have position:relative and overflow:hidden */
+.hero { overflow:hidden; }
+.sec-alt { position:relative; overflow:hidden; }
+footer { position:relative; overflow:hidden; }
+
+/* ── Bizmo display font tweaks ──────────────
+   Bizmo is a wide geometric sans — adjust
+   spacing per element for luxury feel.       */
+.t-display        { letter-spacing:-.03em; }
+.t-h2             { letter-spacing:-.025em; }
+.t-h3             { letter-spacing:-.01em; font-weight:700; }
+.quiz-start-title { letter-spacing:-.025em; }
+.result-level     { letter-spacing:-.015em; }
+body              { letter-spacing:.005em; }
+.t-body,.t-body-lg{ letter-spacing:.008em; }
+.btn,.btn-quiz-start,.btn-quiz-next { letter-spacing:.015em; }
+
+/* ── Bizmo Trial — applied universally ──────────────
+   Bizmo Trial includes full Latin charset + digits 0–9.
+   One font, everywhere. No exceptions.               */
+body, button, input, textarea, select,
+.nav a, .drawer-links a, .t-label, .t-body, .t-body-lg,
+.opt, .faq-a, .faq-q, .f-col li, .f-brand p,
+.footer-bottom, .hero-chip, .c-detail-row span,
+.qcat-badge, .hero-eyebrow, .quiz-start-badge,
+.level-badge, .cat-score-lbl, .popup-sub, .popup-title,
+.result-sub, .result-form p, .result-form h4 {
+  font-family: 'Bizmo Trial', system-ui, sans-serif !important;
+}
+/* Numbers — Space Grotesk for digits (geometric,
+   wide proportions that complement Bizmo perfectly) */
+.m-num, .quiz-stat-num, .qpbar-frac,
+.cat-score-num, .result-big, .timer-pill,
+.stat-num, .qcount, .qpbar-frac,
+.footer-bottom span {
+  font-family: 'Space Grotesk', 'Bizmo Trial', system-ui, sans-serif !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- 3D BACKGROUND CANVAS -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- LOADING -->
+<div id="loading-screen">
+  <div class="loading-logo"><img src="QuivaPro-loading-screen.png" alt="QuivaPro"></div>
+</div>
+
+<!-- POPUP -->
+<div id="popup-overlay">
+  <div class="popup-card">
+    <div class="popup-head">
+      <img src="QuivaPro Logo.png" alt="QuivaPro">
+      <button class="popup-close" id="closePopup">&times;</button>
+    </div>
+    <h3 class="popup-title">Book a Branding Call</h3>
+    <p class="popup-sub">Share a few details and we'll personalise your experience.</p>
+    <form id="popupForm">
+      <input  class="field"    type="text"  placeholder="Full name *"      required id="pName">
+      <input  class="field"    type="email" placeholder="Email address *"  required id="pEmail">
+      <input  class="field"    type="tel"   placeholder="Phone number *"   required id="pPhone">
+      <input  class="field"    type="text"  placeholder="Country *"        required id="pCountry">
+      <textarea class="field ta" placeholder="Tell us about your brand *"  required id="pDesc"></textarea>
+      <div class="form-msg" id="popupMsg"></div>
+      <button type="submit" class="btn btn-purple" id="popupSubmitBtn" style="width:100%;padding:1rem;">Submit &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div class="logo"><a href="#home"><img src="QuivaPro Logo.png" alt="QuivaPro"></a></div>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#impact">Work</a>
+      <a href="#process">About</a>
+      <a href="#faq">Contact</a>
+    </nav>
+    <div class="hdr-right">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-regular fa-moon"></i>
+      </button>
+      <button class="btn btn-dark booking-trigger" id="headerCta" style="display:none;">Book a Call</button>
+      <button class="ham" id="hamBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- DRAWER -->
+<div class="dov" id="dov"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-top">
+    <img src="QuivaPro Logo.png" alt="QuivaPro">
+    <button class="drawer-close" id="drawerClose">&times;</button>
+  </div>
+  <div class="drawer-links">
+    <a href="#home"     class="drawer-nav-link">Home     <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#services" class="drawer-nav-link">Services <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#impact"   class="drawer-nav-link">Work     <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#process"  class="drawer-nav-link">About    <i class="fa-solid fa-arrow-right"></i></a>
+     <a href="https://wa.me/2348181041879" target="_blank">Contact  <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+  <div class="drawer-cta">
+    <button class="btn btn-dark booking-trigger" style="width:100%;">Book a Branding Call &rarr;</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <!-- Brand pattern: bottom-right green accent -->
+    <div class="qp-pattern pattern-hero">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 4000" xml:space="preserve">
+        <path fill="#B6DF6D" d="M4500 -62l-913 0 -76 41c-28,11 -53,23 -78,33l-1783 778c-99,42 -609,274 -658,283 56,-189 239,-621 318,-848 31,-88 80,-189 106,-286l-396 -1 -678 1812c81,-22 985,-421 1049,-453 250,-121 759,-329 1040,-450l1037 -452c176,-77 333,-145 520,-227 77,-34 478,-202 512,-230z"/>
+        <path fill="#B6DF6D" d="M-632 1922l0 313 3110 714c-21,48 -194,207 -235,244l-221 234c-94,-44 -437,-551 -554,-660l-2100 771 0 312c141,-32 803,-294 1004,-364l1006 -366c34,24 47,50 73,84 28,37 48,61 75,94 53,65 401,528 453,553 19,-9 1051,-1000 1099,-1083l-3710 -846z"/>
+      </svg>
+    </div>
+    <!-- Brand pattern: top-left ghost -->
+    <div class="qp-pattern pattern-hero-tl">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 4000" xml:space="preserve">
+        <path fill="#ffffff" d="M4500 -62l-913 0 -76 41c-28,11 -53,23 -78,33l-1783 778c-99,42 -609,274 -658,283 56,-189 239,-621 318,-848 31,-88 80,-189 106,-286l-396 -1 -678 1812c81,-22 985,-421 1049,-453 250,-121 759,-329 1040,-450l1037 -452c176,-77 333,-145 520,-227 77,-34 478,-202 512,-230z"/>
+        <path fill="#ffffff" d="M-632 1922l0 313 3110 714c-21,48 -194,207 -235,244l-221 234c-94,-44 -437,-551 -554,-660l-2100 771 0 312c141,-32 803,-294 1004,-364l1006 -366c34,24 47,50 73,84 28,37 48,61 75,94 53,65 401,528 453,553 19,-9 1051,-1000 1099,-1083l-3710 -846z"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow reveal">
+            <i class="fa-solid fa-bolt" style="font-size:.65rem;"></i>
+            Intelligent Branding · Nigeria
+          </div>
+          <h1 class="t-display reveal d1">
+            We build <em class="accent-italic">intelligent</em> brands.
+          </h1>
+          <p class="t-body-lg hero-body reveal d2">
+            Premium branding &amp; digital experiences for high-growth companies in Nigeria and beyond.
+          </p>
+          <div class="hero-cta reveal d3">
+            <button class="btn btn-glass booking-trigger">Book a Branding Call &rarr;</button>
+          </div>
+        </div>
+        <div class="hero-img-ph reveal d1">
+          <img
+            src="QuivaPro_Favicon.jpg"
+            alt="QuivaPro creative team at work"
+            class="hero-real-img"
+          >
+          <div class="hero-img-ph-overlay"></div>
+          <div class="hero-chip c1"><span class="dot"></span> Brand Identity delivered</div>
+          <div class="hero-chip c2"><i class="fa-solid fa-star"></i> Top Agency · Nigeria</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="sec sec-alt" id="services">
+    <!-- Brand pattern: purple right accent -->
+    <div class="qp-pattern pattern-services">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 4000" xml:space="preserve">
+        <path fill="#BF29ED" d="M4500 -62l-913 0 -76 41c-28,11 -53,23 -78,33l-1783 778c-99,42 -609,274 -658,283 56,-189 239,-621 318,-848 31,-88 80,-189 106,-286l-396 -1 -678 1812c81,-22 985,-421 1049,-453 250,-121 759,-329 1040,-450l1037 -452c176,-77 333,-145 520,-227 77,-34 478,-202 512,-230z"/>
+        <path fill="#BF29ED" d="M-632 1922l0 313 3110 714c-21,48 -194,207 -235,244l-221 234c-94,-44 -437,-551 -554,-660l-2100 771 0 312c141,-32 803,-294 1004,-364l1006 -366c34,24 47,50 73,84 28,37 48,61 75,94 53,65 401,528 453,553 19,-9 1051,-1000 1099,-1083l-3710 -846z"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="sec-hd reveal">
+        <span class="t-label">Our Expertise</span>
+        <h2 class="t-h2" style="margin-top:.75rem;">Crafted for<br>luxury.</h2>
+        <p class="t-body" style="margin-top:.75rem;max-width:48ch;">Hover any card to preview, click <strong>See Details</strong> to expand.</p>
+      </div>
+      <div class="carousel reveal" id="serviceCarousel">
+
+        <!-- Card 1 -->
+        <div class="c-card" data-id="0">
+          <div class="c-thumb">
+            <img src="visual-identity-quivapro.jpg" alt="Visual Identity" class="c-thumb-img" loading="lazy">
+            <div class="c-thumb-overlay">
+              <button class="btn btn-glass btn-sm expand-btn" style="font-size:.8rem;padding:.5rem 1.1rem;">
+                <i class="fa-solid fa-expand"></i> See Details
+              </button>
+            </div>
+          </div>
+          <div class="c-body">
+            <h3 class="t-h3">Visual Identity</h3>
+            <p class="t-body">Distinct, timeless brand languages that command attention across every touchpoint.</p>
+            <div class="c-details">
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Logo systems &amp; wordmarks designed for every scale</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Colour palette, typography, and pattern libraries</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Brand guidelines document included</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Delivered in 4–6 weeks from kick-off</span></div>
+              <div class="c-cta"><button class="btn btn-dark booking-trigger" style="font-size:.82rem;padding:.6rem 1.25rem;">Start this project &rarr;</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="c-card" data-id="1">
+          <div class="c-thumb">
+            <img src="uiux-design-quivapro.jpg" alt="UI/UX Design" class="c-thumb-img" loading="lazy">
+            <div class="c-thumb-overlay">
+              <button class="btn btn-glass btn-sm expand-btn" style="font-size:.8rem;padding:.5rem 1.1rem;">
+                <i class="fa-solid fa-expand"></i> See Details
+              </button>
+            </div>
+          </div>
+          <div class="c-body">
+            <h3 class="t-h3">UI/UX Design</h3>
+            <p class="t-body">Digital experiences that feel intuitive, exclusive, and distinctly yours.</p>
+            <div class="c-details">
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>User research, wireframing, and high-fidelity prototypes</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Design systems built in Figma for developer handoff</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Mobile-first, accessibility-aware approach</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Delivered in 6–10 weeks depending on scope</span></div>
+              <div class="c-cta"><button class="btn btn-dark booking-trigger" style="font-size:.82rem;padding:.6rem 1.25rem;">Start this project &rarr;</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="c-card" data-id="2">
+          <div class="c-thumb">
+            <img src="motion-design-quivapro.jpg" alt="Motion Design" class="c-thumb-img" loading="lazy">
+            <div class="c-thumb-overlay">
+              <button class="btn btn-glass btn-sm expand-btn" style="font-size:.8rem;padding:.5rem 1.1rem;">
+                <i class="fa-solid fa-expand"></i> See Details
+              </button>
+            </div>
+          </div>
+          <div class="c-body">
+            <h3 class="t-h3">Motion Design</h3>
+            <p class="t-body">Dynamic brand expression through film, animation, and kinetic storytelling.</p>
+            <div class="c-details">
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Brand films, explainer videos, and campaign assets</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Animated logo reveals and UI micro-interactions</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Social-ready cutdowns for all platforms</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Timelines vary by complexity — we'll scope precisely</span></div>
+              <div class="c-cta"><button class="btn btn-dark booking-trigger" style="font-size:.82rem;padding:.6rem 1.25rem;">Start this project &rarr;</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="c-card" data-id="3">
+          <div class="c-thumb">
+            <img src="brand-strategy-quivapro.jpg" alt="Brand Strategy" class="c-thumb-img" loading="lazy">
+            <div class="c-thumb-overlay">
+              <button class="btn btn-glass btn-sm expand-btn" style="font-size:.8rem;padding:.5rem 1.1rem;">
+                <i class="fa-solid fa-expand"></i> See Details
+              </button>
+            </div>
+          </div>
+          <div class="c-body">
+            <h3 class="t-h3">Brand Strategy</h3>
+            <p class="t-body">Positioning, architecture, and narrative that wins markets and minds.</p>
+            <div class="c-details">
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Competitive landscape and audience deep-dives</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Brand positioning, purpose, and values framework</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Naming, messaging hierarchy, and tone of voice</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Full strategy delivered in 8–12 weeks</span></div>
+              <div class="c-cta"><button class="btn btn-dark booking-trigger" style="font-size:.82rem;padding:.6rem 1.25rem;">Start this project &rarr;</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="c-card" data-id="4">
+          <div class="c-thumb">
+            <img src="art-direction-quivapro.avif" alt="Art Direction" class="c-thumb-img" loading="lazy">
+            <div class="c-thumb-overlay">
+              <button class="btn btn-glass btn-sm expand-btn" style="font-size:.8rem;padding:.5rem 1.1rem;">
+                <i class="fa-solid fa-expand"></i> See Details
+              </button>
+            </div>
+          </div>
+          <div class="c-body">
+            <h3 class="t-h3">Art Direction</h3>
+            <p class="t-body">Cohesive visual systems for campaigns, content, and cultural moments.</p>
+            <div class="c-details">
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Campaign concepts, moodboards, and shot lists</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Photography and video set direction</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>OOH, digital, and print layout systems</span></div>
+              <div class="c-detail-row"><i class="fa-solid fa-check"></i><span>Available on retainer for ongoing campaigns</span></div>
+              <div class="c-cta"><button class="btn btn-dark booking-trigger" style="font-size:.82rem;padding:.6rem 1.25rem;">Start this project &rarr;</button></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ METRICS ═══ -->
+  <section class="sec" id="impact" style="position:relative;overflow:hidden;">
+    <!-- Brand pattern: large background watermark -->
+    <div class="qp-pattern pattern-metrics">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 4000" xml:space="preserve">
+        <path fill="#BF29ED" d="M4500 -62l-913 0 -76 41c-28,11 -53,23 -78,33l-1783 778c-99,42 -609,274 -658,283 56,-189 239,-621 318,-848 31,-88 80,-189 106,-286l-396 -1 -678 1812c81,-22 985,-421 1049,-453 250,-121 759,-329 1040,-450l1037 -452c176,-77 333,-145 520,-227 77,-34 478,-202 512,-230z"/>
+        <path fill="#B6DF6D" d="M-632 1922l0 313 3110 714c-21,48 -194,207 -235,244l-221 234c-94,-44 -437,-551 -554,-660l-2100 771 0 312c141,-32 803,-294 1004,-364l1006 -366c34,24 47,50 73,84 28,37 48,61 75,94 53,65 401,528 453,553 19,-9 1051,-1000 1099,-1083l-3710 -846z"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="sec-hd reveal">
+        <span class="t-label">By the Numbers</span>
+        <h2 class="t-h2" style="margin-top:.75rem;">Impact that speaks.</h2>
+      </div>
+      <div class="metrics-img-ph reveal">
+        <img
+          src="growth-quivapro.jpg"
+          alt="QuivaPro team collaborating"
+          class="metrics-real-img"
+          loading="lazy"
+        >
+        <div class="metrics-img-overlay"></div>
+      </div>
+      <div class="metrics-bento reveal">
+        <div class="m-card"><div class="m-num">10<span class="m-accent">+</span></div><div class="m-label">Years of excellence</div></div>
+        <div class="m-card"><div class="m-num">50<span class="m-accent">+</span></div><div class="m-label">Strategy experts</div></div>
+        <div class="m-card"><div class="m-num">200<span class="m-accent">+</span></div><div class="m-label">Brands transformed</div></div>
+        <div class="m-card"><div class="m-num">100<span class="m-accent">%</span></div><div class="m-label">Client satisfaction</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="sec sec-alt" id="process">
+    <!-- Brand pattern: left bottom accent -->
+    <div class="qp-pattern pattern-features">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 4000" xml:space="preserve">
+        <path fill="#B6DF6D" d="M4500 -62l-913 0 -76 41c-28,11 -53,23 -78,33l-1783 778c-99,42 -609,274 -658,283 56,-189 239,-621 318,-848 31,-88 80,-189 106,-286l-396 -1 -678 1812c81,-22 985,-421 1049,-453 250,-121 759,-329 1040,-450l1037 -452c176,-77 333,-145 520,-227 77,-34 478,-202 512,-230z"/>
+        <path fill="#B6DF6D" d="M-632 1922l0 313 3110 714c-21,48 -194,207 -235,244l-221 234c-94,-44 -437,-551 -554,-660l-2100 771 0 312c141,-32 803,-294 1004,-364l1006 -366c34,24 47,50 73,84 28,37 48,61 75,94 53,65 401,528 453,553 19,-9 1051,-1000 1099,-1083l-3710 -846z"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="sec-hd reveal">
+        <span class="t-label">How We Work</span>
+        <h2 class="t-h2" style="margin-top:.75rem;">Intelligence at<br>every layer.</h2>
+      </div>
+      <div class="feats">
+        <div class="feat reveal">
+          <div class="feat-icon"><i class="fa-regular fa-compass"></i></div>
+          <h3 class="t-h3">Discovery</h3>
+          <p class="t-body">Deep research to uncover your brand's true potential, competitive landscape, and cultural context.</p>
+        </div>
+        <div class="feat reveal d1">
+          <div class="feat-icon"><i class="fa-regular fa-gem"></i></div>
+          <h3 class="t-h3">Strategy</h3>
+          <p class="t-body">Positioning frameworks that define your edge and create clarity across every audience.</p>
+        </div>
+        <div class="feat reveal d2">
+          <div class="feat-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+          <h3 class="t-h3">Design</h3>
+          <p class="t-body">Beautiful, functional systems that translate strategy into visual language that endures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUIZ ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-hd reveal" style="text-align:center;max-width:600px;margin-inline:auto;">
+        <span class="t-label">Corporate Intelligence Assessment</span>
+        <h2 class="t-h2" style="margin-top:.75rem;">Business IQ Quiz</h2>
+        <p class="t-body-lg" style="margin-top:.75rem;">Test your knowledge of Nigerian business giants &amp; Fortune Global Five Hundred corporations. Forty questions · Thirty minutes.</p>
+      </div>
+      <div class="quiz-wrap reveal" id="quizContainer"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="sec sec-alt" id="faq">
+    <div class="wrap">
+    <div class="sec-hd reveal" style="max-width:760px;margin-inline:auto;">
+        <span class="t-label">Questions</span>
+        <h2 class="t-h2" style="margin-top:.75rem;">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><div class="faq-q">What makes QuivaPro different from other agencies?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">We blend deep Nigerian cultural intelligence with global luxury standards. Our work is not templated — every brand we build is rooted in original research and a strategy designed specifically for your growth trajectory.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">How long does a typical branding project take?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">Brand identity projects typically run Four–Six weeks. Full brand strategy engagements span Eight–Twelve weeks. Digital products vary from Six to Sixteen weeks depending on scope.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Do you work with early-stage startups?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">Yes — some of our most exciting work has been with founders building from scratch. What matters to us isn't the stage, it's the ambition.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">What industries do you specialise in?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">We work across fintech, luxury goods, hospitality, real estate, fashion, health &amp; wellness, and FMCG. Our cross-sector experience brings unexpected insight to every category.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">How much does a branding project cost?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">Brand identity starts from ₦2.5M; full strategy and identity from ₦6M. Book a call and we'll provide a detailed proposal at no cost.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Do you offer ongoing brand management after delivery?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">Yes. We offer Brand Retainer packages for ongoing creative support — from campaign art direction to quarterly brand audits.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Can you work with international clients outside Nigeria?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">Absolutely. While we are proudly Nigeria-based, roughly a third of our portfolio is international — UK, UAE, Ghana, Kenya, and the US.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">What does the onboarding process look like?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">After your discovery call, we produce a Brand Brief and proposal within 5 business days, then kick off with a deep-dive Brand Discovery Workshop.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">How many revision rounds are included?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">All projects include two structured revision rounds per deliverable, built into the timeline. Additional rounds can be scoped if needed.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Do you provide brand guidelines as part of delivery?<span class="faq-icon"><i class="fa-solid fa-plus"></i></span></div><div class="faq-a">Yes — every brand identity project includes a comprehensive Brand Guidelines document covering logo usage, typography, colour systems, photography direction, and tone of voice.</div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <!-- Brand pattern: footer accent -->
+  <div class="qp-pattern pattern-footer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 4000" xml:space="preserve">
+        <path fill="#BF29ED" d="M4500 -62l-913 0 -76 41c-28,11 -53,23 -78,33l-1783 778c-99,42 -609,274 -658,283 56,-189 239,-621 318,-848 31,-88 80,-189 106,-286l-396 -1 -678 1812c81,-22 985,-421 1049,-453 250,-121 759,-329 1040,-450l1037 -452c176,-77 333,-145 520,-227 77,-34 478,-202 512,-230z"/>
+        <path fill="#B6DF6D" d="M-632 1922l0 313 3110 714c-21,48 -194,207 -235,244l-221 234c-94,-44 -437,-551 -554,-660l-2100 771 0 312c141,-32 803,-294 1004,-364l1006 -366c34,24 47,50 73,84 28,37 48,61 75,94 53,65 401,528 453,553 19,-9 1051,-1000 1099,-1083l-3710 -846z"/>
+      </svg>
+  </div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <img src="QuivaPro Logo.png" alt="QuivaPro" style="height:2rem;">
+        <p>Intelligence embedded in luxury. Building brands that endure.</p>
+      </div>
+      <div class="f-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home"    class="f-link">Home</a></li>
+          <li><a href="#impact"  class="f-link">Work</a></li>
+         <li><a href="https://wa.me/2348181041879" target="_blank">Contact</a></li>
+          <li><a href="#faq"     class="f-link">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="f-col"><h4>Services</h4><ul><li>Visual Identity</li><li>UI/UX Design</li><li>Motion Design</li><li>Brand Strategy</li></ul></div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <div class="social-row">
+          <a href="https://www.instagram.com/quivapro?igsh=c2k0NWI02poanA1" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/quivapro/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://x.com/quivapro" target="_blank" aria-label="twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://wa.me/2348181041879" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 QuivaPro. All rights reserved.</span>
+      <span>Designs by Zhalem </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="btt" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- ═══════════════════════════════════════════
+     THREE.JS 3D BACKGROUND
+═══════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ── 3D Background ─────────────────────────── */
+(function(){
+  const canvas = document.getElementById('bg-canvas');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 200);
+  camera.position.set(0, 0, 30);
+
+  // Orb data
+  const orbData = [
+    { radius:7,   pos:[  0,  2,  0], color:0xBF29ED, emissive:0x6600aa, speed:.0008 },
+    { radius:4.5, pos:[-14,  8, -8], color:0x9b00cc,  emissive:0x440066, speed:.001  },
+    { radius:3.5, pos:[ 16, -6, -5], color:0xB6DF6D,  emissive:0x4a6600, speed:.0012 },
+    { radius:2.5, pos:[-8, -12, -3], color:0xdd44ff,  emissive:0x880088, speed:.0015 },
+    { radius:2,   pos:[ 10,  14,-10],color:0x88ffcc,  emissive:0x004433, speed:.0018 },
+  ];
+
+  const orbs = orbData.map(d => {
+    const geo  = new THREE.SphereGeometry(d.radius, 64, 64);
+    const mat  = new THREE.MeshStandardMaterial({
+      color: d.color,
+      emissive: d.emissive,
+      emissiveIntensity: 0.4,
+      roughness: 0.15,
+      metalness: 0.6,
+      transparent: true,
+      opacity: 0.45,
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(...d.pos);
+    mesh.userData = { ox:d.pos[0], oy:d.pos[1], oz:d.pos[2], speed:d.speed, phase:Math.random()*Math.PI*2 };
+    scene.add(mesh);
+    return mesh;
+  });
+
+  // Lights
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+  scene.add(ambientLight);
+
+  const pointLight1 = new THREE.PointLight(0xBF29ED, 3, 80);
+  pointLight1.position.set(-10, 10, 15);
+  scene.add(pointLight1);
+
+  const pointLight2 = new THREE.PointLight(0xB6DF6D, 2, 60);
+  pointLight2.position.set(15, -10, 10);
+  scene.add(pointLight2);
+
+  const pointLight3 = new THREE.PointLight(0xffffff, 1.5, 50);
+  pointLight3.position.set(0, 0, 20);
+  scene.add(pointLight3);
+
+  // Scroll tracking
+  let scrollY = 0;
+  let targetScrollY = 0;
+  window.addEventListener('scroll', () => { targetScrollY = window.scrollY; });
+
+  // Resize
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  let t = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.005;
+
+    // Smooth scroll lerp
+    scrollY += (targetScrollY - scrollY) * 0.06;
+    const scrollFactor = scrollY / (document.body.scrollHeight - window.innerHeight || 1);
+
+    orbs.forEach((orb, i) => {
+      const d = orb.userData;
+      // Float animation
+      orb.position.x = d.ox + Math.sin(t * d.speed * 600 + d.phase) * 2.5;
+      orb.position.y = d.oy + Math.cos(t * d.speed * 400 + d.phase) * 1.8;
+      orb.position.z = d.oz + Math.sin(t * d.speed * 300 + d.phase + 1) * 1.5;
+
+      // Scroll parallax — orbs drift different amounts on scroll
+      orb.position.y -= scrollFactor * (8 + i * 4);
+
+      // Slow rotation
+      orb.rotation.y += d.speed * 2;
+      orb.rotation.x += d.speed * 1.2;
+
+      // Subtle pulse opacity
+      orb.material.opacity = 0.35 + 0.15 * Math.sin(t * 0.8 + d.phase);
+    });
+
+    // Camera very gently responds to scroll
+    camera.position.y = -scrollFactor * 3;
+    camera.rotation.x = scrollFactor * 0.05;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════
+     MAIN JS
+═══════════════════════════════════════════ -->
+<script>
+(function(){
+
+  /* ── Loading ────────────────────────────── */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.getElementById('loading-screen').classList.add('fade-out');
+      setTimeout(function(){
+        document.getElementById('popup-overlay').classList.add('active');
+      }, 450);
+    }, 900);
+  });
+
+  /* ── Popup ──────────────────────────────── */
+  const popupEl = document.getElementById('popup-overlay');
+  function openPopup()  { popupEl.classList.add('active'); }
+  function closePopup() { popupEl.classList.remove('active'); }
+  document.getElementById('closePopup').addEventListener('click', closePopup);
+  popupEl.addEventListener('click', e => { if(e.target===popupEl) closePopup(); });
+
+  function attachBooking(root){
+    (root||document).querySelectorAll('.booking-trigger').forEach(b => {
+      b.addEventListener('click', openPopup);
+    });
+  }
+  attachBooking();
+
+  /* ── Toast helper ───────────────────────── */
+  function showToast(msg, type){
+    let t = document.getElementById('globalToast');
+    if(!t){ t=document.createElement('div'); t.id='globalToast'; document.body.appendChild(t); }
+    t.textContent=msg;
+    t.className='toast toast-'+(type||'success');
+    void t.offsetWidth; // reflow
+    t.classList.add('show');
+    clearTimeout(t._tid);
+    t._tid=setTimeout(()=>t.classList.remove('show'),4500);
+  }
+
+  function setFormState(form, submitBtn, msgEl, loading){
+    submitBtn.classList.toggle('btn-loading', loading);
+    submitBtn.disabled = loading;
+    if(!loading && msgEl) msgEl.classList.remove('show');
+  }
+
+  function showFormMsg(msgEl, text, type){
+    if(!msgEl) return;
+    msgEl.textContent = text;
+    msgEl.className = 'form-msg '+type+' show';
+  }
+
+  /* ── Popup form → Formspree ──────────────── */
+  document.getElementById('popupForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const n = document.getElementById('pName').value.trim();
+    const m = document.getElementById('pEmail').value.trim();
+    const p = document.getElementById('pPhone').value.trim();
+    const c = document.getElementById('pCountry').value.trim();
+    const d = document.getElementById('pDesc').value.trim();
+    if(!n||!m||!p||!c||!d){
+      showFormMsg(document.getElementById('popupMsg'),'Please fill all required fields.','error');
+      return;
+    }
+    const btn  = document.getElementById('popupSubmitBtn');
+    const msgEl= document.getElementById('popupMsg');
+    setFormState(this, btn, msgEl, true);
+    btn.textContent='Sending…';
+    try{
+      const res = await fetch('https://formspree.io/f/xnndpzwg',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({ name:n, email:m, phone:p, country:c, message:d, _subject:'New Branding Call Request – QuivaPro' })
+      });
+      if(res.ok){
+        showFormMsg(msgEl,'✓ Received! We\'ll be in touch very soon.','success');
+        showToast('Message sent successfully!','success');
+        setTimeout(()=>{ closePopup(); this.reset(); msgEl.classList.remove('show'); }  ,2200);
+      } else {
+        const data = await res.json().catch(()=>({}));
+        showFormMsg(msgEl, data.error||'Something went wrong. Please try again.','error');
+        showToast('Submission failed — please try again.','error');
+      }
+    } catch(err){
+      showFormMsg(msgEl,'Network error. Please check your connection.','error');
+      showToast('Network error — please try again.','error');
+    } finally {
+      btn.classList.remove('btn-loading');
+      btn.disabled=false;
+      btn.innerHTML='Submit &rarr;';
+    }
+  });
+
+  /* ── Theme ──────────────────────────────── */
+  const themeBtn  = document.getElementById('themeToggle');
+  const themeIcon = themeBtn.querySelector('i');
+  if(localStorage.getItem('qp-theme')==='dark'){
+    document.body.classList.add('dark');
+    themeIcon.className='fa-regular fa-sun';
+  }
+  themeBtn.addEventListener('click',()=>{
+    const d = document.body.classList.toggle('dark');
+    themeIcon.className = d?'fa-regular fa-sun':'fa-regular fa-moon';
+    localStorage.setItem('qp-theme', d?'dark':'light');
+  });
+
+  /* ── Hamburger / drawer (with working nav links) ── */
+  const hamBtn      = document.getElementById('hamBtn');
+  const drawer      = document.getElementById('drawer');
+  const dov         = document.getElementById('dov');
+  const drawerClose = document.getElementById('drawerClose');
+
+  function openDrawer()  {
+    hamBtn.classList.add('open');
+    drawer.classList.add('open');
+    dov.classList.add('active');
+    document.body.style.overflow='hidden';
+  }
+  function closeDrawer() {
+    hamBtn.classList.remove('open');
+    drawer.classList.remove('open');
+    dov.classList.remove('active');
+    document.body.style.overflow='';
+  }
+  hamBtn.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  dov.addEventListener('click', closeDrawer);
+
+  // Drawer nav links — close drawer then smooth scroll
+  drawer.querySelectorAll('.drawer-nav-link').forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      const target = this.getAttribute('href');
+      closeDrawer();
+      setTimeout(()=>{
+        const el = document.querySelector(target);
+        if(el) el.scrollIntoView({ behavior:'smooth' });
+      }, 420); // wait for drawer close animation
+    });
+  });
+
+  // Drawer booking triggers
+  drawer.querySelectorAll('.booking-trigger').forEach(b=>{
+    b.addEventListener('click',()=>{ closeDrawer(); setTimeout(openPopup,100); });
+  });
+
+  /* ── Back-to-top + scroll header CTA ───── */
+  const btt       = document.getElementById('btt');
+  const headerCta = document.getElementById('headerCta');
+  window.addEventListener('scroll',()=>{
+    const s = window.scrollY > 300;
+    btt.classList.toggle('show',s);
+    if(headerCta) headerCta.style.display = s ? 'inline-flex':'none';
+  });
+  btt.addEventListener('click',()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+  /* ── FAQ ────────────────────────────────── */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const ans    = q.nextElementSibling;
+      const isOpen = ans.classList.contains('open');
+      document.querySelectorAll('.faq-a.open').forEach(a=>a.classList.remove('open'));
+      document.querySelectorAll('.faq-q.open').forEach(x=>x.classList.remove('open'));
+      if(!isOpen){ ans.classList.add('open'); q.classList.add('open'); }
+    });
+  });
+
+  /* ── Scroll reveal ──────────────────────── */
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{ threshold:0.1 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ── Carousel drag-scroll ───────────────── */
+  document.querySelectorAll('.carousel').forEach(c=>{
+    let isDown=false,startX,scrollLeft;
+    c.addEventListener('mousedown',e=>{ isDown=true; startX=e.pageX-c.offsetLeft; scrollLeft=c.scrollLeft; });
+    c.addEventListener('mouseleave',()=>{ isDown=false; });
+    c.addEventListener('mouseup',   ()=>{ isDown=false; });
+    c.addEventListener('mousemove', e=>{
+      if(!isDown)return; e.preventDefault();
+      c.scrollLeft = scrollLeft-(e.pageX-c.offsetLeft-startX)*1.5;
+    });
+  });
+
+  /* ── Card expand/collapse ───────────────── */
+  document.querySelectorAll('.expand-btn').forEach(btn=>{
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      const card = this.closest('.c-card');
+      const isExpanded = card.classList.contains('expanded');
+
+      // collapse all first
+      document.querySelectorAll('.c-card.expanded').forEach(c=>{
+        c.classList.remove('expanded');
+        c.querySelector('.expand-btn').innerHTML = '<i class="fa-solid fa-expand"></i> See Details';
+      });
+
+      if(!isExpanded){
+        card.classList.add('expanded');
+        this.innerHTML = '<i class="fa-solid fa-compress"></i> Close';
+        // re-attach booking inside expanded card
+        attachBooking(card);
+        // scroll card into view
+        setTimeout(()=>{
+          card.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'nearest' });
+        }, 100);
+      }
+    });
+  });
+
+  /* ── Quiz ───────────────────────────────── */
+  const qc = document.getElementById('quizContainer');
+  /* ── Real quiz data from Business IQ Quiz PDF ── */
+  const questions = [
+    // ── CATEGORY 1: Nigerian Business Giants – Banking & Finance ──
+    { n:1,  cat:'Nigerian Banking & Finance',
+      q:'Which Nigerian bank has been ranked as the most valuable brand in Nigeria for four consecutive years as of Twenty Twenty-Five (2025)?',
+      opts:['Zenith Bank','Access Bank','First Bank of Nigeria','United Bank for Africa'], ans:1 },
+    { n:2,  cat:'Nigerian Banking & Finance',
+      q:"What is Access Bank's brand value in 2025 according to Brand Finance?",
+      opts:['$328 million','$559 million','$285 million','$213 million'], ans:1 },
+    { n:3,  cat:'Nigerian Banking & Finance',
+      q:'Which Nigerian bank is ranked as the 13th strongest banking brand in the world with a Brand Strength Index score of 92.4/100?',
+      opts:['Access Bank','Zenith Bank','United Bank for Africa (UBA)','First Bank of Nigeria'], ans:2 },
+    { n:4,  cat:'Nigerian Banking & Finance',
+      q:"What is GTCO's (Guaranty Trust Holding Company) brand value ranking in Nigeria for Twenty Twenty-Five (2025)?",
+      opts:['1st place','2nd place','3rd place','4th place'], ans:2 },
+    { n:5,  cat:'Nigerian Banking & Finance',
+      q:"By what percentage did GTCO's brand value increase in Twenty Twenty-Five (2025)?",
+      opts:['50%','75%','Nearly tripled (approximately 200%)','25%'], ans:2 },
+    { n:6,  cat:'Nigerian Banking & Finance',
+      q:"What is Zenith Bank's brand value in Twenty Twenty-Five (2025)?",
+      opts:['$328 million','$285 million','$213 million','$181 million'], ans:1 },
+    { n:7,  cat:'Nigerian Banking & Finance',
+      q:'Which Nigerian bank holds the strongest brand rating of AAA+ in Twenty Twenty-Five (2025)?',
+      opts:['Access Bank','GTCO and UBA','Zenith Bank','First Bank only'], ans:1 },
+    { n:8,  cat:'Nigerian Banking & Finance',
+      q:"What is United Bank for Africa's brand value in Twenty Twenty-Five (2025)?",
+      opts:['$181 million','$144 million','$213 million','$285 million'], ans:2 },
+    { n:9,  cat:'Nigerian Banking & Finance',
+      q:"Which sector dominates Nigeria's top 10 most valuable brands in Twenty Twenty-Five (2025)?",
+      opts:['Oil and Gas','Telecommunications','Banking and Financial Services','Manufacturing'], ans:2 },
+    { n:10, cat:'Nigerian Banking & Finance',
+      q:"What is First Bank of Nigeria's brand value in Twenty Twenty-Five (2025)?",
+      opts:['$144 million','$181 million','$213 million','$285 million'], ans:1 },
+
+    // ── CATEGORY 2: Nigerian Business Giants – Industry & Telecoms ──
+    { n:11, cat:'Nigerian Industry & Telecoms',
+      q:"What is Dangote Cement's brand value in Twenty Twenty-Five (2025)?",
+      opts:['$559 million','$352 million','$284 million','$328 million'], ans:1 },
+    { n:12, cat:'Nigerian Industry & Telecoms',
+      q:"By what percentage did Dangote Cement's brand value surge in Twenty Twenty-Five (2025)?",
+      opts:['50%','74%','100%','25%'], ans:1 },
+    { n:13, cat:'Nigerian Industry & Telecoms',
+      q:'What is the market capitalization of Dangote Cement as of Twenty Twenty-Five (2025)?',
+      opts:['$5.8 billion','$6.9 billion','$10.5 billion','$11.2 billion'], ans:3 },
+    { n:14, cat:'Nigerian Industry & Telecoms',
+      q:'Which Nigerian company by market capitalization ranks second after Dangote Cement?',
+      opts:['Airtel Nigeria','MTN Nigeria','BUA Cement','Nestle Nigeria'], ans:1 },
+    { n:15, cat:'Nigerian Industry & Telecoms',
+      q:"What is MTN Nigeria's approximate market capitalization?",
+      opts:['$6.9 billion','$10.5 billion','$11.2 billion','$5.8 billion'], ans:1 },
+    { n:16, cat:'Nigerian Industry & Telecoms',
+      q:"What is BUA Cement's brand value in Twenty Twenty-Five (2025)?",
+      opts:['$144 million','$87 million','$82 million','$181 million'], ans:1 },
+    { n:17, cat:'Nigerian Industry & Telecoms',
+      q:"What is Glo Mobile's brand value ranking among Nigerian brands in Twenty Twenty-Five (2025)?",
+      opts:['5th place','8th place','10th place','12th place'], ans:2 },
+    { n:18, cat:'Nigerian Industry & Telecoms',
+      q:"What is Flour Mills Nigeria's brand value in Twenty Twenty-Five (2025)?",
+      opts:['$285 million','$284 million','$328 million','$352 million'], ans:1 },
+    { n:19, cat:'Nigerian Industry & Telecoms',
+      q:'Which Nigerian brand experienced a 51% decline in brand value, dropping from 9th to 20th place in Twenty Twenty-Five (2025)?',
+      opts:['Nigerian Breweries','Hero Lager','Glo Mobile','International Breweries'], ans:1 },
+    { n:20, cat:'Nigerian Industry & Telecoms',
+      q:"Who is the owner of Dangote Group, Nigeria's largest industrial conglomerate?",
+      opts:['Mike Adenuga','Aliko Dangote','Tony Elumelu','Jim Ovia'], ans:1 },
+
+    // ── CATEGORY 3: Fortune Global 500 – Top Rankings ──
+    { n:21, cat:'Fortune Global 500 – Top Rankings',
+      q:'Which company topped the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['Amazon','Walmart','Apple','Saudi Aramco'], ans:1 },
+    { n:22, cat:'Fortune Global 500 – Top Rankings',
+      q:'How many consecutive years has Walmart held the top position on the Fortune Global 500 list as of Twenty Twenty-Five (2025)?',
+      opts:['10 years','12 years','15 years','8 years'], ans:1 },
+    { n:23, cat:'Fortune Global 500 – Top Rankings',
+      q:'Which Chinese company ranks 3rd on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['China National Petroleum','State Grid','Sinopec','Tencent'], ans:1 },
+    { n:24, cat:'Fortune Global 500 – Top Rankings',
+      q:'Which company ranks 4th on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['Amazon','Apple','Saudi Aramco','Berkshire Hathaway'], ans:2 },
+    { n:25, cat:'Fortune Global 500 – Top Rankings',
+      q:'What is the combined annual revenue of the top 10 Fortune Global 500 companies?',
+      opts:['Over $250 billion','Over $370 billion','Over $500 billion','Over $100 billion'], ans:1 },
+    { n:26, cat:'Fortune Global 500 – Top Rankings',
+      q:'Which rank does Apple hold on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['5th','8th','10th','12th'], ans:1 },
+    { n:27, cat:'Fortune Global 500 – Top Rankings',
+      q:'What is the record number of women CEOs at Fortune Global 500 companies in Twenty Twenty-Five (2025)?',
+      opts:['25 (5%)','33 (6.6%)','40 (8%)','28 (5.6%)'], ans:1 },
+    { n:28, cat:'Fortune Global 500 – Top Rankings',
+      q:'Which city is home to the most Fortune Global 500 companies?',
+      opts:['New York','Tokyo','Beijing','London'], ans:2 },
+    { n:29, cat:'Fortune Global 500 – Top Rankings',
+      q:'Which company ranks 10th on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['UnitedHealth Group','CVS Health','Berkshire Hathaway','Alphabet'], ans:2 },
+    { n:30, cat:'Fortune Global 500 – Top Rankings',
+      q:'How many countries and territories are represented in the Fortune Global 500?',
+      opts:['25','36','50','42'], ans:1 },
+
+    // ── CATEGORY 4: Fortune Global 500 – Tech & Industry Leaders ──
+    { n:31, cat:'Fortune Global 500 – Tech & Industry',
+      q:'What is the collective net income brought in by the "Magnificent Seven" tech companies in Twenty Twenty-Five (2025)?',
+      opts:['$250 billion','$350 billion','$484 billion','$600 billion'], ans:2 },
+    { n:32, cat:'Fortune Global 500 – Tech & Industry',
+      q:'Which company became the first to hit $4 trillion in market value in Twenty Twenty-Five (2025)?',
+      opts:['Apple','Microsoft','Nvidia','Amazon'], ans:2 },
+    { n:33, cat:'Fortune Global 500 – Tech & Industry',
+      q:'What rank does Microsoft hold on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['13th','22nd','41st','66th'], ans:1 },
+    { n:34, cat:'Fortune Global 500 – Tech & Industry',
+      q:'Which rank does Nvidia hold on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['41st','66th','106th','15th'], ans:1 },
+    { n:35, cat:'Fortune Global 500 – Tech & Industry',
+      q:'Which company ranks 13th on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['Microsoft','Alphabet (Google)','Meta Platforms','Amazon'], ans:1 },
+    { n:36, cat:'Fortune Global 500 – Tech & Industry',
+      q:'Which rank does Meta Platforms hold on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['22nd','41st','66th','106th'], ans:1 },
+    { n:37, cat:'Fortune Global 500 – Tech & Industry',
+      q:'What rank does Tesla hold on the Fortune Global 500 list for Twenty Twenty-Five (2025)?',
+      opts:['66th','106th','150th','200th'], ans:1 },
+    { n:38, cat:'Fortune Global 500 – Tech & Industry',
+      q:"What is the total brand value of Interbrand's Best Global Brands 2025?",
+      opts:['$2.5 trillion','$3.4 trillion','$3.6 trillion','$4.0 trillion'], ans:2 },
+    { n:39, cat:'Fortune Global 500 – Tech & Industry',
+      q:'Which three companies retain their positions as the top three most valuable brands in Twenty Twenty-Five (2025)?',
+      opts:['Google, Amazon, Microsoft','Apple, Microsoft, Amazon','Nvidia, Apple, Google','Microsoft, Apple, Nvidia'], ans:1 },
+    { n:40, cat:'Fortune Global 500 – Tech & Industry',
+      q:'Which country leads with the most companies headed by women CEOs in the Fortune Global Five Hundred?',
+      opts:['China','France','United Kingdom','United States'], ans:3 },
+  ];
+
+  let qs={ started:false,cur:0,answers:Array(40).fill(null),timeLeft:1800,timer:null,done:false };
+
+  /* Option letter labels */
+  const LETTERS = ['A','B','C','D'];
+
+  /* Level meta — matches PDF Score Interpretation Guide */
+  function levelMeta(score){
+    if(score<=15) return { label:'Business Novice',       cls:'level-novice',     icon:'fa-seedling',    msg:'Beginning stage of business knowledge. Consider a comprehensive study of corporate rankings and major industry players — and let QuivaPro craft a brand that speaks from day one.' };
+    if(score<=23) return { label:'Business Apprentice',   cls:'level-apprentice', icon:'fa-chart-line',  msg:'Basic understanding of business fundamentals. We recommend exploring the Nigerian banking sector and Fortune 500 top rankings — and building a brand that grows with you.' };
+    if(score<=29) return { label:'Business Professional', cls:'level-strategist', icon:'fa-briefcase',   msg:'Good foundation in corporate knowledge. Areas for development include Fortune Global 500 rankings and emerging market leaders. Your brand should be equally ambitious.' };
+    if(score<=35) return { label:'Business Expert',       cls:'level-master',     icon:'fa-trophy',      msg:'Strong understanding of major corporations with solid grasp of both Nigerian and global business landscapes. Let\'s build a brand that matches your expertise.' };
+    return               { label:'Corporate Guru',        cls:'level-guru',       icon:'fa-crown',       msg:'Exceptional knowledge of both Nigerian business giants and Fortune Global 500 corporations. You demonstrate mastery of global corporate intelligence. Let\'s build something legendary.' };
+  }
+
+  function renderQuiz(){
+    if(!qs.started&&!qs.done){
+      qc.innerHTML=`<div class="quiz-inner"><div class="quiz-start">
+        <div class="quiz-start-badge"><i class="fa-solid fa-building-columns"></i> Corporate Intelligence Assessment</div>
+        <h3 class="quiz-start-title">Business <em>IQ</em> Quiz</h3>
+        <p class="quiz-start-sub">Test your knowledge of Nigeria's business giants and Fortune Global 500 corporations — from banking powerhouses to global tech leaders.</p>
+        <div class="quiz-stats-row">
+          <div class="quiz-stat"><div class="quiz-stat-num">40</div><div class="quiz-stat-lbl">Questions</div></div>
+          <div class="quiz-divider"></div>
+          <div class="quiz-stat"><div class="quiz-stat-num">30</div><div class="quiz-stat-lbl">Minutes</div></div>
+          <div class="quiz-divider"></div>
+          <div class="quiz-stat"><div class="quiz-stat-num">4</div><div class="quiz-stat-lbl">Categories</div></div>
+        </div>
+        <button class="btn-quiz-start" id="startBtn">
+          <i class="fa-solid fa-play"></i> Begin Assessment
+        </button>
+      </div></div>`;
+      document.getElementById('startBtn').addEventListener('click',startQuiz);
+
+    } else if(qs.started){
+      const q   = questions[qs.cur];
+      const pct = ((qs.cur+1)/40)*100;
+      const m   = Math.floor(qs.timeLeft/60);
+      const s   = qs.timeLeft%60;
+      const sel = qs.answers[qs.cur];
+      const isUrgent = qs.timeLeft < 120;
+      qc.innerHTML=`<div class="quiz-inner">
+        <div class="qpbar-wrap">
+          <div class="qpbar-top">
+            <span class="qpbar-label">Progress</span>
+            <span class="qpbar-frac">${qs.cur+1} / 40</span>
+          </div>
+          <div class="qpbar"><div class="qpfill" style="width:${pct}%"></div></div>
+        </div>
+        <div class="qmeta">
+          <span class="qcat-badge"><i class="fa-solid fa-tag"></i> ${q.cat}</span>
+          <span class="timer-pill${isUrgent?' urgent':''}">
+            <i class="fa-regular fa-clock"></i> ${m}:${s<10?'0'+s:s}
+          </span>
+        </div>
+        <div class="quiz-q">${q.q}</div>
+        <div class="quiz-opts">
+          ${q.opts.map((o,i)=>`
+            <button class="opt${sel===i?' picked':''}" data-i="${i}">
+              <span class="opt-letter">${LETTERS[i]}</span>
+              <span>${o.replace(/^[A-D]\)\s*/,'')}</span>
+              <span class="opt-check"><i class="fa-solid fa-check"></i></span>
+            </button>`).join('')}
+        </div>
+        <button class="btn-quiz-next" id="nextBtn">
+          ${qs.cur<39
+            ?'Next question <i class="fa-solid fa-arrow-right"></i>'
+            :'See my results <i class="fa-solid fa-trophy"></i>'}
+        </button>
+      </div>`;
+      qc.querySelectorAll('.opt').forEach(b=>{
+        b.addEventListener('click',()=>{ qs.answers[qs.cur]=parseInt(b.dataset.i); renderQuiz(); });
+      });
+      document.getElementById('nextBtn').addEventListener('click',nextQ);
+
+    } else {
+      const score = qs.answers.reduce((acc,ans,i)=> acc + (ans === questions[i].ans ? 1 : 0), 0);
+      const lm    = levelMeta(score);
+      const pct   = Math.round((score/40)*100);
+
+      // Per-category breakdown
+      const cats = [
+        { label:'Nigerian Banking & Finance',    range:[0,10] },
+        { label:'Nigerian Industry & Telecoms',  range:[10,20] },
+        { label:'Fortune Global 500 – Top',       range:[20,30] },
+        { label:'Fortune Global 500 – Tech',      range:[30,40] },
+      ];
+      const catBreakdown = cats.map(c => {
+        const correct = qs.answers.slice(c.range[0],c.range[1])
+          .reduce((a,ans,j)=> a+(ans===questions[c.range[0]+j].ans?1:0), 0);
+        return `<div class="cat-score-row">
+          <span class="cat-score-lbl">${c.label}</span>
+          <span class="cat-score-bar-wrap">
+            <span class="cat-score-bar" style="width:${(correct/10)*100}%"></span>
+          </span>
+          <span class="cat-score-num">${correct}/10</span>
+        </div>`;
+      }).join('');
+
+      qc.innerHTML=`<div class="quiz-inner"><div class="result-c">
+        <div class="result-ring">
+          <div>
+            <div class="result-big">${score}<span>/40</span></div>
+          </div>
+        </div>
+        <div class="result-level">Your level: <em>${lm.label}</em></div>
+        <div class="level-badge ${lm.cls}">
+          <i class="fa-solid ${lm.icon}"></i> ${lm.label} · ${pct}%
+        </div>
+        <p class="result-sub">${lm.msg}</p>
+        <div class="cat-breakdown">${catBreakdown}</div>
+        <div class="result-form">
+          <h4>Turn your intelligence into your brand.</h4>
+          <p>Leave your details and we'll reach out with a personalised brand brief.</p>
+          <div class="lead-inputs">
+            <input class="field" type="text"  placeholder="Full name"     id="lName">
+            <input class="field" type="email" placeholder="Email address" id="lEmail">
+            <input class="field" type="text"  placeholder="Company name"  id="lCompany">
+            <div class="form-msg" id="quizMsg"></div>
+            <button class="btn-quiz-start" id="quizLeadBtn" style="width:100%;justify-content:center;">
+              <i class="fa-solid fa-calendar-check"></i> Book a Branding Call
+            </button>
+          </div>
+        </div>
+      </div></div>`;
+      attachBooking(qc);
+
+      /* Quiz lead form submit */
+      const quizLeadBtn = document.getElementById('quizLeadBtn');
+      if(quizLeadBtn){
+        quizLeadBtn.addEventListener('click', async function(){
+          const n = (document.getElementById('lName')||{value:''}).value.trim();
+          const m = (document.getElementById('lEmail')||{value:''}).value.trim();
+          const co= (document.getElementById('lCompany')||{value:''}).value.trim();
+          const msgEl = document.getElementById('quizMsg');
+          if(!n||!m){ showFormMsg(msgEl,'Please enter your name and email.','error'); return; }
+          setFormState(null, this, msgEl, true);
+          this.textContent='Sending…';
+          try{
+            const res = await fetch('https://formspree.io/f/xnndpzwg',{
+              method:'POST',
+              headers:{'Content-Type':'application/json','Accept':'application/json'},
+              body:JSON.stringify({ name:n, email:m, company:co, _subject:'Business IQ Quiz Lead – QuivaPro', level: document.querySelector('.result-level')?.textContent||'' })
+            });
+            if(res.ok){
+              showFormMsg(msgEl,'✓ We\'ll be in touch soon!','success');
+              showToast('Thanks '+n+'! We\'ll be in touch.','success');
+              this.textContent='Submitted ✓';
+            } else {
+              showFormMsg(msgEl,'Something went wrong. Please try again.','error');
+              this.innerHTML='Book a Branding Call &rarr;';
+              this.classList.remove('btn-loading'); this.disabled=false;
+            }
+          } catch(err){
+            showFormMsg(msgEl,'Network error — please try again.','error');
+            this.innerHTML='Book a Branding Call &rarr;';
+            this.classList.remove('btn-loading'); this.disabled=false;
+          }
+        });
+      }
+    }
+  }
+
+  function startQuiz(){
+    qs={ started:true,cur:0,answers:Array(40).fill(null),timeLeft:1800,timer:null,done:false };
+    qs.timer=setInterval(()=>{
+      if(qs.timeLeft<=0){ clearInterval(qs.timer);qs.started=false;qs.done=true;renderQuiz(); }
+      else{ qs.timeLeft--;renderQuiz(); }
+    },1000);
+    renderQuiz();
+  }
+
+  function nextQ(){
+    if(qs.cur<39){ qs.cur++;renderQuiz(); }
+    else{ clearInterval(qs.timer);qs.started=false;qs.done=true;renderQuiz(); }
+  }
+
+  renderQuiz();
+
+})();
+</script>
+
+<script>
+/* ── Source protection ───────────────────── */
+(function(){
+  // 1. Disable right-click context menu
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+
+  // 2. Disable common keyboard shortcuts
+  document.addEventListener('keydown', function(e){
+    const k = e.key.toLowerCase();
+    // Ctrl/Cmd + U (view source), Ctrl/Cmd + S (save), Ctrl/Cmd + A (select all)
+    // Ctrl/Cmd + Shift + I/J/C (devtools), F12 (devtools)
+    if(
+      (e.ctrlKey || e.metaKey) && ['u','s','a'].includes(k) ||
+      (e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c','k'].includes(k) ||
+      e.key === 'F12'
+    ){
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // 3. Detect DevTools open (size heuristic) and blur content
+  let devOpen = false;
+  const threshold = 160;
+  setInterval(function(){
+    const widthDiff  = window.outerWidth  - window.innerWidth  > threshold;
+    const heightDiff = window.outerHeight - window.innerHeight > threshold;
+    if((widthDiff || heightDiff) && !devOpen){
+      devOpen = true;
+      document.body.style.filter = 'blur(8px)';
+    } else if(!widthDiff && !heightDiff && devOpen){
+      devOpen = false;
+      document.body.style.filter = '';
+    }
+  }, 800);
+
+  // 4. Disable text selection on the page (CSS approach)
+  const noSelect = document.createElement('style');
+  noSelect.textContent = `
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    /* Allow selection in inputs and textareas */
+    input, textarea, [contenteditable] {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      user-select: text;
+    }
+  `;
+  document.head.appendChild(noSelect);
+
+  // 5. Disable drag
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
