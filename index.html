@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>QuivaPro – Strategic Branding & Brand Infrastructure for Modern Businesses</title>
+  <title>Quivapro – Strategic Branding & Brand Infrastructure for Modern Businesses</title>
   <meta name="description" content="Quivapro is a brand strategy and diagnosis company in Nigeria. We help businesses build clear, powerful brand infrastructure that drives growth. Brand audits, positioning, messaging clarity.">
   <meta name="keywords" content="brand strategy, brand diagnosis, brand infrastructure, Nigeria, startup branding, messaging clarity, brand audit, Quivapro">
   <meta name="author" content="Quivapro">
@@ -17,12 +17,12 @@
   <meta name="twitter:description" content="Brand strategy and diagnosis company in Nigeria. Build brand infrastructure that drives growth.">
   <meta name="twitter:image" content="https://quivapro.com/twitter-image.jpg">
   <link rel="canonical" href="https://quivapro.com">
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="QuivaPro Favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Fonts: Space Grotesk Medium (Power Med) + Bizmo ExtraLight (with fallback for numbers) -->
+  <!-- Fonts: Space Grotesk Medium (Power Med) + Bizmo ExtraLight -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
@@ -295,11 +295,10 @@
 
     @media (max-width: 480px) {
       .btn-header {
-        display: none; /* hide on very small screens, keep only hamburger and theme */
+        display: none;
       }
     }
 
-    /* Dark mode header button */
     body.dark .btn-header {
       border-color: rgba(255,255,255,0.2);
       color: var(--dark-gray);
@@ -789,211 +788,233 @@
       margin-bottom: 1.5rem;
     }
 
-    /* ---------- QUIZ SECTION (interactive) ---------- */
-/* ---------- QUIZ SECTION (Power Med for headings/text) ---------- */
-.quiz-wrap {
-  max-width: 800px;
-  margin: 0 auto;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 2rem;
-}
+    /* ---------- QUIZ SECTION (FULL POWER MED) ---------- */
+    .quiz-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-@media (max-width: 768px) {
-  .quiz-wrap {
-    padding: 1.5rem;
-  }
-}
+    @media (max-width: 768px) {
+      .quiz-wrap {
+        padding: 1.5rem;
+      }
+    }
 
-.quiz-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-.quiz-header h2 {
-  margin-bottom: 0.5rem;
-  font-family: var(--font-headline); /* Power Med */
-}
+    .quiz-header h2 {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
 
-.quiz-header .label {
-  font-family: var(--font-headline); /* Power Med */
-  font-weight: 500;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--mid-gray);
-}
+    .quiz-header .label {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--mid-gray);
+    }
 
-.quiz-stats {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
+    .quiz-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
 
-.quiz-stat {
-  text-align: center;
-}
+    .quiz-stat {
+      text-align: center;
+    }
 
-.quiz-stat-num {
-  font-size: 2rem;
-  font-weight: 500;
-  font-family: var(--font-number);
-  color: var(--black);
-}
+    .quiz-stat-num {
+      font-size: 2rem;
+      font-weight: 500;
+      font-family: var(--font-number);
+      color: var(--black);
+    }
 
-.quiz-stat-lbl {
-  font-size: 0.75rem;
-  color: var(--mid-gray);
-  text-transform: uppercase;
-  font-family: var(--font-body); /* keep body for labels */
-}
+    .quiz-stat-lbl {
+      font-size: 0.75rem;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-.quiz-instructions {
-  background: var(--bg);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border: 1px solid var(--border);
-}
+    .quiz-instructions {
+      background: var(--bg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-.quiz-instructions h4 {
-  margin-bottom: 1rem;
-  font-family: var(--font-headline);
-}
+    .quiz-instructions h4 {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
 
-.quiz-categories {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
+    .quiz-instructions ul {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
 
-@media (max-width: 480px) {
-  .quiz-categories {
-    grid-template-columns: 1fr;
-  }
-}
+    .quiz-categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
 
-.quiz-categories div {
-  font-family: var(--font-body); /* descriptive text */
-}
+    @media (max-width: 480px) {
+      .quiz-categories {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.answer-sheet {
-  background: var(--bg);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border: 1px solid var(--border);
-  overflow-x: auto;
-}
+    .quiz-categories div {
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-.answer-sheet table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 400px;
-}
+    .answer-sheet {
+      background: var(--bg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
 
-.answer-sheet td {
-  padding: 0.5rem;
-  text-align: center;
-  border: 1px solid var(--border);
-  font-size: 0.9rem;
-  font-family: var(--font-number);
-  color: var(--black);
-}
+    .answer-sheet table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 400px;
+    }
 
-.answer-sheet .row-label {
-  font-weight: 500;
-  background: var(--surface);
-  font-family: var(--font-headline);
-}
+    .answer-sheet td {
+      padding: 0.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-family: var(--font-number);
+      color: var(--black);
+    }
 
-.quiz-question {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-}
+    .answer-sheet .row-label {
+      font-weight: 500;
+      background: var(--surface);
+      font-family: var(--font-headline);
+    }
 
-.question-text {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  font-family: var(--font-headline);
-}
+    .quiz-question {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-.options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
+    .question-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      font-family: var(--font-headline);
+    }
 
-@media (max-width: 600px) {
-  .options {
-    grid-template-columns: 1fr;
-  }
-}
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
 
-.option {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  transition: background 0.2s;
-  font-size: 0.95rem;
-}
+    @media (max-width: 600px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.option:hover {
-  background: var(--surface);
-}
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 0.95rem;
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-.option.selected {
-  background: var(--black);
-  color: var(--bg);
-  border-color: var(--black);
-}
+    .option:hover {
+      background: var(--surface);
+    }
 
-.option-letter {
-  font-weight: 500;
-  width: 1.5rem;
-  font-family: var(--font-headline);
-}
+    .option.selected {
+      background: var(--black);
+      color: var(--bg);
+      border-color: var(--black);
+    }
 
-.quiz-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
+    .option-letter {
+      font-weight: 500;
+      width: 1.5rem;
+      font-family: var(--font-headline);
+    }
 
-.quiz-results {
-  text-align: center;
-  padding: 2rem;
-}
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
 
-.quiz-results .label {
-  font-family: var(--font-headline);
-}
+    .quiz-results {
+      text-align: center;
+      padding: 2rem;
+    }
 
-.score-display {
-  font-size: 3rem;
-  font-weight: 500;
-  font-family: var(--font-number);
-  margin: 1rem 0;
-}
+    .quiz-results .label {
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
-.level-badge {
-  display: inline-block;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid var(--border);
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
+    .score-display {
+      font-size: 3rem;
+      font-weight: 500;
+      font-family: var(--font-number);
+      margin: 1rem 0;
+    }
 
-.quiz-results h3 {
-  font-family: var(--font-headline);
-}
+    .level-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
+
+    .quiz-results h3 {
+      font-family: var(--font-headline);
+      font-weight: 500;
+    }
 
     /* ---------- WHY CHOOSE ---------- */
     .why-grid {
@@ -1182,7 +1203,6 @@
       border-color: var(--black);
     }
 
-    /* Dark mode back to top */
     body.dark #btt {
       border-color: rgba(255,255,255,0.2);
       color: var(--mid-gray);
@@ -1855,11 +1875,11 @@
       </div>
     </section>
 
-    <!-- QUIZ SECTION (interactive) -->
+    <!-- QUIZ SECTION (FULL POWER MED) -->
     <section id="quiz" style="background: var(--surface);">
       <div class="container">
         <div class="quiz-wrap fade-up" id="quizContainer">
-          <!-- Quiz will be rendered here by JavaScript -->
+          <!-- Quiz will be rendered by JavaScript -->
         </div>
       </div>
     </section>
@@ -2025,7 +2045,6 @@
       window.addEventListener('load', function() {
         setTimeout(function() {
           document.getElementById('loading-screen').classList.add('fade-out');
-          // Check if user has already submitted popup
           if (!localStorage.getItem('popupSubmitted')) {
             setTimeout(function() {
               document.getElementById('popup').classList.add('active');
@@ -2099,12 +2118,10 @@
       const popupClose = document.getElementById('popupClose');
 
       function openPopup() {
-        // Only open if user hasn't submitted before
         if (!localStorage.getItem('popupSubmitted')) {
           popup.classList.add('active');
           document.body.style.overflow = 'hidden';
         } else {
-          // Optionally show a toast that they've already submitted
           const toast = document.getElementById('toast');
           toast.textContent = 'You already submitted – we\'ll be in touch!';
           toast.classList.add('show');
@@ -2202,7 +2219,6 @@
         if (success) {
           msgEl.textContent = '✓ Received! We\'ll be in touch soon.';
           msgEl.className = 'form-msg success show';
-          // Mark that user has submitted
           localStorage.setItem('popupSubmitted', 'true');
           e.target.reset();
           setTimeout(closePopup, 2000);
@@ -2296,7 +2312,6 @@
       // ---------- QUIZ ----------
       const quizContainer = document.getElementById('quizContainer');
 
-      // Quiz data (40 questions as provided)
       const questions = [
         // Category 1: Nigerian Banking & Finance
         { cat: 'Nigerian Banking & Finance', q: 'Which Nigerian bank has been ranked as the most valuable brand in Nigeria for four consecutive years as of 2025?', opts: ['Zenith Bank', 'Access Bank', 'First Bank of Nigeria', 'United Bank for Africa'], ans: 1 },
@@ -2347,12 +2362,11 @@
         { cat: 'Fortune Global 500 – Tech & Industry', q: 'Which country leads with the most companies headed by women CEOs in the Fortune Global 500?', opts: ['China', 'France', 'United Kingdom', 'United States'], ans: 3 },
       ];
 
-      // Answer key (1-indexed)
       const answerKey = [
-        1,1,2,2,2,1,1,2,2,1, // 1-10
-        1,1,3,1,1,1,2,1,1,1, // 11-20
-        1,1,1,2,1,1,1,2,2,1, // 21-30
-        2,2,1,1,1,1,1,2,1,3  // 31-40
+        1,1,2,2,2,1,1,2,2,1,
+        1,1,3,1,1,1,2,1,1,1,
+        1,1,1,2,1,1,1,2,2,1,
+        2,2,1,1,1,1,1,2,1,3
       ];
 
       let state = {
@@ -2365,7 +2379,6 @@
 
       function renderQuiz() {
         if (!state.started && !state.showResults) {
-          // Start screen
           quizContainer.innerHTML = `
             <div class="quiz-header">
               <span class="label">CORPORATE INTELLIGENCE ASSESSMENT</span>
@@ -2411,7 +2424,6 @@
             renderQuiz();
           });
         } else if (state.started && !state.showResults) {
-          // Show question
           const q = questions[state.current];
           const letters = ['A', 'B', 'C', 'D'];
           const selected = state.answers[state.current];
@@ -2464,7 +2476,6 @@
               state.current++;
               renderQuiz();
             } else {
-              // Calculate score
               let correct = 0;
               state.answers.forEach((ans, i) => {
                 if (ans !== null && ans === answerKey[i]-1) correct++;
@@ -2475,7 +2486,6 @@
             }
           });
         } else {
-          // Show results
           const score = state.score;
           let level = '';
           let levelDesc = '';
