@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Quivapro – Strategic Branding & Brand Infrastructure for Modern Businesses</title>
+  <title>QuivaPro – Strategic Branding & Brand Infrastructure for Modern Businesses</title>
   <meta name="description" content="Quivapro is a brand strategy and diagnosis company in Nigeria. We help businesses build clear, powerful brand infrastructure that drives growth. Brand audits, positioning, messaging clarity.">
   <meta name="keywords" content="brand strategy, brand diagnosis, brand infrastructure, Nigeria, startup branding, messaging clarity, brand audit, Quivapro">
   <meta name="author" content="Quivapro">
@@ -790,185 +790,210 @@
     }
 
     /* ---------- QUIZ SECTION (interactive) ---------- */
-    .quiz-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem;
-    }
+/* ---------- QUIZ SECTION (Power Med for headings/text) ---------- */
+.quiz-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
 
-    @media (max-width: 768px) {
-      .quiz-wrap {
-        padding: 1.5rem;
-      }
-    }
+@media (max-width: 768px) {
+  .quiz-wrap {
+    padding: 1.5rem;
+  }
+}
 
-    .quiz-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+.quiz-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-    .quiz-header h2 {
-      margin-bottom: 0.5rem;
-    }
+.quiz-header h2 {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-headline); /* Power Med */
+}
 
-    .quiz-stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
+.quiz-header .label {
+  font-family: var(--font-headline); /* Power Med */
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--mid-gray);
+}
 
-    .quiz-stat {
-      text-align: center;
-    }
+.quiz-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
 
-    .quiz-stat-num {
-      font-size: 2rem;
-      font-weight: 500;
-      font-family: var(--font-number);
-      color: var(--black);
-    }
+.quiz-stat {
+  text-align: center;
+}
 
-    .quiz-stat-lbl {
-      font-size: 0.75rem;
-      color: var(--mid-gray);
-      text-transform: uppercase;
-    }
+.quiz-stat-num {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: var(--font-number);
+  color: var(--black);
+}
 
-    .quiz-instructions {
-      background: var(--bg);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border: 1px solid var(--border);
-    }
+.quiz-stat-lbl {
+  font-size: 0.75rem;
+  color: var(--mid-gray);
+  text-transform: uppercase;
+  font-family: var(--font-body); /* keep body for labels */
+}
 
-    .quiz-instructions h4 {
-      margin-bottom: 1rem;
-    }
+.quiz-instructions {
+  background: var(--bg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
 
-    .quiz-categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
+.quiz-instructions h4 {
+  margin-bottom: 1rem;
+  font-family: var(--font-headline);
+}
 
-    @media (max-width: 480px) {
-      .quiz-categories {
-        grid-template-columns: 1fr;
-      }
-    }
+.quiz-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
 
-    .answer-sheet {
-      background: var(--bg);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border: 1px solid var(--border);
-      overflow-x: auto;
-    }
+@media (max-width: 480px) {
+  .quiz-categories {
+    grid-template-columns: 1fr;
+  }
+}
 
-    .answer-sheet table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 400px;
-    }
+.quiz-categories div {
+  font-family: var(--font-body); /* descriptive text */
+}
 
-    .answer-sheet td {
-      padding: 0.5rem;
-      text-align: center;
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
-      font-family: var(--font-number);
-      color: var(--black);
-    }
+.answer-sheet {
+  background: var(--bg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
 
-    .answer-sheet .row-label {
-      font-weight: 500;
-      background: var(--surface);
-      font-family: var(--font-headline);
-    }
+.answer-sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+}
 
-    .quiz-question {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--bg);
-      border: 1px solid var(--border);
-    }
+.answer-sheet td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-family: var(--font-number);
+  color: var(--black);
+}
 
-    .question-text {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
-      font-family: var(--font-headline);
-    }
+.answer-sheet .row-label {
+  font-weight: 500;
+  background: var(--surface);
+  font-family: var(--font-headline);
+}
 
-    .options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-    }
+.quiz-question {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
 
-    @media (max-width: 600px) {
-      .options {
-        grid-template-columns: 1fr;
-      }
-    }
+.question-text {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-family: var(--font-headline);
+}
 
-    .option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.2s;
-      font-size: 0.95rem;
-    }
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
 
-    .option:hover {
-      background: var(--surface);
-    }
+@media (max-width: 600px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+}
 
-    .option.selected {
-      background: var(--black);
-      color: var(--bg);
-      border-color: var(--black);
-    }
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 0.95rem;
+}
 
-    .option-letter {
-      font-weight: 500;
-      width: 1.5rem;
-      font-family: var(--font-headline);
-    }
+.option:hover {
+  background: var(--surface);
+}
 
-    .quiz-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-    }
+.option.selected {
+  background: var(--black);
+  color: var(--bg);
+  border-color: var(--black);
+}
 
-    .quiz-results {
-      text-align: center;
-      padding: 2rem;
-    }
+.option-letter {
+  font-weight: 500;
+  width: 1.5rem;
+  font-family: var(--font-headline);
+}
 
-    .score-display {
-      font-size: 3rem;
-      font-weight: 500;
-      font-family: var(--font-number);
-      margin: 1rem 0;
-    }
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
 
-    .level-badge {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      border: 1px solid var(--border);
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
+.quiz-results {
+  text-align: center;
+  padding: 2rem;
+}
+
+.quiz-results .label {
+  font-family: var(--font-headline);
+}
+
+.score-display {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: var(--font-number);
+  margin: 1rem 0;
+}
+
+.level-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-results h3 {
+  font-family: var(--font-headline);
+}
 
     /* ---------- WHY CHOOSE ---------- */
     .why-grid {
