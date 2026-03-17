@@ -285,7 +285,7 @@
       font-weight: 200;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
       white-space: nowrap;
     }
 
@@ -297,6 +297,16 @@
       .btn-header {
         display: none; /* hide on very small screens, keep only hamburger and theme */
       }
+    }
+
+    /* Dark mode header button */
+    body.dark .btn-header {
+      border-color: rgba(255,255,255,0.2);
+      color: var(--dark-gray);
+    }
+    body.dark .btn-header:hover {
+      border-color: #fff;
+      color: #fff;
     }
 
     .hamburger {
@@ -819,6 +829,7 @@
       font-size: 2rem;
       font-weight: 500;
       font-family: var(--font-number);
+      color: var(--black);
     }
 
     .quiz-stat-lbl {
@@ -871,6 +882,7 @@
       border: 1px solid var(--border);
       font-size: 0.9rem;
       font-family: var(--font-number);
+      color: var(--black);
     }
 
     .answer-sheet .row-label {
@@ -1129,7 +1141,7 @@
       cursor: pointer;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s, border-color 0.2s;
+      transition: opacity 0.3s, border-color 0.2s, color 0.2s;
       z-index: 99;
       display: flex;
       align-items: center;
@@ -1143,6 +1155,16 @@
 
     #btt:hover {
       border-color: var(--black);
+    }
+
+    /* Dark mode back to top */
+    body.dark #btt {
+      border-color: rgba(255,255,255,0.2);
+      color: var(--mid-gray);
+    }
+    body.dark #btt:hover {
+      border-color: #fff;
+      color: #fff;
     }
 
     /* ---------- LOADING SCREEN ---------- */
