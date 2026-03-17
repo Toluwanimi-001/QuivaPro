@@ -4878,32 +4878,27 @@
       color: var(--black);
       font-size: 0.9rem;
     }
+/* ---------- PROBLEM (single list, X icons, no lines) ---------- */
+.problem-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
 
-    /* ---------- PROBLEM (single list) ---------- */
-    .problem-list {
-      list-style: none;
-      margin-top: 1.5rem;
-    }
+.problem-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--dark-gray);
+}
 
-    .problem-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 1rem;
-      color: var(--dark-gray);
-    }
-
-    .problem-list li:last-child {
-      border-bottom: none;
-    }
-
-    .problem-list i {
-      color: var(--black);
-      font-size: 0.9rem;
-      width: 1.2rem;
-    }
+.problem-list i {
+  color: var(--black);
+  font-size: 1rem;
+  width: 1.2rem;
+  flex-shrink: 0;
+}
 
     /* ---------- SERVICES ---------- */
     .services-grid {
@@ -7776,26 +7771,21 @@
         </div>
       </div>
     </section>
-
-    <!-- PROBLEM -->
-    <section id="problem" style="background: var(--surface);">
-      <div class="container">
-        <div class="label fade-up">The Problem</div>
-        <h2 class="fade-up delay-1">Most Businesses Don't Have a Branding Problem<br>They Have a Clarity Problem</h2>
-        <p class="body-large fade-up delay-2" style="margin-top: 1.5rem;">If your brand:</p>
-        <div class="problem-grid fade-up delay-3">
-          <div class="problem-item">
-            <p class="body">• Doesn't stand out in your industry</p>
-            <p class="body">• Struggles to attract the right customers</p>
-          </div>
-          <div class="problem-item">
-            <p class="body">• Looks inconsistent across platforms</p>
-            <p class="body">• Can't confidently pitch investors</p>
-          </div>
-        </div>
-        <p class="body-large fade-up" style="margin-top: 2rem;">Then your brand foundation is broken. A logo alone won't fix it. You need brand infrastructure.</p>
-      </div>
-    </section>
+<!-- PROBLEM (single list, X icons, no lines) -->
+<section id="problem" style="background: var(--surface);">
+  <div class="container">
+    <div class="label fade-up">The Problem</div>
+    <h2 class="fade-up delay-1">Most Businesses Don't Have a Branding Problem<br>They Have a Clarity Problem</h2>
+    <p class="body-large fade-up delay-2" style="margin-top: 1.5rem;">If your brand:</p>
+    <ul class="problem-list fade-up delay-3">
+      <li><i class="fa-regular fa-xmark"></i> Doesn't stand out in your industry</li>
+      <li><i class="fa-regular fa-xmark"></i> Struggles to attract the right customers</li>
+      <li><i class="fa-regular fa-xmark"></i> Looks inconsistent across platforms</li>
+      <li><i class="fa-regular fa-xmark"></i> Can't confidently pitch investors</li>
+    </ul>
+    <p class="body-large fade-up" style="margin-top: 2rem;">Then your brand foundation is broken. A logo alone won't fix it. You need brand infrastructure.</p>
+  </div>
+            </section>
 
     <!-- MEET QUIVAPRO -->
     <section id="about">
