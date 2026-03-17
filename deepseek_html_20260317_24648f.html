@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>QuivaPro – Strategic Branding & Brand Infrastructure for Modern Businesses</title>
+  <meta name="description" content="QuivaPro is a brand strategy and diagnosis company in Nigeria. We help businesses build clear, powerful brand infrastructure that drives growth.">
+  <meta name="keywords" content="brand strategy, brand diagnosis, brand infrastructure, Nigeria, startup branding, messaging clarity, brand audit, QuivaPro">
+  <meta name="author" content="QuivaPro">
+  <link rel="canonical" href="https://quivapro.com">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="QuivaPro Favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Fonts: simple sans-serif (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+
+  <!-- Icons (minimal) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ---------- RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-100: #f8f8f8;
+      --gray-200: #eaeaea;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-800: #262626;
+      --gray-900: #171717;
+
+      --max-width: 1200px;
+      --gutter: 2rem;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body.dark {
+      --black: #ffffff;
+      --white: #0a0a0a;
+      --gray-100: #1a1a1a;
+      --gray-200: #2a2a2a;
+      --gray-300: #3a3a3a;
+      --gray-400: #5a5a5a;
+      --gray-500: #7a7a7a;
+      --gray-600: #9a9a9a;
+      --gray-700: #b1b1b1;
+      --gray-800: #c8c8c8;
+      --gray-900: #e5e5e5;
+    }
+
+    /* ---------- BASE ---------- */
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--gray-900);
+      line-height: 1.6;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s, color 0.2s;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      font-family: var(--font-sans);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .body-large {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .body {
+      font-size: 1rem;
+      color: var(--gray-600);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-500);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    section {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 0;
+      }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* ---------- HEADER (refined alignment) ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: transparent;
+      transition: background 0.3s, padding 0.3s;
+      padding: 1.5rem 0;
+    }
+
+    header.scrolled {
+      background: var(--white);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    body.dark header.scrolled {
+      background: var(--gray-900);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; /* allows wrapping on very small screens */
+    }
+
+    .logo img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+    }
+
+    .nav a {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--black);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Mobile adjustments: tighter gap, smaller button */
+    @media (max-width: 480px) {
+      .header-right {
+        gap: 0.5rem;
+      }
+      .btn-header {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    .theme-toggle {
+      color: var(--gray-600);
+      font-size: 1.2rem;
+      padding: 0.5rem;
+    }
+
+    .theme-toggle:hover {
+      color: var(--black);
+    }
+
+    .btn-header {
+      border: 1px solid var(--gray-300);
+      padding: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-header:hover {
+      border-color: var(--black);
+    }
+
+    body.dark .btn-header {
+      border-color: rgba(255,255,255,0.3);
+      color: #ffffff;
+    }
+
+    body.dark .btn-header:hover {
+      border-color: #ffffff;
+    }
+
+    /* Mobile menu button: now text */
+    .mobile-menu-btn {
+      display: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-600);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--gray-300);
+      background: transparent;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .mobile-menu-btn:hover {
+      border-color: var(--black);
+      color: var(--black);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: inline-block;
+      }
+    }
+
+    /* ---------- DROPDOWN MENU (replaces side drawer) ---------- */
+    .dropdown {
+      position: absolute;
+      top: 100%; /* right below header */
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      z-index: 99;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      visibility: hidden; /* prevents interaction when hidden */
+    }
+
+    .dropdown.open {
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .dropdown-links {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem var(--gutter);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .dropdown-links a {
+      color: var(--gray-900);
+      font-size: 1.1rem;
+      font-weight: 300;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-200);
+      transition: color 0.2s;
+    }
+
+    .dropdown-links a:hover {
+      color: var(--black);
+    }
+
+    .dropdown-links a:last-child {
+      border-bottom: none;
+    }
+
+    /* Remove old drawer styles */
+    .drawer-overlay, .drawer, .drawer-header, .drawer-cta {
+      display: none;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid var(--gray-300);
+      background: transparent;
+      color: var(--gray-900);
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      border-color: var(--black);
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .btn-primary:hover {
+      background: var(--gray-800);
+      border-color: var(--gray-800);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 10rem 0 4rem;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+    }
+
+    .hero .body-large {
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .trust-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .trust-items span {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .trust-items i {
+      color: var(--black);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- WHAT WE DO ---------- */
+    .what-item {
+      border-top: 1px solid var(--gray-200);
+      padding-top: 2rem;
+    }
+
+    .what-item p {
+      color: var(--gray-600);
+    }
+
+    /* ---------- STATS ---------- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin: 3rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stat-item {
+      border-top: 1px solid var(--gray-200);
+      padding-top: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+
+    .stat-item p {
+      color: var(--gray-600);
+    }
+
+    /* ---------- QUOTE ---------- */
+    .quote-block {
+      max-width: 800px;
+      margin: 4rem auto;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--gray-900);
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-author {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gray-500);
+    }
+
+    /* ---------- FOUNDER ---------- */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+      padding: 3rem 0;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    @media (max-width: 768px) {
+      .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .founder-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .founder-title {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    .founder-quote {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--gray-700);
+      line-height: 1.7;
+    }
+
+    /* ---------- PRICING ---------- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pricing-card {
+      border: 1px solid var(--gray-200);
+      padding: 2rem;
+      background: var(--white);
+    }
+
+    .pricing-card.recommended {
+      border-color: var(--black);
+    }
+
+    .recommended-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-name {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-price small {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--gray-500);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .pricing-features li {
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-features i {
+      color: var(--black);
+      font-size: 0.8rem;
+    }
+
+    .pricing-outcome,
+    .pricing-bestfor {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      margin: 1rem 0;
+    }
+
+    .pricing-outcome strong,
+    .pricing-bestfor strong {
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .pricing-btn {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--gray-300);
+      background: transparent;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .pricing-btn:hover {
+      border-color: var(--black);
+    }
+
+    .pricing-btn.recommended {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .decision-helper {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      padding: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .decision-helper p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------- QUIZ ---------- */
+    .quiz-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 2rem;
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .quiz-stat-num {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    .quiz-stat-lbl {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+    }
+
+    .quiz-instructions {
+      background: var(--white);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--gray-200);
+    }
+
+    .quiz-instructions h4 {
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-instructions ul {
+      margin-left: 1.5rem;
+      color: var(--gray-600);
+    }
+
+    .quiz-categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 480px) {
+      .quiz-categories {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .answer-sheet {
+      background: var(--white);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--gray-200);
+      overflow-x: auto;
+    }
+
+    .answer-sheet table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 400px;
+    }
+
+    .answer-sheet td {
+      padding: 0.5rem;
+      text-align: center;
+      border: 1px solid var(--gray-200);
+      font-size: 0.9rem;
+    }
+
+    .answer-sheet .row-label {
+      font-weight: 500;
+      background: var(--gray-100);
+    }
+
+    .quiz-question {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+    }
+
+    .question-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid var(--gray-200);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .option:hover {
+      background: var(--gray-100);
+    }
+
+    .option.selected {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .option-letter {
+      font-weight: 500;
+      width: 1.5rem;
+    }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .quiz-results {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .score-display {
+      font-size: 3rem;
+      font-weight: 500;
+      margin: 1rem 0;
+    }
+
+    .level-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--gray-200);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ---------- WHY CHOOSE ---------- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .why-item {
+      border-top: 1px solid var(--gray-200);
+      padding-top: 2rem;
+    }
+
+    .why-item h3 {
+      font-weight: 500;
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-list {
+      max-width: 800px;
+      margin: 3rem auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      font-weight: 400;
+    }
+
+    .faq-question i {
+      transition: transform 0.3s;
+    }
+
+    .faq-question.open i {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray-600);
+    }
+
+    .faq-answer.open {
+      max-height: 300px;
+      padding-bottom: 1.25rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--gray-100);
+      border-top: 1px solid var(--gray-200);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 968px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-logo img {
+      height: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo p {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      max-width: 250px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col a {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--black);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-600);
+      transition: border-color 0.2s;
+    }
+
+    .social-links a:hover {
+      border-color: var(--black);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      gap: 1rem;
+    }
+
+    /* ---------- BACK TO TOP ---------- */
+    #btt {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid var(--gray-300);
+      background: var(--white);
+      color: var(--gray-600);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, border-color 0.2s;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #btt.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #btt:hover {
+      border-color: var(--black);
+    }
+
+    /* ---------- LOADING SCREEN ---------- */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s;
+    }
+
+    #loading-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loading-logo img {
+      height: 4rem;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* ---------- TOAST ---------- */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--black);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--gray-300);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 1001;
+      white-space: nowrap;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ---------- POPUP ---------- */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .popup-card {
+      background: var(--white);
+      max-width: 500px;
+      width: 100%;
+      padding: 3rem;
+      border: 1px solid var(--gray-200);
+    }
+
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .popup-header img {
+      height: 2rem;
+    }
+
+    .popup-close {
+      font-size: 1.5rem;
+      color: var(--gray-600);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .field {
+      width: 100%;
+      padding: 0.75rem 0;
+      border: none;
+      border-bottom: 1px solid var(--gray-300);
+      background: transparent;
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      color: var(--gray-900);
+      transition: border-color 0.2s;
+    }
+
+    .field:focus {
+      outline: none;
+      border-bottom-color: var(--black);
+    }
+
+    textarea.field {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-msg {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-msg.show {
+      display: block;
+    }
+
+    .form-msg.success {
+      background: rgba(0,0,0,0.05);
+      color: var(--black);
+      border: 1px solid var(--gray-200);
+    }
+
+    .form-msg.error {
+      background: rgba(255,0,0,0.05);
+      color: #c00;
+      border: 1px solid #c00;
+    }
+
+    /* ---------- PAYMENT MODAL ---------- */
+    #payment-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    #payment-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .payment-card {
+      background: var(--white);
+      max-width: 550px;
+      width: 100%;
+      padding: 3rem;
+      border: 1px solid var(--gray-200);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .payment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .payment-header h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .payment-close {
+      font-size: 1.5rem;
+      color: var(--gray-600);
+    }
+
+    .order-summary {
+      background: var(--gray-100);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--gray-200);
+    }
+
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+    }
+
+    .bank-details {
+      background: var(--gray-100);
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px dashed var(--gray-400);
+    }
+
+    .bank-details h4 {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-200);
+      flex-wrap: wrap;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      width: 100px;
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    .detail-value {
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    .copy-btn {
+      margin-left: auto;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--gray-300);
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .payment-instructions {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: var(--gray-100);
+      font-size: 0.95rem;
+    }
+
+    .payment-instructions ol {
+      margin-left: 1.5rem;
+      color: var(--gray-600);
+    }
+
+    .file-upload {
+      border: 1px dashed var(--gray-400);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 1rem 0;
+      cursor: pointer;
+    }
+
+    #fileChosen {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .payment-secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.74rem;
+      color: var(--gray-500);
+      margin-top: 0.875rem;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-logo">
+      <img src="QuivaPro-loading-screen.png" alt="QuivaPro">
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#home" class="logo">
+          <img src="QuivaPro Logo.png" alt="QuivaPro">
+        </a>
+
+        <nav class="nav">
+          <a href="#home">Home</a>
+          <a href="#about">About us</a>
+          <a href="#businessIQQuiz">Games corner</a>
+          <a href="#services">Product/services</a>
+          <a href="#faq">FAQs</a>
+          <a href="#contact">Help</a>
+        </nav>
+
+        <div class="header-right">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fa-regular fa-moon"></i>
+          </button>
+          <button class="btn-header booking-trigger">Book a Call</button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">Menu</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dropdown Menu (replaces drawer) -->
+  <div class="dropdown" id="dropdown">
+    <div class="dropdown-links">
+      <a href="#home">Home</a>
+      <a href="#about">About us</a>
+      <a href="#businessIQQuiz">Games corner</a>
+      <a href="#services">Product/services</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Help</a>
+    </div>
+  </div>
+
+  <!-- Consultation Popup (unchanged) -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-card">
+      <div class="popup-header">
+        <img src="QuivaPro Logo.png" alt="QuivaPro">
+        <button class="popup-close" id="popupClose">&times;</button>
+      </div>
+      <h3>Book a Free Consultation</h3>
+      <p class="body" style="margin-bottom: 2rem;">Share your details and we'll craft a strategy for you.</p>
+      <form id="popupForm">
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Full name *" id="popupName" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="email" placeholder="Email address *" id="popupEmail" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="tel" placeholder="Phone number *" id="popupPhone" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Country *" id="popupCountry" required>
+        </div>
+        <div class="form-group">
+          <textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea>
+        </div>
+        <div class="form-msg" id="popupMsg"></div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- PAYMENT MODAL (unchanged) -->
+  <div id="payment-overlay">
+    <div class="payment-card">
+      <div class="payment-header">
+        <h3>Complete Your Purchase</h3>
+        <button class="payment-close" onclick="closePaymentModal()">&times;</button>
+      </div>
+
+      <div class="order-summary" id="orderSummary">
+        <div class="order-row">
+          <span>Selected Package:</span>
+          <span id="selectedPackageName">Premium Brand Infrastructure Diagnosis</span>
+        </div>
+        <div class="order-row">
+          <span>Price:</span>
+          <span id="selectedPackagePrice">$200</span>
+        </div>
+      </div>
+
+      <div class="bank-details">
+        <h4>BANK TRANSFER INFORMATION</h4>
+        <div class="detail-row">
+          <span class="detail-label">Account Number:</span>
+          <span class="detail-value" id="accountNumber">9060335653</span>
+          <button class="copy-btn" onclick="copyToClipboard('9060335653')">Copy</button>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Account Name:</span>
+          <span class="detail-value">TOLIAT BOLANLE AKINYEMI</span>
+          <button class="copy-btn" onclick="copyToClipboard('TOLIAT BOLANLE AKINYEMI')">Copy</button>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Bank:</span>
+          <span class="detail-value">OPAY</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Amount:</span>
+          <span class="detail-value" id="paymentAmount">$200</span>
+        </div>
+      </div>
+
+      <div class="payment-instructions">
+        <h4 style="margin-bottom: 1rem;">📋 Instructions</h4>
+        <ol>
+          <li>Transfer the exact amount to the account above</li>
+          <li>Take a screenshot of your payment confirmation</li>
+          <li>Upload the screenshot below</li>
+          <li>Submit the form – we'll confirm within 24 hours</li>
+        </ol>
+      </div>
+
+      <form id="paymentConfirmationForm">
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Full Name *" id="paymentName" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="email" placeholder="Email Address *" id="paymentEmail" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Package Purchased" id="paymentPackage" readonly>
+        </div>
+        <div class="form-group">
+          <label class="file-upload" id="fileUploadLabel">
+            <i class="fa-solid fa-cloud-upload-alt"></i>
+            <span id="fileChosen">Click to upload payment screenshot</span>
+            <input type="file" id="paymentScreenshot" accept="image/*" style="display: none;" required>
+          </label>
+        </div>
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Transaction Reference/ID (optional)" id="paymentRef">
+        </div>
+        <div class="form-msg" id="paymentMsg"></div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Payment Confirmation</button>
+      </form>
+
+      <p class="payment-secure">
+        <i class="fa-solid fa-shield-halved"></i> We'll verify and be in touch within 24 hours
+      </p>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO (unchanged) -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="label fade-up"><span></span> QuivaPro</div>
+        <h1 class="fade-up delay-1">Your Brand Might Be Costing You Clients.</h1>
+        <p class="body-large fade-up delay-2">We craft business ideas into powerful brand identities through clear messaging, compelling designs, and strategic positioning that resonates with the audience and drives growth.</p>
+        <div class="hero-cta fade-up delay-3">
+          <button class="btn btn-primary booking-trigger">Book a Free Brand Consultation</button>
+          <button class="btn" onclick="openPaymentModal('premium')">Get Your Brand Audit</button>
+        </div>
+        <div class="trust-items fade-up delay-3">
+          <span><i class="fa-regular fa-circle-check"></i> Trusted by growing startups</span>
+          <span><i class="fa-regular fa-circle-check"></i> Built for founders, creators & scaling companies</span>
+          <span><i class="fa-regular fa-circle-check"></i> Attract better clients and opportunities</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US (unchanged) -->
+    <section id="about">
+      <div class="container">
+        <div class="label fade-up">About us</div>
+        <h2 class="fade-up delay-1">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover what is holding their brand back.</h2>
+        <p class="body-large fade-up delay-2" style="margin-top: 1.5rem;">We combine brand psychology, positioning strategy, and design systems to create brands that attract, convert, and scale.</p>
+        <div class="grid-2 fade-up delay-3" style="margin-top: 2rem;">
+          <div>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Brand positioning</p>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Messaging clarity</p>
+          </div>
+          <div>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Audience perception</p>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Competitive differentiation</p>
+          </div>
+        </div>
+        <p class="body-large fade-up" style="margin-top: 2rem;">Because branding is not decoration. It is business infrastructure.</p>
+        <div class="fade-up" style="margin-top: 2rem;">
+          <button class="btn btn-primary booking-trigger">Let's talk strategy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO (unchanged) -->
+    <section id="services" style="background: var(--gray-100);">
+      <div class="container">
+        <div class="label fade-up">What we do</div>
+        <h2 class="fade-up delay-1">Our Strategic Focus</h2>
+        <p class="body-large fade-up delay-2" style="margin-bottom: 2rem;">QuivaPro focuses on the strategy behind great brands, not just the visuals.</p>
+        <div class="grid-3 fade-up delay-3">
+          <div class="what-item">
+            <h3>Brand Diagnosis</h3>
+            <p class="body">Deep analysis of your current brand to uncover weaknesses in positioning, messaging, and clarity.</p>
+          </div>
+          <div class="what-item">
+            <h3>Brand Positioning Strategy</h3>
+            <p class="body">Defining where your brand sits in the market and why customers should choose you.</p>
+          </div>
+          <div class="what-item">
+            <h3>Brand Infrastructure</h3>
+            <p class="body">Developing the strategic structure that allows your brand to scale consistently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (unchanged) -->
+    <section id="pricing">
+      <div class="container">
+        <div class="label fade-up">Investment</div>
+        <h2 class="fade-up delay-1">Brand Diagnosis Packages</h2>
+        <p class="body-large fade-up delay-2" style="margin-bottom: 2rem;">Choose the clarity your brand needs</p>
+
+        <div class="pricing-grid fade-up delay-3">
+          <!-- Basic -->
+          <div class="pricing-card">
+            <div class="pricing-name">Basic Brand Check</div>
+            <div class="pricing-price">$30</div>
+            <ul class="pricing-features">
+              <li><i class="fa-regular fa-circle-check"></i> Brand positioning snapshot</li>
+              <li><i class="fa-regular fa-circle-check"></i> Messaging clarity check</li>
+              <li><i class="fa-regular fa-circle-check"></i> Website first-impression review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Key improvement insights</li>
+            </ul>
+            <div class="pricing-outcome"><strong>Outcome:</strong> Discover the core issue limiting your brand clarity.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Early-stage founders & startups wanting a fast expert opinion.</div>
+            <button class="pricing-btn" onclick="openPaymentModal('basic')">Get My Brand Check</button>
+          </div>
+
+          <!-- Standard -->
+          <div class="pricing-card">
+            <div class="pricing-name">Standard Brand Diagnosis</div>
+            <div class="pricing-price">$75</div>
+            <ul class="pricing-features">
+              <li><i class="fa-regular fa-circle-check"></i> Everything in Basic</li>
+              <li><i class="fa-regular fa-circle-check"></i> Audience perception analysis</li>
+              <li><i class="fa-regular fa-circle-check"></i> Brand differentiation review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Messaging improvement suggestions</li>
+              <li><i class="fa-regular fa-circle-check"></i> Short diagnosis report</li>
+            </ul>
+            <div class="pricing-outcome"><strong>Outcome:</strong> Understand why your brand isn't standing out.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Startups & growing businesses improving positioning.</div>
+            <button class="pricing-btn" onclick="openPaymentModal('standard')">Start My Brand Diagnosis</button>
+          </div>
+
+          <!-- Premium -->
+          <div class="pricing-card recommended">
+            <div class="recommended-badge">⭐ Most Valuable</div>
+            <div class="pricing-name">Premium Brand Infrastructure Diagnosis</div>
+            <div class="pricing-price">$200</div>
+            <ul class="pricing-features">
+              <li><i class="fa-regular fa-circle-check"></i> Everything in Standard</li>
+              <li><i class="fa-regular fa-circle-check"></i> Competitive positioning insight</li>
+              <li><i class="fa-regular fa-circle-check"></i> Full brand positioning analysis</li>
+              <li><i class="fa-regular fa-circle-check"></i> Brand messaging framework suggestion</li>
+              <li><i class="fa-regular fa-circle-check"></i> Messaging architecture review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Website conversion structure review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Growth opportunity analysis</li>
+              <li><i class="fa-regular fa-circle-check"></i> Detailed strategy recommendations</li>
+              <li><i class="fa-regular fa-circle-check"></i> Brand improvement roadmap</li>
+            </ul>
+            <div class="pricing-outcome"><strong>Outcome:</strong> Complete brand diagnosis + strategic roadmap.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Businesses serious about a scalable brand foundation.</div>
+            <button class="pricing-btn recommended" onclick="openPaymentModal('premium')">Get the Full Brand Diagnosis</button>
+          </div>
+        </div>
+
+        <div class="decision-helper fade-up">
+          <p>Not sure which diagnosis you need?</p>
+          <button class="btn" onclick="document.getElementById('businessIQQuiz').scrollIntoView({behavior: 'smooth'})">Take the 60-Second Brand IQ Test →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMES CORNER (unchanged) -->
+    <section id="businessIQQuiz">
+      <div class="container">
+        <div class="quiz-wrap fade-up" id="businessQuizContainer">
+          <!-- Business IQ Quiz will be rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section id="brandingIQTest" style="background: var(--gray-100);">
+      <div class="container">
+        <div class="quiz-wrap fade-up" id="brandingQuizContainer">
+          <!-- Branding IQ Test will be rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (unchanged) -->
+    <section id="faq">
+      <div class="container">
+        <div class="label fade-up">FAQs</div>
+        <h2 class="fade-up delay-1">Common Questions</h2>
+
+        <div class="faq-list fade-up delay-2">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What is QuivaPro?</span>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              QuivaPro is a brand strategy and diagnosis company that helps businesses uncover weaknesses in their brand positioning, messaging, and infrastructure.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Who do you work with?</span>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              We work with: startups, founders, growing companies, businesses preparing to scale.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What is a Brand Diagnosis?</span>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              A Brand Diagnosis is a strategic analysis of your brand to identify problems with positioning, messaging clarity, and market perception.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do you design logos or visual identities?</span>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              QuivaPro focuses on brand strategy and infrastructure. If design is required, we provide strategic direction that can guide design teams or creative partners.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How long does a diagnosis take?</span>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              Most brand diagnosis reports are delivered within 3–7 days, depending on the depth of analysis required.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How can I start a project with QuivaPro?</span>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              You can start by: sending us a message or inquiry, scheduling a discovery call, or filling out our project brief form. Our team will review your request and guide you through the next steps.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA (unchanged) -->
+    <section id="cta" style="background: var(--gray-100);">
+      <div class="container">
+        <div class="fade-up" style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <h2>Your Brand Should Work As Hard As You Do</h2>
+          <p class="body-large" style="margin: 1.5rem 0;">If your brand is confusing, inconsistent, or invisible in the market, it's costing you opportunities. Let QuivaPro help you build a brand that attracts growth.</p>
+          <button class="btn btn-primary booking-trigger">Book Your Free Consultation</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (unchanged) -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <img src="QuivaPro Logo.png" alt="QuivaPro">
+          <p>Strategic Branding for Modern Businesses</p>
+          <p style="margin-top: 1rem;">quivapro@gmail.com</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#services">Product/services</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Games</h4>
+          <ul>
+            <li><a href="#businessIQQuiz">Business IQ Quiz</a></li>
+            <li><a href="#brandingIQTest">Branding IQ Test</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="https://www.instagram.com/quivapro" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/quivapro" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://wa.me/2348181041879" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://twitter.com/quivapro" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 QuivaPro. All rights reserved.</span>
+        <span>Strategic Branding for Modern Businesses</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="btt" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    (function() {
+      // ---------- LOADING ----------
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.getElementById('loading-screen').classList.add('fade-out');
+          if (!localStorage.getItem('popupSubmitted')) {
+            setTimeout(function() {
+              openPopup();
+            }, 500);
+          }
+        }, 900);
+      });
+
+      // ---------- HEADER SCROLL ----------
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // ---------- THEME TOGGLE ----------
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle.querySelector('i');
+      
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        themeIcon.className = 'fa-regular fa-sun';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        themeIcon.className = isDark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+
+      // ---------- DROPDOWN MENU (replaces drawer) ----------
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const dropdown = document.getElementById('dropdown');
+
+      function openDropdown() {
+        dropdown.classList.add('open');
+        document.body.style.overflow = 'hidden'; // prevent background scroll
+        // Add global click listener to close when clicking outside
+        document.addEventListener('click', closeDropdownOutside);
+      }
+
+      function closeDropdown() {
+        dropdown.classList.remove('open');
+        document.body.style.overflow = '';
+        document.removeEventListener('click', closeDropdownOutside);
+      }
+
+      function closeDropdownOutside(e) {
+        if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
+          closeDropdown();
+        }
+      }
+
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (dropdown.classList.contains('open')) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      });
+
+      // Close dropdown when a link is clicked
+      dropdown.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = link.getAttribute('href');
+          closeDropdown();
+          setTimeout(() => {
+            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      });
+
+      // ---------- POPUP (unchanged) ----------
+      const popup = document.getElementById('popup');
+      const popupClose = document.getElementById('popupClose');
+
+      function openPopup() {
+        if (!localStorage.getItem('popupSubmitted')) {
+          popup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          popupClose.style.display = 'none';
+          popup._noClose = true;
+        } else {
+          const toast = document.getElementById('toast');
+          toast.textContent = 'You already submitted – we\'ll be in touch!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+      }
+
+      function closePopup() {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+        popupClose.style.display = 'block';
+        popup._noClose = false;
+      }
+
+      document.querySelectorAll('.booking-trigger').forEach(btn => {
+        btn.addEventListener('click', openPopup);
+      });
+
+      popupClose.addEventListener('click', () => {
+        if (!popup._noClose) {
+          closePopup();
+        }
+      });
+
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup && popup._noClose) {
+          return;
+        }
+        if (e.target === popup) {
+          closePopup();
+        }
+      });
+
+      // ---------- BACK TO TOP ----------
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btt.classList.add('show');
+        } else {
+          btt.classList.remove('show');
+        }
+      });
+
+      btt.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // ---------- SCROLL REVEAL ----------
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      // ---------- FAQ ACCORDION ----------
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const answer = q.nextElementSibling;
+          const isOpen = answer.classList.contains('open');
+          
+          document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+          document.querySelectorAll('.faq-question.open').forEach(q => q.classList.remove('open'));
+          
+          if (!isOpen) {
+            answer.classList.add('open');
+            q.classList.add('open');
+          }
+        });
+      });
+
+      // ---------- FORM SUBMISSIONS (Formspree) ----------
+      async function submitForm(url, data, msgEl) {
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          return res.ok;
+        } catch (err) {
+          return false;
+        }
+      }
+
+      // Popup form
+      document.getElementById('popupForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msgEl = document.getElementById('popupMsg');
+        msgEl.style.display = 'block';
+        msgEl.textContent = 'Sending...';
+        
+        const data = {
+          name: document.getElementById('popupName').value,
+          email: document.getElementById('popupEmail').value,
+          phone: document.getElementById('popupPhone').value,
+          country: document.getElementById('popupCountry').value,
+          message: document.getElementById('popupMessage').value,
+          _subject: 'New Consultation Request – QuivaPro'
+        };
+        
+        const success = await submitForm('https://formspree.io/f/meerzbyg', data, msgEl);
+        
+        if (success) {
+          msgEl.textContent = '✓ Received! We\'ll be in touch soon.';
+          msgEl.className = 'form-msg success show';
+          localStorage.setItem('popupSubmitted', 'true');
+          e.target.reset();
+          popup._noClose = false;
+          popupClose.style.display = 'block';
+          setTimeout(closePopup, 2000);
+        } else {
+          msgEl.textContent = 'Something went wrong. Please try again.';
+          msgEl.className = 'form-msg error show';
+        }
+      });
+
+      // ---------- PAYMENT MODAL ----------
+      const paymentModal = document.getElementById('payment-overlay');
+      const paymentMsg = document.getElementById('paymentMsg');
+      
+      const packages = {
+        basic: { name: 'Basic Brand Check', price: '$30', amount: 30 },
+        standard: { name: 'Standard Brand Diagnosis', price: '$75', amount: 75 },
+        premium: { name: 'Premium Brand Infrastructure Diagnosis', price: '$200', amount: 200 }
+      };
+
+      window.openPaymentModal = function(pkgKey) {
+        const pkg = packages[pkgKey];
+        document.getElementById('selectedPackageName').textContent = pkg.name;
+        document.getElementById('selectedPackagePrice').textContent = pkg.price;
+        document.getElementById('paymentAmount').textContent = pkg.price;
+        document.getElementById('paymentPackage').value = pkg.name;
+        
+        paymentModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closePaymentModal = function() {
+        paymentModal.classList.remove('active');
+        document.body.style.overflow = '';
+        document.getElementById('paymentConfirmationForm').reset();
+        paymentMsg.style.display = 'none';
+        document.getElementById('fileChosen').textContent = 'Click to upload payment screenshot';
+      };
+
+      window.copyToClipboard = function(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          const toast = document.getElementById('toast');
+          toast.textContent = 'Copied to clipboard!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3000);
+        });
+      };
+
+      const fileInput = document.getElementById('paymentScreenshot');
+      if (fileInput) {
+        fileInput.addEventListener('change', function(e) {
+          const fileName = e.target.files[0] ? e.target.files[0].name : 'Click to upload payment screenshot';
+          document.getElementById('fileChosen').textContent =Chosen').text fileName;
+Content = fileName;
+        });
+      }
+
+      document.getElementById('        });
+      }
+
+      document.getElementById('paymentConfirmationForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = documentpaymentConfirmationForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('.getElementById('paymentName').value.trim();
+        const email = document.getElementByIdpaymentName').value.trim();
+        const email = document.getElementById('payment('paymentEmail').value.trimEmail').value.trim();
+        const p();
+        const pkg =kg = document.getElementById document.getElementById('paymentPackage').('paymentPackage').value;
+value;
+        const fileInput        const fileInput = document = document.getElementById('.getElementById('paymentSpaymentScreenshot');
+        const refcreenshot');
+        const ref = document.getElementById('paymentRef'). = document.getElementById('paymentRef').value;
+value;
+        
+        if (!name ||        
+        if (!name || !email !email || ! || !pkg || !pkg || !fileInput.filesfileInput.files[0[0]) {
+]) {
+          paymentMsg.text          paymentMsg.textContent =Content = 'Please 'Please fill all fill all required fields required fields and upload and upload screenshot';
+          paymentMsg.className = 'form screenshot';
+          paymentMsg.className = 'form-msg-msg error show error show';
+         ';
+          return;
+        }
+
+        payment return;
+        }
+
+        paymentMsg.styleMsg.style.display =.display = 'block';
+        'block';
+        paymentMsg paymentMsg.textContent = '.textContent = 'SendingSending confirmation... confirmation...';
+       ';
+        paymentMsg.className paymentMsg.className = ' = 'form-form-msg';
+
+        constmsg';
+
+        const data = data = {
+          {
+          name: name,
+ name: name,
+          email          email: email: email,
+          package: pkg,
+          package: pkg,
+          reference: ref ||,
+          reference: ref || 'Not 'Not provided',
+ provided',
+          _          _subject: `Paymentsubject: `Payment Confirmation Confirmation – ${ – ${pkg} – QuivaPro`
+pkg} – QuivaPro`
+               };
+
+ };
+
+        const success =        const success = await submit await submitForm('https://Form('https://formspree.ioformspree.io/f//f/meermeerzbyg', data);
+        
+        if (success) {
+         zbyg', data);
+        
+        if (success) {
+          paymentMsg.textContent = '✓ Payment paymentMsg.textContent = '✓ Payment confirmation received confirmation received! We\'ll! We\'ll verify and verify and be in be in touch within touch within 24 24 hours.';
+          paymentMsg hours.';
+          paymentMsg.className.className = ' = 'form-msg successform-msg success show';
+ show';
+          e          e.target.reset();
+          document.getElementById('fileChosen').textContent = 'Click to upload.target.reset();
+          document.getElementById('fileChosen').textContent = 'Click to upload payment screenshot';
+          payment screenshot';
+          setTimeout(closePayment setTimeout(closePaymentModal,Modal, 3000);
+        } else {
+          payment 3000);
+        } else {
+          paymentMsg.textContent =Msg.textContent = 'Something went wrong. Please 'Something went wrong. Please try again try again.';
+.';
+          paymentMsg.className = 'form-msg error show          paymentMsg.className = 'form';
+        }
+     -msg error show';
+        }
+      });
+
+      });
+
+      paymentModal paymentModal.addEventListener('click', (e) =>.addEventListener('click', (e) => {
+        if (e.target {
+        if (e.target === paymentModal) === paymentModal) closePaymentModal();
+ closePaymentModal();
+      });
+
+      //      });
+
+      // ---------- QUI ---------- QUIZZZZES (unchanged, but ensure they don't conflict)ES (unchanged, but ensure they don't conflict) ----------
+      const businessQuiz ----------
+      const businessQuizContainer =Container = document.getElementById('businessQuizContainer document.getElementById('businessQuizContainer');
+
+      const business');
+
+      const businessQuestions =Questions = [
+        [
+        // ... // ... (keep all (keep all questions as questions as before)
+ before)
+      ];
+
+      const      ];
+
+      const businessAnswer businessAnswerKey = [
+        // ... (keepKey = [
+        // ... (keep all answers as before)
+ all answers as before)
+      ];
+
+      const      ];
+
+      const brandingQuizContainer = document.getElementById('brandingQuizContainer');
+
+      const brandingQuestions brandingQuizContainer = document.getElementById('brandingQuizContainer');
+
+      const brandingQuestions = [
+        // ... ( = [
+        // ... (keep allkeep all questions as before)
+      ];
+
+ questions as before)
+      ];
+
+      const      const brandingAnswerKey = [
+        // ... (keep all answers brandingAnswerKey = [
+        // ... (keep all answers as before as before)
+     )
+      ];
+
+      // Generic ];
+
+      // Generic quiz renderer (unchanged, but quiz renderer (unchanged, but ensure start button IDs are ensure start button IDs are unique)
+ unique)
+      function      function createQuizRenderer(container, createQuizRenderer(container, questions, answerKey, title questions, answerKey, title, label, label, startId) {
+        // ... (keep the exact, startId) {
+        // ... (keep the exact same function as before same function as before)
+     )
+      }
+
+      // Initialize }
+
+      // Initialize both quizzes both quizzes
+     
+      createQuiz createQuizRenderer(bRenderer(businessQuizusinessQuizContainer, businessQuestions, businessContainer, businessQuestions, businessAnswerKey, 'AnswerKey, 'Business IQ Quiz',Business IQ Quiz', 'CORPORATE 'CORPORATE INTELLIGENCE ASSESSMENT', 'startBusinessBtn');
+      createQuizRenderer(brand INTELLIGENCE ASSESSMENT', 'startBusinessBtn');
+      createQuizRenderer(brandingQuizContainer, brandingQuestionsingQuizContainer, brandingQuestions, branding, brandingAnswerKeyAnswerKey, ', 'Branding IQ TestBranding IQ Test', '', 'PROFPROFESSIONAL ASSESSMENT',ESSIONAL ASSESSMENT', 'startBranding 'startBtn');
+
+BrandingBtn');
+
+      //      // Because Because we replaced the drawer with dropdown, we need to ensure the quiz we replaced the drawer with dropdown, we need to ensure the quiz code code still works.
+      still works.
+      // The // The quiz code quiz code uses its own rendering uses its own rendering, so, so it's fine.
+    }) it's fine.
+    })();
+ ();
+  </script>
+  </script>
+  <!-- Source <!-- Source protection ( protection (optional) -->
+  <script>
+    (function() {
+      document.addEventListener('optional) -->
+  <script>
+    (function() {
+      document.addEventListener('contextmenu', e => econtextmenu', e => e.preventDefault());
+      document.addEventListener('keydown.preventDefault());
+      document.addEventListener('keydown', e', e => => {
+        const {
+        const key = e key = e.key.key.toLowerCase();
+        if (
+          (e.ctrlKey &&.toLowerCase();
+        if (
+          (e.ctrlKey && key === 'u') ||
+          (e.ctrlKey key === 'u') ||
+          (e.ctrlKey && e && e.shiftKey &&.shiftKey && key === 'i') ||
+ key === 'i') ||
+          (          (e.e.ctrlKey && e.shiftctrlKey && e.shiftKey && key ===Key && key === 'j 'j') ||
+          (e.') ||
+          (e.ctrlKeyctrlKey && key && key === 's') === 's') ||
+          (e.metaKey && key === 'u') ||
+          (e.metaKey ||
+          (e.metaKey && key === 'u') ||
+          (e.metaKey && e.shift && e.shiftKey && key ===Key && key === 'i 'i') ||
+          e') ||
+          e.key ===.key === 'F12'
+ 'F12'
+        )        ) {
+          {
+          e.preventDefault();
+        e.preventDefault();
+        }
+      }
+      });
+    })();
+  </script>
+ });
+    })();
+  </script>
+</body>
+</html>
