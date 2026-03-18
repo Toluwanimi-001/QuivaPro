@@ -191,7 +191,7 @@
       }
     }
 
-    /* ---------- HEADER (perfect alignment + larger logo) ---------- */
+    /* ---------- HEADER (perfect alignment + MASSIVE logo) ---------- */
     header {
       position: fixed;
       top: 0;
@@ -217,7 +217,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 2rem; /* reduced from 3rem to keep compact with giant logo */
       flex-wrap: nowrap;
     }
 
@@ -226,32 +226,37 @@
     }
 
     .logo img {
-      height: 3rem; /* increased from 2.5rem for better visibility on desktop */
+      height: 5rem; /* MASSIVE – 80px – crystal clear for everyone */
       width: auto;
       display: block;
     }
 
-    /* Larger logo on mobile for better visibility, but maintain compactness */
+    /* Even larger on mobile for maximum visibility */
     @media (max-width: 768px) {
       .logo img {
-        height: 2.5rem; /* 40px – bigger than before, still fits */
+        height: 4rem; /* 64px – huge and bold */
       }
       
-      /* Slightly reduce button padding to keep alignment */
+      /* Adjust button sizes to keep alignment */
       .mobile-menu-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.9rem;
       }
       
       .theme-toggle {
-        padding: 0.4rem;
-        font-size: 1.1rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      /* Slightly reduce gap on mobile if needed */
+      .header-inner {
+        gap: 1.2rem;
       }
     }
 
     .nav {
       display: flex;
-      gap: 2rem;
+      gap: 2rem; /* adjusted for balance */
       align-items: center;
       flex-wrap: nowrap;
     }
@@ -264,7 +269,7 @@
 
     .nav a {
       color: var(--gray-600);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 400;
       transition: color 0.2s;
       line-height: 1.2;
@@ -398,11 +403,11 @@
     }
 
     .drawer-header img {
-      height: 2.2rem; /* increased from 1.8rem for better visibility */
+      height: 4rem; /* massive – 64px */
     }
 
     .drawer-close {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: var(--gray-600);
     }
 
@@ -415,7 +420,7 @@
 
     .drawer-links a {
       color: var(--gray-900);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 300;
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--gray-200);
@@ -432,8 +437,8 @@
     .drawer-book {
       border: 1px solid var(--gray-300);
       background: transparent;
-      padding: 0.8rem 1rem;
-      font-size: 0.9rem;
+      padding: 1rem;
+      font-size: 1rem;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -1032,7 +1037,7 @@
     }
 
     .footer-logo img {
-      height: 2.5rem; /* increased from 2rem for better visibility */
+      height: 4.5rem; /* huge – 72px */
       margin-bottom: 1rem;
     }
 
@@ -1074,8 +1079,8 @@
     }
 
     .social-links a {
-      width: 2rem;
-      height: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border: 1px solid var(--gray-300);
       border-radius: 50%;
       display: flex;
@@ -1106,8 +1111,8 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 3rem;
+      height: 3rem;
       border: 1px solid var(--gray-300);
       background: var(--white);
       color: var(--gray-600);
@@ -1119,6 +1124,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.2rem;
     }
 
     #btt.show {
@@ -1187,11 +1193,11 @@
     }
 
     .popup-header img {
-      height: 2.5rem; /* increased from 2rem for better visibility */
+      height: 4rem; /* massive – 64px */
     }
 
     .popup-close {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: var(--gray-600);
     }
 
