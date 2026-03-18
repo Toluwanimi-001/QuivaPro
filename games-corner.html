@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* ---------- RESET & VARIABLES (same as before) ---------- */
+    /* ---------- RESET & VARIABLES ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -159,7 +159,7 @@
       padding: 6rem 0;
     }
 
-    /* ---------- HEADER ---------- */
+    /* ---------- HEADER (perfect alignment + MASSIVE logo) ---------- */
     header {
       position: fixed;
       top: 0;
@@ -185,7 +185,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 3rem;
       flex-wrap: nowrap;
     }
 
@@ -194,14 +194,14 @@
     }
 
     .logo img {
-      height: 6rem;
+      height: 8rem; /* MASSIVE – 128px */
       width: auto;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo img {
-        height: 5rem;
+        height: 6rem; /* 96px – huge and bold */
       }
       .mobile-menu-btn {
         padding: 0.6rem 1rem;
@@ -212,7 +212,7 @@
         font-size: 1.3rem;
       }
       .header-inner {
-        gap: 1rem;
+        gap: 1.5rem;
       }
     }
 
@@ -363,7 +363,7 @@
     }
 
     .drawer-header img {
-      height: 5rem;
+      height: 6rem; /* larger to match header */
     }
 
     .drawer-close {
@@ -649,7 +649,7 @@
     }
 
     .footer-logo img {
-      height: 5rem;
+      height: 6rem;
       margin-bottom: 1rem;
     }
 
@@ -805,7 +805,7 @@
     }
 
     .popup-header img {
-      height: 5rem;
+      height: 6rem;
     }
 
     .popup-close {
@@ -1223,7 +1223,7 @@
         <div class="footer-col">
           <h4>Games</h4>
           <ul>
-            <li><a href="games-corner.html">Business IQ Quiz</a></li>
+            <li><a href="games-corner.html#businessIQQuiz">Business IQ Quiz</a></li>
             <li><a href="games-corner.html#brandingIQTest">Branding IQ Test</a></li>
           </ul>
         </div>
@@ -1468,7 +1468,7 @@
         if (e.target === paymentModal) closePaymentModal();
       });
 
-      // ---------- BUSINESS QUIZ DATA ----------
+      // ---------- BUSINESS QUIZ DATA (40 questions) ----------
       const businessQuestions = [
         // Category 1: Nigerian Banking & Finance
         { cat: 'Nigerian Banking & Finance', q: 'Which Nigerian bank has been ranked as the most valuable brand in Nigeria for four consecutive years as of 2025?', opts: ['Zenith Bank', 'Access Bank', 'First Bank of Nigeria', 'United Bank for Africa'], ans: 1 },
@@ -1526,7 +1526,7 @@
         2,2,1,1,1,1,1,2,1,3
       ];
 
-      // ---------- BRANDING QUIZ DATA ----------
+      // ---------- BRANDING QUIZ DATA (40 questions) ----------
       const brandingQuestions = [
         // Category 1: Brand Architecture & Portfolio Strategy
         { cat: 'Brand Architecture & Portfolio Strategy', q: 'Which brand architecture model features a single masterbrand that carries all products and services under one unified identity?', opts: ['House of Brands', 'Monolithic Architecture', 'Endorsed Brand Strategy', 'Hybrid Portfolio Model'], ans: 1 },
