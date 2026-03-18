@@ -217,7 +217,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 3rem; /* increased to accommodate larger logo */
       flex-wrap: nowrap;
     }
 
@@ -226,14 +226,14 @@
     }
 
     .logo img {
-      height: 6rem; /* MASSIVE – 96px */
+      height: 8rem; /* MASSIVE – 128px – now you can't miss it */
       width: auto;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo img {
-        height: 5rem;
+        height: 6rem; /* 96px – huge and bold */
       }
       .mobile-menu-btn {
         padding: 0.6rem 1rem;
@@ -244,7 +244,7 @@
         font-size: 1.3rem;
       }
       .header-inner {
-        gap: 1rem;
+        gap: 1.5rem;
       }
     }
 
@@ -395,7 +395,7 @@
     }
 
     .drawer-header img {
-      height: 5rem;
+      height: 6rem; /* larger to match header */
     }
 
     .drawer-close {
@@ -637,39 +637,66 @@
       color: var(--gray-500);
     }
 
-    /* ---------- FOUNDER ---------- */
-    .founder-grid {
+    /* ---------- TEAM (Founders) ---------- */
+    .team-grid {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      align-items: start;
-      padding: 3rem 0;
-      border-top: 1px solid var(--gray-200);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
     }
 
     @media (max-width: 768px) {
-      .founder-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
     }
 
-    .founder-name {
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .team-member {
+      text-align: center;
+    }
+
+    .team-photo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-500);
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    body.dark .team-photo {
+      background: var(--gray-700);
+      color: var(--gray-400);
+    }
+
+    .team-name {
       font-size: 1.1rem;
       font-weight: 500;
       margin-bottom: 0.25rem;
     }
 
-    .founder-title {
-      color: var(--gray-500);
+    .team-role {
       font-size: 0.9rem;
-    }
-
-    .founder-quote {
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--gray-700);
-      line-height: 1.7;
+      color: var(--gray-500);
     }
 
     /* ---------- PRICING (cards) ---------- */
@@ -840,7 +867,7 @@
     }
 
     .footer-logo img {
-      height: 5rem;
+      height: 6rem; /* larger to match */
       margin-bottom: 1rem;
     }
 
@@ -996,7 +1023,7 @@
     }
 
     .popup-header img {
-      height: 5rem;
+      height: 6rem; /* larger */
     }
 
     .popup-close {
@@ -1395,12 +1422,14 @@
       </div>
     </section>
 
-    <!-- ABOUT US -->
+    <!-- ABOUT US (restructured for better flow) -->
     <section id="about">
       <div class="container">
         <div class="label fade-up">About us</div>
         <h2 class="fade-up delay-1">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover what is holding their brand back.</h2>
         <p class="body-large fade-up delay-2" style="margin-top: 1.5rem;">We combine brand psychology, positioning strategy, and design systems to create brands that attract, convert, and scale.</p>
+        
+        <!-- Key points -->
         <div class="grid-2 fade-up delay-3" style="margin-top: 2rem;">
           <div>
             <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Brand positioning</p>
@@ -1411,8 +1440,70 @@
             <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Competitive differentiation</p>
           </div>
         </div>
-        <p class="body-large fade-up" style="margin-top: 2rem;">Because branding is not decoration. It is business infrastructure.</p>
-        <div class="fade-up" style="margin-top: 2rem;">
+
+        <!-- Team Section (Founders) -->
+        <div class="fade-up" style="margin-top: 4rem;">
+          <h3 class="label" style="text-align: center;">Meet the Founders</h3>
+          <div class="team-grid">
+            <!-- Founder 1 -->
+            <div class="team-member">
+              <div class="team-photo">
+                <!-- Replace <i> with <img> when you have actual photos -->
+                <img src="akinyemi-toluwanimi-Headshot.jpg" alt="">
+              </div>
+              <div class="team-name">Akinyemi Toluwanimi</div>
+              <div class="team-role">Web Developer / Tech Lead</div>
+            </div>
+            <!-- Founder 2 -->
+            <div class="team-member">
+              <div class="team-photo">
+                <i class="fa-regular fa-circle-user"></i>
+              </div>
+              <div class="team-name">Jacob Archibong</div>
+              <div class="team-role">Brand Strategist</div>
+            </div>
+            <!-- Founder 3 -->
+            <div class="team-member">
+              <div class="team-photo">
+                <i class="fa-regular fa-circle-user"></i>
+              </div>
+              <div class="team-name">Charity</div>
+              <div class="team-role">Creative Director</div>
+            </div>
+            <!-- Founder 4 -->
+            <div class="team-member">
+              <div class="team-photo">
+                <i class="fa-regular fa-circle-user"></i>
+              </div>
+              <div class="team-name">Dara</div>
+              <div class="team-role">Marketing Lead</div>
+            </div>
+            <!-- Founder 5 -->
+            <div class="team-member">
+              <div class="team-photo">
+                <i class="fa-regular fa-circle-user"></i>
+              </div>
+              <div class="team-name">Seyi</div>
+              <div class="team-role">Product Designer</div>
+            </div>
+            <!-- Founder 6 -->
+            <div class="team-member">
+              <div class="team-photo">
+                <i class="fa-regular fa-circle-user"></i>
+              </div>
+              <div class="team-name">Moyo</div>
+              <div class="team-role">Researcher</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Powerful closing statement -->
+        <div class="fade-up" style="margin-top: 4rem; text-align: center;">
+          <p class="body-large" style="max-width: 700px; margin: 0 auto;">Because branding is not decoration. It is business infrastructure.</p>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="fade-up" style="margin-top: 2rem; text-align: center;">
           <button class="btn btn-primary booking-trigger">Let's talk strategy</button>
         </div>
       </div>
