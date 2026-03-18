@@ -210,14 +210,14 @@
     }
 
     body.dark header.scrolled {
-      background: var(--white); /* in dark mode, --white is dark background */
+      background: var(--white);
     }
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem; /* reduced from 3rem to keep compact with giant logo */
+      gap: 2rem;
       flex-wrap: nowrap;
     }
 
@@ -226,7 +226,7 @@
     }
 
     .logo img {
-      height: 5rem; /* MASSIVE – 80px – crystal clear for everyone */
+      height: 6rem; /* MASSIVE – 96px – huge and clear */
       width: auto;
       display: block;
     }
@@ -234,29 +234,27 @@
     /* Even larger on mobile for maximum visibility */
     @media (max-width: 768px) {
       .logo img {
-        height: 4rem; /* 64px – huge and bold */
+        height: 5rem; /* 80px – extremely bold */
       }
       
-      /* Adjust button sizes to keep alignment */
       .mobile-menu-btn {
-        padding: 0.5rem 0.9rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
       }
       
       .theme-toggle {
-        padding: 0.5rem;
-        font-size: 1.2rem;
+        padding: 0.6rem;
+        font-size: 1.3rem;
       }
 
-      /* Slightly reduce gap on mobile if needed */
       .header-inner {
-        gap: 1.2rem;
+        gap: 1rem;
       }
     }
 
     .nav {
       display: flex;
-      gap: 2rem; /* adjusted for balance */
+      gap: 2rem;
       align-items: center;
       flex-wrap: nowrap;
     }
@@ -287,7 +285,6 @@
       flex-shrink: 0;
     }
 
-    /* Hide header "Book a Call" on mobile, show only on desktop */
     .btn-header {
       border: 1px solid var(--gray-300);
       padding: 0.6rem 1.5rem;
@@ -333,7 +330,6 @@
       color: var(--black);
     }
 
-    /* Mobile menu button: text */
     .mobile-menu-btn {
       display: none;
       font-size: 0.95rem;
@@ -360,7 +356,7 @@
       }
     }
 
-    /* ---------- SIDE DRAWER (slides from right) ---------- */
+    /* ---------- SIDE DRAWER ---------- */
     .drawer-overlay {
       position: fixed;
       inset: 0;
@@ -403,7 +399,7 @@
     }
 
     .drawer-header img {
-      height: 4rem; /* massive – 64px */
+      height: 5rem; /* massive – 80px */
     }
 
     .drawer-close {
@@ -433,7 +429,6 @@
       color: var(--black);
     }
 
-    /* Book a Call button inside drawer – with borders */
     .drawer-book {
       border: 1px solid var(--gray-300);
       background: transparent;
@@ -494,7 +489,7 @@
       border-color: var(--gray-800);
     }
 
-    /* ---------- PRICING BUTTONS (visible in both modes) ---------- */
+    /* ---------- PRICING BUTTONS ---------- */
     .pricing-btn {
       width: 100%;
       padding: 1rem;
@@ -1037,7 +1032,7 @@
     }
 
     .footer-logo img {
-      height: 4.5rem; /* huge – 72px */
+      height: 5rem; /* huge – 80px */
       margin-bottom: 1rem;
     }
 
@@ -1193,7 +1188,7 @@
     }
 
     .popup-header img {
-      height: 4rem; /* massive – 64px */
+      height: 5rem; /* massive – 80px */
     }
 
     .popup-close {
@@ -1883,7 +1878,7 @@
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
       });
 
-      // ---------- SIDE DRAWER (slides from right) ----------
+      // ---------- SIDE DRAWER ----------
       const menuBtn = document.getElementById('mobileMenuBtn');
       const drawer = document.getElementById('drawer');
       const drawerOverlay = document.getElementById('drawerOverlay');
@@ -1905,7 +1900,6 @@
       drawerClose.addEventListener('click', closeDrawer);
       drawerOverlay.addEventListener('click', closeDrawer);
 
-      // Close drawer and smooth scroll when a link is clicked
       drawer.querySelectorAll('a, .drawer-book').forEach(item => {
         item.addEventListener('click', (e) => {
           const target = item.getAttribute('href');
@@ -1916,7 +1910,6 @@
               document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
             }, 100);
           } else {
-            // For Book a Call button (no href), just close drawer and let the booking-trigger class handle popup
             closeDrawer();
           }
         });
@@ -1947,7 +1940,6 @@
         popup._noClose = false;
       }
 
-      // Event delegation for all booking-trigger buttons (including dynamically added ones)
       document.addEventListener('click', function(e) {
         if (e.target.closest('.booking-trigger')) {
           openPopup();
@@ -2010,7 +2002,7 @@
         });
       });
 
-      // ---------- FORM SUBMISSIONS (Formspree) ----------
+      // ---------- FORM SUBMISSIONS ----------
       async function submitForm(url, data, msgEl) {
         try {
           const res = await fetch(url, {
@@ -2024,7 +2016,6 @@
         }
       }
 
-      // Popup form
       document.getElementById('popupForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const msgEl = document.getElementById('popupMsg');
@@ -2266,7 +2257,7 @@
         0,1,2,1,1,2,1,1,2,3  // cat4
       ];
 
-      // Generic quiz renderer (unchanged)
+      // Generic quiz renderer
       function createQuizRenderer(container, questions, answerKey, title, label, startId) {
         let state = {
           started: false,
