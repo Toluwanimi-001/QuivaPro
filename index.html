@@ -226,15 +226,26 @@
     }
 
     .logo img {
-      height: 2.5rem; /* increased from 2rem for better visibility */
+      height: 2.5rem; /* increased from 2rem for better visibility on desktop */
       width: auto;
       display: block;
     }
 
-    /* Slightly smaller logo on mobile to maintain compactness */
+    /* Larger logo on mobile for better visibility, but maintain compactness */
     @media (max-width: 768px) {
       .logo img {
-        height: 2rem;
+        height: 2.2rem; /* 35px – bigger than before, still fits */
+      }
+      
+      /* Slightly reduce button padding to keep alignment */
+      .mobile-menu-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+      }
+      
+      .theme-toggle {
+        padding: 0.4rem;
+        font-size: 1.1rem;
       }
     }
 
