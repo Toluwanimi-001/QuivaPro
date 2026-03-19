@@ -159,7 +159,7 @@
       padding: 6rem 0;
     }
 
-    /* ---------- HEADER (massive logo, slim padding) ---------- */
+    /* ---------- HEADER (bigger logo, still slim) ---------- */
     header {
       position: fixed;
       top: 0;
@@ -168,12 +168,12 @@
       z-index: 100;
       background: transparent;
       transition: background 0.3s, padding 0.3s;
-      padding: 0.8rem 0;
+      padding: 1rem 0;
     }
 
     header.scrolled {
       background: var(--white);
-      padding: 0.6rem 0;
+      padding: 0.8rem 0;
       border-bottom: 1px solid var(--gray-200);
     }
 
@@ -185,7 +185,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 2.5rem;
       flex-wrap: nowrap;
     }
 
@@ -194,14 +194,14 @@
     }
 
     .logo img {
-      height: 6rem; /* MASSIVE – 96px */
+      height: 7rem; /* LARGER – 112px */
       width: auto;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo img {
-        height: 5rem; /* 80px – huge on mobile too */
+        height: 6rem; /* 96px – huge on mobile */
       }
       .mobile-menu-btn {
         padding: 0.4rem 0.8rem;
@@ -363,7 +363,7 @@
     }
 
     .drawer-header img {
-      height: 5rem;
+      height: 6rem;
     }
 
     .drawer-close {
@@ -649,7 +649,7 @@
     }
 
     .footer-logo img {
-      height: 5rem;
+      height: 6rem;
       margin-bottom: 1rem;
     }
 
@@ -805,7 +805,7 @@
     }
 
     .popup-header img {
-      height: 5rem;
+      height: 6rem;
     }
 
     .popup-close {
