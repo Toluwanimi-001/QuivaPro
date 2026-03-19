@@ -191,7 +191,7 @@
       }
     }
 
-    /* ---------- HEADER (massive logo, slim padding) ---------- */
+    /* ---------- HEADER (bigger logo, still slim) ---------- */
     header {
       position: fixed;
       top: 0;
@@ -200,12 +200,12 @@
       z-index: 100;
       background: transparent;
       transition: background 0.3s, padding 0.3s;
-      padding: 0.8rem 0; /* reduced padding */
+      padding: 1rem 0; /* slightly increased from 0.8rem to accommodate larger logo */
     }
 
     header.scrolled {
       background: var(--white);
-      padding: 0.6rem 0; /* even smaller when scrolled */
+      padding: 0.8rem 0;
       border-bottom: 1px solid var(--gray-200);
     }
 
@@ -217,7 +217,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem; /* increased gap to accommodate larger logo */
+      gap: 2.5rem; /* increased gap for larger logo */
       flex-wrap: nowrap;
     }
 
@@ -226,14 +226,14 @@
     }
 
     .logo img {
-      height: 6rem; /* MASSIVE – 96px – exactly as you wanted */
+      height: 7rem; /* LARGER – 112px – bold identity */
       width: auto;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo img {
-        height: 5rem; /* 80px – huge on mobile too */
+        height: 6rem; /* 96px – huge on mobile too */
       }
       .mobile-menu-btn {
         padding: 0.4rem 0.8rem;
@@ -395,7 +395,7 @@
     }
 
     .drawer-header img {
-      height: 5rem; /* match header */
+      height: 6rem; /* match header */
     }
 
     .drawer-close {
@@ -529,12 +529,12 @@
 
     /* ---------- HERO ---------- */
     .hero {
-      padding: 8rem 0 4rem; /* adjusted for slimmer header */
+      padding: 9rem 0 4rem; /* adjusted for slightly taller header */
     }
 
     @media (max-width: 768px) {
       .hero {
-        padding: 6rem 0 3rem;
+        padding: 7rem 0 3rem;
       }
     }
 
@@ -873,7 +873,7 @@
     }
 
     .footer-logo img {
-      height: 5rem; /* large but not overpowering */
+      height: 6rem; /* match header */
       margin-bottom: 1rem;
     }
 
@@ -1029,7 +1029,7 @@
     }
 
     .popup-header img {
-      height: 5rem;
+      height: 6rem;
     }
 
     .popup-close {
