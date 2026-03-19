@@ -191,7 +191,7 @@
       }
     }
 
-    /* ---------- HEADER (perfect alignment + MASSIVE logo) ---------- */
+    /* ---------- HEADER (massive logo, slim padding) ---------- */
     header {
       position: fixed;
       top: 0;
@@ -200,12 +200,12 @@
       z-index: 100;
       background: transparent;
       transition: background 0.3s, padding 0.3s;
-      padding: 1.5rem 0;
+      padding: 0.8rem 0; /* reduced padding */
     }
 
     header.scrolled {
       background: var(--white);
-      padding: 1rem 0;
+      padding: 0.6rem 0; /* even smaller when scrolled */
       border-bottom: 1px solid var(--gray-200);
     }
 
@@ -217,7 +217,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 3rem; /* increased to accommodate larger logo */
+      gap: 2rem; /* increased gap to accommodate larger logo */
       flex-wrap: nowrap;
     }
 
@@ -226,25 +226,25 @@
     }
 
     .logo img {
-      height: 8rem; /* MASSIVE – 128px – now you can't miss it */
+      height: 6rem; /* MASSIVE – 96px – exactly as you wanted */
       width: auto;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo img {
-        height: 6rem; /* 96px – huge and bold */
+        height: 5rem; /* 80px – huge on mobile too */
       }
       .mobile-menu-btn {
-        padding: 0.6rem 1rem;
-        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
       }
       .theme-toggle {
-        padding: 0.6rem;
-        font-size: 1.3rem;
+        padding: 0.4rem;
+        font-size: 1.1rem;
       }
       .header-inner {
-        gap: 1.5rem;
+        gap: 1rem;
       }
     }
 
@@ -263,7 +263,7 @@
 
     .nav a {
       color: var(--gray-600);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 400;
       transition: color 0.2s;
       line-height: 1.2;
@@ -283,8 +283,8 @@
 
     .btn-header {
       border: 1px solid var(--gray-300);
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.8rem;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -315,7 +315,7 @@
     .theme-toggle {
       color: var(--gray-600);
       font-size: 1.2rem;
-      padding: 0.5rem;
+      padding: 0.4rem;
       line-height: 1;
       display: flex;
       align-items: center;
@@ -328,12 +328,12 @@
 
     .mobile-menu-btn {
       display: none;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gray-600);
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       border: 1px solid var(--gray-300);
       background: transparent;
       transition: border-color 0.2s, color 0.2s;
@@ -395,7 +395,7 @@
     }
 
     .drawer-header img {
-      height: 6rem; /* larger to match header */
+      height: 5rem; /* match header */
     }
 
     .drawer-close {
@@ -412,7 +412,7 @@
 
     .drawer-links a {
       color: var(--gray-900);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 300;
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--gray-200);
@@ -428,8 +428,8 @@
     .drawer-book {
       border: 1px solid var(--gray-300);
       background: transparent;
-      padding: 1rem;
-      font-size: 1rem;
+      padding: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -529,7 +529,13 @@
 
     /* ---------- HERO ---------- */
     .hero {
-      padding: 10rem 0 4rem;
+      padding: 8rem 0 4rem; /* adjusted for slimmer header */
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 6rem 0 3rem;
+      }
     }
 
     .hero h1 {
@@ -867,7 +873,7 @@
     }
 
     .footer-logo img {
-      height: 6rem; /* larger to match */
+      height: 5rem; /* large but not overpowering */
       margin-bottom: 1rem;
     }
 
@@ -1023,7 +1029,7 @@
     }
 
     .popup-header img {
-      height: 6rem; /* larger */
+      height: 5rem;
     }
 
     .popup-close {
@@ -1422,14 +1428,13 @@
       </div>
     </section>
 
-    <!-- ABOUT US (restructured for better flow) -->
+    <!-- ABOUT US -->
     <section id="about">
       <div class="container">
         <div class="label fade-up">About us</div>
         <h2 class="fade-up delay-1">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover what is holding their brand back.</h2>
         <p class="body-large fade-up delay-2" style="margin-top: 1.5rem;">We combine brand psychology, positioning strategy, and design systems to create brands that attract, convert, and scale.</p>
         
-        <!-- Key points -->
         <div class="grid-2 fade-up delay-3" style="margin-top: 2rem;">
           <div>
             <p class="body"><i class="fa-regular fa-circle-check" style="margin-right: 0.5rem;"></i> Brand positioning</p>
@@ -1448,7 +1453,6 @@
             <!-- Founder 1 -->
             <div class="team-member">
               <div class="team-photo">
-                <!-- Replace <i> with <img> when you have actual photos -->
                 <img src="akinyemi-toluwanimi-Headshot.jpg" alt="">
               </div>
               <div class="team-name">Akinyemi Toluwanimi</div>
@@ -1497,12 +1501,10 @@
           </div>
         </div>
 
-        <!-- Powerful closing statement -->
         <div class="fade-up" style="margin-top: 4rem; text-align: center;">
           <p class="body-large" style="max-width: 700px; margin: 0 auto;">Because branding is not decoration. It is business infrastructure.</p>
         </div>
 
-        <!-- CTA Button -->
         <div class="fade-up" style="margin-top: 2rem; text-align: center;">
           <button class="btn btn-primary booking-trigger">Let's talk strategy</button>
         </div>
