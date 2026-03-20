@@ -46,6 +46,10 @@
       --gutter: 2rem;
 
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Dotted grid colors */
+      --dot-color-light: #E5E7EB;
+      --dot-color-dark: #2a2a2a;
     }
 
     body.dark {
@@ -60,6 +64,7 @@
       --gray-700: #b1b1b1;
       --gray-800: #c8c8c8;
       --gray-900: #e5e5e5;
+      --dot-color-light: #2a2a2a; /* dark mode dots */
     }
 
     /* ---------- BASE ---------- */
@@ -77,6 +82,10 @@
       -webkit-font-smoothing: antialiased;
       transition: background 0.3s, color 0.2s;
       overflow-x: hidden;
+      /* Dotted grid background – subtle and modern */
+      background-image: radial-gradient(circle at 1px 1px, var(--dot-color-light) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: var(--white); /* fallback */
     }
 
     body.menu-open {
@@ -200,7 +209,7 @@
       z-index: 100;
       background: transparent;
       transition: background 0.3s, padding 0.3s;
-      padding: 1rem 0; /* slightly increased from 0.8rem to accommodate larger logo */
+      padding: 1rem 0;
     }
 
     header.scrolled {
@@ -217,7 +226,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2.5rem; /* increased gap for larger logo */
+      gap: 2.5rem;
       flex-wrap: nowrap;
     }
 
@@ -226,14 +235,14 @@
     }
 
     .logo img {
-      height: 7rem; /* LARGER – 112px – bold identity */
+      height: 7rem; /* LARGER – 112px */
       width: auto;
       display: block;
     }
 
     @media (max-width: 768px) {
       .logo img {
-        height: 6rem; /* 96px – huge on mobile too */
+        height: 6rem; /* 96px – huge on mobile */
       }
       .mobile-menu-btn {
         padding: 0.4rem 0.8rem;
@@ -395,7 +404,7 @@
     }
 
     .drawer-header img {
-      height: 6rem; /* match header */
+      height: 6rem;
     }
 
     .drawer-close {
@@ -571,6 +580,92 @@
     .trust-items i {
       color: var(--black);
       font-size: 0.9rem;
+    }
+
+    /* ---------- LOGO CAROUSEL ---------- */
+    .experience-carousel {
+      background: var(--white);
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .experience-carousel .label,
+    .experience-carousel h2 {
+      text-align: center;
+    }
+
+    .experience-carousel h2 {
+      margin-bottom: 3rem;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      animation: scrollLeft 30s linear infinite;
+      width: fit-content;
+    }
+
+    .carousel-container:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    .logo-item {
+      flex-shrink: 0;
+      width: 120px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(0.2);
+      transition: filter 0.3s;
+    }
+
+    .logo-item:hover img {
+      filter: grayscale(0);
+    }
+
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Responsive adjustments for carousel */
+    @media (max-width: 768px) {
+      .carousel-track {
+        gap: 1.5rem;
+        animation-duration: 25s;
+      }
+      .logo-item {
+        width: 100px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-item {
+        width: 80px;
+        height: 40px;
+      }
+      .carousel-track {
+        gap: 1rem;
+        animation-duration: 20s;
+      }
     }
 
     /* ---------- WHAT WE DO ---------- */
@@ -873,7 +968,7 @@
     }
 
     .footer-logo img {
-      height: 6rem; /* match header */
+      height: 6rem;
       margin-bottom: 1rem;
     }
 
@@ -1428,6 +1523,36 @@
       </div>
     </section>
 
+    <!-- LOGO CAROUSEL (new section) -->
+    <section class="experience-carousel">
+      <div class="container">
+        <div class="label fade-up">Trusted by</div>
+        <h2 class="fade-up delay-1">Our Engineers have experience working here</h2>
+        <div class="carousel-container fade-up delay-2" id="logoCarousel">
+          <div class="carousel-track">
+            <!-- First set of logos -->
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EGoogle%3C/text%3E%3C/svg%3E" alt="Google"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EMicrosoft%3C/text%3E%3C/svg%3E" alt="Microsoft"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EAmazon%3C/text%3E%3C/svg%3E" alt="Amazon"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EApple%3C/text%3E%3C/svg%3E" alt="Apple"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EFacebook%3C/text%3E%3C/svg%3E" alt="Facebook"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Netflix"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3ETesla%3C/text%3E%3C/svg%3E" alt="Tesla"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EIBM%3C/text%3E%3C/svg%3E" alt="IBM"></div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EGoogle%3C/text%3E%3C/svg%3E" alt="Google"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EMicrosoft%3C/text%3E%3C/svg%3E" alt="Microsoft"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EAmazon%3C/text%3E%3C/svg%3E" alt="Amazon"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EApple%3C/text%3E%3C/svg%3E" alt="Apple"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EFacebook%3C/text%3E%3C/svg%3E" alt="Facebook"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Netflix"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3ETesla%3C/text%3E%3C/svg%3E" alt="Tesla"></div>
+            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EIBM%3C/text%3E%3C/svg%3E" alt="IBM"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT US -->
     <section id="about">
       <div class="container">
@@ -1471,7 +1596,7 @@
               <div class="team-photo">
                 <i class="fa-regular fa-circle-user"></i>
               </div>
-              <div class="team-name">Charity</div>
+              <div class="team-name">Ekpenyong Charity</div>
               <div class="team-role">Creative Director</div>
             </div>
             <!-- Founder 4 -->
@@ -1479,7 +1604,7 @@
               <div class="team-photo">
                 <img src="dara-Headshot.jpg" alt="Dara">
               </div>
-              <div class="team-name">Dara</div>
+              <div class="team-name">Oluwanfimindara Oludiran</div>
               <div class="team-role">Marketing Lead</div>
             </div>
             <!-- Founder 5 -->
@@ -1487,7 +1612,7 @@
               <div class="team-photo">
                 <img src="seyi-Headshot.jpg" alt="Seyi">
               </div>
-              <div class="team-name">Seyi</div>
+              <div class="team-name">Esi Seyi Adeleye</div>
               <div class="team-role">Product Designer</div>
             </div>
             <!-- Founder 6 -->
