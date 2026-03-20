@@ -45,6 +45,10 @@
       --gutter: 2rem;
 
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Dotted grid colors */
+      --dot-color-light: #E5E7EB;
+      --dot-color-dark: #2a2a2a;
     }
 
     body.dark {
@@ -59,6 +63,7 @@
       --gray-700: #b1b1b1;
       --gray-800: #c8c8c8;
       --gray-900: #e5e5e5;
+      --dot-color-light: #2a2a2a; /* dark mode dots */
     }
 
     /* ---------- BASE ---------- */
@@ -76,6 +81,10 @@
       -webkit-font-smoothing: antialiased;
       transition: background 0.3s, color 0.2s;
       overflow-x: hidden;
+      /* Dotted grid background – subtle and modern */
+      background-image: radial-gradient(circle at 1px 1px, var(--dot-color-light) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: var(--white);
     }
 
     body.menu-open {
