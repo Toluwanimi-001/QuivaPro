@@ -1088,7 +1088,7 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* ---------- POPUP ---------- */
+    /* ---------- POPUP (updated with checkbox) ---------- */
     .popup-overlay {
       position: fixed;
       inset: 0;
@@ -1159,6 +1159,27 @@
       resize: vertical;
     }
 
+    /* Checkbox styling */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1rem 0 1.5rem;
+      cursor: pointer;
+    }
+
+    .checkbox-group input {
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      cursor: pointer;
+    }
+
     .form-msg {
       padding: 0.75rem;
       margin-bottom: 1rem;
@@ -1180,6 +1201,23 @@
       background: rgba(255,0,0,0.05);
       color: #c00;
       border: 1px solid #c00;
+    }
+
+    /* Thank you message */
+    .thankyou-message {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .thankyou-message h4 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .thankyou-message p {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
     }
 
     /* ---------- PAYMENT MODAL ---------- */
@@ -1392,38 +1430,52 @@
     </div>
   </div>
 
-  <!-- Consultation Popup -->
+  <!-- Consultation Popup (updated with checkbox) -->
   <div class="popup-overlay" id="popup">
     <div class="popup-card">
       <div class="popup-header">
         <img src="QuivaPro Logo.svg" alt="QuivaPro">
         <button class="popup-close" id="popupClose">&times;</button>
       </div>
-      <h3>Book a Free Consultation</h3>
-      <p class="body" style="margin-bottom: 2rem;">Share your details and we'll craft a strategy for you.</p>
-      <form id="popupForm">
-        <div class="form-group">
-          <input class="field" type="text" placeholder="Full name *" id="popupName" required>
+      <div id="popupFormContainer">
+        <h3>Book a Free Consultation</h3>
+        <p class="body" style="margin-bottom: 2rem;">Share your details and we'll craft a strategy for you.</p>
+        <form id="popupForm">
+          <div class="form-group">
+            <input class="field" type="text" placeholder="Full name *" id="popupName" required>
+          </div>
+          <div class="form-group">
+            <input class="field" type="email" placeholder="Email address *" id="popupEmail" required>
+          </div>
+          <div class="form-group">
+            <input class="field" type="tel" placeholder="Phone number *" id="popupPhone" required>
+          </div>
+          <div class="form-group">
+            <input class="field" type="text" placeholder="Country *" id="popupCountry" required>
+          </div>
+          <div class="form-group">
+            <textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea>
+          </div>
+          <!-- Checkbox for consent -->
+          <div class="checkbox-group">
+            <input type="checkbox" id="popupConsent" required>
+            <label for="popupConsent">I agree to receive emails and newsletters from QuivaPro with actionable insights to help my brand grow.</label>
+          </div>
+          <div class="form-msg" id="popupMsg"></div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+        </form>
+      </div>
+      <div id="popupThankYou" style="display: none;">
+        <div class="thankyou-message">
+          <h4>Thank You! 🙌</h4>
+          <p>We'll send you actionable insights to help your brand grow.</p>
+          <p class="body" style="margin-top: 1rem;">You'll hear from us soon.</p>
         </div>
-        <div class="form-group">
-          <input class="field" type="email" placeholder="Email address *" id="popupEmail" required>
-        </div>
-        <div class="form-group">
-          <input class="field" type="tel" placeholder="Phone number *" id="popupPhone" required>
-        </div>
-        <div class="form-group">
-          <input class="field" type="text" placeholder="Country *" id="popupCountry" required>
-        </div>
-        <div class="form-group">
-          <textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea>
-        </div>
-        <div class="form-msg" id="popupMsg"></div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
-      </form>
+      </div>
     </div>
   </div>
 
-  <!-- PAYMENT MODAL -->
+  <!-- PAYMENT MODAL (unchanged) -->
   <div id="payment-overlay">
     <div class="payment-card">
       <div class="payment-header">
@@ -1523,14 +1575,14 @@
       </div>
     </section>
 
-    <!-- LOGO CAROUSEL (new section) -->
+    <!-- LOGO CAROUSEL -->
     <section class="experience-carousel">
       <div class="container">
         <div class="label fade-up">Trusted by</div>
         <h2 class="fade-up delay-1">Our Engineers have experience working here</h2>
         <div class="carousel-container fade-up delay-2" id="logoCarousel">
           <div class="carousel-track">
-            <!-- First set of logos -->
+            <!-- First set of logos (replace with actual images) -->
             <div class="logo-item"><img src="google-logo.svg" alt="Google"></div>
             <div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div>
             <div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div>
@@ -1544,10 +1596,10 @@
             <div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div>
             <div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div>
             <div class="logo-item"><img src="apple-logo.svg" alt="Apple"></div>
-            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EFacebook%3C/text%3E%3C/svg%3E" alt="Facebook"></div>
-            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Netflix"></div>
-            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3ETesla%3C/text%3E%3C/svg%3E" alt="Tesla"></div>
-            <div class="logo-item"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%23f4f4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='14' fill='%23666'%3EIBM%3C/text%3E%3C/svg%3E" alt="IBM"></div>
+            <div class="logo-item"><img src="facebook-logo.svg" alt="Facebook"></div>
+            <div class="logo-item"><img src="netflix-logo.svg" alt="Netflix"></div>
+            <div class="logo-item"><img src="tesla-logo.svg" alt="Tesla"></div>
+            <div class="logo-item"><img src="ibm-logo.svg" alt="IBM"></div>
           </div>
         </div>
       </div>
@@ -1578,7 +1630,7 @@
             <!-- Founder 1 -->
             <div class="team-member">
               <div class="team-photo">
-                <img src="akinyemi-toluwanimi-Headshot.jpg" alt="">
+                <img src="akinyemi-toluwanimi-Headshot.jpg" alt="Akinyemi">
               </div>
               <div class="team-name">Akinyemi Toluwanimi</div>
               <div class="team-role">Web Developer / Tech Lead</div>
@@ -1594,7 +1646,7 @@
             <!-- Founder 3 -->
             <div class="team-member">
               <div class="team-photo">
-                <img src="charity-Headshot.jpg" alt="Jakes">
+                <img src="charity-Headshot.jpg" alt="Charity">
               </div>
               <div class="team-name">Ekpenyong Charity</div>
               <div class="team-role">Creative Director</div>
@@ -1916,17 +1968,31 @@
         });
       });
 
-      // ---------- POPUP ----------
+      // ---------- POPUP (updated with checkbox and thank you) ----------
       const popup = document.getElementById('popup');
       const popupClose = document.getElementById('popupClose');
+      const popupFormContainer = document.getElementById('popupFormContainer');
+      const popupThankYou = document.getElementById('popupThankYou');
+      const popupForm = document.getElementById('popupForm');
+      const popupMsg = document.getElementById('popupMsg');
+
       function openPopup() {
         popup.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // Reset to form view if needed
+        popupFormContainer.style.display = 'block';
+        popupThankYou.style.display = 'none';
+        popupForm.reset();
+        popupMsg.style.display = 'none';
+        popupClose.style.display = 'block';
       }
+
       function closePopup() {
         popup.classList.remove('active');
         document.body.style.overflow = '';
       }
+
+      // Open popup on booking-trigger click
       document.addEventListener('click', function(e) {
         if (e.target.closest('.booking-trigger')) {
           openPopup();
@@ -1937,19 +2003,46 @@
         if (e.target === popup) closePopup();
       });
 
-      // ---------- SCROLL TO PRICING TRIGGERS AUTO POPUP ----------
-      const pricingSection = document.getElementById('pricing');
-      if (pricingSection) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !autoPopupShown && !localStorage.getItem('popupSubmitted')) {
-              autoPopupShown = true;
-              openPopup();
-            }
-          });
-        }, { threshold: 0.3 });
-        observer.observe(pricingSection);
-      }
+      // Handle form submission
+      popupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const consentCheckbox = document.getElementById('popupConsent');
+        if (!consentCheckbox.checked) {
+          popupMsg.textContent = 'Please agree to receive emails and newsletters.';
+          popupMsg.className = 'form-msg error show';
+          return;
+        }
+
+        popupMsg.style.display = 'block';
+        popupMsg.textContent = 'Sending...';
+        popupMsg.className = 'form-msg';
+
+        const data = {
+          name: document.getElementById('popupName').value,
+          email: document.getElementById('popupEmail').value,
+          phone: document.getElementById('popupPhone').value,
+          country: document.getElementById('popupCountry').value,
+          message: document.getElementById('popupMessage').value,
+          consent: consentCheckbox.checked ? 'Yes' : 'No',
+          _subject: 'New Consultation Request – QuivaPro'
+        };
+
+        const success = await submitForm('https://formspree.io/f/meerzbyg', data, popupMsg);
+        if (success) {
+          // Show thank you message
+          popupFormContainer.style.display = 'none';
+          popupThankYou.style.display = 'block';
+          localStorage.setItem('popupSubmitted', 'true');
+          // Auto close after 3 seconds
+          setTimeout(() => {
+            closePopup();
+            // Reset to form for next time (though after close, next open will reset anyway)
+          }, 3000);
+        } else {
+          popupMsg.textContent = 'Something went wrong. Please try again.';
+          popupMsg.className = 'form-msg error show';
+        }
+      });
 
       // ---------- BACK TO TOP ----------
       const btt = document.getElementById('btt');
@@ -1988,7 +2081,7 @@
         });
       });
 
-      // ---------- FORM SUBMISSIONS ----------
+      // ---------- FORM SUBMISSIONS (helper) ----------
       async function submitForm(url, data, msgEl) {
         try {
           const res = await fetch(url, {
@@ -2001,32 +2094,6 @@
           return false;
         }
       }
-
-      document.getElementById('popupForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const msgEl = document.getElementById('popupMsg');
-        msgEl.style.display = 'block';
-        msgEl.textContent = 'Sending...';
-        const data = {
-          name: document.getElementById('popupName').value,
-          email: document.getElementById('popupEmail').value,
-          phone: document.getElementById('popupPhone').value,
-          country: document.getElementById('popupCountry').value,
-          message: document.getElementById('popupMessage').value,
-          _subject: 'New Consultation Request – QuivaPro'
-        };
-        const success = await submitForm('https://formspree.io/f/meerzbyg', data, msgEl);
-        if (success) {
-          msgEl.textContent = '✓ Received! We\'ll be in touch soon.';
-          msgEl.className = 'form-msg success show';
-          localStorage.setItem('popupSubmitted', 'true');
-          e.target.reset();
-          setTimeout(closePopup, 2000);
-        } else {
-          msgEl.textContent = 'Something went wrong. Please try again.';
-          msgEl.className = 'form-msg error show';
-        }
-      });
 
       // ---------- PAYMENT MODAL ----------
       const paymentModal = document.getElementById('payment-overlay');
@@ -2104,6 +2171,20 @@
       paymentModal.addEventListener('click', (e) => {
         if (e.target === paymentModal) closePaymentModal();
       });
+
+      // ---------- SCROLL TO PRICING TRIGGERS AUTO POPUP ----------
+      const pricingSection = document.getElementById('pricing');
+      if (pricingSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !autoPopupShown && !localStorage.getItem('popupSubmitted')) {
+              autoPopupShown = true;
+              openPopup();
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(pricingSection);
+      }
     })();
   </script>
   <!-- Source protection (optional) -->
