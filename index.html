@@ -1088,7 +1088,7 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* ---------- POPUP (updated with checkbox) ---------- */
+    /* ---------- POPUP ---------- */
     .popup-overlay {
       position: fixed;
       inset: 0;
@@ -1112,7 +1112,7 @@
       background: var(--white);
       max-width: 500px;
       width: 100%;
-      padding: 3rem;
+      padding: 2rem; /* reduced from 3rem for better mobile fit */
       border: 1px solid var(--gray-200);
     }
 
@@ -1120,21 +1120,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .popup-header img {
-      height: 6rem;
+      height: 5rem;
     }
 
     .popup-close {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--gray-600);
       cursor: pointer;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .field {
@@ -1155,28 +1155,30 @@
     }
 
     textarea.field {
-      min-height: 100px;
+      min-height: 80px;
       resize: vertical;
     }
 
     /* Checkbox styling */
     .checkbox-group {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.75rem;
       margin: 1rem 0 1.5rem;
-      cursor: pointer;
     }
 
-    .checkbox-group input {
-      width: 1rem;
-      height: 1rem;
+    .checkbox-group input[type="checkbox"] {
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      accent-color: var(--black);
       cursor: pointer;
     }
 
     .checkbox-group label {
       font-size: 0.85rem;
       color: var(--gray-600);
+      line-height: 1.4;
       cursor: pointer;
     }
 
@@ -1185,6 +1187,7 @@
       margin-bottom: 1rem;
       font-size: 0.9rem;
       display: none;
+      border-radius: 4px;
     }
 
     .form-msg.show {
@@ -1203,21 +1206,17 @@
       border: 1px solid #c00;
     }
 
-    /* Thank you message */
-    .thankyou-message {
-      text-align: center;
-      padding: 1rem 0;
-    }
-
-    .thankyou-message h4 {
-      font-size: 1.3rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .thankyou-message p {
-      color: var(--gray-600);
-      margin-bottom: 1.5rem;
+    /* Responsive popup adjustments */
+    @media (max-width: 480px) {
+      .popup-card {
+        padding: 1.5rem;
+      }
+      .popup-header img {
+        height: 4rem;
+      }
+      .checkbox-group label {
+        font-size: 0.8rem;
+      }
     }
 
     /* ---------- PAYMENT MODAL ---------- */
@@ -1437,45 +1436,38 @@
         <img src="QuivaPro Logo.svg" alt="QuivaPro">
         <button class="popup-close" id="popupClose">&times;</button>
       </div>
-      <div id="popupFormContainer">
-        <h3>Book a Free Consultation</h3>
-        <p class="body" style="margin-bottom: 2rem;">Share your details and we'll craft a strategy for you.</p>
-        <form id="popupForm">
-          <div class="form-group">
-            <input class="field" type="text" placeholder="Full name *" id="popupName" required>
-          </div>
-          <div class="form-group">
-            <input class="field" type="email" placeholder="Email address *" id="popupEmail" required>
-          </div>
-          <div class="form-group">
-            <input class="field" type="tel" placeholder="Phone number *" id="popupPhone" required>
-          </div>
-          <div class="form-group">
-            <input class="field" type="text" placeholder="Country *" id="popupCountry" required>
-          </div>
-          <div class="form-group">
-            <textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea>
-          </div>
-          <!-- Checkbox for consent -->
-          <div class="checkbox-group">
-            <input type="checkbox" id="popupConsent" required>
-            <label for="popupConsent">I agree to receive emails and newsletters from QuivaPro with actionable insights to help my brand grow.</label>
-          </div>
-          <div class="form-msg" id="popupMsg"></div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
-        </form>
-      </div>
-      <div id="popupThankYou" style="display: none;">
-        <div class="thankyou-message">
-          <h4>Thank You! 🙌</h4>
-          <p>We'll send you actionable insights to help your brand grow.</p>
-          <p class="body" style="margin-top: 1rem;">You'll hear from us soon.</p>
+      <h3>Book a Free Consultation</h3>
+      <p class="body" style="margin-bottom: 1.5rem;">Share your details and we'll craft a strategy for you.</p>
+      <form id="popupForm">
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Full name *" id="popupName" required>
         </div>
-      </div>
+        <div class="form-group">
+          <input class="field" type="email" placeholder="Email address *" id="popupEmail" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="tel" placeholder="Phone number *" id="popupPhone" required>
+        </div>
+        <div class="form-group">
+          <input class="field" type="text" placeholder="Country *" id="popupCountry" required>
+        </div>
+        <div class="form-group">
+          <textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea>
+        </div>
+
+        <!-- Checkbox for email consent -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="popupConsent" name="consent">
+          <label for="popupConsent">I agree to receive emails and newsletters from QuivaPro with actionable insights to help grow my brand.</label>
+        </div>
+
+        <div class="form-msg" id="popupMsg"></div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+      </form>
     </div>
   </div>
 
-  <!-- PAYMENT MODAL (unchanged) -->
+  <!-- PAYMENT MODAL -->
   <div id="payment-overlay">
     <div class="payment-card">
       <div class="payment-header">
@@ -1582,7 +1574,7 @@
         <h2 class="fade-up delay-1">Our Engineers have experience working here</h2>
         <div class="carousel-container fade-up delay-2" id="logoCarousel">
           <div class="carousel-track">
-            <!-- First set of logos (replace with actual images) -->
+            <!-- First set of logos -->
             <div class="logo-item"><img src="google-logo.svg" alt="Google"></div>
             <div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div>
             <div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div>
@@ -1630,7 +1622,7 @@
             <!-- Founder 1 -->
             <div class="team-member">
               <div class="team-photo">
-                <img src="akinyemi-toluwanimi-Headshot.jpg" alt="Akinyemi">
+                <img src="akinyemi-toluwanimi-Headshot.jpg" alt="">
               </div>
               <div class="team-name">Akinyemi Toluwanimi</div>
               <div class="team-role">Web Developer / Tech Lead</div>
@@ -1968,31 +1960,17 @@
         });
       });
 
-      // ---------- POPUP (updated with checkbox and thank you) ----------
+      // ---------- POPUP ----------
       const popup = document.getElementById('popup');
       const popupClose = document.getElementById('popupClose');
-      const popupFormContainer = document.getElementById('popupFormContainer');
-      const popupThankYou = document.getElementById('popupThankYou');
-      const popupForm = document.getElementById('popupForm');
-      const popupMsg = document.getElementById('popupMsg');
-
       function openPopup() {
         popup.classList.add('active');
         document.body.style.overflow = 'hidden';
-        // Reset to form view if needed
-        popupFormContainer.style.display = 'block';
-        popupThankYou.style.display = 'none';
-        popupForm.reset();
-        popupMsg.style.display = 'none';
-        popupClose.style.display = 'block';
       }
-
       function closePopup() {
         popup.classList.remove('active');
         document.body.style.overflow = '';
       }
-
-      // Open popup on booking-trigger click
       document.addEventListener('click', function(e) {
         if (e.target.closest('.booking-trigger')) {
           openPopup();
@@ -2003,46 +1981,19 @@
         if (e.target === popup) closePopup();
       });
 
-      // Handle form submission
-      popupForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const consentCheckbox = document.getElementById('popupConsent');
-        if (!consentCheckbox.checked) {
-          popupMsg.textContent = 'Please agree to receive emails and newsletters.';
-          popupMsg.className = 'form-msg error show';
-          return;
-        }
-
-        popupMsg.style.display = 'block';
-        popupMsg.textContent = 'Sending...';
-        popupMsg.className = 'form-msg';
-
-        const data = {
-          name: document.getElementById('popupName').value,
-          email: document.getElementById('popupEmail').value,
-          phone: document.getElementById('popupPhone').value,
-          country: document.getElementById('popupCountry').value,
-          message: document.getElementById('popupMessage').value,
-          consent: consentCheckbox.checked ? 'Yes' : 'No',
-          _subject: 'New Consultation Request – QuivaPro'
-        };
-
-        const success = await submitForm('https://formspree.io/f/meerzbyg', data, popupMsg);
-        if (success) {
-          // Show thank you message
-          popupFormContainer.style.display = 'none';
-          popupThankYou.style.display = 'block';
-          localStorage.setItem('popupSubmitted', 'true');
-          // Auto close after 3 seconds
-          setTimeout(() => {
-            closePopup();
-            // Reset to form for next time (though after close, next open will reset anyway)
-          }, 3000);
-        } else {
-          popupMsg.textContent = 'Something went wrong. Please try again.';
-          popupMsg.className = 'form-msg error show';
-        }
-      });
+      // ---------- SCROLL TO PRICING TRIGGERS AUTO POPUP ----------
+      const pricingSection = document.getElementById('pricing');
+      if (pricingSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !autoPopupShown && !localStorage.getItem('popupSubmitted')) {
+              autoPopupShown = true;
+              openPopup();
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(pricingSection);
+      }
 
       // ---------- BACK TO TOP ----------
       const btt = document.getElementById('btt');
@@ -2081,7 +2032,7 @@
         });
       });
 
-      // ---------- FORM SUBMISSIONS (helper) ----------
+      // ---------- FORM SUBMISSIONS ----------
       async function submitForm(url, data, msgEl) {
         try {
           const res = await fetch(url, {
@@ -2094,6 +2045,40 @@
           return false;
         }
       }
+
+      document.getElementById('popupForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msgEl = document.getElementById('popupMsg');
+        msgEl.style.display = 'block';
+        msgEl.textContent = 'Sending...';
+        
+        const data = {
+          name: document.getElementById('popupName').value,
+          email: document.getElementById('popupEmail').value,
+          phone: document.getElementById('popupPhone').value,
+          country: document.getElementById('popupCountry').value,
+          message: document.getElementById('popupMessage').value,
+          consent: document.getElementById('popupConsent').checked ? 'Yes' : 'No',
+          _subject: 'New Consultation Request – QuivaPro'
+        };
+        
+        const success = await submitForm('https://formspree.io/f/meerzbyg', data, msgEl);
+        
+        if (success) {
+          msgEl.textContent = '✓ Thank you for reaching out! We\'ll send you actionable insights to help your brand grow.';
+          msgEl.className = 'form-msg success show';
+          localStorage.setItem('popupSubmitted', 'true');
+          e.target.reset();
+          // uncheck consent checkbox after reset
+          document.getElementById('popupConsent').checked = false;
+          popup._noClose = false;
+          popupClose.style.display = 'block';
+          setTimeout(closePopup, 3000);
+        } else {
+          msgEl.textContent = 'Something went wrong. Please try again.';
+          msgEl.className = 'form-msg error show';
+        }
+      });
 
       // ---------- PAYMENT MODAL ----------
       const paymentModal = document.getElementById('payment-overlay');
@@ -2171,20 +2156,6 @@
       paymentModal.addEventListener('click', (e) => {
         if (e.target === paymentModal) closePaymentModal();
       });
-
-      // ---------- SCROLL TO PRICING TRIGGERS AUTO POPUP ----------
-      const pricingSection = document.getElementById('pricing');
-      if (pricingSection) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !autoPopupShown && !localStorage.getItem('popupSubmitted')) {
-              autoPopupShown = true;
-              openPopup();
-            }
-          });
-        }, { threshold: 0.3 });
-        observer.observe(pricingSection);
-      }
     })();
   </script>
   <!-- Source protection (optional) -->
