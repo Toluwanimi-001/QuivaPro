@@ -10,14 +10,16 @@
   <link rel="canonical" href="https://quivapro.com">
 
   <link rel="icon" type="image/png" href="QuivaPro Favicon.png">
-  <link rel="shortcut icon" href="favicon.ico">
+  <!-- FIX 1: Removed deprecated "shortcut" keyword from rel attribute -->
+  <link rel="icon" href="favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+  <!-- FIX 2: Added defer to prevent render-blocking -->
+  <script src="https://forminit.com/sdk/v1/forminit.js" defer></script>
 
   <style>
     /* ---------- RESET & VARIABLES ---------- */
@@ -103,7 +105,7 @@
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
     @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 2rem; } }
 
-    /* ---------- HEADER — FROSTY GLASSMORPHISM ---------- */
+    /* ---------- HEADER ---------- */
     header {
       position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
       background: transparent;
@@ -185,7 +187,7 @@
     .pricing-btn.recommended { background: var(--purple); color: var(--white); border-color: var(--purple); }
     body.dark .pricing-btn.recommended { background: var(--white); color: var(--black); border-color: var(--white); }
 
-    /* ---------- HERO — CENTERED ALIGNMENT ---------- */
+    /* ---------- HERO ---------- */
     .hero { padding: 9rem 0 4rem; }
     @media (max-width: 768px) { .hero { padding: 7rem 0 3rem; } }
 
@@ -296,23 +298,13 @@
       transform: translateY(0);
       pointer-events: auto;
     }
-    .team-overlay-name {
-      font-size: 1rem; font-weight: 500; color: #fff; margin-bottom: 0.2rem; letter-spacing: -0.01em;
-    }
-    .team-overlay-title {
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.55); font-weight: 400; margin-bottom: 1rem;
-    }
-    .team-overlay-bio {
-      font-size: 0.83rem; line-height: 1.55; font-weight: 300; color: rgba(255, 255, 255, 0.9); text-align: center;
-    }
-    .team-overlay-cta {
-      margin-top: 1rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.5); display: flex; align-items: center; gap: 0.4rem;
-    }
+    .team-overlay-name { font-size: 1rem; font-weight: 500; color: #fff; margin-bottom: 0.2rem; letter-spacing: -0.01em; }
+    .team-overlay-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.55); font-weight: 400; margin-bottom: 1rem; }
+    .team-overlay-bio { font-size: 0.83rem; line-height: 1.55; font-weight: 300; color: rgba(255, 255, 255, 0.9); text-align: center; }
+    .team-overlay-cta { margin-top: 1rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.5); display: flex; align-items: center; gap: 0.4rem; }
 
     /* ---------- TEAM MODAL ---------- */
-    .team-modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); z-index: 2500; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out;
-    }
+    .team-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); z-index: 2500; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out; }
     .team-modal-overlay.active { opacity: 1; pointer-events: auto; }
     .team-modal-card { background: var(--white); border-radius: 16px; max-width: 600px; width: 100%; padding: 2.5rem; position: relative; transform: translateY(30px) scale(0.95); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1px solid var(--light-gray); }
     .team-modal-overlay.active .team-modal-card { transform: translateY(0) scale(1); }
@@ -351,7 +343,7 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); color: var(--gray-600); font-weight: 300; }
     .faq-answer.open { max-height: 300px; padding-bottom: 1.25rem; }
 
-    /* ---------- ULTRA-MINIMALIST FOOTER ---------- */
+    /* ---------- FOOTER ---------- */
     footer { background: #0a0a0a; color: #ffffff; padding: 5rem 0 2.5rem; }
     .footer-top { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
     @media (max-width: 968px) { .footer-top { grid-template-columns: repeat(2, 1fr); } }
@@ -376,14 +368,28 @@
     .footer-legal-links button { font-family: var(--font-sans); background: none; border: none; color: rgba(255,255,255,0.25); font-size: 0.8rem; font-weight: 300; cursor: pointer; transition: color 0.25s ease; padding: 0; }
     .footer-legal-links button:hover { color: rgba(255,255,255,0.7); }
 
-    /* ---------- BACK TO TOP ---------- */
-    /* FIXED: Moved up so it doesn't overlap the Luna FAB */
-    #btt { 
-      position: fixed; bottom: 6.5rem; right: 2rem; 
-      width: 3rem; height: 3rem; border: 1px solid var(--gray-300); 
-      background: var(--white); color: var(--gray-600); cursor: pointer; 
-      opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out, border-color 0.4s ease-in-out; 
-      z-index: 99; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border-radius: 50%;
+    /* ---------- BACK TO TOP ----------
+       FIX 3: Matched BTT size (3.5rem) and right offset (2rem) to Luna FAB
+       so both buttons share the same center-X axis on screen. */
+    #btt {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 2rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 1px solid var(--gray-300);
+      background: var(--white);
+      color: var(--gray-600);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out, border-color 0.4s ease-in-out;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      border-radius: 50%;
     }
     #btt.show { opacity: 1; pointer-events: auto; }
     #btt:hover { border-color: var(--purple); color: var(--purple); }
@@ -395,7 +401,7 @@
     /* ---------- MODALS ---------- */
     .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out; }
     .popup-overlay.active { opacity: 1; pointer-events: auto; }
-    .popup-card { background: var(--white); max-width: 500px; width: 100%; padding: 2rem; border: 1px solid var(--gray-200); max-height: 90vh; overflow-y: auto; border-radius: 12px;}
+    .popup-card { background: var(--white); max-width: 500px; width: 100%; padding: 2rem; border: 1px solid var(--gray-200); max-height: 90vh; overflow-y: auto; border-radius: 12px; }
     .popup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
     .popup-header img { height: 5rem; }
     .popup-close { font-size: 1.8rem; color: var(--gray-600); cursor: pointer; background: none; border: none; }
@@ -416,24 +422,24 @@
     /* ---------- PAYMENT MODAL ---------- */
     #payment-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out; }
     #payment-overlay.active { opacity: 1; pointer-events: auto; }
-    .payment-card { background: var(--white); max-width: 550px; width: 100%; padding: 3rem; border: 1px solid var(--gray-200); max-height: 90vh; overflow-y: auto; border-radius: 12px;}
+    .payment-card { background: var(--white); max-width: 550px; width: 100%; padding: 3rem; border: 1px solid var(--gray-200); max-height: 90vh; overflow-y: auto; border-radius: 12px; }
     .payment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
     .payment-header h3 { font-size: 1.5rem; font-weight: 500; color: var(--black); }
     .payment-close { font-size: 1.5rem; color: var(--gray-600); background: none; border: none; cursor: pointer; }
     .payment-close:hover { color: var(--black); }
-    .order-summary { background: var(--gray-100); padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--gray-200); border-radius: 8px;}
+    .order-summary { background: var(--gray-100); padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--gray-200); border-radius: 8px; }
     .order-row { display: flex; justify-content: space-between; padding: 0.5rem 0; color: var(--black); font-weight: 300; }
-    .bank-details { background: var(--gray-100); padding: 2rem; margin: 2rem 0; border: 1px dashed var(--gray-400); border-radius: 8px;}
+    .bank-details { background: var(--gray-100); padding: 2rem; margin: 2rem 0; border: 1px dashed var(--gray-400); border-radius: 8px; }
     .bank-details h4 { font-size: 1rem; margin-bottom: 1.5rem; color: var(--black); font-weight: 500; }
     .detail-row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200); flex-wrap: wrap; }
     .detail-row:last-child { border-bottom: none; }
     .detail-label { width: 100px; color: var(--gray-500); font-size: 0.9rem; font-weight: 300; }
     .detail-value { font-weight: 400; font-size: 1rem; color: var(--black); }
-    .copy-btn { margin-left: auto; padding: 0.25rem 0.75rem; border: 1px solid var(--gray-300); font-size: 0.75rem; cursor: pointer; font-family: var(--font-sans); font-weight: 400; background: transparent; color: var(--gray-900); border-radius: 20px;}
-    .payment-instructions { margin: 2rem 0; padding: 1.5rem; background: var(--gray-100); font-size: 0.95rem; font-weight: 300; border-radius: 8px;}
-    .file-upload { border: 1px dashed var(--gray-400); padding: 1.5rem; text-align: center; margin: 1rem 0; cursor: pointer; display: block; transition: border-color 0.2s; border-radius: 8px;}
+    .copy-btn { margin-left: auto; padding: 0.25rem 0.75rem; border: 1px solid var(--gray-300); font-size: 0.75rem; cursor: pointer; font-family: var(--font-sans); font-weight: 400; background: transparent; color: var(--gray-900); border-radius: 20px; }
+    .payment-instructions { margin: 2rem 0; padding: 1.5rem; background: var(--gray-100); font-size: 0.95rem; font-weight: 300; border-radius: 8px; }
+    .file-upload { border: 1px dashed var(--gray-400); padding: 1.5rem; text-align: center; margin: 1rem 0; cursor: pointer; display: block; transition: border-color 0.2s; border-radius: 8px; }
     .file-upload:hover { border-color: var(--purple); }
-    #fileChosen { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--black); font-weight: 300; margin-top: 10px;}
+    #fileChosen { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--black); font-weight: 300; margin-top: 10px; }
     .payment-secure { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.74rem; color: var(--gray-500); margin-top: 0.875rem; font-weight: 300; }
 
     /* ---------- LEGAL MODALS ---------- */
@@ -465,11 +471,9 @@
     #skip-to-luna { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.22); padding: 0.6rem 1.4rem; font-family: var(--font-sans); font-size: 0.82rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; }
     #skip-to-luna:hover { background: rgba(255,255,255,0.2); border-color: var(--purple); }
 
-    /* ================================================================
-       CHAT WIDGET — Luna Brand Assistant (AI ILLUSION ADDED)
-    ================================================================ */
+    /* ---------- CHAT WIDGET ---------- */
     .chat-widget { position: fixed; bottom: 2rem; right: 2rem; z-index: 300; }
-    .chat-window { position: absolute; bottom: 0; right: 0; width: 360px; height: 560px; background: var(--white); border: 1px solid var(--gray-200); box-shadow: 0 20px 50px rgba(0,0,0,0.2); display: flex; flex-direction: column; overflow: hidden; transform: scale(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); pointer-events: none; border-radius: 16px;}
+    .chat-window { position: absolute; bottom: 0; right: 0; width: 360px; height: 560px; background: var(--white); border: 1px solid var(--gray-200); box-shadow: 0 20px 50px rgba(0,0,0,0.2); display: flex; flex-direction: column; overflow: hidden; transform: scale(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); pointer-events: none; border-radius: 16px; }
     .chat-window.open { transform: scale(1); pointer-events: auto; }
     .chat-header { background: #0a0a0a; color: #fff; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
     body.dark .chat-header { background: #1a1a2e; }
@@ -477,10 +481,8 @@
     .luna-avatar { width: 2.2rem; height: 2.2rem; border-radius: 50%; background: linear-gradient(135deg, var(--purple) 0%, #7a1a9e 100%); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: #fff; }
     .chat-header-text { display: flex; flex-direction: column; justify-content: center; }
     .chat-header h4 { font-size: 0.95rem; font-weight: 500; margin: 0; line-height: 1.2; color: #fff; }
-    
     .chat-header-status { font-size: 0.7rem; opacity: 0.8; margin-top: 3px; display: flex; align-items: center; gap: 5px; color: #fff; font-weight: 300; }
     .status-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; }
-    
     .chat-actions { display: flex; align-items: center; gap: 0.8rem; }
     .chat-close, .chat-reset { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
     .chat-close { font-size: 1.4rem; padding: 0; line-height: 1; }
@@ -494,37 +496,32 @@
     body.dark .message.user { background: #3a3a6e; }
     .message.bot { background: var(--gray-100); color: var(--gray-900); align-self: flex-start; border: 1px solid var(--gray-200); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; }
     .message.system { background: transparent; color: var(--gray-500); font-size: 0.7rem; text-align: center; align-self: center; border: none; padding: 0.2rem; }
-    
+
     .typing-bubble { align-self: flex-start; background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; padding: 0.7rem 1rem; display: flex; gap: 5px; align-items: center; }
     .typing-bubble span { width: 6px; height: 6px; background: var(--gray-500); border-radius: 50%; animation: typeDot 1.1s infinite; }
     .typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
     .typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes typeDot { 0%, 80%, 100% { transform: scale(0.8); opacity: 0.4; } 40% { transform: scale(1.1); opacity: 1; } }
     @keyframes msgIn { from { opacity: 0; transform: translateY(6px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    
+
     .luna-options { display: flex; flex-direction: column; gap: 0.5rem; align-self: stretch; margin-top: 0.2rem; }
     .luna-opt { width: 100%; padding: 0.6rem 1rem; text-align: left; border: 1px solid var(--gray-300); background: var(--white); color: var(--gray-800); font-family: var(--font-sans); font-size: 0.85rem; font-weight: 400; border-radius: 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; }
     .luna-opt::before { content: '›'; color: var(--gray-400); font-size: 1.1rem; transition: color 0.2s; }
     .luna-opt:hover { border-color: var(--black); background: var(--gray-100); transform: translateX(2px); }
     .luna-opt:hover::before { color: var(--black); }
 
-    .chat-input-area {
-      display: flex; align-items: center; border-top: 1px solid var(--gray-200); padding: 0.75rem; gap: 0.6rem; flex-shrink: 0; background: var(--white);
-    }
-    .chat-input-area input {
-      flex: 1; min-width: 0; border: 1px solid var(--gray-200); border-radius: 30px; padding: 0.6rem 1rem; font-family: var(--font-sans); font-size: 0.875rem; background: var(--gray-100); color: var(--gray-900); outline: none; transition: border-color 0.2s; font-weight: 300;
-    }
+    .chat-input-area { display: flex; align-items: center; border-top: 1px solid var(--gray-200); padding: 0.75rem; gap: 0.6rem; flex-shrink: 0; background: var(--white); }
+    .chat-input-area input { flex: 1; min-width: 0; border: 1px solid var(--gray-200); border-radius: 30px; padding: 0.6rem 1rem; font-family: var(--font-sans); font-size: 0.875rem; background: var(--gray-100); color: var(--gray-900); outline: none; transition: border-color 0.2s; font-weight: 300; }
     .chat-input-area input:focus { border-color: var(--gray-500); }
-    .chat-input-area button {
-      flex-shrink: 0; background: #0a0a0a; color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-weight: 500; font-family: var(--font-sans); border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap;
-    }
+    .chat-input-area button { flex-shrink: 0; background: #0a0a0a; color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-weight: 500; font-family: var(--font-sans); border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
     .chat-input-area button:hover { background: #333; }
     .chat-contact-link { display: block; text-align: center; font-size: 0.7rem; padding: 0.6rem; border-top: 1px solid var(--gray-200); color: var(--gray-500); cursor: pointer; transition: color 0.2s; font-weight: 300; }
     .chat-contact-link:hover { color: var(--black); }
 
-    /* ---------- CHAT FAB (PULSE & TOOLTIP) ---------- */
+    /* ---------- CHAT FAB ---------- */
     .chat-fab-container { position: absolute; bottom: 0; right: 0; display: flex; align-items: center; gap: 1rem; }
     .chat-fab {
+      /* FIX 4: FAB is 3.5rem — BTT is now also 3.5rem at same right:2rem for perfect alignment */
       width: 3.5rem; height: 3.5rem; background: #0a0a0a; border-radius: 50%;
       display: flex; align-items: center; justify-content: center; cursor: pointer;
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
@@ -532,7 +529,7 @@
       animation: fabPulse 3s infinite;
     }
     .chat-fab:hover { transform: scale(1.05); animation: none; }
-    
+
     .chat-tooltip {
       background: var(--white); color: var(--black); padding: 0.6rem 1rem; border-radius: 20px;
       font-size: 0.8rem; font-weight: 500; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -541,7 +538,7 @@
       pointer-events: none; white-space: nowrap;
     }
     body.dark .chat-tooltip { background: var(--gray-900); color: var(--white); border-color: var(--gray-700); }
-    
+
     @keyframes fabPulse {
       0% { box-shadow: 0 0 0 0 rgba(191, 41, 237, 0.4); }
       70% { box-shadow: 0 0 0 15px rgba(191, 41, 237, 0); }
@@ -712,7 +709,7 @@
         <div class="video-placeholder" id="videoPlaceholder">
           <i class="fa-regular fa-circle-play"></i>
           <span class="ph-label">Intro Video Placeholder</span>
-          <p>Replace the <code>&lt;source src=""&gt;</code> with your real MP4 path. The video should conclude with: <em>"Over to you, Luna."</em></p>
+          <p>Replace the &lt;source src=""&gt; with your real MP4 path.</p>
         </div>
       </div>
       <div class="video-modal-footer">
@@ -759,7 +756,7 @@
       </div>
       <div class="chat-contact-link" id="chatContactLink">📧 Talk to a strategist →</div>
     </div>
-    
+
     <div class="chat-fab-container" id="chatFabContainer">
        <div class="chat-tooltip">Hi, I'm Luna! ✨</div>
        <button class="chat-fab" id="chatFab" aria-label="Open chat">✦</button>
@@ -781,7 +778,7 @@
           </div>
           <div class="trust-items fade-up delay-3">
             <span><i class="fa-regular fa-circle-check"></i> Trusted by growing startups</span>
-            <span><i class="fa-regular fa-circle-check"></i> Built for founders, creators & scaling companies</span>
+            <span><i class="fa-regular fa-circle-check"></i> Built for founders, creators &amp; scaling companies</span>
             <span><i class="fa-regular fa-circle-check"></i> Attract better clients and opportunities</span>
           </div>
         </div>
@@ -905,7 +902,6 @@
                 <span class="team-overlay-cta"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i> View full profile</span>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -956,7 +952,7 @@
               <li><i class="fa-regular fa-circle-check"></i> Key improvement insights</li>
             </ul>
             <div class="pricing-outcome"><strong>Outcome:</strong> Discover the core issue limiting your brand clarity.</div>
-            <div class="pricing-bestfor"><strong>Best For:</strong> Early-stage founders & startups wanting a fast expert opinion.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Early-stage founders &amp; startups wanting a fast expert opinion.</div>
             <button class="pricing-btn" onclick="openPaymentModal('basic')">Get My Brand Check</button>
           </div>
           <div class="pricing-card">
@@ -970,7 +966,7 @@
               <li><i class="fa-regular fa-circle-check"></i> Short diagnosis report</li>
             </ul>
             <div class="pricing-outcome"><strong>Outcome:</strong> Understand why your brand isn't standing out.</div>
-            <div class="pricing-bestfor"><strong>Best For:</strong> Startups & growing businesses improving positioning.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Startups &amp; growing businesses improving positioning.</div>
             <button class="pricing-btn" onclick="openPaymentModal('standard')">Start My Brand Diagnosis</button>
           </div>
           <div class="pricing-card recommended">
@@ -1047,15 +1043,14 @@
   <footer id="contact">
     <div class="container">
       <div class="footer-top">
-
         <div class="footer-brand">
           <img src="QuivaPro Logo.svg" alt="QuivaPro" class="footer-logo-img">
           <p class="footer-tagline">Strategic branding and business infrastructure for modern companies ready to scale.</p>
           <div class="social-links">
-            <a href="https://wa.me/2348181041879" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://twitter.com/quivapro" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://linkedin.com/company/quivapro" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://instagram.com/quivapro" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/2348181041879" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://twitter.com/quivapro" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://linkedin.com/company/quivapro" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/quivapro" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
 
@@ -1078,11 +1073,10 @@
           <a href="mailto:quivapro@gmail.com">quivapro@gmail.com</a>
           <a href="#" class="booking-trigger highlight-link">Book a Call &rarr;</a>
         </div>
-
       </div>
 
       <div class="footer-bottom">
-        <span class="footer-copy">© 2026 QuivaPro. All rights reserved.</span>
+        <span class="footer-copy">&copy; 2026 QuivaPro. All rights reserved.</span>
         <div class="footer-legal-links">
           <button onclick="openLegalModal('privacy')">Privacy Policy</button>
           <button onclick="openLegalModal('terms')">Terms of Service</button>
@@ -1095,6 +1089,7 @@
     (function () {
       'use strict';
 
+      /* ---- UTILITIES ---- */
       function showToast(msg) {
         var t = document.getElementById('toast');
         t.textContent = msg;
@@ -1102,648 +1097,651 @@
         setTimeout(function () { t.classList.remove('show'); }, 3000);
       }
 
-      // header scroll
+      /* ---- HEADER SCROLL ---- */
       var header = document.getElementById('header');
-      var btt = document.getElementById('btt');
-      window.addEventListener('scroll', function () { 
-        header.classList.toggle('scrolled', window.scrollY > 50); 
-        btt.classList.toggle('show', window.scrollY > 300); 
+      var btt    = document.getElementById('btt');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        btt.classList.toggle('show', window.scrollY > 300);
       });
       btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-      // theme toggle
+      /* ---- THEME TOGGLE ---- */
       var themeToggle = document.getElementById('themeToggle');
-      var themeIcon = themeToggle.querySelector('i');
-      if (localStorage.getItem('theme') === 'dark') { 
-        document.body.classList.add('dark'); 
-        themeIcon.className = 'fa-regular fa-sun'; 
+      var themeIcon   = themeToggle.querySelector('i');
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        themeIcon.className = 'fa-regular fa-sun';
       }
-      themeToggle.addEventListener('click', function () { 
-        var dark = document.body.classList.toggle('dark'); 
-        themeIcon.className = dark ? 'fa-regular fa-sun' : 'fa-regular fa-moon'; 
-        localStorage.setItem('theme', dark ? 'dark' : 'light'); 
+      themeToggle.addEventListener('click', function () {
+        var dark = document.body.classList.toggle('dark');
+        themeIcon.className = dark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
       });
 
-      // drawer
-      var menuBtn = document.getElementById('mobileMenuBtn'), 
-          drawer = document.getElementById('drawer'), 
-          drawerOverlay = document.getElementById('drawerOverlay'), 
-          drawerClose = document.getElementById('drawerClose');
-      function openDrawer() { 
-        drawer.classList.add('open'); 
-        drawerOverlay.classList.add('active'); 
-        document.body.classList.add('menu-open'); 
-      }
-      function closeDrawer() { 
-        drawer.classList.remove('open'); 
-        drawerOverlay.classList.remove('active'); 
-        document.body.classList.remove('menu-open'); 
-      }
-      menuBtn.addEventListener('click', openDrawer); 
-      drawerClose.addEventListener('click', closeDrawer); 
+      /* ---- MOBILE DRAWER ---- */
+      var menuBtn       = document.getElementById('mobileMenuBtn');
+      var drawer        = document.getElementById('drawer');
+      var drawerOverlay = document.getElementById('drawerOverlay');
+      var drawerClose   = document.getElementById('drawerClose');
+
+      function openDrawer()  { drawer.classList.add('open'); drawerOverlay.classList.add('active'); document.body.classList.add('menu-open'); }
+      function closeDrawer() { drawer.classList.remove('open'); drawerOverlay.classList.remove('active'); document.body.classList.remove('menu-open'); }
+
+      menuBtn.addEventListener('click', openDrawer);
+      drawerClose.addEventListener('click', closeDrawer);
       drawerOverlay.addEventListener('click', closeDrawer);
-      drawer.querySelectorAll('a, .drawer-book').forEach(function (el) { 
-        el.addEventListener('click', function (e) { 
-          var href = el.getAttribute('href'); 
-          if (href && href.startsWith('#')) { 
-            e.preventDefault(); 
-            closeDrawer(); 
-            setTimeout(function () { document.querySelector(href).scrollIntoView({ behavior: 'smooth' }); }, 100); 
-          } else { 
-            closeDrawer(); 
-          } 
-        }); 
+      drawer.querySelectorAll('a, .drawer-book').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          var href = el.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            closeDrawer();
+            setTimeout(function () { document.querySelector(href).scrollIntoView({ behavior: 'smooth' }); }, 100);
+          } else {
+            closeDrawer();
+          }
+        });
       });
 
-      // consultation popup
-      var popup = document.getElementById('popup'), 
-          popupClose = document.getElementById('popupClose'), 
-          autoShown = false;
-      function openPopup() { 
-        popup.classList.add('active'); 
-        document.body.style.overflow = 'hidden'; 
-      }
-      function closePopup() { 
-        popup.classList.remove('active'); 
-        document.body.style.overflow = ''; 
-      }
-      document.addEventListener('click', function (e) { 
-        if (e.target.closest('.booking-trigger')) openPopup(); 
+      /* ---- CONSULTATION POPUP ---- */
+      var popup     = document.getElementById('popup');
+      var popupClose = document.getElementById('popupClose');
+      var autoShown  = false;
+
+      function openPopup()  { popup.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      function closePopup() { popup.classList.remove('active'); document.body.style.overflow = ''; }
+
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('.booking-trigger')) openPopup();
       });
-      popupClose.addEventListener('click', closePopup); 
-      popup.addEventListener('click', function (e) { 
-        if (e.target === popup) closePopup(); 
-      });
-      
+      popupClose.addEventListener('click', closePopup);
+      popup.addEventListener('click', function (e) { if (e.target === popup) closePopup(); });
+
       var pricingSection = document.getElementById('pricing');
-      if (pricingSection) { 
-        new IntersectionObserver(function (entries) { 
-          if (entries[0].isIntersecting && !autoShown && !localStorage.getItem('popupSubmitted')) { 
-            autoShown = true; 
-            openPopup(); 
-          } 
-        }, { threshold: 0.3 }).observe(pricingSection); 
+      if (pricingSection) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting && !autoShown && !localStorage.getItem('popupSubmitted')) {
+            autoShown = true;
+            openPopup();
+          }
+        }, { threshold: 0.3 }).observe(pricingSection);
       }
-      
-      document.getElementById('popupForm').addEventListener('submit', async function (e) { 
-        e.preventDefault(); 
-        var msg = document.getElementById('popupMsg'); 
-        msg.style.display = 'block'; 
-        msg.textContent = 'Sending…'; 
-        try { 
-          var r = await fetch('https://formspree.io/f/meerzbyg', { 
-            method: 'POST', 
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, 
-            body: JSON.stringify({ 
-              name: document.getElementById('popupName').value, 
-              email: document.getElementById('popupEmail').value, 
-              phone: document.getElementById('popupPhone').value, 
-              country: document.getElementById('popupCountry').value, 
-              message: document.getElementById('popupMessage').value, 
-              consent: document.getElementById('popupConsent').checked ? 'Yes' : 'No', 
-              _subject: 'New Consultation Request – QuivaPro' 
-            }) 
-          }); 
-          if (r.ok) { 
-            msg.textContent = 'Thank you! We\'ll send you insights to help your brand grow.'; 
-            msg.className = 'form-msg success show'; 
-            localStorage.setItem('popupSubmitted', 'true'); 
-            e.target.reset(); 
-            setTimeout(closePopup, 3000); 
-          } else throw 0; 
-        } catch (_) { 
-          msg.textContent = 'Something went wrong. Please try again.'; 
-          msg.className = 'form-msg error show'; 
-        } 
+
+      document.getElementById('popupForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var msg = document.getElementById('popupMsg');
+        msg.style.display = 'block';
+        msg.textContent = 'Sending…';
+        try {
+          var r = await fetch('https://formspree.io/f/meerzbyg', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name: document.getElementById('popupName').value,
+              email: document.getElementById('popupEmail').value,
+              phone: document.getElementById('popupPhone').value,
+              country: document.getElementById('popupCountry').value,
+              message: document.getElementById('popupMessage').value,
+              consent: document.getElementById('popupConsent').checked ? 'Yes' : 'No',
+              _subject: 'New Consultation Request – QuivaPro'
+            })
+          });
+          if (r.ok) {
+            msg.textContent = 'Thank you! We\'ll send you insights to help your brand grow.';
+            msg.className = 'form-msg success show';
+            localStorage.setItem('popupSubmitted', 'true');
+            e.target.reset();
+            setTimeout(closePopup, 3000);
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (_) {
+          msg.textContent = 'Something went wrong. Please try again.';
+          msg.className = 'form-msg error show';
+        }
       });
 
-      // payment modal
-      var paymentOverlay = document.getElementById('payment-overlay'), 
-          paymentMsg = document.getElementById('paymentMsg');
-      var PACKAGES = { 
-        basic: { name: 'Basic Brand Check', price: '$30' }, 
-        standard: { name: 'Standard Brand Diagnosis', price: '$75' }, 
-        premium: { name: 'Premium Brand Infrastructure Diagnosis', price: '$200' } 
+      /* ---- PAYMENT MODAL ---- */
+      var paymentOverlay = document.getElementById('payment-overlay');
+      var paymentMsg     = document.getElementById('paymentMsg');
+      var PACKAGES = {
+        basic:    { name: 'Basic Brand Check',                    price: '$30'  },
+        standard: { name: 'Standard Brand Diagnosis',             price: '$75'  },
+        premium:  { name: 'Premium Brand Infrastructure Diagnosis', price: '$200' }
       };
-      
-      window.openPaymentModal = function (key) { 
-        var p = PACKAGES[key]; 
-        document.getElementById('selectedPackageName').textContent = p.name; 
-        document.getElementById('selectedPackagePrice').textContent = p.price; 
-        document.getElementById('paymentAmount').textContent = p.price; 
-        document.getElementById('paymentPackage').value = p.name; 
-        paymentOverlay.classList.add('active'); 
-        document.body.style.overflow = 'hidden'; 
+
+      // FIX 5: window-scoped so inline onclick="" attributes can reach them
+      window.openPaymentModal = function (key) {
+        var p = PACKAGES[key];
+        document.getElementById('selectedPackageName').textContent = p.name;
+        document.getElementById('selectedPackagePrice').textContent = p.price;
+        document.getElementById('paymentAmount').textContent = p.price;
+        document.getElementById('paymentPackage').value = p.name;
+        paymentOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
       };
-      
-      window.closePaymentModal = function () { 
-        paymentOverlay.classList.remove('active'); 
-        document.body.style.overflow = ''; 
-        document.getElementById('paymentConfirmationForm').reset(); 
-        paymentMsg.style.display = 'none'; 
-        document.getElementById('fileChosen').textContent = 'Click to upload payment screenshot'; 
+
+      window.closePaymentModal = function () {
+        paymentOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        document.getElementById('paymentConfirmationForm').reset();
+        paymentMsg.style.display = 'none';
+        document.getElementById('fileChosen').textContent = 'Click to upload payment screenshot';
       };
-      
-      window.copyToClipboard = function (txt) { 
-        navigator.clipboard.writeText(txt).then(function () { showToast('Copied to clipboard!'); }); 
+
+      window.copyToClipboard = function (txt) {
+        navigator.clipboard.writeText(txt).then(function () { showToast('Copied to clipboard!'); });
       };
-      
-      document.getElementById('paymentScreenshot').addEventListener('change', function (e) { 
-        document.getElementById('fileChosen').textContent = e.target.files[0] ? e.target.files[0].name : 'Click to upload payment screenshot'; 
-      });
-      
-      paymentOverlay.addEventListener('click', function (e) { 
-        if (e.target === paymentOverlay) window.closePaymentModal(); 
+
+      document.getElementById('paymentScreenshot').addEventListener('change', function (e) {
+        document.getElementById('fileChosen').textContent = e.target.files[0]
+          ? e.target.files[0].name
+          : 'Click to upload payment screenshot';
       });
 
-      const FORM_ID = "u8fol9u6441";
-      let forminit = null;
-      if (typeof Forminit !== 'undefined') { forminit = new Forminit(); }
-      let prefillName = null, prefillEmail = null;
-      function proceedToOnboarding(name, email) { 
-        prefillName = name; 
-        prefillEmail = email; 
-        window.closePaymentModal(); 
-        openVideoModal(email); 
+      paymentOverlay.addEventListener('click', function (e) {
+        if (e.target === paymentOverlay) window.closePaymentModal();
+      });
+
+      /* Forminit setup (loaded with defer — safe to reference here) */
+      var FORM_ID  = 'u8fol9u6441';
+      var forminit = null;
+      var prefillName  = null;
+      var prefillEmail = null;
+
+      // FIX 6: Initialise Forminit only after DOMContentLoaded so defer script is ready
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof Forminit !== 'undefined') { forminit = new Forminit(); }
+      });
+
+      function proceedToOnboarding(name, email) {
+        prefillName  = name;
+        prefillEmail = email;
+        window.closePaymentModal();
+        openVideoModal(email);
       }
 
       document.getElementById('paymentConfirmationForm').addEventListener('submit', async function (e) {
         e.preventDefault();
         var name = document.getElementById('paymentName').value.trim();
         var email = document.getElementById('paymentEmail').value.trim();
-        var pkg = document.getElementById('paymentPackage').value;
+        var pkg  = document.getElementById('paymentPackage').value;
         var file = document.getElementById('paymentScreenshot').files[0];
-        var ref = document.getElementById('paymentRef').value;
-        if (!name || !email || !pkg || !file) { 
-          paymentMsg.textContent = 'Please fill all required fields and upload a screenshot.'; 
-          paymentMsg.className = 'form-msg error show'; 
-          return; 
+        var ref  = document.getElementById('paymentRef').value;
+
+        if (!name || !email || !pkg || !file) {
+          paymentMsg.textContent = 'Please fill all required fields and upload a screenshot.';
+          paymentMsg.className = 'form-msg error show';
+          return;
         }
-        if (!['image/jpeg','image/png','image/jpg'].includes(file.type)) { 
-          paymentMsg.textContent = 'Only JPG or PNG images are allowed.'; 
-          paymentMsg.className = 'form-msg error show'; 
-          return; 
+        if (!['image/jpeg', 'image/png', 'image/jpg'].includes(file.type)) {
+          paymentMsg.textContent = 'Only JPG or PNG images are allowed.';
+          paymentMsg.className = 'form-msg error show';
+          return;
         }
-        if (file.size > 10*1024*1024) { 
-          paymentMsg.textContent = 'File size must be less than 10 MB.'; 
-          paymentMsg.className = 'form-msg error show'; 
-          return; 
+        if (file.size > 10 * 1024 * 1024) {
+          paymentMsg.textContent = 'File size must be less than 10 MB.';
+          paymentMsg.className = 'form-msg error show';
+          return;
         }
-        paymentMsg.style.display = 'block'; 
-        paymentMsg.textContent = 'Sending confirmation…'; 
+
+        paymentMsg.style.display = 'block';
+        paymentMsg.textContent = 'Sending confirmation…';
         paymentMsg.className = 'form-msg';
+
         var fd = new FormData();
-        fd.append('fi-sender-firstName', name); 
-        fd.append('fi-sender-email', email); 
-        fd.append('fi-text-package', pkg); 
-        fd.append('fi-file-screenshot', file); 
+        fd.append('fi-sender-firstName', name);
+        fd.append('fi-sender-email', email);
+        fd.append('fi-text-package', pkg);
+        fd.append('fi-file-screenshot', file);
         if (ref) fd.append('reference', ref);
+
         try {
-          if (forminit) { 
-            await forminit.submit(FORM_ID, fd); 
-            paymentMsg.textContent = 'Payment confirmation received! We\'ll verify and be in touch within 24 hours.'; 
-            paymentMsg.className = 'form-msg success show'; 
-            setTimeout(() => { proceedToOnboarding(name, email); }, 1500); 
+          if (forminit) {
+            await forminit.submit(FORM_ID, fd);
+            paymentMsg.textContent = 'Payment confirmation received! We\'ll verify and be in touch within 24 hours.';
+            paymentMsg.className = 'form-msg success show';
+            setTimeout(function () { proceedToOnboarding(name, email); }, 1500);
+          } else {
+            throw new Error('Forminit not loaded');
           }
-          else throw new Error('Forminit not loaded');
-        } catch (err) { 
-          console.warn(err); 
-          paymentMsg.textContent = 'Upload failed, but don\'t worry! Let\'s continue...'; 
-          paymentMsg.className = 'form-msg error show'; 
-          setTimeout(() => { proceedToOnboarding(name, email); }, 2000); 
+        } catch (err) {
+          console.warn(err);
+          paymentMsg.textContent = 'Upload noted. Let\'s continue…';
+          paymentMsg.className = 'form-msg error show';
+          setTimeout(function () { proceedToOnboarding(name, email); }, 2000);
         }
       });
 
-      // video modal
-      var videoModal = document.getElementById('video-modal'), 
-          onboardingVideo = document.getElementById('onboarding-video'), 
-          skipBtn = document.getElementById('skip-to-luna'), 
-          videoPlaceholder = document.getElementById('videoPlaceholder');
-      var _lunaEmail = '', _videoClosedManually = false;
-      
-      function openVideoModal(email) { 
-        _lunaEmail = email || ''; 
-        _videoClosedManually = false; 
-        videoModal.classList.add('active'); 
-        document.body.style.overflow = 'hidden'; 
-        var src = onboardingVideo.querySelector('source')?.getAttribute('src'); 
-        if (src && src.trim()) { 
-          videoPlaceholder.style.display = 'none'; 
-          onboardingVideo.play().catch(function () {}); 
-        } else { 
-          videoPlaceholder.style.display = 'flex'; 
-        } 
+      /* ---- VIDEO MODAL ---- */
+      var videoModal       = document.getElementById('video-modal');
+      var onboardingVideo  = document.getElementById('onboarding-video');
+      var skipBtn          = document.getElementById('skip-to-luna');
+      var videoPlaceholder = document.getElementById('videoPlaceholder');
+      var _lunaEmail           = '';
+      var _videoClosedManually = false;
+
+      function openVideoModal(email) {
+        _lunaEmail = email || '';
+        _videoClosedManually = false;
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        var source = onboardingVideo.querySelector('source');
+        var src = source ? source.getAttribute('src') : '';
+        if (src && src.trim()) {
+          videoPlaceholder.style.display = 'none';
+          onboardingVideo.play().catch(function () {});
+        } else {
+          videoPlaceholder.style.display = 'flex';
+        }
       }
-      
-      function closeVideoModal(andThenLaunchLuna) { 
-        videoModal.classList.remove('active'); 
-        onboardingVideo.pause(); 
-        onboardingVideo.currentTime = 0; 
-        document.body.style.overflow = ''; 
-        if (andThenLaunchLuna !== false && !_videoClosedManually) { 
-          _videoClosedManually = true; 
-          initLuna(_lunaEmail, prefillName, prefillEmail); 
-        } 
+
+      function closeVideoModal(andThenLaunchLuna) {
+        videoModal.classList.remove('active');
+        onboardingVideo.pause();
+        onboardingVideo.currentTime = 0;
+        document.body.style.overflow = '';
+        if (andThenLaunchLuna !== false && !_videoClosedManually) {
+          _videoClosedManually = true;
+          initLuna(_lunaEmail, prefillName, prefillEmail);
+        }
       }
-      
+
       onboardingVideo.addEventListener('ended', function () { closeVideoModal(true); });
       skipBtn.addEventListener('click', function () { closeVideoModal(true); });
       videoModal.addEventListener('click', function (e) { if (e.target === videoModal) closeVideoModal(true); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal(true); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal(true);
+      });
 
-      // AI LUNA CHAT LOGIC (Dynamic typing and status)
-      var chatWindow = document.getElementById('chatWindow'), 
-          chatMessages = document.getElementById('chatMessages'), 
-          chatInput = document.getElementById('chatInput'), 
-          chatSend = document.getElementById('chatSend'), 
-          chatInputArea = document.getElementById('chatInputArea'), 
-          chatClose = document.getElementById('chatClose'), 
-          chatResetBtn = document.getElementById('chatResetBtn'), 
-          chatContactLink = document.getElementById('chatContactLink');
-      
+      /* ---- LUNA CHAT ---- */
+      var chatWindow      = document.getElementById('chatWindow');
+      var chatMessages    = document.getElementById('chatMessages');
+      var chatInput       = document.getElementById('chatInput');
+      var chatSend        = document.getElementById('chatSend');
+      var chatInputArea   = document.getElementById('chatInputArea');
+      var chatClose       = document.getElementById('chatClose');
+      var chatResetBtn    = document.getElementById('chatResetBtn');
+      var chatContactLink = document.getElementById('chatContactLink');
       var chatFabContainer = document.getElementById('chatFabContainer');
-      var chatFab = document.getElementById('chatFab');
-      var chatStatusText = document.getElementById('chatStatusText');
-      
+      var chatFab          = document.getElementById('chatFab');
+      var chatStatusText   = document.getElementById('chatStatusText');
+
       var S = { NAME: 'NAME', EMAIL: 'EMAIL', Q1: 'Q1', Q2: 'Q2', Q3: 'Q3', DONE: 'DONE' };
       var luna = { state: null, name: '', email: '', a1: '', a2: '', a3: '' };
-      
+
       function scrollDown() { chatMessages.scrollTop = chatMessages.scrollHeight; }
-      function appendBotMsg(text) { var d = document.createElement('div'); d.className = 'message bot'; d.textContent = text; chatMessages.appendChild(d); scrollDown(); }
-      function appendUserMsg(text) { var d = document.createElement('div'); d.className = 'message user'; d.textContent = text; chatMessages.appendChild(d); scrollDown(); }
-      
-      function botSay(text, baseDelay, cb) { 
-        // Dynamic "AI" delay based on length of message
-        let dynamicDelay = baseDelay || Math.max(800, text.length * 20); 
-        
-        // Show "typing..." status
+
+      function appendBotMsg(text) {
+        var d = document.createElement('div');
+        d.className = 'message bot';
+        d.textContent = text;
+        chatMessages.appendChild(d);
+        scrollDown();
+      }
+
+      function appendUserMsg(text) {
+        var d = document.createElement('div');
+        d.className = 'message user';
+        d.textContent = text;
+        chatMessages.appendChild(d);
+        scrollDown();
+      }
+
+      function botSay(text, baseDelay, cb) {
+        // Dynamic delay based on message length gives natural "AI typing" feel
+        var delay = baseDelay || Math.max(800, text.length * 20);
+
         if (chatStatusText) {
-          chatStatusText.innerHTML = "<span class='status-dot' style='background: var(--purple);'></span> Luna is typing...";
+          chatStatusText.innerHTML = '<span class="status-dot" style="background:var(--purple);"></span> Luna is typing…';
         }
 
-        var bubble = document.createElement('div'); 
-        bubble.className = 'typing-bubble'; 
-        bubble.innerHTML = '<span></span><span></span><span></span>'; 
-        chatMessages.appendChild(bubble); 
-        scrollDown(); 
-        
-        setTimeout(function () { 
-          if (bubble.parentNode) chatMessages.removeChild(bubble); 
-          appendBotMsg(text); 
-          
-          // Revert status to online
-          if (chatStatusText) {
-            chatStatusText.innerHTML = "<span class='status-dot'></span> QuivaPro · Online";
-          }
+        var bubble = document.createElement('div');
+        bubble.className = 'typing-bubble';
+        bubble.innerHTML = '<span></span><span></span><span></span>';
+        chatMessages.appendChild(bubble);
+        scrollDown();
 
-          if (cb) cb(); 
-        }, dynamicDelay); 
+        setTimeout(function () {
+          if (bubble.parentNode) chatMessages.removeChild(bubble);
+          appendBotMsg(text);
+          if (chatStatusText) {
+            chatStatusText.innerHTML = '<span class="status-dot"></span> QuivaPro · Online';
+          }
+          if (cb) cb();
+        }, delay);
       }
-      
-      function showOptionsWithFeedback(opts, feedbackMap, onComplete) { 
-        var wrap = document.createElement('div'); 
-        wrap.className = 'luna-options'; 
-        opts.forEach(function (label) { 
-          var btn = document.createElement('button'); 
-          btn.className = 'luna-opt'; 
-          btn.textContent = label; 
-          btn.addEventListener('click', function () { 
-            wrap.querySelectorAll('.luna-opt').forEach(function (b) { b.disabled = true; }); 
-            btn.classList.add('chosen'); 
-            appendUserMsg(label); 
-            // Avoid unescaped quote issues using standard strings
-            var fb = feedbackMap[label] || "Thanks for sharing!"; 
-            botSay(fb, 600, function () { if (onComplete) onComplete(label); }); 
-          }); 
-          wrap.appendChild(btn); 
-        }); 
-        chatMessages.appendChild(wrap); 
-        scrollDown(); 
+
+      function showOptionsWithFeedback(opts, feedbackMap, onComplete) {
+        var wrap = document.createElement('div');
+        wrap.className = 'luna-options';
+        opts.forEach(function (label) {
+          var btn = document.createElement('button');
+          btn.className = 'luna-opt';
+          btn.textContent = label;
+          btn.addEventListener('click', function () {
+            wrap.querySelectorAll('.luna-opt').forEach(function (b) { b.disabled = true; });
+            appendUserMsg(label);
+            var fb = feedbackMap[label] || 'Thanks for sharing!';
+            botSay(fb, 600, function () { if (onComplete) onComplete(label); });
+          });
+          wrap.appendChild(btn);
+        });
+        chatMessages.appendChild(wrap);
+        scrollDown();
+      }
+
+      /* FIX 7: submitEmail declared as a named function so it is hoisted and
+         can be safely referenced in go() before its textual position in the file. */
+      function submitEmail() {
+        if (luna.state !== S.EMAIL) return;
+        var raw = chatInput.value.trim();
+        if (!raw || !raw.includes('@')) { showToast('Please enter a valid email address'); return; }
+        luna.email = raw;
+        appendUserMsg(raw);
+        chatInput.value = '';
+        chatInputArea.style.display = 'none';
+        go(S.Q1);
+      }
+
+      function submitName() {
+        if (luna.state !== S.NAME) return;
+        var raw = chatInput.value.trim();
+        if (!raw) return;
+        luna.name = raw.charAt(0).toUpperCase() + raw.slice(1);
+        appendUserMsg(raw);
+        chatInput.value = '';
+        chatInputArea.style.display = 'none';
+        go(S.EMAIL);
       }
 
       function go(state) {
         luna.state = state;
-        if (state === S.EMAIL) { 
-          botSay('Thanks, ' + luna.name + '! Could you share your email address so we can send you a personalised brand insight?', 600, function () { 
-            chatInputArea.style.display = 'flex'; 
-            chatInput.disabled = false; 
-            chatSend.disabled = false; 
-            chatInput.placeholder = 'Your email address…'; 
-            chatInput.value = ''; 
-            var origSubmit = submitEmail; 
-            chatSend.onclick = origSubmit; 
-            chatInput.onkeydown = function (e) { if (e.key === 'Enter') origSubmit(); }; 
-          }); 
+
+        if (state === S.EMAIL) {
+          botSay('Thanks, ' + luna.name + '! Could you share your email so we can send you a personalised brand insight?', 600, function () {
+            chatInputArea.style.display = 'flex';
+            chatInput.disabled = false;
+            chatSend.disabled  = false;
+            chatInput.placeholder = 'Your email address…';
+            chatInput.value = '';
+            // FIX 8: assign directly — no redundant origSubmit variable
+            chatSend.onclick      = submitEmail;
+            chatInput.onkeydown   = function (e) { if (e.key === 'Enter') submitEmail(); };
+          });
+
+        } else if (state === S.Q1) {
+          var opts1 = [
+            'I explain it in detail, it takes a few minutes to cover it.',
+            'One sentence, clear, confident and I say it the same way every time.',
+            'I adjust my explanation depending on who I am talking to.',
+            'I struggle to explain it without overcomplicating things.'
+          ];
+          var feedback1 = {
+            'I explain it in detail, it takes a few minutes to cover it.': 'Detail is great, but attention spans are short! Let\'s work on condensing that power into a quick hook.',
+            'One sentence, clear, confident and I say it the same way every time.': 'A repeatable one-liner is the hallmark of a brand that knows itself. That consistency gives you a structural advantage most competitors don\'t have.',
+            'I adjust my explanation depending on who I am talking to.': 'Adaptability is good for sales, but your core brand message should remain a unified anchor.',
+            'I struggle to explain it without overcomplicating things.': 'You\'re not alone! The curse of knowledge makes it hard to simplify your own genius. That\'s exactly what we fix.'
+          };
+          botSay('When someone asks what your business does, how would you describe it?', 600, function () {
+            showOptionsWithFeedback(opts1, feedback1, function (val) { luna.a1 = val; go(S.Q2); });
+          });
+
+        } else if (state === S.Q2) {
+          var opts2 = [
+            'They don\'t understand what we do',
+            'They compare us to cheaper alternatives',
+            'Our brand looks outdated',
+            'We struggle to stand out in a crowded market'
+          ];
+          var feedback2 = {
+            'They don\'t understand what we do': 'Clarity is the #1 conversion killer. If people don\'t instantly get it, they bounce. Let\'s refine your core message.',
+            'They compare us to cheaper alternatives': 'Price wars are exhausting. We\'ll help you shift focus from price to value and differentiation.',
+            'Our brand looks outdated': 'Perception is reality. An outdated look signals outdated thinking. A strategic refresh can rebuild trust instantly.',
+            'We struggle to stand out in a crowded market': 'Differentiation isn\'t about being louder — it\'s about being clearer. We\'ll find your unique angle.'
+          };
+          botSay('What\'s the biggest challenge you face when trying to attract new customers?', 600, function () {
+            showOptionsWithFeedback(opts2, feedback2, function (val) { luna.a2 = val; go(S.Q3); });
+          });
+
+        } else if (state === S.Q3) {
+          var opts3 = [
+            'Professional and cohesive',
+            'Inconsistent across platforms',
+            'Minimal – we don\'t focus much on online',
+            'We have a website but it doesn\'t convert'
+          ];
+          var feedback3 = {
+            'Professional and cohesive': 'Great foundation! Consistency builds trust. Let\'s make sure your messaging also drives action.',
+            'Inconsistent across platforms': 'Inconsistency confuses your audience. We\'ll align your brand voice and visuals into a unified system.',
+            'Minimal – we don\'t focus much on online': 'Your online presence is your digital storefront. Even a few strategic tweaks can transform perception.',
+            'We have a website but it doesn\'t convert': 'A non-converting website is a leaky bucket. We\'ll diagnose your funnel and improve conversion points.'
+          };
+          botSay('How would you describe your current brand\'s online presence?', 600, function () {
+            showOptionsWithFeedback(opts3, feedback3, function (val) { luna.a3 = val; go(S.DONE); });
+          });
+
+        } else if (state === S.DONE) {
+          // FIX 9: disable input inside the botSay callback so it only locks
+          // after the typing animation completes, not before.
+          botSay('Thank you, ' + luna.name + '! I\'ve noted all your answers. Our team will send a custom brand insight to your email within 24 hours. 🚀', 700, function () {
+            chatInput.disabled    = true;
+            chatSend.disabled     = true;
+            chatInput.placeholder = 'Conversation completed';
+            submitLunaData();
+          });
         }
-        else if (state === S.Q1) { 
-          var opts1 = ["I explain it in detail, it takes a few minutes to cover it.", "One sentence, clear, confident and I say it the same way every time.", "I adjust my explanation depending on who I am talking to.", "I struggle to explain it without overcomplicating things."]; 
-          var feedback1 = { 
-            "I explain it in detail, it takes a few minutes to cover it.": "Detail is great, but attention spans are short! Let's work on condensing that power into a quick hook.", 
-            "One sentence, clear, confident and I say it the same way every time.": "A repeatable one-liner is the hallmark of a brand that knows itself. That consistency is rare and gives you a structural advantage most competitors do not have.", 
-            "I adjust my explanation depending on who I am talking to.": "Adaptability is good for sales, but your core brand message should remain a unified anchor.", 
-            "I struggle to explain it without overcomplicating things.": "You are not alone! The curse of knowledge makes it hard to simplify your own genius. That's exactly what we fix." 
-          }; 
-          botSay("When someone asks what your business does, how would you describe it?", 600, function () { 
-            showOptionsWithFeedback(opts1, feedback1, function (val) { luna.a1 = val; go(S.Q2); }); 
-          }); 
-        }
-        else if (state === S.Q2) { 
-          var opts2 = ["They don't understand what we do", "They compare us to cheaper alternatives", "Our brand looks outdated", "We struggle to stand out in a crowded market"]; 
-          var feedback2 = { 
-            "They don't understand what we do": "Clarity is the #1 conversion killer. If people don't instantly get it, they bounce. Let's refine your core message.", 
-            "They compare us to cheaper alternatives": "Price wars are exhausting. We'll help you shift focus from price to value and differentiation.", 
-            "Our brand looks outdated": "Perception is reality. An outdated look signals outdated thinking. A strategic refresh can rebuild trust instantly.", 
-            "We struggle to stand out in a crowded market": "Differentiation isn't about being louder — it's about being clearer. We'll find your unique angle." 
-          }; 
-          botSay("What's the biggest challenge you face when trying to attract new customers?", 600, function () { 
-            showOptionsWithFeedback(opts2, feedback2, function (val) { luna.a2 = val; go(S.Q3); }); 
-          }); 
-        }
-        else if (state === S.Q3) { 
-          var opts3 = ["Professional and cohesive", "Inconsistent across platforms", "Minimal – we don't focus much on online", "We have a website but it doesn't convert"]; 
-          var feedback3 = { 
-            "Professional and cohesive": "Great foundation! Consistency builds trust. Let's make sure your messaging also drives action.", 
-            "Inconsistent across platforms": "Inconsistency confuses your audience. We'll align your brand voice and visuals into a unified system.", 
-            "Minimal – we don't focus much on online": "Your online presence is your digital storefront. Even a few strategic tweaks can transform perception.", 
-            "We have a website but it doesn't convert": "A non‑converting website is a leaky bucket. We'll diagnose your funnel and improve conversion points." 
-          }; 
-          botSay("How would you describe your current brand's online presence?", 600, function () { 
-            showOptionsWithFeedback(opts3, feedback3, function (val) { luna.a3 = val; go(S.DONE); }); 
-          }); 
-        }
-        else if (state === S.DONE) { 
-          botSay("Thank you, " + luna.name + "! I have noted all your answers. Our team will send a custom brand insight to your email within 24 hours. 🚀", 700, function () { 
-            submitLunaData(); 
-          }); 
-          chatInput.disabled = true; 
-          chatSend.disabled = true; 
-          chatInput.placeholder = 'Conversation completed'; 
-        }
-      }
-      
-      function submitEmail() { 
-        if (luna.state !== S.EMAIL) return; 
-        var raw = chatInput.value.trim(); 
-        if (!raw || !raw.includes('@')) { 
-          showToast('Please enter a valid email address'); 
-          return; 
-        } 
-        luna.email = raw; 
-        appendUserMsg(raw); 
-        chatInput.value = ''; 
-        chatInputArea.style.display = 'none'; 
-        go(S.Q1); 
-      }
-      
-      async function submitLunaData() { 
-        try { 
-          await fetch('https://formspree.io/f/meerzbyg', { 
-            method: 'POST', 
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, 
-            body: JSON.stringify({ 
-              _subject: 'Luna Onboarding Responses – QuivaPro', 
-              form_type: 'post_payment_onboarding', 
-              client_name: luna.name, 
-              client_email: luna.email, 
-              q1_description: luna.a1, 
-              q2_challenge: luna.a2, 
-              q3_online_presence: luna.a3 
-            }) 
-          }); 
-        } catch (_) {} 
       }
 
-      function openChat() { 
-        chatWindow.classList.add('open'); 
-        if(chatFabContainer) chatFabContainer.style.display = 'none'; 
+      async function submitLunaData() {
+        try {
+          await fetch('https://formspree.io/f/meerzbyg', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: 'Luna Onboarding Responses – QuivaPro',
+              form_type: 'post_payment_onboarding',
+              client_name: luna.name,
+              client_email: luna.email,
+              q1_description: luna.a1,
+              q2_challenge: luna.a2,
+              q3_online_presence: luna.a3
+            })
+          });
+        } catch (_) { /* silent fail */ }
       }
-      
-      chatClose.addEventListener('click', function () { 
-        chatWindow.classList.remove('open'); 
-        if(chatFabContainer) chatFabContainer.style.display = 'flex'; 
+
+      /* ---- CHAT OPEN / CLOSE ---- */
+      function openChat() {
+        chatWindow.classList.add('open');
+        if (chatFabContainer) chatFabContainer.style.display = 'none';
+      }
+
+      chatClose.addEventListener('click', function () {
+        chatWindow.classList.remove('open');
+        if (chatFabContainer) chatFabContainer.style.display = 'flex';
       });
-      
-      if(chatFab) {
-        chatFab.addEventListener('click', function() { 
-          openChat(); 
-          if (!luna.state) { resetChatConversation(); } 
+
+      /* ---- RESET CONVERSATION ---- */
+      function resetChatConversation() {
+        chatMessages.innerHTML = '';
+        luna = { state: S.NAME, name: '', email: prefillEmail || '', a1: '', a2: '', a3: '' };
+        chatInputArea.style.display = 'flex';
+        chatInput.disabled    = false;
+        chatSend.disabled     = false;
+        chatInput.value       = '';
+        chatInput.placeholder = 'Type your name…';
+        // Assign handlers via onclick — no duplicate addEventListener needed
+        chatSend.onclick    = submitName;
+        chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); };
+        botSay('Hello, my name is Luna! What\'s your name?', 500);
+      }
+
+      chatResetBtn.addEventListener('click', function () {
+        resetChatConversation();
+        showToast('Conversation reset.');
+      });
+
+      chatContactLink.addEventListener('click', function () {
+        openPopup();
+        chatWindow.classList.remove('open');
+        if (chatFabContainer) chatFabContainer.style.display = 'flex';
+      });
+
+      if (chatFab) {
+        chatFab.addEventListener('click', function () {
+          openChat();
+          // Start fresh only if no conversation has been started yet
+          if (!luna.state) { resetChatConversation(); }
         });
       }
-      
-      function resetChatConversation() { 
-        chatMessages.innerHTML = ''; 
-        luna = { state: S.NAME, name: '', email: prefillEmail || '', a1: '', a2: '', a3: '' }; 
-        chatInputArea.style.display = 'flex'; 
-        chatInput.disabled = false; 
-        chatSend.disabled = false; 
-        chatInput.value = ''; 
-        chatInput.placeholder = 'Type your name…'; 
-        botSay("Hello, my name is Luna! What's your name?", 500); 
-        chatSend.onclick = submitName; 
-        chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); }; 
-      }
-      
-      chatResetBtn.addEventListener('click', function () { 
-        resetChatConversation(); 
-        showToast('Conversation reset.'); 
-      });
-      
-      chatContactLink.addEventListener('click', function () { 
-        openPopup(); 
-        chatWindow.classList.remove('open'); 
-        if(chatFabContainer) chatFabContainer.style.display = 'flex'; 
-      });
-      
-      function submitName() { 
-        if (luna.state !== S.NAME) return; 
-        var raw = chatInput.value.trim(); 
-        if (!raw) return; 
-        var name = raw.charAt(0).toUpperCase() + raw.slice(1); 
-        luna.name = name; 
-        appendUserMsg(raw); 
-        chatInput.value = ''; 
-        chatInputArea.style.display = 'none'; 
-        go(S.EMAIL); 
-      }
-      
-      chatSend.addEventListener('click', submitName); 
-      chatInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitName(); });
-      
-      function initLuna(email, prefName, prefEmail) { 
-        luna = { state: S.NAME, name: prefName || '', email: prefEmail || email || '', a1: '', a2: '', a3: '' }; 
-        chatMessages.innerHTML = ''; 
-        chatInputArea.style.display = 'flex'; 
-        chatInput.disabled = false; 
-        chatSend.disabled = false; 
-        chatInput.value = ''; 
-        chatInput.placeholder = 'Type your name…'; 
-        openChat(); 
-        if (prefName && prefEmail) { 
-          luna.name = prefName; 
-          luna.email = prefEmail; 
-          luna.state = S.Q1; 
-          var sysMsg = document.createElement('div'); 
-          sysMsg.className = 'message system'; 
-          sysMsg.textContent = `✨ Welcome back, ${prefName}! I already have your details. Let's continue.`; 
-          chatMessages.appendChild(sysMsg); 
-          scrollDown(); 
-          go(S.Q1); 
-        } else { 
-          botSay("Hello, my name is Luna! What's your name?", 500); 
-          chatSend.onclick = submitName; 
-          chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); }; 
-        } 
+
+      /* ---- INIT LUNA (called after payment onboarding video) ---- */
+      function initLuna(email, prefName, prefEmail) {
+        luna = { state: S.NAME, name: prefName || '', email: prefEmail || email || '', a1: '', a2: '', a3: '' };
+        chatMessages.innerHTML = '';
+        chatInputArea.style.display = 'flex';
+        chatInput.disabled    = false;
+        chatSend.disabled     = false;
+        chatInput.value       = '';
+        chatInput.placeholder = 'Type your name…';
+        openChat();
+
+        if (prefName && prefEmail) {
+          luna.name  = prefName;
+          luna.email = prefEmail;
+          luna.state = S.Q1;
+          var sysMsg = document.createElement('div');
+          sysMsg.className = 'message system';
+          sysMsg.textContent = 'Welcome back, ' + prefName + '! I already have your details. Let\'s continue.';
+          chatMessages.appendChild(sysMsg);
+          scrollDown();
+          go(S.Q1);
+        } else {
+          chatSend.onclick    = submitName;
+          chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); };
+          botSay('Hello, my name is Luna! What\'s your name?', 500);
+        }
       }
 
-      // ---- TEAM MODAL LOGIC ----
-      const teamData = {
-        'toluwanimi': { name: 'Akinyemi Toluwanimi', role: 'Web Developer / Tech Lead', title: 'Tech Architecture', bio: "I build the structural integrity of your brand's digital presence, ensuring every touchpoint is fast, scalable, and built for modern business demands.", img: 'akinyemi-toluwanimi-Headshot.jpg' },
-        'jacob': { name: 'Jacob Archibong', role: 'Brand Strategist', title: 'Brand Diagnosis', bio: "I specialize in identifying the messaging gaps that cost you money. I turn confused audiences into high-value clients through strategic clarity.", img: 'jakes-Headshot.jpg' },
-        'charity': { name: 'Ekpenyong Charity', role: 'Creative Director', title: 'Visual Identity', bio: "I translate your brand's DNA into a compelling visual language. We don't just 'design'; we create authority through intentional aesthetics.", img: 'charity-Headshot.jpg' },
-        'dara': { name: 'Oluwanfimindara Oludiran', role: 'Marketing Lead', title: 'Growth Marketing', bio: "I build the bridge between your brand infrastructure and your target audience, ensuring your message lands exactly where it needs to.", img: 'dara-Headshot.jpg' },
-        'seyi': { name: 'Esi Seyi Adeleye', role: 'Product Designer', title: 'Product Design', bio: "I ensure your brand's digital products are intuitive and user-centric, turning a great strategy into a seamless customer experience.", img: 'seyi-Headshot.jpg' },
-        'moyo': { name: 'Moyo Daniel Ositade', role: 'Researcher', title: 'Market Research', bio: "I dig into the data to find what your competitors are missing, giving your brand the analytical edge it needs to dominate the market.", img: 'moyo-Headshot.jpg' }
+      /* ---- TEAM MODAL ---- */
+      var teamData = {
+        toluwanimi: { name: 'Akinyemi Toluwanimi', role: 'Web Developer / Tech Lead',    title: 'Tech Architecture', bio: "I build the structural integrity of your brand's digital presence, ensuring every touchpoint is fast, scalable, and built for modern business demands.", img: 'akinyemi-toluwanimi-Headshot.jpg' },
+        jacob:      { name: 'Jacob Archibong',      role: 'Brand Strategist',             title: 'Brand Diagnosis',   bio: "I specialize in identifying the messaging gaps that cost you money. I turn confused audiences into high-value clients through strategic clarity.", img: 'jakes-Headshot.jpg' },
+        charity:    { name: 'Ekpenyong Charity',    role: 'Creative Director',            title: 'Visual Identity',   bio: "I translate your brand's DNA into a compelling visual language. We don't just 'design'; we create authority through intentional aesthetics.", img: 'charity-Headshot.jpg' },
+        dara:       { name: 'Oluwanfimindara Oludiran', role: 'Marketing Lead',           title: 'Growth Marketing',  bio: "I build the bridge between your brand infrastructure and your target audience, ensuring your message lands exactly where it needs to.", img: 'dara-Headshot.jpg' },
+        seyi:       { name: 'Esi Seyi Adeleye',     role: 'Product Designer',             title: 'Product Design',    bio: "I ensure your brand's digital products are intuitive and user-centric, turning a great strategy into a seamless customer experience.", img: 'seyi-Headshot.jpg' },
+        moyo:       { name: 'Moyo Daniel Ositade',  role: 'Researcher',                   title: 'Market Research',   bio: "I dig into the data to find what your competitors are missing, giving your brand the analytical edge it needs to dominate the market.", img: 'moyo-Headshot.jpg' }
       };
 
-      const teamModal = document.getElementById('teamModal');
-      const teamModalClose = document.getElementById('teamModalClose');
-      const tmImage = document.getElementById('tmImage');
-      const tmName = document.getElementById('tmName');
-      const tmRole = document.getElementById('tmRole');
-      const tmTitle = document.getElementById('tmTitle');
-      const tmBio = document.getElementById('tmBio');
+      var teamModal      = document.getElementById('teamModal');
+      var teamModalClose = document.getElementById('teamModalClose');
+      var tmImage        = document.getElementById('tmImage');
+      var tmName         = document.getElementById('tmName');
+      var tmRole         = document.getElementById('tmRole');
+      var tmTitle        = document.getElementById('tmTitle');
+      var tmBio          = document.getElementById('tmBio');
 
-      window.openTeamModal = function(id) {
-        const data = teamData[id];
-        if(data) {
-          tmImage.src = data.img;
-          tmName.textContent = data.name;
-          tmRole.textContent = data.role;
-          tmTitle.textContent = data.title;
-          tmBio.textContent = data.bio;
-          teamModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
+      window.openTeamModal = function (id) {
+        var data = teamData[id];
+        if (!data) return;
+        tmImage.src        = data.img;
+        tmName.textContent = data.name;
+        tmRole.textContent = data.role;
+        tmTitle.textContent = data.title;
+        tmBio.textContent  = data.bio;
+        teamModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
       };
 
       function closeTeamModal() { teamModal.classList.remove('active'); document.body.style.overflow = ''; }
       teamModalClose.addEventListener('click', closeTeamModal);
-      teamModal.addEventListener('click', function(e) { if(e.target === teamModal) closeTeamModal(); });
+      teamModal.addEventListener('click', function (e) { if (e.target === teamModal) closeTeamModal(); });
 
-      // RULE 3 — Team card: touch toggles overlay-active; tap on overlay opens modal
-      document.querySelectorAll('.team-member').forEach(function(card) {
+      document.querySelectorAll('.team-member').forEach(function (card) {
         var id = card.dataset.id;
-        card.addEventListener('touchstart', function(e) {
+
+        card.addEventListener('touchstart', function (e) {
           if (!card.classList.contains('overlay-active')) {
             e.preventDefault();
-            document.querySelectorAll('.team-member.overlay-active').forEach(function(c) { c.classList.remove('overlay-active'); });
+            document.querySelectorAll('.team-member.overlay-active').forEach(function (c) { c.classList.remove('overlay-active'); });
             card.classList.add('overlay-active');
           }
         }, { passive: false });
 
         var overlay = card.querySelector('.team-overlay');
         if (overlay) {
-          overlay.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (id) window.openTeamModal(id);
-          });
-          overlay.addEventListener('touchend', function(e) {
-            e.stopPropagation();
-            if (id) window.openTeamModal(id);
-          });
+          overlay.addEventListener('click', function (e) { e.stopPropagation(); if (id) window.openTeamModal(id); });
+          overlay.addEventListener('touchend', function (e) { e.stopPropagation(); if (id) window.openTeamModal(id); });
         }
 
-        card.addEventListener('click', function(e) {
-          if (window.matchMedia('(hover: hover)').matches) {
-            if (id) window.openTeamModal(id);
-          }
+        card.addEventListener('click', function () {
+          if (window.matchMedia('(hover: hover)').matches && id) window.openTeamModal(id);
         });
       });
 
-      document.addEventListener('touchstart', function(e) {
+      document.addEventListener('touchstart', function (e) {
         if (!e.target.closest('.team-member')) {
-          document.querySelectorAll('.team-member.overlay-active').forEach(function(c) { c.classList.remove('overlay-active'); });
+          document.querySelectorAll('.team-member.overlay-active').forEach(function (c) { c.classList.remove('overlay-active'); });
         }
       }, { passive: true });
 
-      // ---- LEGAL MODALS ----
-      const legalContent = {
+      /* ---- LEGAL MODALS ---- */
+      var legalContent = {
         privacy: {
-          title: "Privacy Policy",
-          body: `
-            <p><strong>Effective Date:</strong> January 1, 2026</p>
-            <p>At QuivaPro, we are committed to protecting your personal data and ensuring international compliance (including GDPR and CCPA standards). This Privacy Policy explains how we collect, use, and safeguard your information.</p>
-            <h3>1. Information We Collect</h3>
-            <p>We collect information you provide directly to us when you request a consultation, use our assessment tools, or communicate with us. This includes your name, email address, phone number, and business details.</p>
-            <h3>2. How We Use Your Information</h3>
-            <ul>
-              <li>To provide, maintain, and improve our brand infrastructure services.</li>
-              <li>To process transactions and send related information (e.g., confirmations and invoices).</li>
-              <li>To send technical notices, updates, security alerts, and support messages.</li>
-              <li>To respond to your comments, questions, and requests.</li>
-            </ul>
-            <h3>3. Data Sharing and Security</h3>
-            <p>We do not share your personal data with third parties except as necessary to provide our services or comply with legal obligations. We implement robust, industry-standard security measures to protect your data from unauthorized access.</p>
-            <h3>4. Your Rights</h3>
-            <p>Depending on your location, you may have the right to access, update, or delete your personal data. To exercise these rights, please contact us at quivapro@gmail.com.</p>
-          `
+          title: 'Privacy Policy',
+          body: '<p><strong>Effective Date:</strong> January 1, 2026</p><p>At QuivaPro, we are committed to protecting your personal data and ensuring international compliance (including GDPR and CCPA standards).</p><h3>1. Information We Collect</h3><p>We collect information you provide directly to us when you request a consultation, use our assessment tools, or communicate with us. This includes your name, email address, phone number, and business details.</p><h3>2. How We Use Your Information</h3><p>To provide, maintain, and improve our brand infrastructure services; to process transactions and send related information; to respond to your comments, questions, and requests.</p><h3>3. Data Sharing and Security</h3><p>We do not share your personal data with third parties except as necessary to provide our services or comply with legal obligations. We implement robust, industry-standard security measures.</p><h3>4. Your Rights</h3><p>Depending on your location, you may have the right to access, update, or delete your personal data. Contact us at quivapro@gmail.com.</p>'
         },
         terms: {
-          title: "Terms of Service",
-          body: `
-            <p><strong>Effective Date:</strong> January 1, 2026</p>
-            <p>Welcome to QuivaPro. By accessing our website and utilizing our strategic brand infrastructure services, you agree to these Terms of Service.</p>
-            <h3>1. Services Provided</h3>
-            <p>QuivaPro provides brand strategy, diagnosis, and infrastructure consulting. The deliverables and timelines for these services are outlined in the specific packages (Basic, Standard, Premium) selected by the client.</p>
-            <h3>2. Intellectual Property</h3>
-            <p>All strategies, methodologies, frameworks, and reports provided by QuivaPro remain the intellectual property of QuivaPro until full payment is received. Upon full payment, the client receives a license to use the deliverables for their intended business purpose.</p>
-            <h3>3. Payment Terms</h3>
-            <p>Payments for our diagnosis packages must be made in full prior to the commencement of the audit. Proof of payment via our secure portal is required.</p>
-            <h3>4. Limitation of Liability</h3>
-            <p>QuivaPro provides strategic advice based on industry data and expertise. We do not guarantee specific financial results. In no event shall QuivaPro be liable for any indirect, incidental, or consequential damages arising from the use of our services.</p>
-            <h3>5. Governing Law</h3>
-            <p>These terms shall be governed by and construed in accordance with international business standards and the laws of the Federal Republic of Nigeria.</p>
-          `
+          title: 'Terms of Service',
+          body: '<p><strong>Effective Date:</strong> January 1, 2026</p><p>By accessing our website and utilizing our strategic brand infrastructure services, you agree to these Terms of Service.</p><h3>1. Services Provided</h3><p>QuivaPro provides brand strategy, diagnosis, and infrastructure consulting. Deliverables and timelines are outlined in the specific packages selected by the client.</p><h3>2. Intellectual Property</h3><p>All strategies, methodologies, frameworks, and reports provided by QuivaPro remain our intellectual property until full payment is received. Upon full payment, the client receives a license to use the deliverables for their intended business purpose.</p><h3>3. Payment Terms</h3><p>Payments must be made in full prior to commencement of the audit. Proof of payment via our secure portal is required.</p><h3>4. Limitation of Liability</h3><p>QuivaPro provides strategic advice based on industry data and expertise. We do not guarantee specific financial results. In no event shall QuivaPro be liable for any indirect, incidental, or consequential damages.</p><h3>5. Governing Law</h3><p>These terms shall be governed by the laws of the Federal Republic of Nigeria.</p>'
         }
       };
 
-      const legalModal = document.getElementById('legalModal');
-      const legalModalClose = document.getElementById('legalModalClose');
-      const legalModalTitle = document.getElementById('legalModalTitle');
-      const legalModalBody = document.getElementById('legalModalBody');
+      var legalModal      = document.getElementById('legalModal');
+      var legalModalClose = document.getElementById('legalModalClose');
+      var legalModalTitle = document.getElementById('legalModalTitle');
+      var legalModalBody  = document.getElementById('legalModalBody');
 
-      window.openLegalModal = function(type) {
+      window.openLegalModal = function (type) {
+        if (!legalContent[type]) return;
         legalModalTitle.textContent = legalContent[type].title;
-        legalModalBody.innerHTML = legalContent[type].body;
+        legalModalBody.innerHTML    = legalContent[type].body;
         legalModal.classList.add('active');
         document.body.style.overflow = 'hidden';
       };
 
       function closeLegalModal() { legalModal.classList.remove('active'); document.body.style.overflow = ''; }
       legalModalClose.addEventListener('click', closeLegalModal);
-      legalModal.addEventListener('click', function(e) { if (e.target === legalModal) closeLegalModal(); });
-      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegalModal(); closeTeamModal(); } });
+      legalModal.addEventListener('click', function (e) { if (e.target === legalModal) closeLegalModal(); });
 
-      // Scroll reveal
-      var ro = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.1 });
-      document.querySelectorAll('.fade-up').forEach(function (el) { ro.observe(el); });
-
-      // FAQ accordion
-      document.querySelectorAll('.faq-question').forEach(function (q) { 
-        q.addEventListener('click', function () { 
-          var ans = q.nextElementSibling; 
-          var isOpen = ans.classList.contains('open'); 
-          document.querySelectorAll('.faq-answer.open').forEach(function (a) { a.classList.remove('open'); }); 
-          document.querySelectorAll('.faq-question.open').forEach(function (qq) { qq.classList.remove('open'); }); 
-          if (!isOpen) { 
-            ans.classList.add('open'); 
-            q.classList.add('open'); 
-          } 
-        }); 
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { closeLegalModal(); closeTeamModal(); }
       });
 
-      // Dev shortcut
-      document.addEventListener('keydown', function (e) { if (e.shiftKey && e.key === 'L') openVideoModal('preview@example.com'); });
+      /* ---- SCROLL REVEAL ---- */
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) en.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-up').forEach(function (el) { ro.observe(el); });
+
+      /* ---- FAQ ACCORDION ---- */
+      document.querySelectorAll('.faq-question').forEach(function (q) {
+        q.addEventListener('click', function () {
+          var ans    = q.nextElementSibling;
+          var isOpen = ans.classList.contains('open');
+          document.querySelectorAll('.faq-answer.open').forEach(function (a) { a.classList.remove('open'); });
+          document.querySelectorAll('.faq-question.open').forEach(function (qq) { qq.classList.remove('open'); });
+          if (!isOpen) { ans.classList.add('open'); q.classList.add('open'); }
+        });
+      });
+
+      /* ---- DEV SHORTCUT ---- */
+      document.addEventListener('keydown', function (e) {
+        if (e.shiftKey && e.key === 'L') openVideoModal('preview@example.com');
+      });
+
     })();
   </script>
 </body>
