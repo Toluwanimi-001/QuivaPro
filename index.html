@@ -14,13 +14,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 
   <style>
-    /* ---------- RESET & VARIABLES (High-End Strategic Palette) ---------- */
+    /* ---------- RESET & VARIABLES ---------- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -29,22 +29,20 @@
       --light-gray: #E6E6E6;
       --black: #000000;
       --white: #ffffff;
-      
-      /* Neutral grays for text hierarchy */
-      --gray-100: #fafafa;
-      --gray-200: #f0f0f0;
-      --gray-300: #e0e0e0;
-      --gray-400: #c0c0c0;
-      --gray-500: #8c8c8c;
-      --gray-600: #5c5c5c;
-      --gray-700: #2e2e2e;
-      --gray-800: #1c1c1c;
-      --gray-900: #111111;
+      --gray-100: #f8f8f8;
+      --gray-200: #eaeaea;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-800: #262626;
+      --gray-900: #171717;
       
       --max-width: 1200px;
       --gutter: 2rem;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --dot-color-light: #f0f0f0;      /* softened dot background */
+      --dot-color-light: #f0f0f0;
       --dot-color-dark: #2a2a2a;
     }
 
@@ -72,14 +70,14 @@
     body {
       font-family: var(--font-sans);
       background: var(--white);
-      color: var(--gray-700);
+      color: var(--gray-900);
       line-height: 1.6;
-      font-weight: 400;
+      font-weight: 300;
       -webkit-font-smoothing: antialiased;
       transition: background 0.3s, color 0.2s;
       overflow-x: hidden;
       background-image: radial-gradient(circle at 1px 1px, var(--dot-color-light) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background-size: 20px 20px;
       background-color: var(--white);
     }
 
@@ -88,18 +86,14 @@
     img { display: block; max-width: 100%; height: auto; }
     button { font-family: var(--font-sans); background: none; border: none; cursor: pointer; }
 
-    /* ---------- TYPOGRAPHY (Weight + Spacing) ---------- */
-    h1, h2, h3, h4, .label, .pricing-name, .team-name {
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: var(--black);
-    }
+    /* ---------- TYPOGRAPHY (RESTORED TO ORIGINAL) ---------- */
+    h1, h2, h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--black); }
     h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; }
     h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.15; margin-bottom: 1.5rem; }
     h3 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 0.75rem; }
-    .body-large { font-size: 1.25rem; color: var(--gray-600); font-weight: 400; line-height: 1.7; }
-    .body { font-size: 1rem; color: var(--gray-600); font-weight: 400; line-height: 1.7; }
-    .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); font-weight: 500; margin-bottom: 1rem; display: block; }
+    .body-large { font-size: 1.25rem; color: var(--gray-600); font-weight: 300; line-height: 1.7; }
+    .body { font-size: 1rem; color: var(--gray-600); font-weight: 300; line-height: 1.7; }
+    .label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); font-weight: 400; margin-bottom: 1rem; display: block; }
 
     /* ---------- LAYOUT ---------- */
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
@@ -110,21 +104,10 @@
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
     @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 2rem; } }
 
-    /* ---------- HEADER (FROSTY FEEL ADDED) ---------- */
+    /* ---------- HEADER (FROSTY FEEL) ---------- */
     header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: transparent; transition: background 0.4s ease-in-out, padding 0.4s ease-in-out, border-color 0.4s ease-in-out; padding: 1rem 0; }
-    
-    header.scrolled { 
-      background: rgba(255, 255, 255, 0.85); 
-      backdrop-filter: blur(12px); 
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.8rem 0; 
-      border-bottom: 1px solid var(--light-gray); 
-    }
-    
-    body.dark header.scrolled { 
-      background: rgba(10, 10, 10, 0.85); 
-      border-bottom: 1px solid var(--gray-800); 
-    }
+    header.scrolled { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 0.8rem 0; border-bottom: 1px solid var(--light-gray); }
+    body.dark header.scrolled { background: rgba(10, 10, 10, 0.85); border-bottom: 1px solid var(--gray-800); }
     
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: nowrap; }
     .logo { flex-shrink: 0; }
@@ -132,10 +115,10 @@
     @media (max-width: 768px) { .logo img { height: 6rem; } .mobile-menu-btn { padding: 0.4rem 0.8rem; font-size: 0.85rem; } .theme-toggle { padding: 0.4rem; font-size: 1.1rem; } .header-inner { gap: 1rem; } }
     .nav { display: flex; gap: 2rem; align-items: center; flex-wrap: nowrap; }
     @media (max-width: 768px) { .nav { display: none; } }
-    .nav a { color: var(--gray-600); font-size: 0.95rem; font-weight: 500; transition: color 0.4s ease-in-out; line-height: 1.2; white-space: nowrap; }
+    .nav a { color: var(--gray-600); font-size: 0.95rem; font-weight: 400; transition: color 0.4s ease-in-out; line-height: 1.2; white-space: nowrap; }
     .nav a:hover { color: var(--black); }
     .header-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
-    .btn-header { border: 1px solid var(--light-gray); padding: 0.5rem 1.2rem; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out; white-space: nowrap; line-height: 1.2; }
+    .btn-header { border: 1px solid var(--gray-300); padding: 0.5rem 1.2rem; font-size: 0.8rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out; white-space: nowrap; line-height: 1.2; }
     .btn-header:hover { border-color: var(--black); }
     body.dark .btn-header { border-color: rgba(255,255,255,0.3); color: #ffffff; }
     body.dark .btn-header:hover { border-color: #ffffff; }
@@ -143,35 +126,35 @@
     
     .theme-toggle { color: var(--gray-600); font-size: 1.2rem; padding: 0.4rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: color 0.4s ease-in-out; }
     .theme-toggle:hover { color: var(--black); }
-    .mobile-menu-btn { display: none; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-600); padding: 0.4rem 0.8rem; border: 1px solid var(--light-gray); background: transparent; transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out; white-space: nowrap; line-height: 1.2; }
+    .mobile-menu-btn { display: none; font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-600); padding: 0.4rem 0.8rem; border: 1px solid var(--gray-300); background: transparent; transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out; white-space: nowrap; line-height: 1.2; }
     .mobile-menu-btn:hover { border-color: var(--black); color: var(--black); }
     @media (max-width: 768px) { .mobile-menu-btn { display: inline-block; } }
 
-    /* ---------- SIDE DRAWER (FROSTY FEEL ADDED) ---------- */
+    /* ---------- SIDE DRAWER (FROSTY) ---------- */
     .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out; }
     .drawer-overlay.active { opacity: 1; pointer-events: auto; }
-    .drawer { position: fixed; top: 0; right: -100%; width: min(350px, 85vw); height: 100vh; background: var(--white); z-index: 201; padding: 2rem; transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border-left: 1px solid var(--light-gray); display: flex; flex-direction: column; }
+    .drawer { position: fixed; top: 0; right: -100%; width: min(350px, 85vw); height: 100vh; background: var(--white); z-index: 201; padding: 2rem; transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); border-left: 1px solid var(--gray-200); display: flex; flex-direction: column; }
     .drawer.open { right: 0; }
     .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
     .drawer-header img { height: 6rem; }
     .drawer-close { font-size: 2rem; color: var(--gray-600); }
     .drawer-links { display: flex; flex-direction: column; gap: 1rem; flex: 1; }
-    .drawer-links a { color: var(--gray-900); font-size: 1.2rem; font-weight: 500; padding: 0.75rem 0; border-bottom: 1px solid var(--light-gray); transition: color 0.4s ease-in-out; text-align: left; width: 100%; }
+    .drawer-links a { color: var(--gray-900); font-size: 1.2rem; font-weight: 300; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200); transition: color 0.4s ease-in-out; text-align: left; width: 100%; }
     .drawer-links a:hover { color: var(--black); }
-    .drawer-book { border: 1px solid var(--light-gray); background: transparent; padding: 0.8rem; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-900); transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out; cursor: pointer; width: 100%; text-align: center; margin-top: 1rem; }
+    .drawer-book { border: 1px solid var(--gray-300); background: transparent; padding: 0.8rem; font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-900); transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out; cursor: pointer; width: 100%; text-align: center; margin-top: 1rem; }
     .drawer-book:hover { border-color: var(--black); color: var(--black); }
     body.dark .drawer-book { border-color: rgba(255,255,255,0.3); color: #ffffff; }
     body.dark .drawer-book:hover { border-color: #ffffff; }
 
-    /* ---------- BUTTONS (Purple + Elevated Shadow) ---------- */
-    .btn { display: inline-block; padding: 0.8rem 2rem; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--light-gray); background: transparent; color: var(--gray-900); transition: all 0.3s ease; cursor: pointer; }
+    /* ---------- BUTTONS ---------- */
+    .btn { display: inline-block; padding: 0.8rem 2rem; font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--gray-300); background: transparent; color: var(--gray-900); transition: all 0.3s ease; cursor: pointer; }
     .btn:hover { border-color: var(--black); }
     .btn-primary { background: var(--purple); color: var(--white); border-color: var(--purple); box-shadow: 0 10px 15px -3px rgba(191, 41, 237, 0.3); }
-    .btn-primary:hover { background: #a81dd4; border-color: #a81dd4; box-shadow: 0 15px 20px -6px rgba(191, 41, 237, 0.4); transform: translateY(-1px); }
+    .btn-primary:hover { background: #a81dd4; border-color: #a81dd4; transform: translateY(-1px); }
 
     /* ---------- PRICING BUTTONS ---------- */
-    .pricing-btn { width: 100%; padding: 1rem; border: 1px solid var(--light-gray); background: var(--white); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s ease; color: var(--gray-900); font-weight: 500; }
-    .pricing-btn:hover { border-color: var(--black); background: var(--gray-100); }
+    .pricing-btn { width: 100%; padding: 1rem; border: 1px solid var(--gray-300); background: var(--gray-100); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s ease; color: var(--gray-900); font-weight: 400; }
+    .pricing-btn:hover { border-color: var(--black); background: var(--gray-200); }
     body.dark .pricing-btn { background: var(--gray-800); color: var(--white); border-color: var(--gray-600); }
     body.dark .pricing-btn:hover { background: var(--gray-700); border-color: var(--white); }
     .pricing-btn.recommended { background: var(--purple); color: var(--white); border-color: var(--purple); }
@@ -193,12 +176,12 @@
     .hero .body-large { max-width: 600px; margin-bottom: 2.5rem; }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
     
-    /* FIXED: Trust Items Alignment */
+    /* Trust Items Alignment */
     .trust-items { 
       display: inline-flex; 
       flex-direction: column; 
       gap: 0.6rem; 
-      align-items: flex-start; /* Aligns contents left within the block */
+      align-items: flex-start;
       text-align: left; 
     }
     .trust-items span { color: var(--gray-600); font-size: 0.95rem; display: flex; align-items: center; gap: 0.75rem; }
@@ -222,7 +205,7 @@
     .what-item { border-top: 1px solid var(--light-gray); padding-top: 2rem; }
     .what-item p { color: var(--gray-600); }
 
-    /* ---------- TEAM ---------- */
+    /* ---------- TEAM (SMOOTH ANIMATED MODAL TRIGGER) ---------- */
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
     @media (max-width: 768px) { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
     @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
@@ -235,14 +218,14 @@
     .team-member:hover .team-photo img { transform: scale(1.05); }
     body.dark .team-photo { background: var(--gray-700); color: var(--gray-400); }
     
-    .team-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .team-name { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem; color: var(--black); }
     .team-role { font-size: 0.9rem; color: var(--gray-500); }
 
     /* ---------- TEAM MODAL (SMOOTH POPUP) ---------- */
     .team-modal-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      z-index: 2000; display: flex; align-items: center; justify-content: center;
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      z-index: 2500; display: flex; align-items: center; justify-content: center;
       padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out;
     }
     .team-modal-overlay.active { opacity: 1; pointer-events: auto; }
@@ -263,81 +246,79 @@
     }
     .team-modal-photo { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 4px solid var(--gray-100); }
     .team-modal-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .tm-title { color: var(--purple); font-size: 1.1rem; font-weight: 600; margin: 1rem 0 0.5rem; }
-    .tm-bio { color: var(--gray-600); font-size: 0.95rem; line-height: 1.6; }
+    .tm-title { color: var(--purple); font-size: 1.1rem; font-weight: 500; margin: 1rem 0 0.5rem; }
+    .tm-bio { color: var(--gray-600); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
 
     /* ---------- PRICING CARDS ---------- */
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
     @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
-    .pricing-card { border: 1px solid var(--light-gray); padding: 2rem; background: var(--white); transition: transform 0.2s, box-shadow 0.2s; }
+    .pricing-card { border: 1px solid var(--gray-200); padding: 2rem; background: var(--white); transition: transform 0.2s, box-shadow 0.2s; }
     .pricing-card.recommended { border: 2px solid var(--green); }
-    .recommended-badge { display: inline-block; background: var(--green); color: var(--black); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.3rem 1rem; margin-bottom: 1.5rem; font-weight: 700; }
-    .pricing-name { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .pricing-price { font-size: 2.5rem; font-weight: 600; margin-bottom: 1.5rem; }
-    .pricing-price small { font-size: 1rem; font-weight: 400; color: var(--gray-500); }
+    .recommended-badge { display: inline-block; background: var(--green); color: var(--black); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.3rem 1rem; margin-bottom: 1.5rem; font-weight: 500; }
+    .pricing-name { font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--black); }
+    .pricing-price { font-size: 2.5rem; font-weight: 500; margin-bottom: 1.5rem; color: var(--black); }
+    .pricing-price small { font-size: 1rem; font-weight: 300; color: var(--gray-500); }
     .pricing-features { list-style: none; margin: 1.5rem 0; }
-    .pricing-features li { padding: 0.5rem 0; font-size: 0.95rem; color: var(--gray-600); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; gap: 0.5rem; }
+    .pricing-features li { padding: 0.5rem 0; font-size: 0.95rem; color: var(--gray-600); border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; gap: 0.5rem; font-weight: 300; }
     .pricing-features li:last-child { border-bottom: none; }
     .pricing-features i { color: var(--green); font-size: 0.8rem; }
-    .pricing-outcome, .pricing-bestfor { font-size: 0.9rem; color: var(--gray-600); margin: 1rem 0; }
-    .pricing-outcome strong, .pricing-bestfor strong { font-weight: 600; color: var(--black); }
+    .pricing-outcome, .pricing-bestfor { font-size: 0.9rem; color: var(--gray-600); margin: 1rem 0; font-weight: 300; }
+    .pricing-outcome strong, .pricing-bestfor strong { font-weight: 500; color: var(--black); }
     .decision-helper { text-align: center; margin: 3rem 0 2rem; padding: 2rem; border-top: 1px solid var(--light-gray); }
 
     /* ---------- FAQ ---------- */
     .faq-list { max-width: 800px; margin: 3rem auto 0; }
-    .faq-item { border-bottom: 1px solid var(--light-gray); }
-    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; cursor: pointer; font-weight: 500; color: var(--black); }
+    .faq-item { border-bottom: 1px solid var(--gray-200); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; cursor: pointer; font-weight: 400; color: var(--black); }
     .faq-question i { transition: transform 0.4s ease-in-out; }
     .faq-question.open i { transform: rotate(45deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); color: var(--gray-600); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); color: var(--gray-600); font-weight: 300; }
     .faq-answer.open { max-height: 300px; padding-bottom: 1.25rem; }
 
-    /* ---------- FOOTER (FIXED FOR DARK MODE) ---------- */
-    /* By using absolute dark colors here, the footer stays premium in both modes */
-    footer { background: #0a0a0a; color: #ffffff; border-top: none; padding: 4rem 0 2rem; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    /* ---------- FOOTER (MINIMALIST AGENCY) ---------- */
+    footer { background: #0a0a0a; color: #ffffff; padding: 5rem 0 2rem; border-top: 1px solid #222; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
     @media (max-width: 968px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
     
-    .footer-logo img { height: 6rem; margin-bottom: 1rem; filter: brightness(0) invert(1) !important; }
-    .footer-logo p { color: #a3a3a3; font-size: 0.9rem; max-width: 250px; }
+    .footer-logo img { height: 4.5rem; filter: brightness(0) invert(1) !important; margin-bottom: 1.5rem; }
+    .footer-logo p { color: #a3a3a3; font-size: 0.95rem; max-width: 300px; line-height: 1.6; font-weight: 300;}
     
-    .footer-col h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 0.75rem; }
-    .footer-col a { color: #a3a3a3; font-size: 0.9rem; transition: color 0.3s; }
-    .footer-col a:hover { color: #ffffff; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff; }
+    .footer-col a { color: #a3a3a3; font-size: 0.95rem; font-weight: 300; transition: color 0.3s, padding-left 0.3s; display: block; margin-bottom: 0.8rem; text-decoration: none; }
+    .footer-col a:hover { color: var(--purple); padding-left: 4px; }
     
-    .social-links { display: flex; gap: 1rem; }
-    .social-links a { width: 2.5rem; height: 2.5rem; border: 1px solid #333333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #a3a3a3; transition: all 0.3s; }
-    .social-links a:hover { border-color: var(--purple); color: var(--purple); }
+    .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .social-links a { width: 2.5rem; height: 2.5rem; border: 1px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #a3a3a3; transition: all 0.3s; padding: 0; margin: 0; }
+    .social-links a:hover { border-color: var(--purple); color: var(--white); background: var(--purple); }
     
-    .footer-bottom { padding-top: 2rem; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; color: #7a7a7a; font-size: 0.85rem; gap: 1rem; }
+    .footer-bottom { padding-top: 2rem; border-top: 1px solid #222; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; color: #7a7a7a; font-size: 0.85rem; font-weight: 300; gap: 1rem; }
 
     /* ---------- BACK TO TOP ---------- */
-    #btt { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border: 1px solid var(--light-gray); background: var(--white); color: var(--gray-600); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out, border-color 0.4s ease-in-out; z-index: 99; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border-radius: 50%; }
+    #btt { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border: 1px solid var(--gray-300); background: var(--white); color: var(--gray-600); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out, border-color 0.4s ease-in-out; z-index: 99; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
     #btt.show { opacity: 1; pointer-events: auto; }
     #btt:hover { border-color: var(--purple); color: var(--purple); }
 
     /* ---------- TOAST ---------- */
-    #toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--black); color: var(--white); padding: 0.75rem 1.5rem; border: 1px solid var(--light-gray); opacity: 0; transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; z-index: 9999; white-space: nowrap; border-radius: 40px; font-weight: 500; }
+    #toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--black); color: var(--white); padding: 0.75rem 1.5rem; border: 1px solid var(--light-gray); opacity: 0; transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; z-index: 9999; white-space: nowrap; border-radius: 4px; font-weight: 300; }
     #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     /* ---------- CONSULTATION POPUP (FROSTY FEEL ADDED) ---------- */
     .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out; }
     .popup-overlay.active { opacity: 1; pointer-events: auto; }
-    .popup-card { background: var(--white); max-width: 500px; width: 100%; padding: 2rem; border: 1px solid var(--light-gray); max-height: 90vh; overflow-y: auto; }
+    .popup-card { background: var(--white); max-width: 500px; width: 100%; padding: 2rem; border: 1px solid var(--gray-200); max-height: 90vh; overflow-y: auto; }
     .popup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
     .popup-header img { height: 5rem; }
-    .popup-close { font-size: 1.8rem; color: var(--gray-600); cursor: pointer; }
+    .popup-close { font-size: 1.8rem; color: var(--gray-600); cursor: pointer; background: none; border: none;}
+    .popup-close:hover { color: var(--black); }
     .form-group { margin-bottom: 1.2rem; }
-    .field { width: 100%; padding: 0.75rem 0; border: none; border-bottom: 1px solid var(--light-gray); background: transparent; font-size: 1rem; font-family: var(--font-sans); color: var(--gray-900); transition: border-color 0.2s; }
+    .field { width: 100%; padding: 0.75rem 0; border: none; border-bottom: 1px solid var(--gray-300); background: transparent; font-size: 1rem; font-family: var(--font-sans); color: var(--gray-900); transition: border-color 0.2s; font-weight: 300;}
     .field:focus { outline: none; border-bottom-color: var(--purple); }
     textarea.field { min-height: 80px; resize: vertical; }
     .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin: 1rem 0 1.5rem; }
     .checkbox-group input[type="checkbox"] { width: 1.1rem; height: 1.1rem; margin-top: 0.2rem; accent-color: var(--purple); cursor: pointer; }
-    .checkbox-group label { font-size: 0.85rem; color: var(--gray-600); line-height: 1.4; cursor: pointer; }
-    .form-msg { padding: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem; display: none; border-radius: 4px; }
+    .checkbox-group label { font-size: 0.85rem; color: var(--gray-600); line-height: 1.4; cursor: pointer; font-weight: 300;}
+    .form-msg { padding: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem; display: none; border-radius: 4px; font-weight: 300;}
     .form-msg.show { display: block; }
     .form-msg.success { background: rgba(54,223,109,0.1); color: var(--green); border: 1px solid var(--green); }
     .form-msg.error { background: rgba(255,0,0,0.05); color: #c00; border: 1px solid #c00; }
@@ -346,23 +327,57 @@
     /* ---------- PAYMENT MODAL ---------- */
     #payment-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out; }
     #payment-overlay.active { opacity: 1; pointer-events: auto; }
-    .payment-card { background: var(--white); max-width: 550px; width: 100%; padding: 3rem; border: 1px solid var(--light-gray); max-height: 90vh; overflow-y: auto; }
+    .payment-card { background: var(--white); max-width: 550px; width: 100%; padding: 3rem; border: 1px solid var(--gray-200); max-height: 90vh; overflow-y: auto; }
     .payment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-    .payment-header h3 { font-size: 1.5rem; font-weight: 600; }
-    .payment-close { font-size: 1.5rem; color: var(--gray-600); }
-    .order-summary { background: var(--gray-100); padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--light-gray); }
-    .order-row { display: flex; justify-content: space-between; padding: 0.5rem 0; }
-    .bank-details { background: var(--gray-100); padding: 2rem; margin: 2rem 0; border: 1px dashed var(--light-gray); }
-    .bank-details h4 { font-size: 1rem; margin-bottom: 1.5rem; }
-    .detail-row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--light-gray); flex-wrap: wrap; }
+    .payment-header h3 { font-size: 1.5rem; font-weight: 500; color: var(--black); }
+    .payment-close { font-size: 1.5rem; color: var(--gray-600); background: none; border: none; cursor: pointer;}
+    .payment-close:hover { color: var(--black); }
+    .order-summary { background: var(--gray-100); padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--gray-200); }
+    .order-row { display: flex; justify-content: space-between; padding: 0.5rem 0; color: var(--black); font-weight: 300;}
+    .bank-details { background: var(--gray-100); padding: 2rem; margin: 2rem 0; border: 1px dashed var(--gray-400); }
+    .bank-details h4 { font-size: 1rem; margin-bottom: 1.5rem; color: var(--black); font-weight: 500;}
+    .detail-row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200); flex-wrap: wrap; }
     .detail-row:last-child { border-bottom: none; }
-    .detail-label { width: 100px; color: var(--gray-500); font-size: 0.9rem; }
-    .detail-value { font-weight: 500; font-size: 1rem; }
-    .copy-btn { margin-left: auto; padding: 0.25rem 0.75rem; border: 1px solid var(--light-gray); font-size: 0.75rem; cursor: pointer; border-radius: 20px; }
-    .payment-instructions { margin: 2rem 0; padding: 1.5rem; background: var(--gray-100); font-size: 0.95rem; }
-    .file-upload { border: 1px dashed var(--light-gray); padding: 1.5rem; text-align: center; margin: 1rem 0; cursor: pointer; transition: border-color 0.2s; }
+    .detail-label { width: 100px; color: var(--gray-500); font-size: 0.9rem; font-weight: 300;}
+    .detail-value { font-weight: 400; font-size: 1rem; color: var(--black); }
+    .copy-btn { margin-left: auto; padding: 0.25rem 0.75rem; border: 1px solid var(--gray-300); font-size: 0.75rem; cursor: pointer; font-family: var(--font-sans); font-weight: 400; background: transparent; color: var(--gray-900);}
+    .payment-instructions { margin: 2rem 0; padding: 1.5rem; background: var(--gray-100); font-size: 0.95rem; font-weight: 300;}
+    .file-upload { border: 1px dashed var(--gray-400); padding: 1.5rem; text-align: center; margin: 1rem 0; cursor: pointer; display: block; transition: border-color 0.2s; }
     .file-upload:hover { border-color: var(--purple); }
-    .payment-secure { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.74rem; color: var(--gray-500); margin-top: 0.875rem; }
+    #fileChosen { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--black); font-weight: 300;}
+    .payment-secure { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.74rem; color: var(--gray-500); margin-top: 0.875rem; font-weight: 300;}
+
+    /* ---------- LEGAL MODALS (PRIVACY & TERMS) ---------- */
+    .legal-modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      z-index: 3000; display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease-in-out;
+    }
+    .legal-modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .legal-modal-card {
+      background: var(--white); max-width: 800px; width: 100%;
+      max-height: 85vh; display: flex; flex-direction: column;
+      position: relative; transform: translateY(30px) scale(0.95); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 1px solid var(--gray-200);
+    }
+    .legal-modal-overlay.active .legal-modal-card { transform: translateY(0) scale(1); }
+    .legal-modal-header {
+      padding: 2rem 2.5rem 1.5rem; border-bottom: 1px solid var(--gray-200);
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--white);
+    }
+    .legal-modal-header h2 { margin: 0; font-size: 1.5rem; color: var(--black); font-weight: 500;}
+    .legal-modal-close { font-size: 2rem; color: var(--gray-500); cursor: pointer; background: none; border: none; transition: 0.3s; }
+    .legal-modal-close:hover { color: var(--black); }
+    .legal-modal-body { 
+      padding: 2rem 2.5rem; overflow-y: auto; color: var(--gray-700); 
+      font-size: 0.95rem; line-height: 1.7; background: var(--white); font-weight: 300;
+    }
+    .legal-modal-body h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--black); font-weight: 500; }
+    .legal-modal-body p { margin-bottom: 1rem; }
+    .legal-modal-body ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    .legal-modal-body li { margin-bottom: 0.5rem; }
 
     /* ================================================================
        VIDEO MODAL
@@ -378,68 +393,64 @@
     #video-modal.active { opacity: 1; pointer-events: auto; }
     .video-modal-inner { position: relative; width: 100%; max-width: 780px; display: flex; flex-direction: column; align-items: stretch; gap: 1.25rem; }
     .video-modal-header { display: flex; align-items: center; gap: 0.75rem; }
-    .luna-badge { background: linear-gradient(135deg, var(--purple) 0%, #9a1dbd 100%); color: #fff; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.3rem 0.9rem; border-radius: 20px; font-weight: 600; }
-    .video-modal-header p { font-size: 0.875rem; color: rgba(255,255,255,0.55); }
-    .video-wrapper { width: 100%; aspect-ratio: 16/9; background: #111; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); display: block; position: relative; }
+    .luna-badge { background: linear-gradient(135deg, var(--purple) 0%, #9a1dbd 100%); color: #fff; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.3rem 0.9rem; border-radius: 20px; font-weight: 500; }
+    .video-modal-header p { font-size: 0.875rem; color: rgba(255,255,255,0.55); font-weight: 300;}
+    .video-wrapper { width: 100%; aspect-ratio: 16/9; background: #111; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); display: block; position: relative; }
     #onboarding-video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: rgba(255,255,255,0.45); text-align: center; padding: 2rem; pointer-events: none; z-index: 1; }
+    .video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: rgba(255,255,255,0.45); text-align: center; padding: 2rem; pointer-events: none; z-index: 1; font-weight: 300;}
     .video-placeholder i { font-size: 3.5rem; color: rgba(255,255,255,0.18); }
     .video-modal-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
-    .video-progress-text { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
-    #skip-to-luna { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.22); padding: 0.6rem 1.4rem; font-family: var(--font-sans); font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 6px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; }
+    .video-progress-text { color: rgba(255,255,255,0.45); font-size: 0.82rem; font-weight: 300;}
+    #skip-to-luna { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.22); padding: 0.6rem 1.4rem; font-family: var(--font-sans); font-size: 0.82rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; }
     #skip-to-luna:hover { background: rgba(255,255,255,0.2); border-color: var(--purple); }
 
     /* ================================================================
        CHAT WIDGET — Luna Brand Assistant (FIXED ALIGNMENT)
     ================================================================ */
     .chat-widget { position: fixed; bottom: 2rem; right: 2rem; z-index: 300; }
-    .chat-window { position: absolute; bottom: 0; right: 0; width: 360px; height: 560px; background: var(--white); border: 1px solid var(--light-gray); border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); display: flex; flex-direction: column; overflow: hidden; transform: scale(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); pointer-events: none; }
+    .chat-window { position: absolute; bottom: 0; right: 0; width: 360px; height: 560px; background: var(--white); border: 1px solid var(--gray-200); box-shadow: 0 20px 50px rgba(0,0,0,0.2); display: flex; flex-direction: column; overflow: hidden; transform: scale(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); pointer-events: none; }
     .chat-window.open { transform: scale(1); pointer-events: auto; }
     
-    /* FIXED: Flex layout for header alignment */
-    .chat-header { background: var(--black); color: #fff; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+    .chat-header { background: #0a0a0a; color: #fff; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
     body.dark .chat-header { background: #1a1a2e; }
     .chat-header-info { display: flex; align-items: center; gap: 0.75rem; flex: 1;}
     .luna-avatar { width: 2.2rem; height: 2.2rem; border-radius: 50%; background: linear-gradient(135deg, var(--purple) 0%, #7a1a9e 100%); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: #fff; }
     .chat-header-text { display: flex; flex-direction: column; justify-content: center; }
-    .chat-header h4 { font-size: 0.95rem; font-weight: 600; margin: 0; line-height: 1.2; }
+    .chat-header h4 { font-size: 0.95rem; font-weight: 500; margin: 0; line-height: 1.2; color: #fff; }
     
-    /* FIXED: Status text vertical alignment */
-    .chat-header-status { font-size: 0.7rem; opacity: 0.7; margin-top: 3px; display: flex; align-items: center; gap: 5px; }
+    .chat-header-status { font-size: 0.7rem; opacity: 0.6; margin-top: 3px; display: flex; align-items: center; gap: 5px; color: #fff; font-weight: 300;}
     .chat-header-status::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; }
     
-    /* FIXED: Reset and Close Button horizontal alignment */
     .chat-actions { display: flex; align-items: center; gap: 0.8rem; }
     .chat-close, .chat-reset { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center;}
     .chat-close { font-size: 1.4rem; padding: 0; line-height: 1; }
-    .chat-reset { font-size: 1rem; }
+    .chat-reset { font-size: 1rem; font-family: var(--font-sans); }
     .chat-close:hover, .chat-reset:hover { color: #fff; }
     
     .chat-messages { flex: 1; overflow-y: auto; padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; scroll-behavior: smooth; }
     .chat-messages::-webkit-scrollbar { width: 5px; }
     .chat-messages::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
-    .message { max-width: 90%; padding: 0.7rem 1rem; border-radius: 1.2rem; font-size: 0.875rem; line-height: 1.45; animation: msgIn 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-    .message.user { background: var(--purple); color: #fff; align-self: flex-end; border-radius: 1.2rem 1.2rem 0.3rem 1.2rem; }
-    body.dark .message.user { background: #7a1a9e; }
-    .message.bot { background: var(--gray-100); color: var(--gray-900); align-self: flex-start; border: 1px solid var(--light-gray); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; }
+    .message { max-width: 90%; padding: 0.7rem 1rem; border-radius: 1.2rem; font-size: 0.875rem; line-height: 1.45; animation: msgIn 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); font-weight: 300;}
+    .message.user { background: #0a0a0a; color: #fff; align-self: flex-end; border-radius: 1.2rem 1.2rem 0.3rem 1.2rem; }
+    body.dark .message.user { background: #3a3a6e; }
+    .message.bot { background: var(--gray-100); color: var(--gray-900); align-self: flex-start; border: 1px solid var(--gray-200); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; }
     .message.system { background: transparent; color: var(--gray-500); font-size: 0.7rem; text-align: center; align-self: center; border: none; padding: 0.2rem; }
-    .typing-bubble { align-self: flex-start; background: var(--gray-100); border: 1px solid var(--light-gray); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; padding: 0.7rem 1rem; display: flex; gap: 5px; align-items: center; }
+    .typing-bubble { align-self: flex-start; background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 1.2rem 1.2rem 1.2rem 0.3rem; padding: 0.7rem 1rem; display: flex; gap: 5px; align-items: center; }
     .typing-bubble span { width: 6px; height: 6px; background: var(--gray-500); border-radius: 50%; animation: typeDot 1.1s infinite; }
     .luna-options { display: flex; flex-direction: column; gap: 0.5rem; align-self: stretch; margin-top: 0.2rem; }
-    .luna-opt { width: 100%; padding: 0.6rem 1rem; text-align: left; border: 1px solid var(--light-gray); background: var(--white); color: var(--gray-800); font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; border-radius: 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; }
-    .luna-opt::before { content: '›'; color: var(--purple); font-size: 1.1rem; transition: transform 0.2s; }
-    .luna-opt:hover { border-color: var(--purple); background: rgba(191,41,237,0.05); transform: translateX(2px); }
-    .luna-opt:hover::before { transform: translateX(2px); }
+    .luna-opt { width: 100%; padding: 0.6rem 1rem; text-align: left; border: 1px solid var(--gray-300); background: var(--white); color: var(--gray-800); font-family: var(--font-sans); font-size: 0.85rem; font-weight: 400; border-radius: 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+    .luna-opt::before { content: '›'; color: var(--gray-400); font-size: 1.1rem; transition: color 0.2s; }
+    .luna-opt:hover { border-color: var(--black); background: var(--gray-100); transform: translateX(2px); }
+    .luna-opt:hover::before { color: var(--black); }
     
-    /* FIXED: Input Area and Send Button Shrinking Issue */
-    .chat-input-area { display: flex; align-items: center; border-top: 1px solid var(--light-gray); padding: 0.75rem; gap: 0.6rem; flex-shrink: 0; background: var(--white); }
-    .chat-input-area input { flex: 1; min-width: 0; border: 1px solid var(--light-gray); border-radius: 30px; padding: 0.6rem 1rem; font-family: var(--font-sans); font-size: 0.875rem; background: var(--gray-100); color: var(--gray-900); outline: none; transition: border-color 0.2s; }
-    .chat-input-area input:focus { border-color: var(--purple); }
-    .chat-input-area button { flex-shrink: 0; background: var(--purple); color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-weight: 600; transition: background 0.2s; height: 100%;}
-    .chat-input-area button:hover { background: #a81dd4; }
+    .chat-input-area { display: flex; align-items: center; border-top: 1px solid var(--gray-200); padding: 0.75rem; gap: 0.6rem; flex-shrink: 0; background: var(--white); }
+    .chat-input-area input { flex: 1; min-width: 0; border: 1px solid var(--gray-200); border-radius: 30px; padding: 0.6rem 1rem; font-family: var(--font-sans); font-size: 0.875rem; background: var(--gray-100); color: var(--gray-900); outline: none; transition: border-color 0.2s; font-weight: 300;}
+    .chat-input-area input:focus { border-color: var(--gray-500); }
+    .chat-input-area button { flex-shrink: 0; background: #0a0a0a; color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-weight: 500; font-family: var(--font-sans); border: none; cursor: pointer; transition: background 0.2s; height: 100%;}
+    .chat-input-area button:hover { background: #333; }
     
-    .chat-contact-link { display: block; text-align: center; font-size: 0.7rem; padding: 0.6rem; border-top: 1px solid var(--light-gray); color: var(--gray-500); cursor: pointer; transition: color 0.2s; }
-    .chat-contact-link:hover { color: var(--purple); }
+    .chat-contact-link { display: block; text-align: center; font-size: 0.7rem; padding: 0.6rem; border-top: 1px solid var(--gray-200); color: var(--gray-500); cursor: pointer; transition: color 0.2s; font-weight: 300;}
+    .chat-contact-link:hover { color: var(--black); }
     @media (max-width: 480px) { .chat-window { width: 310px; height: 520px; } }
 
     /* ---------- SCROLL REVEAL ---------- */
@@ -452,339 +463,690 @@
 </head>
 <body>
 
-<div id="toast"></div>
+  <div id="toast"></div>
 
-<header id="header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="index.html" class="logo"><img src="QuivaPro Logo.svg" alt="QuivaPro"></a>
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About us</a>
-        <a href="games-corner.html">Games corner</a>
-        <a href="#services">Product/services</a>
-        <a href="#faq">FAQs</a>
-        <a href="#contact">Help</a>
-      </nav>
-      <div class="header-right">
-        <button class="theme-toggle" id="themeToggle"><i class="fa-regular fa-moon"></i></button>
-        <button class="btn-header booking-trigger">Book a Call</button>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">Menu</button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<div class="drawer-overlay" id="drawerOverlay"></div>
-<div class="drawer" id="drawer">
-  <div class="drawer-header">
-    <img src="QuivaPro Logo.svg" alt="QuivaPro">
-    <button class="drawer-close" id="drawerClose">&times;</button>
-  </div>
-  <div class="drawer-links">
-    <a href="#home">Home</a>
-    <a href="#about">About us</a>
-    <a href="games-corner.html">Games corner</a>
-    <a href="#services">Product/services</a>
-    <a href="#faq">FAQs</a>
-    <a href="#contact">Help</a>
-    <button class="drawer-book booking-trigger">Book a Call</button>
-  </div>
-</div>
-
-<div class="popup-overlay" id="popup">
-  <div class="popup-card">
-    <div class="popup-header">
-      <img src="QuivaPro Logo.svg" alt="QuivaPro">
-      <button class="popup-close" id="popupClose">&times;</button>
-    </div>
-    <h3>Book a Free Consultation</h3>
-    <p class="body" style="margin-bottom:1.5rem;">Share your details and we'll craft a strategy for you.</p>
-    <form id="popupForm">
-      <div class="form-group"><input class="field" type="text"  placeholder="Full name *"      id="popupName"    required></div>
-      <div class="form-group"><input class="field" type="email" placeholder="Email address *"  id="popupEmail"   required></div>
-      <div class="form-group"><input class="field" type="tel"   placeholder="Phone number *"   id="popupPhone"   required></div>
-      <div class="form-group"><input class="field" type="text"  placeholder="Country *"        id="popupCountry" required></div>
-      <div class="form-group"><textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea></div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="popupConsent" name="consent">
-        <label for="popupConsent">I agree to receive emails and newsletters from QuivaPro with actionable insights to help grow my brand.</label>
-      </div>
-      <div class="form-msg" id="popupMsg"></div>
-      <button type="submit" class="btn btn-primary" style="width:100%;">Submit</button>
-    </form>
-  </div>
-</div>
-
-<div id="payment-overlay">
-  <div class="payment-card">
-    <div class="payment-header">
-      <h3>Complete Your Purchase</h3>
-      <button class="payment-close" onclick="closePaymentModal()">&times;</button>
-    </div>
-    <div class="order-summary" id="orderSummary">
-      <div class="order-row"><span>Selected Package:</span><span id="selectedPackageName">Premium Brand Infrastructure Diagnosis</span></div>
-      <div class="order-row"><span>Price:</span><span id="selectedPackagePrice">$200</span></div>
-    </div>
-    <div class="bank-details">
-      <h4>BANK TRANSFER INFORMATION</h4>
-      <div class="detail-row"><span class="detail-label">Account Number:</span><span class="detail-value">9060335653</span><button class="copy-btn" onclick="copyToClipboard('9060335653')">Copy</button></div>
-      <div class="detail-row"><span class="detail-label">Account Name:</span><span class="detail-value">TOLIAT BOLANLE AKINYEMI</span><button class="copy-btn" onclick="copyToClipboard('TOLIAT BOLANLE AKINYEMI')">Copy</button></div>
-      <div class="detail-row"><span class="detail-label">Bank:</span><span class="detail-value">OPAY</span></div>
-      <div class="detail-row"><span class="detail-label">Amount:</span><span class="detail-value" id="paymentAmount">$200</span></div>
-    </div>
-    <div class="payment-instructions">
-      <h4 style="margin-bottom:1rem;">Instructions</h4>
-      <ol><li>Transfer the exact amount to the account above</li><li>Take a screenshot of your payment confirmation</li><li>Upload the screenshot below</li><li>Submit the form – we'll confirm within 24 hours</li></ol>
-    </div>
-    <form id="paymentConfirmationForm">
-      <div class="form-group"><input class="field" type="text" name="fi-sender-firstName" placeholder="Full Name *" id="paymentName" required></div>
-      <div class="form-group"><input class="field" type="email" name="fi-sender-email" placeholder="Email Address *" id="paymentEmail" required></div>
-      <div class="form-group"><input class="field" type="text" name="fi-text-package" placeholder="Package Purchased" id="paymentPackage" readonly></div>
-      <div class="form-group"><label class="file-upload" id="fileUploadLabel"><i class="fa-solid fa-cloud-upload-alt"></i><span id="fileChosen">Click to upload payment screenshot</span><input type="file" id="paymentScreenshot" name="fi-file-screenshot" accept="image/jpeg,image/png,image/jpg" style="display:none;" required></label></div>
-      <div class="form-group"><input class="field" type="text" name="reference" placeholder="Transaction Reference/ID (optional)" id="paymentRef"></div>
-      <div class="form-msg" id="paymentMsg"></div>
-      <button type="submit" class="btn btn-primary" style="width:100%;">Submit Payment Confirmation</button>
-    </form>
-    <p class="payment-secure"><i class="fa-solid fa-shield-halved"></i> We'll verify and be in touch within 24 hours</p>
-  </div>
-</div>
-
-<div id="video-modal">
-  <div class="video-modal-inner">
-    <div class="video-modal-header"><span class="luna-badge">✦ QuivaPro Onboarding</span><p>A quick message before we get started</p></div>
-    <div class="video-wrapper"><video id="onboarding-video" controls playsinline preload="metadata"><source src="QuivaPro.mp4" type="video/mp4"></video><div class="video-placeholder" id="videoPlaceholder"><i class="fa-regular fa-circle-play"></i><span class="ph-label">Intro Video Placeholder</span><p>Replace the <code>&lt;source src=""&gt;</code> with your real MP4 path. The video should conclude with: <em>"Over to you, Luna."</em></p></div></div>
-    <div class="video-modal-footer"><p class="video-progress-text">Watch the full intro, or skip ahead to meet Luna</p><button id="skip-to-luna"><i class="fa-solid fa-arrow-right"></i>&nbsp; Skip to Luna</button></div>
-  </div>
-</div>
-
-<div class="team-modal-overlay" id="teamModal">
-  <div class="team-modal-card">
-    <button class="team-modal-close" id="teamModalClose">&times;</button>
-    <div class="team-modal-content">
-      <div class="team-modal-photo"><img src="" id="tmImage" alt="Founder"></div>
-      <div class="team-modal-info">
-        <h3 id="tmName">Name</h3>
-        <div class="team-role" id="tmRole">Role</div>
-        <div class="tm-title" id="tmTitle">Title</div>
-        <p class="tm-bio" id="tmBio">Bio text...</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="chat-widget" id="chatWidget">
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div class="chat-header-info">
-        <div class="luna-avatar">✦</div>
-        <div class="chat-header-text">
-          <h4>Luna — Brand Assistant</h4>
-          <div class="chat-header-status">QuivaPro · Online</div>
-        </div>
-      </div>
-      <div class="chat-actions">
-        <button class="chat-reset" id="chatResetBtn" title="Reset conversation"><i class="fa-solid fa-rotate-right"></i></button>
-        <button class="chat-close" id="chatClose">&times;</button>
-      </div>
-    </div>
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input-area" id="chatInputArea">
-      <input type="text" id="chatInput" placeholder="Type your name…" autocomplete="off">
-      <button id="chatSend">Send</button>
-    </div>
-    <div class="chat-contact-link" id="chatContactLink">📧 Talk to a strategist →</div>
-  </div>
-</div>
-
-<button id="btt" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-
-<main>
-  <section class="hero" id="home">
+  <header id="header">
     <div class="container">
-      <div class="hero-content-wrapper">
-        <div class="label fade-up">QuivaPro</div>
-        <h1 class="fade-up delay-1">Your Brand Might Be Costing You Clients.</h1>
-        <p class="body-large fade-up delay-2">We craft business ideas into powerful brand identities through clear messaging, compelling designs, and strategic positioning that resonates with the audience and drives growth.</p>
-        <div class="hero-cta fade-up delay-3">
-          <button class="btn btn-primary booking-trigger">Book a Free Brand Consultation</button>
-          <button class="btn" onclick="openPaymentModal('premium')">Get Your Brand Audit</button>
-        </div>
-        <div class="trust-items fade-up delay-3">
-          <span><i class="fa-regular fa-circle-check"></i> Trusted by growing startups</span>
-          <span><i class="fa-regular fa-circle-check"></i> Built for founders, creators & scaling companies</span>
-          <span><i class="fa-regular fa-circle-check"></i> Attract better clients and opportunities</span>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <img src="QuivaPro Logo.svg" alt="QuivaPro">
+        </a>
+        <nav class="nav">
+          <a href="#home">Home</a>
+          <a href="#about">About us</a>
+          <a href="games-corner.html">Games corner</a>
+          <a href="#services">Product/services</a>
+          <a href="#faq">FAQs</a>
+          <a href="#contact">Help</a>
+        </nav>
+        <div class="header-right">
+          <button class="theme-toggle" id="themeToggle"><i class="fa-regular fa-moon"></i></button>
+          <button class="btn-header booking-trigger">Book a Call</button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">Menu</button>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section class="experience-carousel"><div class="container"><div class="label fade-up">Trusted by</div><h2 class="fade-up delay-1">Our Engineers have experience working here</h2><div class="carousel-container fade-up delay-2"><div class="carousel-track"><div class="logo-item"><img src="google-logo.svg" alt="Google"></div><div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div><div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div><div class="logo-item"><img src="apple-logo.svg" alt="Apple"></div><div class="logo-item"><img src="facebook-logo.svg" alt="Facebook"></div><div class="logo-item"><img src="netflix-logo.svg" alt="Netflix"></div><div class="logo-item"><img src="tesla-logo.svg" alt="Tesla"></div><div class="logo-item"><img src="ibm-logo.svg" alt="IBM"></div><div class="logo-item"><img src="google-logo.svg" alt="Google"></div><div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div><div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div><div class="logo-item"><img src="apple-logo.svg" alt="Apple"></div><div class="logo-item"><img src="facebook-logo.svg" alt="Facebook"></div><div class="logo-item"><img src="netflix-logo.svg" alt="Netflix"></div><div class="logo-item"><img src="tesla-logo.svg" alt="Tesla"></div><div class="logo-item"><img src="ibm-logo.svg" alt="IBM"></div></div></div></div></section>
-  <section id="about"><div class="container"><div class="label fade-up">About us</div><h2 class="fade-up delay-1">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover what is holding their brand back.</h2><p class="body-large fade-up delay-2" style="margin-top:1.5rem;">We combine brand psychology, positioning strategy, and design systems to create brands that attract, convert, and scale.</p><div class="grid-2 fade-up delay-3" style="margin-top:2rem;"><div><p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Brand positioning</p><p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Messaging clarity</p></div><div><p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Audience perception</p><p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Competitive differentiation</p></div></div><div class="fade-up" style="margin-top:4rem;"><h3 class="label" style="text-align:center;">Meet the Founders</h3><div class="team-grid"><div class="team-member" onclick="openTeamModal('toluwanimi')"><div class="team-photo"><img src="akinyemi-toluwanimi-Headshot.jpg" alt="Akinyemi Toluwanimi"></div><div class="team-name">Akinyemi Toluwanimi</div><div class="team-role">Web Developer / Tech Lead</div></div><div class="team-member" onclick="openTeamModal('jacob')"><div class="team-photo"><img src="jakes-Headshot.jpg" alt="Jacob Archibong"></div><div class="team-name">Jacob Archibong</div><div class="team-role">Brand Strategist</div></div><div class="team-member" onclick="openTeamModal('charity')"><div class="team-photo"><img src="charity-Headshot.jpg" alt="Ekpenyong Charity"></div><div class="team-name">Ekpenyong Charity</div><div class="team-role">Creative Director</div></div><div class="team-member" onclick="openTeamModal('dara')"><div class="team-photo"><img src="dara-Headshot.jpg" alt="Oluwanfimindara Oludiran"></div><div class="team-name">Oluwanfimindara Oludiran</div><div class="team-role">Marketing Lead</div></div><div class="team-member" onclick="openTeamModal('seyi')"><div class="team-photo"><img src="seyi-Headshot.jpg" alt="Esi Seyi Adeleye"></div><div class="team-name">Esi Seyi Adeleye</div><div class="team-role">Product Designer</div></div><div class="team-member" onclick="openTeamModal('moyo')"><div class="team-photo"><img src="moyo-Headshot.jpg" alt="Moyo Daniel Ositade"></div><div class="team-name">Moyo Daniel Ositade</div><div class="team-role">Researcher</div></div></div></div><div class="fade-up" style="margin-top:4rem;text-align:center;"><p class="body-large" style="max-width:700px;margin:0 auto;">Because branding is not decoration. It is business infrastructure.</p></div><div class="fade-up" style="margin-top:2rem;text-align:center;"><button class="btn btn-primary booking-trigger">Let's talk strategy</button></div></div></section>
-  <section id="services" style="background:var(--gray-100);"><div class="container"><div class="label fade-up">What we do</div><h2 class="fade-up delay-1">Our Strategic Focus</h2><p class="body-large fade-up delay-2" style="margin-bottom:2rem;">QuivaPro focuses on the strategy behind great brands, not just the visuals.</p><div class="grid-3 fade-up delay-3"><div class="what-item"><h3>Brand Diagnosis</h3><p class="body">Deep analysis of your current brand to uncover weaknesses in positioning, messaging, and clarity.</p></div><div class="what-item"><h3>Brand Positioning Strategy</h3><p class="body">Defining where your brand sits in the market and why customers should choose you.</p></div><div class="what-item"><h3>Brand Infrastructure</h3><p class="body">Developing the strategic structure that allows your brand to scale consistently.</p></div></div></div></section>
-  <section id="pricing"><div class="container"><div class="label fade-up">Investment</div><h2 class="fade-up delay-1">Brand Diagnosis Packages</h2><p class="body-large fade-up delay-2" style="margin-bottom:2rem;">Choose the clarity your brand needs</p><div class="pricing-grid fade-up delay-3"><div class="pricing-card"><div class="pricing-name">Basic Brand Check</div><div class="pricing-price">$30</div><ul class="pricing-features"><li><i class="fa-regular fa-circle-check"></i> Brand positioning snapshot</li><li><i class="fa-regular fa-circle-check"></i> Messaging clarity check</li><li><i class="fa-regular fa-circle-check"></i> Website first-impression review</li><li><i class="fa-regular fa-circle-check"></i> Key improvement insights</li></ul><div class="pricing-outcome"><strong>Outcome:</strong> Discover the core issue limiting your brand clarity.</div><div class="pricing-bestfor"><strong>Best For:</strong> Early-stage founders & startups wanting a fast expert opinion.</div><button class="pricing-btn" onclick="openPaymentModal('basic')">Get My Brand Check</button></div><div class="pricing-card"><div class="pricing-name">Standard Brand Diagnosis</div><div class="pricing-price">$75</div><ul class="pricing-features"><li><i class="fa-regular fa-circle-check"></i> Everything in Basic</li><li><i class="fa-regular fa-circle-check"></i> Audience perception analysis</li><li><i class="fa-regular fa-circle-check"></i> Brand differentiation review</li><li><i class="fa-regular fa-circle-check"></i> Messaging improvement suggestions</li><li><i class="fa-regular fa-circle-check"></i> Short diagnosis report</li></ul><div class="pricing-outcome"><strong>Outcome:</strong> Understand why your brand isn't standing out.</div><div class="pricing-bestfor"><strong>Best For:</strong> Startups & growing businesses improving positioning.</div><button class="pricing-btn" onclick="openPaymentModal('standard')">Start My Brand Diagnosis</button></div><div class="pricing-card recommended"><div class="recommended-badge">Most Valuable</div><div class="pricing-name">Premium Brand Infrastructure Diagnosis</div><div class="pricing-price">$200</div><ul class="pricing-features"><li><i class="fa-regular fa-circle-check"></i> Everything in Standard</li><li><i class="fa-regular fa-circle-check"></i> Competitive positioning insight</li><li><i class="fa-regular fa-circle-check"></i> Full brand positioning analysis</li><li><i class="fa-regular fa-circle-check"></i> Brand messaging framework suggestion</li><li><i class="fa-regular fa-circle-check"></i> Messaging architecture review</li><li><i class="fa-regular fa-circle-check"></i> Website conversion structure review</li><li><i class="fa-regular fa-circle-check"></i> Growth opportunity analysis</li><li><i class="fa-regular fa-circle-check"></i> Detailed strategy recommendations</li><li><i class="fa-regular fa-circle-check"></i> Brand improvement roadmap</li></ul><div class="pricing-outcome"><strong>Outcome:</strong> Complete brand diagnosis + strategic roadmap.</div><div class="pricing-bestfor"><strong>Best For:</strong> Businesses serious about a scalable brand foundation.</div><button class="pricing-btn recommended" onclick="openPaymentModal('premium')">Get the Full Brand Diagnosis</button></div></div><div class="decision-helper fade-up"><p>Not sure which diagnosis you need?</p><a href="games-corner.html#businessIQQuiz" class="btn">Take the 60-Second Brand IQ Test →</a></div></div></section>
-  <section id="faq"><div class="container"><div class="label fade-up">FAQs</div><h2 class="fade-up delay-1">Common Questions</h2><div class="faq-list fade-up delay-2"><div class="faq-item"><div class="faq-question"><span>What is QuivaPro?</span><i class="fa-solid fa-plus"></i></div><div class="faq-answer">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover weaknesses in their brand positioning, messaging, and infrastructure.</div></div><div class="faq-item"><div class="faq-question"><span>Who do you work with?</span><i class="fa-solid fa-plus"></i></div><div class="faq-answer">We work with: startups, founders, growing companies, businesses preparing to scale.</div></div><div class="faq-item"><div class="faq-question"><span>What is a Brand Diagnosis?</span><i class="fa-solid fa-plus"></i></div><div class="faq-answer">A Brand Diagnosis is a strategic analysis of your brand to identify problems with positioning, messaging clarity, and market perception.</div></div><div class="faq-item"><div class="faq-question"><span>Do you design logos or visual identities?</span><i class="fa-solid fa-plus"></i></div><div class="faq-answer">QuivaPro focuses on brand strategy and infrastructure. If design is required, we provide strategic direction that can guide design teams or creative partners.</div></div><div class="faq-item"><div class="faq-question"><span>How long does a diagnosis take?</span><i class="fa-solid fa-plus"></i></div><div class="faq-answer">Most brand diagnosis reports are delivered within 3–7 days, depending on the depth of analysis required.</div></div><div class="faq-item"><div class="faq-question"><span>How can I start a project with QuivaPro?</span><i class="fa-solid fa-plus"></i></div><div class="faq-answer">You can start by: sending us a message or inquiry, scheduling a discovery call, or filling out our project brief form. Our team will review your request and guide you through the next steps.</div></div></div></div></section>
-  <section id="cta" style="background:var(--gray-100);"><div class="container"><div class="fade-up" style="text-align:center;max-width:700px;margin:0 auto;"><h2>Your Brand Should Work As Hard As You Do</h2><p class="body-large" style="margin:1.5rem 0;">If your brand is confusing, inconsistent, or invisible in the market, it's costing you opportunities. Let QuivaPro help you build a brand that attracts growth.</p><button class="btn btn-primary booking-trigger">Book Your Free Consultation</button></div></div></section>
-</main>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <img src="QuivaPro Logo.svg" alt="QuivaPro">
+      <button class="drawer-close" id="drawerClose">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About us</a>
+      <a href="games-corner.html">Games corner</a>
+      <a href="#services">Product/services</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Help</a>
+      <button class="drawer-book booking-trigger">Book a Call</button>
+    </div>
+  </div>
 
-<footer id="contact"><div class="container"><div class="footer-grid"><div class="footer-logo"><img src="QuivaPro Logo.svg" alt="QuivaPro"><p>Strategic Branding for Modern Businesses</p><p style="margin-top:1rem;">quivapro@gmail.com</p></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About us</a></li><li><a href="#services">Product/services</a></li><li><a href="#faq">FAQs</a></li></ul></div><div class="footer-col"><h4>Games</h4><ul><li><a href="games-corner.html#businessIQQuiz">Business IQ Quiz</a></li><li><a href="games-corner.html#brandingIQTest">Branding IQ Test</a></li></ul></div><div class="footer-col"><h4>Connect</h4><div class="social-links"><a href="https://www.instagram.com/quivapro" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.linkedin.com/company/quivapro" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://wa.me/2348181041879" target="_blank"><i class="fa-brands fa-whatsapp"></i></a><a href="https://twitter.com/quivapro" target="_blank"><i class="fa-brands fa-twitter"></i></a></div></div></div><div class="footer-bottom"><span>© 2026 QuivaPro. All rights reserved.</span><span>Strategic Branding for Modern Businesses</span></div></div></footer>
+  <div class="popup-overlay" id="popup">
+    <div class="popup-card">
+      <div class="popup-header">
+        <img src="QuivaPro Logo.svg" alt="QuivaPro">
+        <button class="popup-close" id="popupClose">&times;</button>
+      </div>
+      <h3 style="color: var(--black);">Book a Free Consultation</h3>
+      <p class="body" style="margin-bottom: 2rem;">Share your details and we'll craft a strategy for you.</p>
+      <form id="popupForm">
+        <div class="form-group"><input class="field" type="text" placeholder="Full name *" id="popupName" required></div>
+        <div class="form-group"><input class="field" type="email" placeholder="Email address *" id="popupEmail" required></div>
+        <div class="form-group"><input class="field" type="tel" placeholder="Phone number *" id="popupPhone" required></div>
+        <div class="form-group"><input class="field" type="text" placeholder="Country *" id="popupCountry" required></div>
+        <div class="form-group"><textarea class="field" placeholder="Tell us about your brand *" id="popupMessage" required></textarea></div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="popupConsent" name="consent">
+          <label for="popupConsent">I agree to receive emails and newsletters from QuivaPro with actionable insights to help grow my brand.</label>
+        </div>
+        <div class="form-msg" id="popupMsg"></div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+      </form>
+    </div>
+  </div>
 
-<script>
-(function () {
-  'use strict';
+  <div id="payment-overlay">
+    <div class="payment-card">
+      <div class="payment-header">
+        <h3>Complete Your Purchase</h3>
+        <button class="payment-close" onclick="closePaymentModal()">&times;</button>
+      </div>
+      <div class="order-summary" id="orderSummary">
+        <div class="order-row">
+          <span>Selected Package:</span>
+          <span id="selectedPackageName" style="color: var(--black); font-weight: 500;">Premium Brand Infrastructure Diagnosis</span>
+        </div>
+        <div class="order-row">
+          <span>Price:</span>
+          <span id="selectedPackagePrice" style="color: var(--green); font-weight: 500; font-size: 1.1rem;">$200</span>
+        </div>
+      </div>
+      <div class="bank-details">
+        <h4>BANK TRANSFER INFORMATION</h4>
+        <div class="detail-row">
+          <span class="detail-label">Account Number:</span>
+          <span class="detail-value" id="accountNumber">9060335653</span>
+          <button class="copy-btn" onclick="copyToClipboard('9060335653')">Copy</button>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Account Name:</span>
+          <span class="detail-value">TOLIAT BOLANLE AKINYEMI</span>
+          <button class="copy-btn" onclick="copyToClipboard('TOLIAT BOLANLE AKINYEMI')">Copy</button>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Bank:</span>
+          <span class="detail-value">OPAY</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Amount:</span>
+          <span class="detail-value" id="paymentAmount" style="color: var(--green); font-weight: 500;">$200</span>
+        </div>
+      </div>
+      <div class="payment-instructions">
+        <h4 style="margin-bottom: 1rem; color: var(--black);">📋 Instructions</h4>
+        <ol>
+          <li>Transfer the exact amount to the account above</li>
+          <li>Take a screenshot of your payment confirmation</li>
+          <li>Upload the screenshot below</li>
+          <li>Submit the form – we'll confirm within 24 hours</li>
+        </ol>
+      </div>
+      <form id="paymentConfirmationForm">
+        <div class="form-group"><input class="field" type="text" placeholder="Full Name *" id="paymentName" required></div>
+        <div class="form-group"><input class="field" type="email" placeholder="Email Address *" id="paymentEmail" required></div>
+        <div class="form-group"><input class="field" type="text" placeholder="Package Purchased" id="paymentPackage" readonly></div>
+        <div class="form-group">
+          <label class="file-upload" id="fileUploadLabel">
+            <i class="fa-solid fa-cloud-upload-alt" style="font-size: 1.5rem; color: var(--gray-500); margin-bottom: 10px; display: block;"></i>
+            <span id="fileChosen">Click to upload payment screenshot</span>
+            <input type="file" id="paymentScreenshot" accept="image/*" style="display: none;" required>
+          </label>
+        </div>
+        <div class="form-group"><input class="field" type="text" placeholder="Transaction Reference/ID (optional)" id="paymentRef"></div>
+        <div class="form-msg" id="paymentMsg"></div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Payment Confirmation</button>
+      </form>
+      <p class="payment-secure"><i class="fa-solid fa-shield-halved"></i> We'll verify and be in touch within 24 hours</p>
+    </div>
+  </div>
 
-  function showToast(msg) {
-    var t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(function () { t.classList.remove('show'); }, 3000);
-  }
+  <div class="legal-modal-overlay" id="legalModal">
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <h2 id="legalModalTitle">Legal</h2>
+        <button class="legal-modal-close" id="legalModalClose">&times;</button>
+      </div>
+      <div class="legal-modal-body" id="legalModalBody">
+        </div>
+    </div>
+  </div>
 
-  // header scroll
-  var header = document.getElementById('header');
-  var btt = document.getElementById('btt');
-  window.addEventListener('scroll', function () { header.classList.toggle('scrolled', window.scrollY > 50); btt.classList.toggle('show', window.scrollY > 300); });
-  btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  <div id="video-modal">
+    <div class="video-modal-inner">
+      <div class="video-modal-header"><span class="luna-badge">✦ QuivaPro Onboarding</span><p>A quick message before we get started</p></div>
+      <div class="video-wrapper"><video id="onboarding-video" controls playsinline preload="metadata"><source src="QuivaPro.mp4" type="video/mp4"></video><div class="video-placeholder" id="videoPlaceholder"><i class="fa-regular fa-circle-play"></i><span class="ph-label">Intro Video Placeholder</span><p>Replace the <code>&lt;source src=""&gt;</code> with your real MP4 path. The video should conclude with: <em>"Over to you, Luna."</em></p></div></div>
+      <div class="video-modal-footer"><p class="video-progress-text">Watch the full intro, or skip ahead to meet Luna</p><button id="skip-to-luna"><i class="fa-solid fa-arrow-right"></i>&nbsp; Skip to Luna</button></div>
+    </div>
+  </div>
 
-  // theme toggle
-  var themeToggle = document.getElementById('themeToggle');
-  var themeIcon = themeToggle.querySelector('i');
-  if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark'); themeIcon.className = 'fa-regular fa-sun'; }
-  themeToggle.addEventListener('click', function () { var dark = document.body.classList.toggle('dark'); themeIcon.className = dark ? 'fa-regular fa-sun' : 'fa-regular fa-moon'; localStorage.setItem('theme', dark ? 'dark' : 'light'); });
+  <div class="team-modal-overlay" id="teamModal">
+    <div class="team-modal-card">
+      <button class="team-modal-close" id="teamModalClose">&times;</button>
+      <div class="team-modal-content">
+        <div class="team-modal-photo"><img src="" id="tmImage" alt="Founder"></div>
+        <div class="team-modal-info">
+          <h3 id="tmName">Name</h3>
+          <div class="team-role" id="tmRole">Role</div>
+          <div class="tm-title" id="tmTitle">Title</div>
+          <p class="tm-bio" id="tmBio">Bio text...</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  // drawer
-  var menuBtn = document.getElementById('mobileMenuBtn'), drawer = document.getElementById('drawer'), drawerOverlay = document.getElementById('drawerOverlay'), drawerClose = document.getElementById('drawerClose');
-  function openDrawer() { drawer.classList.add('open'); drawerOverlay.classList.add('active'); document.body.classList.add('menu-open'); }
-  function closeDrawer() { drawer.classList.remove('open'); drawerOverlay.classList.remove('active'); document.body.classList.remove('menu-open'); }
-  menuBtn.addEventListener('click', openDrawer); drawerClose.addEventListener('click', closeDrawer); drawerOverlay.addEventListener('click', closeDrawer);
-  drawer.querySelectorAll('a, .drawer-book').forEach(function (el) { el.addEventListener('click', function (e) { var href = el.getAttribute('href'); if (href && href.startsWith('#')) { e.preventDefault(); closeDrawer(); setTimeout(function () { document.querySelector(href).scrollIntoView({ behavior: 'smooth' }); }, 100); } else { closeDrawer(); } }); });
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="luna-avatar">✦</div>
+          <div class="chat-header-text">
+            <h4>Luna — Brand Assistant</h4>
+            <div class="chat-header-status">QuivaPro · Online</div>
+          </div>
+        </div>
+        <div class="chat-actions">
+          <button class="chat-reset" id="chatResetBtn" title="Reset conversation"><i class="fa-solid fa-rotate-right"></i></button>
+          <button class="chat-close" id="chatClose">&times;</button>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-area" id="chatInputArea">
+        <input type="text" id="chatInput" placeholder="Type your name…" autocomplete="off">
+        <button id="chatSend">Send</button>
+      </div>
+      <div class="chat-contact-link" id="chatContactLink">📧 Talk to a strategist →</div>
+    </div>
+  </div>
 
-  // consultation popup
-  var popup = document.getElementById('popup'), popupClose = document.getElementById('popupClose'), autoShown = false;
-  function openPopup() { popup.classList.add('active'); document.body.style.overflow = 'hidden'; }
-  function closePopup() { popup.classList.remove('active'); document.body.style.overflow = ''; }
-  document.addEventListener('click', function (e) { if (e.target.closest('.booking-trigger')) openPopup(); });
-  popupClose.addEventListener('click', closePopup); popup.addEventListener('click', function (e) { if (e.target === popup) closePopup(); });
-  var pricingSection = document.getElementById('pricing');
-  if (pricingSection) { new IntersectionObserver(function (entries) { if (entries[0].isIntersecting && !autoShown && !localStorage.getItem('popupSubmitted')) { autoShown = true; openPopup(); } }, { threshold: 0.3 }).observe(pricingSection); }
-  document.getElementById('popupForm').addEventListener('submit', async function (e) { e.preventDefault(); var msg = document.getElementById('popupMsg'); msg.style.display = 'block'; msg.textContent = 'Sending…'; try { var r = await fetch('https://formspree.io/f/meerzbyg', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name: document.getElementById('popupName').value, email: document.getElementById('popupEmail').value, phone: document.getElementById('popupPhone').value, country: document.getElementById('popupCountry').value, message: document.getElementById('popupMessage').value, consent: document.getElementById('popupConsent').checked ? 'Yes' : 'No', _subject: 'New Consultation Request – QuivaPro' }) }); if (r.ok) { msg.textContent = 'Thank you! We\'ll send you insights to help your brand grow.'; msg.className = 'form-msg success show'; localStorage.setItem('popupSubmitted', 'true'); e.target.reset(); setTimeout(closePopup, 3000); } else throw 0; } catch (_) { msg.textContent = 'Something went wrong. Please try again.'; msg.className = 'form-msg error show'; } });
+  <button id="btt" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-  // payment modal
-  var paymentOverlay = document.getElementById('payment-overlay'), paymentMsg = document.getElementById('paymentMsg');
-  var PACKAGES = { basic: { name: 'Basic Brand Check', price: '$30' }, standard: { name: 'Standard Brand Diagnosis', price: '$75' }, premium: { name: 'Premium Brand Infrastructure Diagnosis', price: '$200' } };
-  window.openPaymentModal = function (key) { var p = PACKAGES[key]; document.getElementById('selectedPackageName').textContent = p.name; document.getElementById('selectedPackagePrice').textContent = p.price; document.getElementById('paymentAmount').textContent = p.price; document.getElementById('paymentPackage').value = p.name; paymentOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
-  window.closePaymentModal = function () { paymentOverlay.classList.remove('active'); document.body.style.overflow = ''; document.getElementById('paymentConfirmationForm').reset(); paymentMsg.style.display = 'none'; document.getElementById('fileChosen').textContent = 'Click to upload payment screenshot'; };
-  window.copyToClipboard = function (txt) { navigator.clipboard.writeText(txt).then(function () { showToast('Copied to clipboard!'); }); };
-  document.getElementById('paymentScreenshot').addEventListener('change', function (e) { document.getElementById('fileChosen').textContent = e.target.files[0] ? e.target.files[0].name : 'Click to upload payment screenshot'; });
-  paymentOverlay.addEventListener('click', function (e) { if (e.target === paymentOverlay) window.closePaymentModal(); });
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content-wrapper">
+          <div class="label fade-up">QuivaPro</div>
+          <h1 class="fade-up delay-1">Your Brand Might Be Costing You Clients.</h1>
+          <p class="body-large fade-up delay-2">We craft business ideas into powerful brand identities through clear messaging, compelling designs, and strategic positioning that resonates with the audience and drives growth.</p>
+          <div class="hero-cta fade-up delay-3">
+            <button class="btn btn-primary booking-trigger">Book a Free Brand Consultation</button>
+            <button class="btn" onclick="openPaymentModal('premium')">Get Your Brand Audit</button>
+          </div>
+          <div class="trust-items fade-up delay-3">
+            <span><i class="fa-regular fa-circle-check"></i> Trusted by growing startups</span>
+            <span><i class="fa-regular fa-circle-check"></i> Built for founders, creators & scaling companies</span>
+            <span><i class="fa-regular fa-circle-check"></i> Attract better clients and opportunities</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const FORM_ID = "u8fol9u6441";
-  let forminit = null;
-  if (typeof Forminit !== 'undefined') { forminit = new Forminit(); }
-  let prefillName = null, prefillEmail = null;
-  function proceedToOnboarding(name, email) { prefillName = name; prefillEmail = email; window.closePaymentModal(); openVideoModal(email); }
+    <section class="experience-carousel">
+      <div class="container">
+        <div class="label fade-up">Trusted by</div>
+        <h2 class="fade-up delay-1">Our Engineers have experience working here</h2>
+        <div class="carousel-container fade-up delay-2">
+          <div class="carousel-track">
+            <div class="logo-item"><img src="google-logo.svg" alt="Google"></div>
+            <div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div>
+            <div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div>
+            <div class="logo-item"><img src="apple-logo.svg" alt="Apple"></div>
+            <div class="logo-item"><img src="facebook-logo.svg" alt="Facebook"></div>
+            <div class="logo-item"><img src="netflix-logo.svg" alt="Netflix"></div>
+            <div class="logo-item"><img src="tesla-logo.svg" alt="Tesla"></div>
+            <div class="logo-item"><img src="ibm-logo.svg" alt="IBM"></div>
+            <div class="logo-item"><img src="google-logo.svg" alt="Google"></div>
+            <div class="logo-item"><img src="microsoft-logo.svg" alt="Microsoft"></div>
+            <div class="logo-item"><img src="amazon-logo.svg" alt="Amazon"></div>
+            <div class="logo-item"><img src="apple-logo.svg" alt="Apple"></div>
+            <div class="logo-item"><img src="facebook-logo.svg" alt="Facebook"></div>
+            <div class="logo-item"><img src="netflix-logo.svg" alt="Netflix"></div>
+            <div class="logo-item"><img src="tesla-logo.svg" alt="Tesla"></div>
+            <div class="logo-item"><img src="ibm-logo.svg" alt="IBM"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  document.getElementById('paymentConfirmationForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    var name = document.getElementById('paymentName').value.trim();
-    var email = document.getElementById('paymentEmail').value.trim();
-    var pkg = document.getElementById('paymentPackage').value;
-    var file = document.getElementById('paymentScreenshot').files[0];
-    var ref = document.getElementById('paymentRef').value;
-    if (!name || !email || !pkg || !file) { paymentMsg.textContent = 'Please fill all required fields and upload a screenshot.'; paymentMsg.className = 'form-msg error show'; return; }
-    if (!['image/jpeg','image/png','image/jpg'].includes(file.type)) { paymentMsg.textContent = 'Only JPG or PNG images are allowed.'; paymentMsg.className = 'form-msg error show'; return; }
-    if (file.size > 10*1024*1024) { paymentMsg.textContent = 'File size must be less than 10 MB.'; paymentMsg.className = 'form-msg error show'; return; }
-    paymentMsg.style.display = 'block'; paymentMsg.textContent = 'Sending confirmation…'; paymentMsg.className = 'form-msg';
-    var fd = new FormData();
-    fd.append('fi-sender-firstName', name); fd.append('fi-sender-email', email); fd.append('fi-text-package', pkg); fd.append('fi-file-screenshot', file); if (ref) fd.append('reference', ref);
-    try {
-      if (forminit) { await forminit.submit(FORM_ID, fd); paymentMsg.textContent = 'Payment confirmation received! We\'ll verify and be in touch within 24 hours.'; paymentMsg.className = 'form-msg success show'; setTimeout(() => { proceedToOnboarding(name, email); }, 1500); }
-      else throw new Error('Forminit not loaded');
-    } catch (err) { console.warn(err); paymentMsg.textContent = 'Upload failed, but don\'t worry! Let\'s continue...'; paymentMsg.className = 'form-msg error show'; setTimeout(() => { proceedToOnboarding(name, email); }, 2000); }
-  });
+    <section id="about">
+      <div class="container">
+        <div class="label fade-up">About us</div>
+        <h2 class="fade-up delay-1">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover what is holding their brand back.</h2>
+        <p class="body-large fade-up delay-2" style="margin-top:1.5rem;">We combine brand psychology, positioning strategy, and design systems to create brands that attract, convert, and scale.</p>
+        <div class="grid-2 fade-up delay-3" style="margin-top:2rem;">
+          <div>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Brand positioning</p>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Messaging clarity</p>
+          </div>
+          <div>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Audience perception</p>
+            <p class="body"><i class="fa-regular fa-circle-check" style="margin-right:0.5rem; color:var(--green);"></i> Competitive differentiation</p>
+          </div>
+        </div>
+        <div class="fade-up" style="margin-top:4rem;">
+          <h3 class="label" style="text-align:center;">Meet the Founders</h3>
+          <div class="team-grid">
+            <div class="team-member" onclick="openTeamModal('toluwanimi')">
+              <div class="team-photo"><img src="akinyemi-toluwanimi-Headshot.jpg" alt="Akinyemi Toluwanimi"></div>
+              <div class="team-name">Akinyemi Toluwanimi</div>
+              <div class="team-role">Web Developer / Tech Lead</div>
+            </div>
+            <div class="team-member" onclick="openTeamModal('jacob')">
+              <div class="team-photo"><img src="jakes-Headshot.jpg" alt="Jacob Archibong"></div>
+              <div class="team-name">Jacob Archibong</div>
+              <div class="team-role">Brand Strategist</div>
+            </div>
+            <div class="team-member" onclick="openTeamModal('charity')">
+              <div class="team-photo"><img src="charity-Headshot.jpg" alt="Ekpenyong Charity"></div>
+              <div class="team-name">Ekpenyong Charity</div>
+              <div class="team-role">Creative Director</div>
+            </div>
+            <div class="team-member" onclick="openTeamModal('dara')">
+              <div class="team-photo"><img src="dara-Headshot.jpg" alt="Oluwanfimindara Oludiran"></div>
+              <div class="team-name">Oluwanfimindara Oludiran</div>
+              <div class="team-role">Marketing Lead</div>
+            </div>
+            <div class="team-member" onclick="openTeamModal('seyi')">
+              <div class="team-photo"><img src="seyi-Headshot.jpg" alt="Esi Seyi Adeleye"></div>
+              <div class="team-name">Esi Seyi Adeleye</div>
+              <div class="team-role">Product Designer</div>
+            </div>
+            <div class="team-member" onclick="openTeamModal('moyo')">
+              <div class="team-photo"><img src="moyo-Headshot.jpg" alt="Moyo Daniel Ositade"></div>
+              <div class="team-name">Moyo Daniel Ositade</div>
+              <div class="team-role">Researcher</div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up" style="margin-top:4rem;text-align:center;">
+          <p class="body-large" style="max-width:700px;margin:0 auto;">Because branding is not decoration. It is business infrastructure.</p>
+        </div>
+        <div class="fade-up" style="margin-top:2rem;text-align:center;">
+          <button class="btn btn-primary booking-trigger">Let's talk strategy</button>
+        </div>
+      </div>
+    </section>
 
-  // video modal
-  var videoModal = document.getElementById('video-modal'), onboardingVideo = document.getElementById('onboarding-video'), skipBtn = document.getElementById('skip-to-luna'), videoPlaceholder = document.getElementById('videoPlaceholder');
-  var _lunaEmail = '', _videoClosedManually = false;
-  function openVideoModal(email) { _lunaEmail = email || ''; _videoClosedManually = false; videoModal.classList.add('active'); document.body.style.overflow = 'hidden'; var src = onboardingVideo.querySelector('source')?.getAttribute('src'); if (src && src.trim()) { videoPlaceholder.style.display = 'none'; onboardingVideo.play().catch(function () {}); } else { videoPlaceholder.style.display = 'flex'; } }
-  function closeVideoModal(andThenLaunchLuna) { videoModal.classList.remove('active'); onboardingVideo.pause(); onboardingVideo.currentTime = 0; document.body.style.overflow = ''; if (andThenLaunchLuna !== false && !_videoClosedManually) { _videoClosedManually = true; initLuna(_lunaEmail, prefillName, prefillEmail); } }
-  onboardingVideo.addEventListener('ended', function () { closeVideoModal(true); });
-  skipBtn.addEventListener('click', function () { closeVideoModal(true); });
-  videoModal.addEventListener('click', function (e) { if (e.target === videoModal) closeVideoModal(true); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal(true); });
+    <section id="services" style="background:var(--gray-100);">
+      <div class="container">
+        <div class="label fade-up">What we do</div>
+        <h2 class="fade-up delay-1">Our Strategic Focus</h2>
+        <p class="body-large fade-up delay-2" style="margin-bottom:2rem;">QuivaPro focuses on the strategy behind great brands, not just the visuals.</p>
+        <div class="grid-3 fade-up delay-3">
+          <div class="what-item">
+            <h3>Brand Diagnosis</h3>
+            <p class="body">Deep analysis of your current brand to uncover weaknesses in positioning, messaging, and clarity.</p>
+          </div>
+          <div class="what-item">
+            <h3>Brand Positioning Strategy</h3>
+            <p class="body">Defining where your brand sits in the market and why customers should choose you.</p>
+          </div>
+          <div class="what-item">
+            <h3>Brand Infrastructure</h3>
+            <p class="body">Developing the strategic structure that allows your brand to scale consistently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // Luna chat
-  var chatWindow = document.getElementById('chatWindow'), chatMessages = document.getElementById('chatMessages'), chatInput = document.getElementById('chatInput'), chatSend = document.getElementById('chatSend'), chatInputArea = document.getElementById('chatInputArea'), chatClose = document.getElementById('chatClose'), chatResetBtn = document.getElementById('chatResetBtn'), chatContactLink = document.getElementById('chatContactLink');
-  var S = { NAME: 'NAME', EMAIL: 'EMAIL', Q1: 'Q1', Q2: 'Q2', Q3: 'Q3', DONE: 'DONE' };
-  var luna = { state: null, name: '', email: '', a1: '', a2: '', a3: '' };
-  function scrollDown() { chatMessages.scrollTop = chatMessages.scrollHeight; }
-  function appendBotMsg(text) { var d = document.createElement('div'); d.className = 'message bot'; d.textContent = text; chatMessages.appendChild(d); scrollDown(); }
-  function appendUserMsg(text) { var d = document.createElement('div'); d.className = 'message user'; d.textContent = text; chatMessages.appendChild(d); scrollDown(); }
-  function botSay(text, delay, cb) { delay = delay || 700; var bubble = document.createElement('div'); bubble.className = 'typing-bubble'; bubble.innerHTML = '<span></span><span></span><span></span>'; chatMessages.appendChild(bubble); scrollDown(); setTimeout(function () { if (bubble.parentNode) chatMessages.removeChild(bubble); appendBotMsg(text); if (cb) cb(); }, delay); }
-  function showOptionsWithFeedback(opts, feedbackMap, onComplete) { var wrap = document.createElement('div'); wrap.className = 'luna-options'; opts.forEach(function (label) { var btn = document.createElement('button'); btn.className = 'luna-opt'; btn.textContent = label; btn.addEventListener('click', function () { wrap.querySelectorAll('.luna-opt').forEach(function (b) { b.disabled = true; }); btn.classList.add('chosen'); appendUserMsg(label); var fb = feedbackMap[label] || "Thanks for sharing!"; botSay(fb, 600, function () { if (onComplete) onComplete(label); }); }); wrap.appendChild(btn); }); chatMessages.appendChild(wrap); scrollDown(); }
-  function go(state) {
-    luna.state = state;
-    if (state === S.EMAIL) { botSay('Thanks, ' + luna.name + '! Could you share your email address so we can send you a personalised brand insight?', 600, function () { chatInputArea.style.display = 'flex'; chatInput.disabled = false; chatSend.disabled = false; chatInput.placeholder = 'Your email address…'; chatInput.value = ''; var origSubmit = submitEmail; chatSend.onclick = origSubmit; chatInput.onkeydown = function (e) { if (e.key === 'Enter') origSubmit(); }; }); }
-    else if (state === S.Q1) { var opts1 = ["I explain it in detail, it takes a few minutes to cover it.", "One sentence, clear, confident and I say it the same way every time.", "I adjust my explanation depending on who I am talking to.", "I struggle to explain it without overcomplicating things."]; var feedback1 = { "I explain it in detail, it takes a few minutes to cover it.": "Detail is great, but attention spans are short! Let's work on condensing that power into a quick hook.", "One sentence, clear, confident and I say it the same way every time.": "A repeatable one-liner is the hallmark of a brand that knows itself. That consistency is rare and gives you a structural advantage most competitors do not have.", "I adjust my explanation depending on who I am talking to.": "Adaptability is good for sales, but your core brand message should remain a unified anchor.", "I struggle to explain it without overcomplicating things.": "You are not alone! The curse of knowledge makes it hard to simplify your own genius. That's exactly what we fix." }; botSay("When someone asks what your business does, how would you describe it?", 600, function () { showOptionsWithFeedback(opts1, feedback1, function (val) { luna.a1 = val; go(S.Q2); }); }); }
-    else if (state === S.Q2) { var opts2 = ["They don't understand what we do", "They compare us to cheaper alternatives", "Our brand looks outdated", "We struggle to stand out in a crowded market"]; var feedback2 = { "They don't understand what we do": "Clarity is the #1 conversion killer. If people don't instantly get it, they bounce. Let's refine your core message.", "They compare us to cheaper alternatives": "Price wars are exhausting. We'll help you shift focus from price to value and differentiation.", "Our brand looks outdated": "Perception is reality. An outdated look signals outdated thinking. A strategic refresh can rebuild trust instantly.", "We struggle to stand out in a crowded market": "Differentiation isn't about being louder — it's about being clearer. We'll find your unique angle." }; botSay("What's the biggest challenge you face when trying to attract new customers?", 600, function () { showOptionsWithFeedback(opts2, feedback2, function (val) { luna.a2 = val; go(S.Q3); }); }); }
-    else if (state === S.Q3) { var opts3 = ["Professional and cohesive", "Inconsistent across platforms", "Minimal – we don't focus much on online", "We have a website but it doesn't convert"]; var feedback3 = { "Professional and cohesive": "Great foundation! Consistency builds trust. Let's make sure your messaging also drives action.", "Inconsistent across platforms": "Inconsistency confuses your audience. We'll align your brand voice and visuals into a unified system.", "Minimal – we don't focus much on online": "Your online presence is your digital storefront. Even a few strategic tweaks can transform perception.", "We have a website but it doesn't convert": "A non‑converting website is a leaky bucket. We'll diagnose your funnel and improve conversion points." }; botSay("How would you describe your current brand's online presence?", 600, function () { showOptionsWithFeedback(opts3, feedback3, function (val) { luna.a3 = val; go(S.DONE); }); }); }
-    else if (state === S.DONE) { botSay('Thank you, ' + luna.name + '! I’ve noted all your answers. Our team will send a custom brand insight to your email within 24 hours. 🚀', 700, function () { submitLunaData(); }); chatInput.disabled = true; chatSend.disabled = true; chatInput.placeholder = 'Conversation completed'; }
-  }
-  function submitEmail() { if (luna.state !== S.EMAIL) return; var raw = chatInput.value.trim(); if (!raw || !raw.includes('@')) { showToast('Please enter a valid email address'); return; } luna.email = raw; appendUserMsg(raw); chatInput.value = ''; chatInputArea.style.display = 'none'; go(S.Q1); }
-  async function submitLunaData() { try { await fetch('https://formspree.io/f/meerzbyg', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ _subject: 'Luna Onboarding Responses – QuivaPro', form_type: 'post_payment_onboarding', client_name: luna.name, client_email: luna.email, q1_description: luna.a1, q2_challenge: luna.a2, q3_online_presence: luna.a3 }) }); } catch (_) {} }
-  function openChat() { chatWindow.classList.add('open'); }
-  chatClose.addEventListener('click', function () { chatWindow.classList.remove('open'); });
-  function resetChatConversation() { chatMessages.innerHTML = ''; luna = { state: S.NAME, name: '', email: prefillEmail || '', a1: '', a2: '', a3: '' }; chatInputArea.style.display = 'flex'; chatInput.disabled = false; chatSend.disabled = false; chatInput.value = ''; chatInput.placeholder = 'Type your name…'; botSay('Hello, my name is Luna! What\'s your name?', 500); chatSend.onclick = submitName; chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); }; }
-  chatResetBtn.addEventListener('click', function () { resetChatConversation(); showToast('Conversation reset.'); });
-  chatContactLink.addEventListener('click', function () { openPopup(); chatWindow.classList.remove('open'); });
-  function submitName() { if (luna.state !== S.NAME) return; var raw = chatInput.value.trim(); if (!raw) return; var name = raw.charAt(0).toUpperCase() + raw.slice(1); luna.name = name; appendUserMsg(raw); chatInput.value = ''; chatInputArea.style.display = 'none'; go(S.EMAIL); }
-  chatSend.addEventListener('click', submitName); chatInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitName(); });
-  function initLuna(email, prefName, prefEmail) { luna = { state: S.NAME, name: prefName || '', email: prefEmail || email || '', a1: '', a2: '', a3: '' }; chatMessages.innerHTML = ''; chatInputArea.style.display = 'flex'; chatInput.disabled = false; chatSend.disabled = false; chatInput.value = ''; chatInput.placeholder = 'Type your name…'; openChat(); if (prefName && prefEmail) { luna.name = prefName; luna.email = prefEmail; luna.state = S.Q1; var sysMsg = document.createElement('div'); sysMsg.className = 'message system'; sysMsg.textContent = `✨ Welcome back, ${prefName}! I already have your details. Let's continue.`; chatMessages.appendChild(sysMsg); scrollDown(); go(S.Q1); } else { botSay('Hello, my name is Luna! What\'s your name?', 500); chatSend.onclick = submitName; chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); }; } }
+    <section id="pricing">
+      <div class="container">
+        <div class="label fade-up">Investment</div>
+        <h2 class="fade-up delay-1">Brand Diagnosis Packages</h2>
+        <p class="body-large fade-up delay-2" style="margin-bottom:2rem;">Choose the clarity your brand needs</p>
+        <div class="pricing-grid fade-up delay-3">
+          <div class="pricing-card">
+            <div class="pricing-name">Basic Brand Check</div>
+            <div class="pricing-price">$30</div>
+            <ul class="pricing-features">
+              <li><i class="fa-regular fa-circle-check"></i> Brand positioning snapshot</li>
+              <li><i class="fa-regular fa-circle-check"></i> Messaging clarity check</li>
+              <li><i class="fa-regular fa-circle-check"></i> Website first-impression review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Key improvement insights</li>
+            </ul>
+            <div class="pricing-outcome"><strong>Outcome:</strong> Discover the core issue limiting your brand clarity.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Early-stage founders & startups wanting a fast expert opinion.</div>
+            <button class="pricing-btn" onclick="openPaymentModal('basic')">Get My Brand Check</button>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-name">Standard Brand Diagnosis</div>
+            <div class="pricing-price">$75</div>
+            <ul class="pricing-features">
+              <li><i class="fa-regular fa-circle-check"></i> Everything in Basic</li>
+              <li><i class="fa-regular fa-circle-check"></i> Audience perception analysis</li>
+              <li><i class="fa-regular fa-circle-check"></i> Brand differentiation review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Messaging improvement suggestions</li>
+              <li><i class="fa-regular fa-circle-check"></i> Short diagnosis report</li>
+            </ul>
+            <div class="pricing-outcome"><strong>Outcome:</strong> Understand why your brand isn't standing out.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Startups & growing businesses improving positioning.</div>
+            <button class="pricing-btn" onclick="openPaymentModal('standard')">Start My Brand Diagnosis</button>
+          </div>
+          <div class="pricing-card recommended">
+            <div class="recommended-badge">Most Valuable</div>
+            <div class="pricing-name">Premium Brand Infrastructure Diagnosis</div>
+            <div class="pricing-price">$200</div>
+            <ul class="pricing-features">
+              <li><i class="fa-regular fa-circle-check"></i> Everything in Standard</li>
+              <li><i class="fa-regular fa-circle-check"></i> Competitive positioning insight</li>
+              <li><i class="fa-regular fa-circle-check"></i> Full brand positioning analysis</li>
+              <li><i class="fa-regular fa-circle-check"></i> Brand messaging framework suggestion</li>
+              <li><i class="fa-regular fa-circle-check"></i> Messaging architecture review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Website conversion structure review</li>
+              <li><i class="fa-regular fa-circle-check"></i> Growth opportunity analysis</li>
+              <li><i class="fa-regular fa-circle-check"></i> Detailed strategy recommendations</li>
+              <li><i class="fa-regular fa-circle-check"></i> Brand improvement roadmap</li>
+            </ul>
+            <div class="pricing-outcome"><strong>Outcome:</strong> Complete brand diagnosis + strategic roadmap.</div>
+            <div class="pricing-bestfor"><strong>Best For:</strong> Businesses serious about a scalable brand foundation.</div>
+            <button class="pricing-btn recommended" onclick="openPaymentModal('premium')">Get the Full Brand Diagnosis</button>
+          </div>
+        </div>
+        <div class="decision-helper fade-up">
+          <p>Not sure which diagnosis you need?</p>
+          <a href="games-corner.html#businessIQQuiz" class="btn">Take the 60-Second Brand IQ Test →</a>
+        </div>
+      </div>
+    </section>
 
-  // Team Modal Logic
-  const teamData = {
-    'toluwanimi': { name: 'Akinyemi Toluwanimi', role: 'Web Developer / Tech Lead', title: 'Tech Architecture', bio: "I build the structural integrity of your brand's digital presence, ensuring every touchpoint is fast, scalable, and built for modern business demands.", img: 'akinyemi-toluwanimi-Headshot.jpg' },
-    'jacob': { name: 'Jacob Archibong', role: 'Brand Strategist', title: 'Brand Diagnosis', bio: "I specialize in identifying the messaging gaps that cost you money. I turn confused audiences into high-value clients through strategic clarity.", img: 'jakes-Headshot.jpg' },
-    'charity': { name: 'Ekpenyong Charity', role: 'Creative Director', title: 'Visual Identity', bio: "I translate your brand's DNA into a compelling visual language. We don't just 'design'; we create authority through intentional aesthetics.", img: 'charity-Headshot.jpg' },
-    'dara': { name: 'Oluwanfimindara Oludiran', role: 'Marketing Lead', title: 'Growth Marketing', bio: "I build the bridge between your brand infrastructure and your target audience, ensuring your message lands exactly where it needs to.", img: 'dara-Headshot.jpg' },
-    'seyi': { name: 'Esi Seyi Adeleye', role: 'Product Designer', title: 'Product Design', bio: "I ensure your brand's digital products are intuitive and user-centric, turning a great strategy into a seamless customer experience.", img: 'seyi-Headshot.jpg' },
-    'moyo': { name: 'Moyo Daniel Ositade', role: 'Researcher', title: 'Market Research', bio: "I dig into the data to find what your competitors are missing, giving your brand the analytical edge it needs to dominate the market.", img: 'moyo-Headshot.jpg' }
-  };
+    <section id="faq">
+      <div class="container">
+        <div class="label fade-up">FAQs</div>
+        <h2 class="fade-up delay-1">Common Questions</h2>
+        <div class="faq-list fade-up delay-2">
+          <div class="faq-item">
+            <div class="faq-question"><span>What is QuivaPro?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="faq-answer">QuivaPro is a brand strategy and diagnosis company that helps businesses uncover weaknesses in their brand positioning, messaging, and infrastructure.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>Who do you work with?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="faq-answer">We work with: startups, founders, growing companies, businesses preparing to scale.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>What is a Brand Diagnosis?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="faq-answer">A Brand Diagnosis is a strategic analysis of your brand to identify problems with positioning, messaging clarity, and market perception.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>Do you design logos or visual identities?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="faq-answer">QuivaPro focuses on brand strategy and infrastructure. If design is required, we provide strategic direction that can guide design teams or creative partners.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>How long does a diagnosis take?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="faq-answer">Most brand diagnosis reports are delivered within 3–7 days, depending on the depth of analysis required.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span>How can I start a project with QuivaPro?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="faq-answer">You can start by: sending us a message or inquiry, scheduling a discovery call, or filling out our project brief form. Our team will review your request and guide you through the next steps.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const teamModal = document.getElementById('teamModal');
-  const teamModalClose = document.getElementById('teamModalClose');
-  const tmImage = document.getElementById('tmImage');
-  const tmName = document.getElementById('tmName');
-  const tmRole = document.getElementById('tmRole');
-  const tmTitle = document.getElementById('tmTitle');
-  const tmBio = document.getElementById('tmBio');
+    <section id="cta" style="background:var(--gray-100);">
+      <div class="container">
+        <div class="fade-up" style="text-align:center;max-width:700px;margin:0 auto;">
+          <h2>Your Brand Should Work As Hard As You Do</h2>
+          <p class="body-large" style="margin:1.5rem 0;">If your brand is confusing, inconsistent, or invisible in the market, it's costing you opportunities. Let QuivaPro help you build a brand that attracts growth.</p>
+          <button class="btn btn-primary booking-trigger">Book Your Free Consultation</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  window.openTeamModal = function(id) {
-    const data = teamData[id];
-    if(data) {
-      tmImage.src = data.img;
-      tmName.textContent = data.name;
-      tmRole.textContent = data.role;
-      tmTitle.textContent = data.title;
-      tmBio.textContent = data.bio;
-      teamModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  };
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <img src="QuivaPro Logo.svg" alt="QuivaPro">
+          <p>Strategic branding and business infrastructure for modern companies ready to scale.</p>
+          <div class="social-links">
+            <a href="https://wa.me/2348181041879" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://twitter.com/quivapro" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://linkedin.com/company/quivapro" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/quivapro" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about">About us</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="games-corner.html#businessIQQuiz">Business IQ Quiz</a>
+          <a href="games-corner.html#brandingIQTest">Branding IQ Test</a>
+          <a href="#faq">FAQs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:quivapro@gmail.com">quivapro@gmail.com</a>
+          <a href="#" class="booking-trigger" style="color: var(--purple); font-weight: 300;">Book a Call &rarr;</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>© 2026 QuivaPro. All rights reserved.</span>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="javascript:void(0)" onclick="openLegalModal('privacy')" style="color: #7a7a7a; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#7a7a7a'">Privacy Policy</a>
+          <a href="javascript:void(0)" onclick="openLegalModal('terms')" style="color: #7a7a7a; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#7a7a7a'">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  function closeTeamModal() {
-    teamModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+  <script>
+    (function () {
+      'use strict';
 
-  teamModalClose.addEventListener('click', closeTeamModal);
-  teamModal.addEventListener('click', function(e) { if(e.target === teamModal) closeTeamModal(); });
+      function showToast(msg) {
+        var t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(function () { t.classList.remove('show'); }, 3000);
+      }
 
-  var ro = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(function (el) { ro.observe(el); });
-  document.querySelectorAll('.faq-question').forEach(function (q) { q.addEventListener('click', function () { var ans = q.nextElementSibling; var isOpen = ans.classList.contains('open'); document.querySelectorAll('.faq-answer.open').forEach(function (a) { a.classList.remove('open'); }); document.querySelectorAll('.faq-question.open').forEach(function (qq) { qq.classList.remove('open'); }); if (!isOpen) { ans.classList.add('open'); q.classList.add('open'); } }); });
-  document.addEventListener('keydown', function (e) { if (e.shiftKey && e.key === 'L') openVideoModal('preview@example.com'); });
-})();
-</script>
+      // header scroll
+      var header = document.getElementById('header');
+      var btt = document.getElementById('btt');
+      window.addEventListener('scroll', function () { header.classList.toggle('scrolled', window.scrollY > 50); btt.classList.toggle('show', window.scrollY > 300); });
+      btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+      // theme toggle
+      var themeToggle = document.getElementById('themeToggle');
+      var themeIcon = themeToggle.querySelector('i');
+      if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark'); themeIcon.className = 'fa-regular fa-sun'; }
+      themeToggle.addEventListener('click', function () { var dark = document.body.classList.toggle('dark'); themeIcon.className = dark ? 'fa-regular fa-sun' : 'fa-regular fa-moon'; localStorage.setItem('theme', dark ? 'dark' : 'light'); });
+
+      // drawer
+      var menuBtn = document.getElementById('mobileMenuBtn'), drawer = document.getElementById('drawer'), drawerOverlay = document.getElementById('drawerOverlay'), drawerClose = document.getElementById('drawerClose');
+      function openDrawer() { drawer.classList.add('open'); drawerOverlay.classList.add('active'); document.body.classList.add('menu-open'); }
+      function closeDrawer() { drawer.classList.remove('open'); drawerOverlay.classList.remove('active'); document.body.classList.remove('menu-open'); }
+      menuBtn.addEventListener('click', openDrawer); drawerClose.addEventListener('click', closeDrawer); drawerOverlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a, .drawer-book').forEach(function (el) { el.addEventListener('click', function (e) { var href = el.getAttribute('href'); if (href && href.startsWith('#')) { e.preventDefault(); closeDrawer(); setTimeout(function () { document.querySelector(href).scrollIntoView({ behavior: 'smooth' }); }, 100); } else { closeDrawer(); } }); });
+
+      // consultation popup
+      var popup = document.getElementById('popup'), popupClose = document.getElementById('popupClose'), autoShown = false;
+      function openPopup() { popup.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      function closePopup() { popup.classList.remove('active'); document.body.style.overflow = ''; }
+      document.addEventListener('click', function (e) { if (e.target.closest('.booking-trigger')) openPopup(); });
+      popupClose.addEventListener('click', closePopup); popup.addEventListener('click', function (e) { if (e.target === popup) closePopup(); });
+      var pricingSection = document.getElementById('pricing');
+      if (pricingSection) { new IntersectionObserver(function (entries) { if (entries[0].isIntersecting && !autoShown && !localStorage.getItem('popupSubmitted')) { autoShown = true; openPopup(); } }, { threshold: 0.3 }).observe(pricingSection); }
+      document.getElementById('popupForm').addEventListener('submit', async function (e) { e.preventDefault(); var msg = document.getElementById('popupMsg'); msg.style.display = 'block'; msg.textContent = 'Sending…'; try { var r = await fetch('https://formspree.io/f/meerzbyg', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name: document.getElementById('popupName').value, email: document.getElementById('popupEmail').value, phone: document.getElementById('popupPhone').value, country: document.getElementById('popupCountry').value, message: document.getElementById('popupMessage').value, consent: document.getElementById('popupConsent').checked ? 'Yes' : 'No', _subject: 'New Consultation Request – QuivaPro' }) }); if (r.ok) { msg.textContent = 'Thank you! We\'ll send you insights to help your brand grow.'; msg.className = 'form-msg success show'; localStorage.setItem('popupSubmitted', 'true'); e.target.reset(); setTimeout(closePopup, 3000); } else throw 0; } catch (_) { msg.textContent = 'Something went wrong. Please try again.'; msg.className = 'form-msg error show'; } });
+
+      // payment modal
+      var paymentOverlay = document.getElementById('payment-overlay'), paymentMsg = document.getElementById('paymentMsg');
+      var PACKAGES = { basic: { name: 'Basic Brand Check', price: '$30' }, standard: { name: 'Standard Brand Diagnosis', price: '$75' }, premium: { name: 'Premium Brand Infrastructure Diagnosis', price: '$200' } };
+      window.openPaymentModal = function (key) { var p = PACKAGES[key]; document.getElementById('selectedPackageName').textContent = p.name; document.getElementById('selectedPackagePrice').textContent = p.price; document.getElementById('paymentAmount').textContent = p.price; document.getElementById('paymentPackage').value = p.name; paymentOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+      window.closePaymentModal = function () { paymentOverlay.classList.remove('active'); document.body.style.overflow = ''; document.getElementById('paymentConfirmationForm').reset(); paymentMsg.style.display = 'none'; document.getElementById('fileChosen').textContent = 'Click to upload payment screenshot'; };
+      window.copyToClipboard = function (txt) { navigator.clipboard.writeText(txt).then(function () { showToast('Copied to clipboard!'); }); };
+      document.getElementById('paymentScreenshot').addEventListener('change', function (e) { document.getElementById('fileChosen').textContent = e.target.files[0] ? e.target.files[0].name : 'Click to upload payment screenshot'; });
+      paymentOverlay.addEventListener('click', function (e) { if (e.target === paymentOverlay) window.closePaymentModal(); });
+
+      const FORM_ID = "u8fol9u6441";
+      let forminit = null;
+      if (typeof Forminit !== 'undefined') { forminit = new Forminit(); }
+      let prefillName = null, prefillEmail = null;
+      function proceedToOnboarding(name, email) { prefillName = name; prefillEmail = email; window.closePaymentModal(); openVideoModal(email); }
+
+      document.getElementById('paymentConfirmationForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var name = document.getElementById('paymentName').value.trim();
+        var email = document.getElementById('paymentEmail').value.trim();
+        var pkg = document.getElementById('paymentPackage').value;
+        var file = document.getElementById('paymentScreenshot').files[0];
+        var ref = document.getElementById('paymentRef').value;
+        if (!name || !email || !pkg || !file) { paymentMsg.textContent = 'Please fill all required fields and upload a screenshot.'; paymentMsg.className = 'form-msg error show'; return; }
+        if (!['image/jpeg','image/png','image/jpg'].includes(file.type)) { paymentMsg.textContent = 'Only JPG or PNG images are allowed.'; paymentMsg.className = 'form-msg error show'; return; }
+        if (file.size > 10*1024*1024) { paymentMsg.textContent = 'File size must be less than 10 MB.'; paymentMsg.className = 'form-msg error show'; return; }
+        paymentMsg.style.display = 'block'; paymentMsg.textContent = 'Sending confirmation…'; paymentMsg.className = 'form-msg';
+        var fd = new FormData();
+        fd.append('fi-sender-firstName', name); fd.append('fi-sender-email', email); fd.append('fi-text-package', pkg); fd.append('fi-file-screenshot', file); if (ref) fd.append('reference', ref);
+        try {
+          if (forminit) { await forminit.submit(FORM_ID, fd); paymentMsg.textContent = 'Payment confirmation received! We\'ll verify and be in touch within 24 hours.'; paymentMsg.className = 'form-msg success show'; setTimeout(() => { proceedToOnboarding(name, email); }, 1500); }
+          else throw new Error('Forminit not loaded');
+        } catch (err) { console.warn(err); paymentMsg.textContent = 'Upload failed, but don\'t worry! Let\'s continue...'; paymentMsg.className = 'form-msg error show'; setTimeout(() => { proceedToOnboarding(name, email); }, 2000); }
+      });
+
+      // video modal
+      var videoModal = document.getElementById('video-modal'), onboardingVideo = document.getElementById('onboarding-video'), skipBtn = document.getElementById('skip-to-luna'), videoPlaceholder = document.getElementById('videoPlaceholder');
+      var _lunaEmail = '', _videoClosedManually = false;
+      function openVideoModal(email) { _lunaEmail = email || ''; _videoClosedManually = false; videoModal.classList.add('active'); document.body.style.overflow = 'hidden'; var src = onboardingVideo.querySelector('source')?.getAttribute('src'); if (src && src.trim()) { videoPlaceholder.style.display = 'none'; onboardingVideo.play().catch(function () {}); } else { videoPlaceholder.style.display = 'flex'; } }
+      function closeVideoModal(andThenLaunchLuna) { videoModal.classList.remove('active'); onboardingVideo.pause(); onboardingVideo.currentTime = 0; document.body.style.overflow = ''; if (andThenLaunchLuna !== false && !_videoClosedManually) { _videoClosedManually = true; initLuna(_lunaEmail, prefillName, prefillEmail); } }
+      onboardingVideo.addEventListener('ended', function () { closeVideoModal(true); });
+      skipBtn.addEventListener('click', function () { closeVideoModal(true); });
+      videoModal.addEventListener('click', function (e) { if (e.target === videoModal) closeVideoModal(true); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal(true); });
+
+      // Luna chat
+      var chatWindow = document.getElementById('chatWindow'), chatMessages = document.getElementById('chatMessages'), chatInput = document.getElementById('chatInput'), chatSend = document.getElementById('chatSend'), chatInputArea = document.getElementById('chatInputArea'), chatClose = document.getElementById('chatClose'), chatResetBtn = document.getElementById('chatResetBtn'), chatContactLink = document.getElementById('chatContactLink');
+      var S = { NAME: 'NAME', EMAIL: 'EMAIL', Q1: 'Q1', Q2: 'Q2', Q3: 'Q3', DONE: 'DONE' };
+      var luna = { state: null, name: '', email: '', a1: '', a2: '', a3: '' };
+      function scrollDown() { chatMessages.scrollTop = chatMessages.scrollHeight; }
+      function appendBotMsg(text) { var d = document.createElement('div'); d.className = 'message bot'; d.textContent = text; chatMessages.appendChild(d); scrollDown(); }
+      function appendUserMsg(text) { var d = document.createElement('div'); d.className = 'message user'; d.textContent = text; chatMessages.appendChild(d); scrollDown(); }
+      function botSay(text, delay, cb) { delay = delay || 700; var bubble = document.createElement('div'); bubble.className = 'typing-bubble'; bubble.innerHTML = '<span></span><span></span><span></span>'; chatMessages.appendChild(bubble); scrollDown(); setTimeout(function () { if (bubble.parentNode) chatMessages.removeChild(bubble); appendBotMsg(text); if (cb) cb(); }, delay); }
+      function showOptionsWithFeedback(opts, feedbackMap, onComplete) { var wrap = document.createElement('div'); wrap.className = 'luna-options'; opts.forEach(function (label) { var btn = document.createElement('button'); btn.className = 'luna-opt'; btn.textContent = label; btn.addEventListener('click', function () { wrap.querySelectorAll('.luna-opt').forEach(function (b) { b.disabled = true; }); btn.classList.add('chosen'); appendUserMsg(label); var fb = feedbackMap[label] || "Thanks for sharing!"; botSay(fb, 600, function () { if (onComplete) onComplete(label); }); }); wrap.appendChild(btn); }); chatMessages.appendChild(wrap); scrollDown(); }
+      function go(state) {
+        luna.state = state;
+        if (state === S.EMAIL) { botSay('Thanks, ' + luna.name + '! Could you share your email address so we can send you a personalised brand insight?', 600, function () { chatInputArea.style.display = 'flex'; chatInput.disabled = false; chatSend.disabled = false; chatInput.placeholder = 'Your email address…'; chatInput.value = ''; var origSubmit = submitEmail; chatSend.onclick = origSubmit; chatInput.onkeydown = function (e) { if (e.key === 'Enter') origSubmit(); }; }); }
+        else if (state === S.Q1) { var opts1 = ["I explain it in detail, it takes a few minutes to cover it.", "One sentence, clear, confident and I say it the same way every time.", "I adjust my explanation depending on who I am talking to.", "I struggle to explain it without overcomplicating things."]; var feedback1 = { "I explain it in detail, it takes a few minutes to cover it.": "Detail is great, but attention spans are short! Let's work on condensing that power into a quick hook.", "One sentence, clear, confident and I say it the same way every time.": "A repeatable one-liner is the hallmark of a brand that knows itself. That consistency is rare and gives you a structural advantage most competitors do not have.", "I adjust my explanation depending on who I am talking to.": "Adaptability is good for sales, but your core brand message should remain a unified anchor.", "I struggle to explain it without overcomplicating things.": "You are not alone! The curse of knowledge makes it hard to simplify your own genius. That's exactly what we fix." }; botSay("When someone asks what your business does, how would you describe it?", 600, function () { showOptionsWithFeedback(opts1, feedback1, function (val) { luna.a1 = val; go(S.Q2); }); }); }
+        else if (state === S.Q2) { var opts2 = ["They don't understand what we do", "They compare us to cheaper alternatives", "Our brand looks outdated", "We struggle to stand out in a crowded market"]; var feedback2 = { "They don't understand what we do": "Clarity is the #1 conversion killer. If people don't instantly get it, they bounce. Let's refine your core message.", "They compare us to cheaper alternatives": "Price wars are exhausting. We'll help you shift focus from price to value and differentiation.", "Our brand looks outdated": "Perception is reality. An outdated look signals outdated thinking. A strategic refresh can rebuild trust instantly.", "We struggle to stand out in a crowded market": "Differentiation isn't about being louder — it's about being clearer. We'll find your unique angle." }; botSay("What's the biggest challenge you face when trying to attract new customers?", 600, function () { showOptionsWithFeedback(opts2, feedback2, function (val) { luna.a2 = val; go(S.Q3); }); }); }
+        else if (state === S.Q3) { var opts3 = ["Professional and cohesive", "Inconsistent across platforms", "Minimal – we don't focus much on online", "We have a website but it doesn't convert"]; var feedback3 = { "Professional and cohesive": "Great foundation! Consistency builds trust. Let's make sure your messaging also drives action.", "Inconsistent across platforms": "Inconsistency confuses your audience. We'll align your brand voice and visuals into a unified system.", "Minimal – we don't focus much on online": "Your online presence is your digital storefront. Even a few strategic tweaks can transform perception.", "We have a website but it doesn't convert": "A non‑converting website is a leaky bucket. We'll diagnose your funnel and improve conversion points." }; botSay("How would you describe your current brand's online presence?", 600, function () { showOptionsWithFeedback(opts3, feedback3, function (val) { luna.a3 = val; go(S.DONE); }); }); }
+        else if (state === S.DONE) { botSay('Thank you, ' + luna.name + '! I’ve noted all your answers. Our team will send a custom brand insight to your email within 24 hours. 🚀', 700, function () { submitLunaData(); }); chatInput.disabled = true; chatSend.disabled = true; chatInput.placeholder = 'Conversation completed'; }
+      }
+      function submitEmail() { if (luna.state !== S.EMAIL) return; var raw = chatInput.value.trim(); if (!raw || !raw.includes('@')) { showToast('Please enter a valid email address'); return; } luna.email = raw; appendUserMsg(raw); chatInput.value = ''; chatInputArea.style.display = 'none'; go(S.Q1); }
+      async function submitLunaData() { try { await fetch('https://formspree.io/f/meerzbyg', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ _subject: 'Luna Onboarding Responses – QuivaPro', form_type: 'post_payment_onboarding', client_name: luna.name, client_email: luna.email, q1_description: luna.a1, q2_challenge: luna.a2, q3_online_presence: luna.a3 }) }); } catch (_) {} }
+      function openChat() { chatWindow.classList.add('open'); }
+      chatClose.addEventListener('click', function () { chatWindow.classList.remove('open'); });
+      function resetChatConversation() { chatMessages.innerHTML = ''; luna = { state: S.NAME, name: '', email: prefillEmail || '', a1: '', a2: '', a3: '' }; chatInputArea.style.display = 'flex'; chatInput.disabled = false; chatSend.disabled = false; chatInput.value = ''; chatInput.placeholder = 'Type your name…'; botSay('Hello, my name is Luna! What\'s your name?', 500); chatSend.onclick = submitName; chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); }; }
+      chatResetBtn.addEventListener('click', function () { resetChatConversation(); showToast('Conversation reset.'); });
+      chatContactLink.addEventListener('click', function () { openPopup(); chatWindow.classList.remove('open'); });
+      function submitName() { if (luna.state !== S.NAME) return; var raw = chatInput.value.trim(); if (!raw) return; var name = raw.charAt(0).toUpperCase() + raw.slice(1); luna.name = name; appendUserMsg(raw); chatInput.value = ''; chatInputArea.style.display = 'none'; go(S.EMAIL); }
+      chatSend.addEventListener('click', submitName); chatInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitName(); });
+      function initLuna(email, prefName, prefEmail) { luna = { state: S.NAME, name: prefName || '', email: prefEmail || email || '', a1: '', a2: '', a3: '' }; chatMessages.innerHTML = ''; chatInputArea.style.display = 'flex'; chatInput.disabled = false; chatSend.disabled = false; chatInput.value = ''; chatInput.placeholder = 'Type your name…'; openChat(); if (prefName && prefEmail) { luna.name = prefName; luna.email = prefEmail; luna.state = S.Q1; var sysMsg = document.createElement('div'); sysMsg.className = 'message system'; sysMsg.textContent = `✨ Welcome back, ${prefName}! I already have your details. Let's continue.`; chatMessages.appendChild(sysMsg); scrollDown(); go(S.Q1); } else { botSay('Hello, my name is Luna! What\'s your name?', 500); chatSend.onclick = submitName; chatInput.onkeydown = function (e) { if (e.key === 'Enter') submitName(); }; } }
+
+      // Team Modal Logic
+      const teamData = {
+        'toluwanimi': { name: 'Akinyemi Toluwanimi', role: 'Web Developer / Tech Lead', title: 'Tech Architecture', bio: "I build the structural integrity of your brand's digital presence, ensuring every touchpoint is fast, scalable, and built for modern business demands.", img: 'akinyemi-toluwanimi-Headshot.jpg' },
+        'jacob': { name: 'Jacob Archibong', role: 'Brand Strategist', title: 'Brand Diagnosis', bio: "I specialize in identifying the messaging gaps that cost you money. I turn confused audiences into high-value clients through strategic clarity.", img: 'jakes-Headshot.jpg' },
+        'charity': { name: 'Ekpenyong Charity', role: 'Creative Director', title: 'Visual Identity', bio: "I translate your brand's DNA into a compelling visual language. We don't just 'design'; we create authority through intentional aesthetics.", img: 'charity-Headshot.jpg' },
+        'dara': { name: 'Oluwanfimindara Oludiran', role: 'Marketing Lead', title: 'Growth Marketing', bio: "I build the bridge between your brand infrastructure and your target audience, ensuring your message lands exactly where it needs to.", img: 'dara-Headshot.jpg' },
+        'seyi': { name: 'Esi Seyi Adeleye', role: 'Product Designer', title: 'Product Design', bio: "I ensure your brand's digital products are intuitive and user-centric, turning a great strategy into a seamless customer experience.", img: 'seyi-Headshot.jpg' },
+        'moyo': { name: 'Moyo Daniel Ositade', role: 'Researcher', title: 'Market Research', bio: "I dig into the data to find what your competitors are missing, giving your brand the analytical edge it needs to dominate the market.", img: 'moyo-Headshot.jpg' }
+      };
+
+      const teamModal = document.getElementById('teamModal');
+      const teamModalClose = document.getElementById('teamModalClose');
+      const tmImage = document.getElementById('tmImage');
+      const tmName = document.getElementById('tmName');
+      const tmRole = document.getElementById('tmRole');
+      const tmTitle = document.getElementById('tmTitle');
+      const tmBio = document.getElementById('tmBio');
+
+      window.openTeamModal = function(id) {
+        const data = teamData[id];
+        if(data) {
+          tmImage.src = data.img;
+          tmName.textContent = data.name;
+          tmRole.textContent = data.role;
+          tmTitle.textContent = data.title;
+          tmBio.textContent = data.bio;
+          teamModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      function closeTeamModal() {
+        teamModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      teamModalClose.addEventListener('click', closeTeamModal);
+      teamModal.addEventListener('click', function(e) { if(e.target === teamModal) closeTeamModal(); });
+
+      // ---------- LEGAL MODALS DATA & LOGIC ----------
+      const legalContent = {
+        privacy: {
+          title: "Privacy Policy",
+          body: `
+            <p><strong>Effective Date:</strong> January 1, 2026</p>
+            <p>At QuivaPro, we are committed to protecting your personal data and ensuring international compliance (including GDPR and CCPA standards). This Privacy Policy explains how we collect, use, and safeguard your information.</p>
+            <h3>1. Information We Collect</h3>
+            <p>We collect information you provide directly to us when you request a consultation, use our assessment tools, or communicate with us. This includes your name, email address, phone number, and business details.</p>
+            <h3>2. How We Use Your Information</h3>
+            <ul>
+              <li>To provide, maintain, and improve our brand infrastructure services.</li>
+              <li>To process transactions and send related information (e.g., confirmations and invoices).</li>
+              <li>To send technical notices, updates, security alerts, and support messages.</li>
+              <li>To respond to your comments, questions, and requests.</li>
+            </ul>
+            <h3>3. Data Sharing and Security</h3>
+            <p>We do not share your personal data with third parties except as necessary to provide our services or comply with legal obligations. We implement robust, industry-standard security measures to protect your data from unauthorized access.</p>
+            <h3>4. Your Rights</h3>
+            <p>Depending on your location, you may have the right to access, update, or delete your personal data. To exercise these rights, please contact us at quivapro@gmail.com.</p>
+          `
+        },
+        terms: {
+          title: "Terms of Service",
+          body: `
+            <p><strong>Effective Date:</strong> January 1, 2026</p>
+            <p>Welcome to QuivaPro. By accessing our website and utilizing our strategic brand infrastructure services, you agree to these Terms of Service.</p>
+            <h3>1. Services Provided</h3>
+            <p>QuivaPro provides brand strategy, diagnosis, and infrastructure consulting. The deliverables and timelines for these services are outlined in the specific packages (Basic, Standard, Premium) selected by the client.</p>
+            <h3>2. Intellectual Property</h3>
+            <p>All strategies, methodologies, frameworks, and reports provided by QuivaPro remain the intellectual property of QuivaPro until full payment is received. Upon full payment, the client receives a license to use the deliverables for their intended business purpose.</p>
+            <h3>3. Payment Terms</h3>
+            <p>Payments for our diagnosis packages must be made in full prior to the commencement of the audit. Proof of payment via our secure portal is required.</p>
+            <h3>4. Limitation of Liability</h3>
+            <p>QuivaPro provides strategic advice based on industry data and expertise. We do not guarantee specific financial results. In no event shall QuivaPro be liable for any indirect, incidental, or consequential damages arising from the use of our services.</p>
+            <h3>5. Governing Law</h3>
+            <p>These terms shall be governed by and construed in accordance with international business standards and the laws of the Federal Republic of Nigeria.</p>
+          `
+        }
+      };
+
+      const legalModal = document.getElementById('legalModal');
+      const legalModalClose = document.getElementById('legalModalClose');
+      const legalModalTitle = document.getElementById('legalModalTitle');
+      const legalModalBody = document.getElementById('legalModalBody');
+
+      window.openLegalModal = function(type) {
+        legalModalTitle.textContent = legalContent[type].title;
+        legalModalBody.innerHTML = legalContent[type].body;
+        legalModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      function closeLegalModal() {
+        legalModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      legalModalClose.addEventListener('click', closeLegalModal);
+      legalModal.addEventListener('click', (e) => {
+        if (e.target === legalModal) closeLegalModal();
+      });
+
+      var ro = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-up').forEach(function (el) { ro.observe(el); });
+      document.querySelectorAll('.faq-question').forEach(function (q) { q.addEventListener('click', function () { var ans = q.nextElementSibling; var isOpen = ans.classList.contains('open'); document.querySelectorAll('.faq-answer.open').forEach(function (a) { a.classList.remove('open'); }); document.querySelectorAll('.faq-question.open').forEach(function (qq) { qq.classList.remove('open'); }); if (!isOpen) { ans.classList.add('open'); q.classList.add('open'); } }); });
+      document.addEventListener('keydown', function (e) { if (e.shiftKey && e.key === 'L') openVideoModal('preview@example.com'); });
+    })();
+  </script>
 </body>
 </html>
